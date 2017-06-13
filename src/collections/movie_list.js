@@ -3,7 +3,7 @@ import Movie from '../models/movie';
 
 var MovieList = Backbone.Collection.extend({
   model: Movie,
-  url: 'http://localhost:3000/movies?query='
+  url: 'http://localhost:3000/movies?query=jaws'
 });
 
 export default MovieList;
