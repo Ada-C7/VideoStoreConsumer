@@ -11,10 +11,16 @@
     <section class='main-content'>
       <ul id='rental-list'>
       </ul>
+      <ul id='movie-list'>
+      </ul>
     </section>
 
-    <script id="rental-movie-template" type="text/template">
+    <script id="rental-template" type="text/template">
       <li class = "rental-list-element"> <%- rental.title %> </li>
+    </script>
+
+    <script id="movie-template" type="text/template">
+      <li class = "movie-list-element"> <%- movie.title %> </li>
     </script>
     <script src="/app.bundle.js"></script>
 

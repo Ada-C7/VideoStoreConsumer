@@ -6,7 +6,7 @@ import RentalView from './rental_view';
 
 var RentalListView = Backbone.View.extend({
   initialize: function(options) {
-    this.rentalTemplate = _.template($('#rental-movie-template').html());
+    this.rentalTemplate = _.template($('#rental-template').html());
     this.rentalList = [];
 
     this.model.forEach(function(rawRental){
