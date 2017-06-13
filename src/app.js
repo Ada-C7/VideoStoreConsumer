@@ -20,7 +20,17 @@ $(document).ready(function() {
   application.render();
 
   var movieList = new MovieList();
-  movieList.fetch();
+    movieList.fetch();
+  // movieList.fetch({data: $.param({ query: "jaws"})});
+  // movieList.fetch({query: "jaws"  });
+
+  // Backbone.sync = function(method,model){
+  //   // alert(method + ": " + model.url);
+  // };
+  // var movieList = new Backbone.Collection;
+  // movieList.url = 'http://localhost:3000/movies?query=jaws'
+  // movieList.fetch();
+
 
   var options = {
     el:  $('#all-movie-list'),

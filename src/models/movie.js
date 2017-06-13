@@ -7,8 +7,10 @@ var Movie = Backbone.Model.extend({
     release_date: "",
     image_url: ""
   },
-  initialize: function() {
+  initialize: function(options) {
+    this.query = options;
     console.log("Created new movie");
+
   }
 });
 
