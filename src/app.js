@@ -9,4 +9,5 @@ $(document).ready(function() {
   // $('section.main-content').append('<p>Hello World!</p>');
   var rentalList = new MovieList();
 
+  
 });
