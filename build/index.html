@@ -12,9 +12,15 @@
 <body>
     <main>
         <section class="main-content">
-            <p> Heyyo~! </p>
+            <section id='movie-list'></section>
         </section>
     </main>
+
+    <script id="movie-list-template" type="text/template">
+        <h3>Title: <%- title %></h3>
+        <img src=<%=image_url%> />
+    </script>
+
     <script src="/app.bundle.js"></script>
 
 </body>
