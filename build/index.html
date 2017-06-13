@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Backbone Baseline</title>
+</head>
+<body>
+  <h2>Our fantastic video store!</h2>
 
-    <script src="/app.bundle.js"></script>
+  <h3>Add A New Video</h3>
+  <div class="columns">
 
-  </body>
-  </html>
+    <label>
+      <input type="text" name="search" id="search" placeholder="Enter the name of a video">
+    </label>
+    <button class="button success" id="add-video">Add video!</button>
+  </div>
+  <h4>Look at the long list of videos......</h4>
+
+  <ul id="video-cards" class="row align-center"></ul>
+  <button class="button success" id="rent">Rent</button>
+
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>
