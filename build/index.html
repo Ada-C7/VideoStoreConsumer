@@ -8,12 +8,20 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
+    <section id='search-form'>
+      <form>
+        <input type="text" placeholder="Movie" id="movieName"></input>
+        <button type="submit" id="submit-button" class="success button"> Search Movies</button> 
+      </form>
+      <ul id='movie-list'>
+
+      </ul>
+    </section>
     <section class='main-content'>
       <ul id='rental-list'>
       </ul>
-      <ul id='movie-list'>
-      </ul>
     </section>
+
 
     <script id="rental-template" type="text/template">
       <li class = "rental-list-element"> <%- rental.title %> </li>
