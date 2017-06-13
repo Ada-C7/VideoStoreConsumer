@@ -4,7 +4,8 @@ import Backbone from 'backbone';
 var Movie = Backbone.Model.extend({
   defaults: {
     title: 'Mystery',
-    inventory: 1
+    inventory: 1,
+    image: 'insert image here'
   },
   logStatus: function() {
     console.log('Model ' + this.cid);

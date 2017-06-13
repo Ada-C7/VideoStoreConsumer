@@ -7,8 +7,8 @@ import Movie from '../models/movie.js';
 
 var MoviesView = Backbone.View.extend({
   initialize: function(params) {
-    this.template = params.template;
-
+    this.template = params.resultTemplate;
+    this.detailsTemplate = params.
   }
 });
 
