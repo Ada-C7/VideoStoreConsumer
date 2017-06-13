@@ -6,7 +6,7 @@ import _ from 'underscore';
 
 // ready to go
 $(document).ready(function() {
-
-  $('section.main-content').append('<p>Hello World!</p>');
+  // $('section.main-content').append('<p>Hello World!</p>');
+  var rentalList = new MovieList();
 
 });
