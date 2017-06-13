@@ -1,15 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<html lang='en'>
+     <head>
+          <meta charset='utf-8'>
+          <link rel='stylesheet' type='text/css' href='css/_settings.css'>
+          <link rel='stylesheet' type='text/css' href='css/foundation.css'>
+          <link rel='stylesheet' type='text/css' href='css/styles.css'>
+          <title>Wetflix</title>
+     </head>
 
-    <script src="/app.bundle.js"></script>
+     <body>
+          <header>
+               <nav>
+               </nav>
+          </header>
 
-  </body>
-  </html>
+     <main>
+          <form></form>
+          <section>
+               <section id='movie-results'></section>
+               <section id='movies-stocked'></section>
+
+          </section>
+     </main>
+
+     <footer></footer>
+
+     <script id='result-movie-template' type='text/template'>
+          <h4> <%- movie.image %></h4>
+          <h4> Title: <%- movie.title %></h4>
+     </script>
+
+     <script id='stocked-movie-template' type='text/template'>
+          <h4> <%- movie.image %></h4>
+          <h4> Title: <%- movie.title %></h4>
+          <h4> Release Date: <%- movie.release_date %></h4>
+          <h4> Remaining: <%- movie.inventory %></h4>
+     </script>
+
+     <script src='/app.bundle.js'></script>
+     </body>
+</html>
