@@ -12,13 +12,14 @@
 <body>
     <main>
         <section class="main-content">
+            <h1> Rental Library </h1>
             <section id='movie-list'></section>
         </section>
     </main>
 
     <script id="movie-list-template" type="text/template">
         <h3>Title: <%- movie.title %></h3>
-        <img src=<%=image_url%> />
+        <img src=<%=movie.image_url%> />
     </script>
 
     <script src="/app.bundle.js"></script>

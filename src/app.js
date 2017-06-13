@@ -17,7 +17,5 @@ var movielistView = new MovieListView({
 // ready to go
 $(document).ready(function() {
 
-  movielistView.render();
-  $('section.main-content').append('<p>Hello World!</p>');
-
+  movieList.fetch();
 });
