@@ -8,7 +8,14 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
+    <section class='main-content'>
+      <ul id='rental-list'>
+      </ul>
+    </section>
 
+    <script id="rental-movie-template" type="text/template">
+      <li class = "rental-list-element"> <%- rental.title %> </li>
+    </script>
     <script src="/app.bundle.js"></script>
 
   </body>

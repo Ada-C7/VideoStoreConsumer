@@ -1,12 +1,19 @@
-// /src/app.js
-
-// Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
 
-// ready to go
+import RentalList from './collections/rental_list';
+import RentalListView from './views/rental_list_view';
+
 $(document).ready(function() {
 
-  $('section.main-content').append('<p>Hello World!</p>');
+  var rentalList = new RentalList();
+  rentalList.fetch();
 
+  var options = {
+    el:  $('.main-content'),
+    model: rentalList
+  };
+
+  var application = new RentalListView(options);
+  application.render();
 });
