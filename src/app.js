@@ -5,7 +5,7 @@ import $ from 'jquery';
 import _ from 'underscore';
 
 import MovieList from 'collections/movie-list';
-import MovieListView from '/views/movie_list_view';
+import MovieListView from 'views/movie_list_view';
 
 var movieList = new MovieList();
 

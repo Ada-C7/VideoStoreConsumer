@@ -25,6 +25,15 @@ var MovieListView = Backbone.View.extend({
       that.$('#movie-list').append(movieView.render().$el);
     });
     return this;
+  },
+  events: {
+    'submit #searchbar' : 'searchMovies'
+  },
+  searchMovies: function(){
+    event.preventDefault();
+
+    this.model.url = 'http://localhost:3000/movies' + '?query=' + ($('#search').val());
+    this.model.fetch();
   }
 });
 
