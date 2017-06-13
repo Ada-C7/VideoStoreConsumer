@@ -8,8 +8,8 @@ var movies = new Movies();
 $(document).ready(function() {
      var moviesView = new MoviesView({
           model: movies,
-          template: _.resultTemplate($('#result-movie-template').html(), {variable: 'movie'}),
-          templatePetInfo:  _.stockTemplate($('#stocked-movie-template').html(), {variable: 'movie'}),
+          resultTemplate: _.template($('#result-movie-template').html(), {variable: 'movie'}),
+          stockTemplate:  _.template($('#stocked-movie-template').html(), {variable: 'movie'}),
           el: 'main'
      });
 
