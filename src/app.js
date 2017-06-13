@@ -4,9 +4,11 @@ import _ from 'underscore';
 
 import MovieView from 'app/collections/movie_view';
 // import MovieListView from 'app/views/movie_list_view';
+import RentalLibrary from 'app/views/rental_library.js';
+
 
 var movieView = new MovieView();
-movieView.fetch();
+// movieView.fetch();
 
 $(document).ready(function() {
 

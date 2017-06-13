@@ -1,4 +1,6 @@
 import Backbone from 'backbone';
+import _ from 'underscore';
+import $ from 'jquery';
 
 var movieView = Backbone.View.extend({
   initialize: function(params) {
