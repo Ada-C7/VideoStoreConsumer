@@ -48,6 +48,7 @@ jspm_packages
 *.DS_Store
 .AppleDouble
 .LSOverride
+.ENV
 
 # Icon must end with two \r
 Icon
