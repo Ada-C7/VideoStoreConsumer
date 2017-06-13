@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Backbone Baseline</title>
+</head>
+<body>
 
-    <script src="/app.bundle.js"></script>
+  <header>
+    <h1>Movies!</h1>
+  </header>
+  <main>
+    <section id='movie'></section>
+    <section id='movie-list'></section>
+    <section id='new-movie'></section>
+  </main>
 
-  </body>
-  </html>
+  <!-- Templates -->
+
+ <script id="movie-card-template" type="text/template">
+   <li><%- movie.title %></li>
+ </script>
+
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>
