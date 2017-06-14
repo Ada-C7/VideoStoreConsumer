@@ -12,7 +12,7 @@ var MovieListView = Backbone.View.extend({
     this.listenTo(this.model, "update", this.render);
   },
 
-  render: function() {
+  render: function(options) {
     this.$('#movie-list').empty();
     var that = this;
     this.model.each(function(movie){
@@ -20,10 +20,6 @@ var MovieListView = Backbone.View.extend({
         model: movie,
         template: that.template,
       });
-
-      // if (!(movieView.model.attributes.external_id)) {
-      //   that.$('.btn-add').hide();
-      // }
 
       that.$('#movie-list').append(movieView.render().$el);
       that.listenTo(movieView, 'add', that.addToLibrary)
@@ -43,23 +39,23 @@ var MovieListView = Backbone.View.extend({
     var queryParams = $('#search').val();
     this.model.fetch({ data: { 'query': queryParams } });
   },
+
   addToLibrary: function(movie) {
     var newMovie = {
       title: movie.get("title"),
       overview: movie.get("overview"),
       release_date: movie.get("release_date"),
-      image_url: movie.get("image_url"),
-      external_id: movie.get("external_id")
+      image_url: movie.get("image_url")
     }
 
-    var model = this.model.create(newMovie, {wait: true});
+    var model = this.model.create(newMovie,  { silent: true } );
 
     if (model.validationError){
-      console.log('was it created?')
+      // console.log('was it created?')
     } else {
-      console.log(model);
-      console.log(model.ajax);
-      console.log('Yay?')
+      // console.log(model);
+      // console.log(model.ajax);
+      // console.log('Yay?')
     };
   },
 
