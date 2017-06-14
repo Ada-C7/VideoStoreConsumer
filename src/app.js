@@ -20,7 +20,7 @@ $(document).ready(function() {
   application.render();
 
 
-  $("form").submit(function( event ) {
+  $("form").submit(function(event) {
       event.preventDefault();
       var movieList = new MovieList();
       movieList.fetch({data: {query: $('#movieName').val()  }});
