@@ -24,11 +24,15 @@
 
 
     <script id="rental-template" type="text/template">
-      <li class = "rental-list-element"> <%- rental.title %> </li>
+      <li class = "rental-list-element">
+        <img src=<%- rental.image_url %> alt="movie_picture"><br>
+        <%- rental.title %> </li>
     </script>
 
     <script id="movie-template" type="text/template">
-      <li class = "movie-list-element"> <%- movie.title %>, <%- movie.release_date %>
+      <li class = "movie-list-element">
+        <img src=<%= movie.image_url %> alt="movie_picture">
+        <%- movie.title %><br>
           <button type="submit" id="add-button" class="success button"> Add to rentals</button>
       </li>
     </script>
