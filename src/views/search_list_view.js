@@ -3,9 +3,10 @@ import _ from 'underscore';
 import $ from 'jquery';
 
 import VideoView from './video_view.js';
+import VideoListView from './video_list_view.js';
 import Video from '/collections/video_list.js';
 
-var VideoListView = Backbone.View.extend({
+var SearchListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, "update", this.render);
@@ -20,13 +21,12 @@ var VideoListView = Backbone.View.extend({
       });
       that.$("#video-list").append(videoView.render().$el);
       console.log(that.$("video-list"));
-
     });
     return this;
   },
-  // events: {
-  //   "click #add-video": "addVideo"
-  // },
+  events: {
+    "click #add-video": "addVideo"
+  },
   // getFormData: function() {
   //   var formName =
   //   this.$("#name").val();
@@ -57,9 +57,8 @@ var VideoListView = Backbone.View.extend({
   // },
   addVideo: function() {
     var video = new Video(this.getFormData());
-    // add to the collection
-    this.model.create(video); // the model is the collection for the video list
+    this.model.create(video);
   }
 });
 
-export default VideoListView;
+export default SearchListView;

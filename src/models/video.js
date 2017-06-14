@@ -5,12 +5,8 @@ var Video = Backbone.Model.extend({
     title: ''
   },
   logStatus: function() {
-    console.log("Model " + this.cid);
-    console.log("Title: " + this.get("title"));
-    console.log("Rented: " + this.get("rented"));
   },
   initialize: function(params) {
-    console.log("Starting", params);
     this.logStatus();
   },
   toggleComplete: function() {
