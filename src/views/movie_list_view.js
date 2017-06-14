@@ -47,15 +47,12 @@ var MovieListView = Backbone.View.extend({
     return input;
   },
   searchFunction: function(event){
-    // alert("i'm here!");
     event.preventDefault();
     let query = this.getInputData();
-    // add "?" + input to url
     // console.log('this.model.url: ',this.model.url);
     this.model.fetch({data: query,
       success: function(data) {
         // console.log("It worked!", data);
-        alert("i'm fetching the search :)))");
       },
       failure: function(data) {
         console.log("Failure", data);
