@@ -22,6 +22,17 @@ button.success {
   display: inline;
 }
 
+.movie-card {
+  padding: 1%;
+  border-style: solid;
+  border-width: thin;
+}
+
+.movie-card img {
+  padding-bottom: 3%;
+}
+
+
 aside.create-tasklist {
   background-color: navy;
   color: #FFFFFF;
