@@ -1,10 +1,14 @@
 import Backbone from 'backbone';
 
 var Movie = Backbone.Model.extend({
-  defaults: {
-    name: 'DEFAULT',
+
+  initialize: function(params) {
 
   }
+  // defaults: {
+  //   name: 'DEFAULT',
+  //
+  // }
 
 });
 

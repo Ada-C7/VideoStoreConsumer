@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
-// import Movie from 'app/models/movie.js';
+import Movie from 'app/models/movie.js';
 
 var SearchResults = Backbone.Collection.extend({
   model: Movie,
