@@ -12,11 +12,11 @@ import MovieListView from './app/views/movie_list_view.js';
 var myMovieList = new MovieList();
 
 var successHandler = function(collection, response, options) {
-  console.log('Success, We have the list', collection);
+  // console.log('Success, We have the list', collection);
 };
 
 var errorHandler = function(collection, response, options) {
-  console.log('Fail to show the list');
+  // console.log('Fail to show the list');
 };
 
 myMovieList.fetch({

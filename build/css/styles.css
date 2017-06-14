@@ -1,6 +1,6 @@
 @include foundation-everything;
 
-main {
+/*main {
     background: lightblue;
 }
 
@@ -36,7 +36,7 @@ aside label {
 
 div {
   display: inline;
-}
+}*/
 /*
 * {
   border-style: solid;
