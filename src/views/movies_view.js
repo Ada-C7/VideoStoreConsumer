@@ -26,28 +26,25 @@ var MoviesView = Backbone.View.extend({
                model: movie,
                template: that.template
           });
-          that.$('#movie-results').append(movieView.render().$el);
+          that.$('#movies-stocked').append(movieView.render().$el);
           });
           return this;
-     },
-     events:  {
-          'click #search-button' : 'searchMovie'
-
-     },
-     getFormData: function() {
-
-       var formQuery = this.$('#query').val();
-       this.$('#query').val('');
-       console.log(formQuery);
-       return formQuery;
-     },
-     searchMovie: function() {
-
-          event.preventDefault();
-          this.model.fetch({
-            data: {query: this.getFormData()}
-          });
      }
+     // events:  {
+     //      'click #search-button' : 'searchMovie'
+     // },
+     // getFormData: function() {
+     //      var formQuery = this.$('#query').val();
+     //      this.$('#query').val('');
+     //      return formQuery;
+     // },
+     // searchMovie: function() {
+     //      event.preventDefault();
+     //      this.model.fetch({
+     //      data: {query: this.getFormData()}
+     //      });
+     //
+     // }
 
 });
 

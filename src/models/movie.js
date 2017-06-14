@@ -1,4 +1,3 @@
-// model - movie.js
 import Backbone from 'backbone';
 
 var Movie = Backbone.Model.extend({
