@@ -10,16 +10,21 @@ import RentalLibrary from 'app/views/rental_library.js';
 var movieView = new MovieView();
 // movieView.fetch();
 
-$(document).ready(function() {
 
-  var movieListView = new MovieListView({
+var movieListView = new MovieListView({
   model: movieList,
   template:
   _.template($('#movie-card-template').html()),
   el: 'main'
 });
-petListView.render();
-
+movieListView.render();
+// what is this?
   $('section.main-content').append('<p>Hello World!</p>');
+
+
+
+
+$(document).ready(function() {
+
 
 });
