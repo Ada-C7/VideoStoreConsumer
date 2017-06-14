@@ -20,6 +20,7 @@ var MoviesView = Backbone.View.extend({
         template: that.template
       });
       that.$('.main-content').append(movieView.render().el);
+      console.log("Image URL == " + movieView.model.get("image_url"));
 
       that.listenTo(movieView, "movieAdded", function(movieData) {
         console.log(movieData);
