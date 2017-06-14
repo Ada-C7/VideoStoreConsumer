@@ -4,10 +4,15 @@
 import $ from 'jquery';
 import _ from 'underscore';
 
-// ready to go
+var rentalList = new MovieList();
+
+var rentalListView = new MovieListView({
+  model: rentalList,
+  template: _.template($('#movie-template').html()),
+  el: 'main',
+});
+
 $(document).ready(function() {
   // $('section.main-content').append('<p>Hello World!</p>');
-  var rentalList = new MovieList();
 
-  
 });
