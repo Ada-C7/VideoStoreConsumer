@@ -3,7 +3,7 @@ import $ from 'jquery';
 import _ from 'underscore';
 import MovieView from './movie_view';
 
-var RentalLibraryView = Backbone.View.extend({
+var MovieListView = Backbone.View.extend({
   initialize: function(options) {
     //we are creating our template to be used later on
     this.moviesBulletTemplate = _.template($('#movie-card-template').html());
@@ -13,7 +13,7 @@ var RentalLibraryView = Backbone.View.extend({
     //creating empty array that we will be using to push our movie instances into later on
     this.movieList = [];
 
-    //this.model = RentalLibrary, which is our list of rental movies in our rails API
+    //this.model = MovieList, which is our list of rental movies in our rails API
     this.model.forEach(function(movie){
       this.addMovie(movie);
     }, this);
@@ -46,4 +46,4 @@ var RentalLibraryView = Backbone.View.extend({
   }
 });
 
-export default RentalLibraryView;
+export default MovieListView;

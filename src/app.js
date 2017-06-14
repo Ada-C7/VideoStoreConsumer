@@ -4,18 +4,18 @@
 import $ from 'jquery';
 import _ from 'underscore';
 
-import RentalLibrary from './collections/rental_library';
-import RentalLibraryView from './views/rental_library_view';
+import MovieList from './collections/movie_list';
+import MovieListView from './views/movie_list_view';
 
 // ready to go
 $(document).ready(function() {
 
-var rentalList = new RentalLibrary();
-rentalList.fetch();
+var movieList = new MovieList();
+movieList.fetch();
 
-var application = new RentalLibraryView({
+var application = new MovieListView({
   el: $('#application'),
-  model: rentalList
+  model: movieList
 });
 
 application.render();
