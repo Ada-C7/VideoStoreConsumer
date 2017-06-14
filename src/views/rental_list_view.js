@@ -45,8 +45,8 @@ var RentalListView = Backbone.View.extend({
     // event.preventDefault();
       console.log("We are in Create Rental dan");
       // var rawRental = movie.attributes;
-      console.log(movie);
-      // this.model.create(movie.attributes);
+      // console.log(movie.attributes);
+      this.model.create(movie);
       // console.log(movie);
   }
 
