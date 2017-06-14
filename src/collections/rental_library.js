@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
-import Movie from 'app/models/movie';
+import Movie from '../models/movie';
 
 var RentalLibrary = Backbone.Collection.extend({
   model: Movie,

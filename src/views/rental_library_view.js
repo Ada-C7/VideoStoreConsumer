@@ -6,9 +6,9 @@ import MovieView from './movie_view';
 var RentalLibraryView = Backbone.View.extend({
   initialize: function(options) {
     //we are creating our template to be used later on
-    this.moviesBulletTemplate = _.template($('whatever_template').html());
+    this.moviesBulletTemplate = _.template($('#movie-card-template').html());
     //keeping track of the element we will want to append to later on
-    this.listElement = this.$('.whatever-element');
+    this.listElement = this.$('.movie-list');
 
     //creating empty array that we will be using to push our movie instances into later on
     this.movieList = [];

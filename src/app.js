@@ -4,8 +4,8 @@
 import $ from 'jquery';
 import _ from 'underscore';
 
-import RentalLibrary from 'app/collections/rental_library';
-import RentalLibraryView from 'app/views/rental_library_view';
+import RentalLibrary from './collections/rental_library';
+import RentalLibraryView from './views/rental_library_view';
 
 // ready to go
 $(document).ready(function() {

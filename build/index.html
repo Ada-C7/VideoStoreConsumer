@@ -8,8 +8,25 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
+
+    <header>
     <h1>On backbone</h1>
+    </header>
+    <main id='application'>
+      <section id='movie'></section>
+      <section id='movie-list'></section>
+      <section id='new-movie'></section>
+      <section id='movie-details'></section>
+
+      <ul class="movie-list"></ul>
+    </main>
+
+    <!-- Templates -->
+
+    <script id="movie-card-template" type="text/template">
+      <li class="movie-name-temp"><%- movie.title %></li>
+    </script>
+
     <script src="/app.bundle.js"></script>
 
-  </body>
   </html>
