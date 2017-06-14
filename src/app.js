@@ -2,11 +2,13 @@ import $ from 'jquery';
 import _ from 'underscore';
 import MovieList from 'collections/movie_list.js';
 import MovieListView from 'views/movie_list_view.js';
+import ApplicationView from 'views/application_view.js';
 
 
 var myMovieList = new MovieList();
 myMovieList.fetch();
 
+// var applicationView = new ApplicationView();
 
 var myMovieListView = new MovieListView({
   model: myMovieList,

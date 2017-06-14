@@ -2,6 +2,7 @@ import Backbone from "backbone";
 import _ from 'underscore';
 import $ from 'jquery';
 
+
 var MovieView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;

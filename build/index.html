@@ -14,7 +14,7 @@
     </header>
     <main class='main-content'>
 
-      
+
 
       <section class="row">
         <div class="small-4 columns">
@@ -38,6 +38,20 @@
         </div>
         <div class='row'>
           <button class="button">Rent me!</button>
+        </div>
+      </section>
+    </script>
+
+    <script id="search-list-template" type="text/template">
+      <section class="columns large-3 small-12 movie-card" data-equalizer-watch >
+        <div class='row'>
+          <h4><%- title %></h4>
+        </div>
+        <div class='row'>
+          <img src="<%- image_url %>" alt="movie poster">
+        </div>
+        <div class='row'>
+          <button class="button">Add to Store</button>
         </div>
       </section>
     </script>
