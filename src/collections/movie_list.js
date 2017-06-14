@@ -2,8 +2,12 @@ import Backbone from 'backbone';
 import Movie from '../models/movie.js';
 
 var MovieList = Backbone.Collection.extend({
-  model: Movie,
-  url: 'http://localhost:3000/movies'
+  initialize: function (models, options) {
+    this.model = Movie;
+    this.url = function () {
+      return 'http://localhost:3000/' + options.path;
+    };
+  }
 });
 
 export default MovieList;

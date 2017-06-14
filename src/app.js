@@ -9,7 +9,7 @@ import MovieListView from './views/movie_list_view.js';
 
 var application = new Application();
 
-var movieList = new MovieList();
+var movieList = new MovieList(null, { path: 'movies' });
 movieList.fetch();
 
 $(document).ready(function() {
