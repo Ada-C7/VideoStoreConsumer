@@ -8,10 +8,8 @@ var MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
-    console.log(">>> Breadcrumbs #2 (Movie list view init)");
   },
   render: function() {
-    console.log(">>> Breadcrumbs #3 (Movie list render start)");
     this.$('#movie-list').html('<ul></ul>');
     var that = this;
 
@@ -23,7 +21,6 @@ var MovieListView = Backbone.View.extend({
       });
       that.$('#movie-list ul').append(movieView.render().$el);
     });
-    console.log(">>> Breadcrumbs #4 (Movie list render end)");
     return this;
   }
 });
