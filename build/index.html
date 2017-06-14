@@ -1,15 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Rewind</title>
-  </head>
-  <body>
-    <h1>Hey what's up</h1>
-    <script src="/app.bundle.js"></script>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Rewind</title>
+</head>
+<body>
+  <header class="row">
+    <h1 class="columns small-12 large-8">Rewind</h1>
+    <form class="search-form columns small-12 large-4">
+      <input type="text" name="query" id="query" placeholder="Search for a movie"/>
+      <button class="button" id="search-button">Search</button>
+    </form>
+  </header>
+  <!-- may need to rethink where to do foundation -->
+  <main class="row">
+    <section class="columns small-12 large-3" id="movie-details"></section>
+    <section class="columns small-12 large-9" id="list-main"></section>
+  </main>
 
-  </body>
-  </html>
+  <script id="library-template" type="text/javascript">
+  <section class="row">
+  <h3 id="#subheader" class="columns small-12">Your Library</h3>
+  </section>
+  <section id="list-content" class="row">
+
+  </section>
+  </script>
+
+  <script id="search-results-template" type="text/javascript">
+  <section class="row">
+  <h3 id="#subheader" class="columns small-12 large-8">Search Results for <%- query %></h3>
+  <button class="button columns small-12 large-4" id="return-library">Return to Library</button>
+  </section>
+
+  <section id="list-content" class="row">
+
+  </section>
+  </script>
+
+  <script id="movie-details-template" type="text/javascript">
+    <img src=<%-image_url%> />
+    <h3><%-title%></h3>
+    <p>Overview: <%-overview%></p>
+    <p>Release Date: <%-release_date%></p>
+    <button class="button" id="hide-details">Hide</button>
+  </script>
+
+
+  <script id="movie-search-template" type="text/javascript">
+  <section class="columns small-12 medium-4 large-3">
+    <img class="movie small-poster" src=<%-image_url%>/>
+    <h4 class="movie small-title"><%-title%></h4>
+    <button class="button" id="add-library">Add to Library</button>
+  </section>
+  </script>
+  
+  <script id="movie-library-template" type="text/javascript">
+  <section class="columns small-12 medium-4 large-3">
+    <img class="movie small-poster" src=<%-image_url%>/>
+    <h4 class="movie small-title"><%-title%></h4>
+    <button class="button" id="rent-movie">Rent</button>
+  </section>
+  </script>
+
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>
