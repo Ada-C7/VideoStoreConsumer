@@ -25,8 +25,8 @@
 
     <script id="movie-list-template" type="text/template">
         <h3>Title: <%- movie.title %></h3>
-        <img src=<%=movie.image_url%> />
-        <h3 class="button btn-add" id=<%=movie.external_id%> >Add</h3>
+        <img src=<%-movie.image_url%> />
+        <button class="button success btn-add" id=<%- movie.external_id%>>Add</button>
     </script>
 
     <script src="/app.bundle.js"></script>
