@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
-import MovieView from './views/movie_view.js';
-import Movie from './models/movie.js';
+import MovieView from './movie_view.js';
+import Movie from '../models/movie.js';
 
 const MovieListView = Backbone.View.extend({
   initialize: function() {

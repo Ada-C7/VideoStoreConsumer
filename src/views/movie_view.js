@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
-import Movie from './models/movie.js';
+import Movie from '../models/movie.js';
 
 const MovieView = Backbone.View.extend({
   initialize: function() {

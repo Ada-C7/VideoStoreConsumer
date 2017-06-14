@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
-import MovieListView from './views/movie_list_view.js';
-import Library from './collections/library.js';
-import Search from './collections/search.js';
+import MovieListView from './movie_list_view.js';
+import Library from '../collections/library.js';
+import Search from '../collections/search.js';
 
 const AppView = Backbone.View.extend({
   initialize: function() {

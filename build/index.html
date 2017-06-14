@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <title>Rewind</title>
 </head>
-<body>
+<body class="row">
   <header class="row">
     <h1 class="columns small-12 large-8">Rewind</h1>
     <form class="search-form columns small-12 large-4">
@@ -18,7 +18,7 @@
   <!-- may need to rethink where to do foundation -->
   <main class="row">
     <section class="columns small-12 large-3" id="movie-details"></section>
-    <section class="columns small-12 large-9" id="list-main"></section>
+    <section class="columns small-12 large-9" id="list-main">main list</section>
   </main>
 
   <script id="library-template" type="text/javascript">
@@ -57,7 +57,7 @@
     <button class="button" id="add-library">Add to Library</button>
   </section>
   </script>
-  
+
   <script id="movie-library-template" type="text/javascript">
   <section class="columns small-12 medium-4 large-3">
     <img class="movie small-poster" src=<%-image_url%>/>

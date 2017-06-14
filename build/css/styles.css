@@ -1,1 +1,14 @@
 @include foundation-everything;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: lightblue;
+}
+
+main {
+  background-color: lightgreen;
+}
