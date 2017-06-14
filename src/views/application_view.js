@@ -1,19 +1,23 @@
 import Backbone from 'backbone';
+import MovieList from '../collections/movie_list.js';
 import MovieListView from './movie_list_view.js';
 import MovieDetailsView from './movie_details_view.js';
 
 const ApplicationView = Backbone.View.extend({
   initialize: function (params) {
-    this.movieList = params.movieList;
     this.movieListTemplate = params.movieListTemplate;
     this.movieDetailsTemplate = params.movieDetailsTemplate;
   },
   events: {
     'click h1' : 'showList'
   },
-  showList: function () {
+  showList: function (searchTerm) {
+    var path = searchTerm ? ('?query=' + searchTerm) : '';
+    var movieList = new MovieList(null, { path: path });
+    movieList.fetch();
+
     var movieListView = new MovieListView({
-      model: this.movieList,
+      model: movieList,
       template: this.movieListTemplate,
       el: 'body'
     });

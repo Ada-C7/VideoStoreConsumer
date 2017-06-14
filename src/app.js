@@ -9,15 +9,11 @@ import MovieListView from './views/movie_list_view.js';
 
 var application = new Application();
 
-var movieList = new MovieList(null, { path: 'movies' });
-movieList.fetch();
-
 $(document).ready(function() {
   var appView = new ApplicationView({
     el: 'body',
     model: application,
     movieListTemplate: _.template($('#movie-template').html()),
-    movieList: movieList,
     movieDetailsTemplate: _.template($('#movie-info-template').html())
   });
   appView.showList();
