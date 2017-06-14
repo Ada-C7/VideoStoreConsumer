@@ -3,6 +3,9 @@ import _ from 'underscore';
 import $ from 'jquery';
 
 import SearchResults from '../collections/search_results';
+import MovieView from '../views/movie_view';
+console.log("crumb 7");
+
 
 var SearchResultsView = Backbone.View.extend({
   initialize: function(params){
@@ -11,9 +14,20 @@ var SearchResultsView = Backbone.View.extend({
   },
 
   render: function(){
+
     this.$('#movie-list').empty();
 
-    return this;
+    var that = this;
+
+    this.model.each(function(movie){
+      var movieView = new MovieView({
+        model: movie,
+        template: that.template
+      });
+      that.$("#movie-list").append(movieView.render().el);
+    });
 
   }
 });
+
+export default SearchResultsView;
