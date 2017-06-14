@@ -4,19 +4,21 @@ import Backbone from 'backbone';
 import Movie from '../models/movie.js';
 
 const MovieView = Backbone.View.extend({
-  initialize: function() {
-
-
+  initialize: function(params) {
+    this.template = params.template;
+    this.listenTo(this.model, "change", this.render);
   },
 
   render: function() {
-
-
+    console.log("rendering indiv movie view");
+    var compiledTemplate = this.template(this.model.toJSON());
+    this.$el.html(compiledTemplate);
+    return this;
   },
 
   events: {
-    // .movie (title or image) : sendMovie
-    // rent button click : rentMovie
+    "click .movie" : "sendMovie",
+    "click #rent-movie" : "rentMovie"
     // #addToLib click : addToLib
   },
 
@@ -27,11 +29,12 @@ const MovieView = Backbone.View.extend({
   },
 
   sendMovie: function(event) {
-    // trigger("sendMovie", this);
+    console.log("in movie view clicked on movie");
+    this.trigger("sendMovie", this);
   },
 
   rentMovie: function() {
-    alert("you have rented this movie");
+    console.log("you have rented this movie");
   }
 
 });
