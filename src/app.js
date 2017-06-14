@@ -5,17 +5,24 @@ import $ from 'jquery';
 import _ from 'underscore';
 import VideoList from 'collections/video_list.js';
 import VideoListView from 'views/video_list_view';
+import SearchListView from 'views/search_list_view';
+import SearchList from 'collections/search_list';
+
+
+
 
 // ready to go
 $(document).ready(function() {
   var myVideoList = new VideoList();
   myVideoList.fetch();
 
+
+
   var myVideoListView = new VideoListView({
     model: myVideoList,
     template: _.template($('#video-card-template').html()),
     el: 'main'
   });
-  myVideoListView.render();
+  // myVideoListView.render();
 
 });

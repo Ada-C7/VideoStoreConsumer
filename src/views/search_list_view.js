@@ -10,6 +10,8 @@ var SearchListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, "update", this.render);
+    this.listenTo(this.model, "change", this.render);
+
   },
   render: function() {
     this.$('#video-list').empty();
@@ -25,36 +27,28 @@ var SearchListView = Backbone.View.extend({
     return this;
   },
   events: {
-    "click #add-video": "addVideo"
+    "click #add-video": "addVideo",
+    "click #search-video": "searchVideo"
   },
-  // getFormData: function() {
-  //   var formName =
-  //   this.$("#name").val();
-  //   this.$("#name").val('');
-  //
-  //   var formAge =
-  //   this.$("#age").val();
-  //   this.$("#age").val('');
-  //
-  //   var formBreed =
-  //   this.$("#breed").val();
-  //   this.$("#breed").val('');
-  //
-  //   // returns a boolean
-  //   var formVaccinated =
-  //   // figure out if it's checked
-  //   this.$('#vaccinated-checkbox').is(":checked");
-  //   // clear checkbox
-  //   this.$('#vaccinated-checkbox').prop('checked', false);
-  //
-  //   // returns a new JS object
-  //   return {
-  //     name: formName,
-  //     age: formAge,
-  //     breed: formBreed,
-  //     vaccinated: formVaccinated
-  //   };
-  // },
+  getFormData: function() {
+    var formTitle =
+    this.$("#title").val();
+    this.$("#title").val('');
+
+    return formTitle;
+  },
+  searchVideo: function(){
+    this.$('#video-list').empty();
+    var videoTitle = this.getFormData();
+    fetch('http://localhost:3000/movies/' + videoTitle, {
+      method: 'GET',
+      mode: 'cors',
+    }).then(function(response) {
+      response.json().then(function(j) {
+        console.log(j);
+      });
+    });
+  },
   addVideo: function() {
     var video = new Video(this.getFormData());
     this.model.create(video);
