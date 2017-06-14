@@ -26,6 +26,7 @@ var MoviesView = Backbone.View.extend({
         console.log(movieData);
         this.model.create(movieData);
         this.model.fetch();
+        this.isSearching = false;
       });
 
     });
@@ -42,7 +43,7 @@ var MoviesView = Backbone.View.extend({
     return this;
   },
   events: {
-  "click h3.button.btn-query": "searchMovies",
+  "click h3.button.btn-query": "searchMovies"
   },
   searchMovies: function(event) {
     var searchParams = this.$('#search-item').val();
