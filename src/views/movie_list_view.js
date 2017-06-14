@@ -26,7 +26,7 @@ var MovieListView = Backbone.View.extend({
     return this;
   },
   events: {
-    "submit #search" : "getInputData"
+    "submit #search" : "searchFunction"
   },
   getInputData: function(){
 
@@ -37,8 +37,8 @@ var MovieListView = Backbone.View.extend({
     return input.seralize();
   },
   searchFunction: function(){
-    let something = this.getInputData();
     console.log('this.model.url: ',this.model.url);
+    let something = this.getInputData();
   }
 });
 
