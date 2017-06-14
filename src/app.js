@@ -21,8 +21,9 @@ var storeList = function(event) {
 
 var databaseList = function(event) {
   var queryParams = $('#queryParams').val();
+  console.log(queryParams);
   var searchList = new MovieList();
-  searchList.customUrl(queryParams)
+  searchList.customUrl(queryParams);
   searchList.fetch();
 
   var searches = new MovieListView({
@@ -36,8 +37,9 @@ var databaseList = function(event) {
 
 // ready to go
 $(document).ready(function() {
-  $("main").html(storeList);
+  $(".list_store_rentals").click(storeList);
 
+  $(".search_button").click(databaseList);
 
 
 
