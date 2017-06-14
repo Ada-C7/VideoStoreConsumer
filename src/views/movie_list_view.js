@@ -16,6 +16,7 @@ var MovieListView = Backbone.View.extend({
     this.$('#movie-list').empty();
     var that = this;
     this.model.each(function(movie){
+      console.log(movie);
       var movieView = new MovieView({
         model: movie,
         template: that.template,
@@ -52,18 +53,8 @@ var MovieListView = Backbone.View.extend({
     }
 
     this.model.create(newMovie);
+    // , { dataType: 'jsonp' }
   }
-
-
-  // addRental: function(event){
-  //   let movie = event.currentTarget.id;
-  //
-  //   let addedMovie = this.model.findWhere({external_id: movie});
-  //
-  //   console.log(addedMovie);
-  //   console.log(this.model);
-  //   console.log(event.currentTarget.id);
-  // }
 });
 
 export default MovieListView;

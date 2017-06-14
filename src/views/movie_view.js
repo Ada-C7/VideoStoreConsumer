@@ -18,7 +18,7 @@ var MovieView = Backbone.View.extend({
     'click .btn-add': 'addRental'
   },
 
-  addRental: function() {
+  addRental: function(event) {
     this.trigger('add', this.model);
     event.stopPropagation();
   }
