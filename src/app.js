@@ -33,17 +33,18 @@ $(document).ready(function() {
 
   $('#submit-button').click(function(event) {
     var search = {data: $.param({query: $('#title').val()})};
-    
+
     var searchList = new MovieList();
     searchList.fetch(search);
 
     var params = {
-      searchTemplate: searchTemplate,
+      movieTemplate: searchTemplate,
       el: $('main'),
       model: searchList
     };
 
-    var searchApp = new SearchListView(params);
+    var searchApp = new MovieListView(params);
+
     searchApp.render();
-  })
+  });
 });
