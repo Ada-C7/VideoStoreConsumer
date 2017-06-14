@@ -17,18 +17,22 @@
 
     <aside>
       <section id='movie'></section>
-      <section id='movie-list'></section>
+      <section class="center-vertical" id='movie-list'></section>
+
     </aside>
   </main>
 
   <!--- Templates ------------->
 
   <script id="movie-card-template" type="text/template">
-    <li> <%- title %> </li>
+    <section class="column small-12 medium-12 large-12 movie-card">
+      <li> <%- title %> </li>
     <!-- need to change image url and title to code -->
 
-    <img src="<% image_url %>" alt="<% title %>"></img>
+      <img src="<%-image_url %>"alt="<% title %>"></img>
+
     <li> <%- release_date %>  </li>
+  </section>
   </script>
 
   <script src="/app.bundle.js" charset="utf-8"></script>
