@@ -8,13 +8,12 @@ import Movie from '../models/movie.js'
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
+    this.rentals = this.model
     this.listenTo(this.model, "update", this.render);
-
   },
   render: function(){
     this.$('#movie-list').empty();
     var that = this;
-    console.log(this.model);
     this.model.each(function(movie){
 
       var movieView = new MovieView({
@@ -27,13 +26,23 @@ var MovieListView = Backbone.View.extend({
     return this;
   },
   events: {
-    'submit #searchbar' : 'searchMovies'
+    'submit #searchbar' : 'searchMovies',
+    'click .btn-add': 'addRental'
   },
   searchMovies: function(){
     event.preventDefault();
 
     this.model.url = 'http://localhost:3000/movies' + '?query=' + ($('#search').val());
     this.model.fetch();
+  },
+  addRental: function(event){
+    let movie = event.currentTarget.id;
+
+    let addedMovie = this.model.findWhere({external_id: movie});
+
+    console.log(addedMovie);
+    console.log(this.model);
+    console.log(event.currentTarget.id);
   }
 });
 

@@ -13,6 +13,12 @@ var MovieView = Backbone.View.extend({
     this.$el.html(movieHTML);
     return this;
   }
+  // events: {
+  //   'click .btn-add': 'addRental'
+  // },
+  // addRental: function(){
+  //   console.log(this.model);
+  // }
 });
 
 export default MovieView;
