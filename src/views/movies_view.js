@@ -8,6 +8,7 @@ var MoviesView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, "update", this.render);
+    this.isSearching = false;
 
   },
   render: function() {
@@ -19,7 +20,18 @@ var MoviesView = Backbone.View.extend({
         template: that.template
       });
       that.$('.main-content').append(movieView.render().el);
+
     });
+
+    console.log(this.isSearching);
+    if (this.isSearching) {
+      $('.add-collection').removeClass('hide');
+      $('.add-rental').addClass('hide');
+    } else {
+      $('.add-collection').addClass('hide');
+      $('.add-rental').removeClass('hide');
+    }
+
     return this;
   },
   events: {
@@ -32,6 +44,7 @@ var MoviesView = Backbone.View.extend({
       data: { query: searchParams },
       processData: true
     });
+    this.isSearching = true;
   }
 });
 
