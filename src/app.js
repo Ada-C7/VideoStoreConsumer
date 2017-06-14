@@ -21,7 +21,6 @@ $(document).ready(function() {
 
 
   $("form").submit(function( event ) {
-    console.log("In form submit event:");
       event.preventDefault();
       var movieList = new MovieList();
       movieList.fetch({data: {query: $('#movieName').val()  }});
@@ -30,7 +29,6 @@ $(document).ready(function() {
         el:  $('#all-movie-list'),
         model: movieList
       };
-
       var mlv = new MovieListView(options);
       mlv.render();
 

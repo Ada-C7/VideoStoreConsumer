@@ -3,8 +3,6 @@ import Movie from '../models/movie';
 import $ from 'jquery';
 import _ from 'underscore';
 
-
-
 var MovieList = Backbone.Collection.extend({
   model: Movie,
   initialize: function(options){
@@ -13,8 +11,6 @@ var MovieList = Backbone.Collection.extend({
   },
   url: function() { return 'http://localhost:3000/movies?query=' + this.query},
 });
-
-
 
 
 
