@@ -32,8 +32,10 @@ var MovieListView = Backbone.View.extend({
   searchMovies: function(){
     event.preventDefault();
 
-    this.model.url = 'http://localhost:3000/movies' + '?query=' + ($('#search').val());
-    this.model.fetch();
+  var queryParams = $('#search').val();
+
+  this.model.fetch({
+    data: { 'query': queryParams }
   },
   addRental: function(event){
     let movie = event.currentTarget.id;
