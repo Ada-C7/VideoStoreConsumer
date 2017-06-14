@@ -8,10 +8,21 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
-    <section class='main-content'>
-
-    </section>
+    <main class='main-content'>
+      <section id="movie-list"></section>
+    </main>
+    <!-- templates -->
+    <script id="movie-list-template" type="text/template">
+      <section class="columns large-3 small-12">
+        <div >
+          <h6><%- title %></h6>
+        </div>
+        <div class ="row">
+          <img src="<%- image_url %>" alt="movie poster">
+        </div>
+        <button class="button">Rent me!</button>
+      </section>
+    </script>
     <script src="/app.bundle.js"></script>
-
   </body>
   </html>
