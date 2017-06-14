@@ -43,7 +43,6 @@ var MovieListView = Backbone.View.extend({
     var queryParams = $('#search').val();
     this.model.fetch({ data: { 'query': queryParams } });
   },
-
   addToLibrary: function(movie) {
     var newMovie = {
       title: movie.get("title"),
