@@ -25,36 +25,20 @@ var MovieListView = Backbone.View.extend({
     return this;
   },
   events: {
-    // "click #add-pet" : "addPet"
+    "click #submit-search" : "search"
   },
   getFormData: function() {
-    var formName = this.$("#name").val();
-    this.$("#name").val('');
-
-    var formBreed = this.$("#breed").val();
-    this.$("#breed").val('');
-
-    var formAge = this.$("#age").val();
-    this.$("#age").val('');
-
-    var formDescription = this.$("#description").val();
-    this.$("#description").val('');
-
-    var formVaccinated = this.$('#vaccinated-checkbox').is(":checked");
-    this.$('#vaccinated-checkbox').prop('checked', false);
+    var formTitle = this.$("#title").val();
+    this.$("#title").val('');
 
     return {
-      name: formName,
-      breed: formBreed,
-      age: formAge,
-      description: formDescription,
-      vaccinate: formVaccinated
+      title: formTitle
     };
   },
-  addMovie: function() {
-    var movie = new Movie(this.getFormData());
-
-    this.model.create(movie);
+  search: function() {
+    // var movie = new Movie(this.getFormData());
+    //
+    // this.model.create(movie);
   }
 });
 
