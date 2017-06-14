@@ -7,6 +7,7 @@ import MovieListView from 'views/movie_list_view.js';
 var myMovieList = new MovieList();
 myMovieList.fetch();
 
+
 var myMovieListView = new MovieListView({
   model: myMovieList,
   template: _.template($('#movie-list-template').html()),
