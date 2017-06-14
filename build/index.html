@@ -5,9 +5,23 @@
     <link rel="stylesheet" type="text/css" href="css/_settings.css">
     <link rel="stylesheet" type="text/css" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
+    <title>Jouckie's Redbloxbuster</title>
   </head>
   <body>
+    <main>
+      <section class="row" id="search-section">
+          <label class="columns medium-12">Search
+            <input type="text" name="search" id="title" placeholder="Search by title" />
+          </label>
+          <button id="submit-search" class="medium-3 columns button success">Submit</button>
+        </section>
+      <section id='movie'></section>
+      <section id='movie-list'></section>
+
+    </main>
+    <script id="movie-template" type="text/template">
+      <li><%- movie.title %></li>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
