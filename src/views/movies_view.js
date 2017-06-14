@@ -34,9 +34,19 @@ var MoviesView = Backbone.View.extend({
           'click #search-button' : 'searchMovie'
 
      },
+     getFormData: function() {
+
+       var formQuery = this.$('#query').val();
+       this.$('#query').val('');
+       console.log(formQuery);
+       return formQuery;
+     },
      searchMovie: function() {
-          console.log("test");
+
           event.preventDefault();
+          this.model.fetch({
+            data: {query: this.getFormData()}
+          });
      }
 
 });
