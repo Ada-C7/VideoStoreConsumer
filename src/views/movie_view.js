@@ -15,14 +15,17 @@ var MovieView = Backbone.View.extend({
     return this;
   },
   events: {
-    "click h3.button.add-collection": "addMovie"
+    "click h3.button.add-collection": "addMovie",
+    "click img.movie-image": "showOverview"
   },
-
   addMovie: function(event) {
     event.stopPropagation();
     this.model.attributes.image_url = this.model.attributes.image_url.replace("https://image.tmdb.org/t/p/w185", "");
     console.log("IMG_URL = " + this.model.attributes.image_url);
     this.trigger("movieAdded", this.model.attributes);
+  },
+  showOverview: function(event) {
+    this.$("p.movie-overview").toggleClass('hide');
   }
 });
 

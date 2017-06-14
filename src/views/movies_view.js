@@ -19,12 +19,12 @@ var MoviesView = Backbone.View.extend({
         model: movie,
         template: that.template
       });
-      that.$('.main-content').append(movieView.render().el);      
+      that.$('.main-content').append(movieView.render().el);
       that.listenTo(movieView, "movieAdded", function(movieData) {
         console.log(movieData);
         this.model.create(movieData);
-        this.model.fetch();
         this.isSearching = false;
+        this.model.fetch();
       });
 
     });
