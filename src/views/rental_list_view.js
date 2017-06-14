@@ -42,12 +42,13 @@ var RentalListView = Backbone.View.extend({
   },
 
   createRental: function(movie) {
-    // event.preventDefault();
-      console.log("We are in Create Rental dan");
-      // var rawRental = movie.attributes;
-      // console.log(movie.attributes);
+    console.log("We are in Create Rental");
+
+    var existingMovie = this.model.find(function(model){return model.get('title') === movie.attributes.title; });
+    console.log(existingMovie);
+    if (existingMovie == null) {
       this.model.create(movie);
-      // console.log(movie);
+    };
   }
 
 });
