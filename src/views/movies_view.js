@@ -29,7 +29,15 @@ var MoviesView = Backbone.View.extend({
           that.$('#movie-results').append(movieView.render().$el);
           });
           return this;
+     },
+     events:  {
+          'click #search-button' : 'searchMovie'
+
+     },
+     searchMovie: function() {
+          console.log("test");
      }
+
 });
 
 export default MoviesView;
