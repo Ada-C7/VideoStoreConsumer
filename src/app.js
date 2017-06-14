@@ -3,10 +3,20 @@
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
+// import Movie from '/models/movie';
+import MovieList from 'collections/movie_list';
+// import MovieView from '/views/movie_view';
+import MovieListView from 'views/movie_list_view';
+
+var myMovieList = new MovieList();
+myMovieList.fetch();
 
 // ready to go
 $(document).ready(function() {
-
-  $('section.main-content').append('<p>Hello World!</p>');
-
+  var myMovieListView = new MovieListView( {
+    model: myMovieList,
+    template: _.template($('#movie-template').html()),
+    el: 'main'
+  });
+  myMovieListView.render();
 });

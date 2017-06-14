@@ -9,19 +9,17 @@ var MovieListView = Backbone.View.extend({
     this.template = params.template;
     console.log(this.el);
     this.listenTo(this.model, "update", this.render);
-
-    // this.model.fetch({reset: true, success: function() {}});
   },
   render: function() {
-    // this.$("#pet-list").empty();
+    this.$("#movie-list").empty();
     var that = this;
 
-    this.model.each(function(pet) {
+    this.model.each(function(movie) {
       var movieView = new MovieView( {
-        model: Movie,
+        model: movie,
         template: that.template,
       });
-      that.$('#pet-list').append(petView.render().$el);
+      that.$('#movie-list').append(movieView.render().$el);
     });
 
     return this;

@@ -8,7 +8,15 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
-    <h1> HALP </h1>
+    <main>
+      <section id='movie'></section>
+      <section id='movie-list'></section>
+
+    </main>
+    <script id="movie-template" type="text/template">
+      <li><%- movie.title %></li>
+    </script>
+
     <script src="/app.bundle.js"></script>
 
   </body>
