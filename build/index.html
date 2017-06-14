@@ -14,26 +14,29 @@
       </label>
       <button id="search" class="medium-3 columns button">Search</button>
     </section>
-    <script src="/app.bundle.js"></script>
 
     <aside>
       <section id='movie'></section>
       <section id='movie-list'></section>
     </aside>
   </main>
+
+  <!--- Templates ------------->
+
+  <script id="movie-card-template" type="text/template">
+    <li> <%- title %> </li>
+    <!-- need to change image url and title to code -->
+
+    <img src="<% image_url %>" alt="<% title %>"></img>
+    <li> <%- release_date %>  </li>
+  </script>
+
+  <script src="/app.bundle.js" charset="utf-8"></script>
+
+
 </html>
 
 
-<!--- Templates ------------->
-<script id="movie-list-template" type="text/template">
-  <li> <%- title %> </li>
-  <!-- need to change image url and title to code -->
+<!-- <script id="movie-list-template" type="text/template">
 
-  <img src="<% image_url %>" alt="<% title %>"></img>
-  <li> <%- release_date %>  </li>
-</script>
-
-
-
-<script id="movie-card-template" type="text/template">
-</script>
+</script> -->

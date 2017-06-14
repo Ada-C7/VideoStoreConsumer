@@ -8,9 +8,12 @@ import RentalLibraryView from './views/rental_library_view.js';
 
 
 var rentalLibrary = new RentalLibrary();
+rentalLibrary.fetch();
+console.log("crumb 1");
 
 // would be replaced with fetched rental library from rails api
 var rentalLibraryView = new RentalLibraryView({
+
   model: rentalLibrary,
   template: _.template($('#movie-card-template').html()),
   el: 'main'

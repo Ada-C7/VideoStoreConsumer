@@ -1,5 +1,7 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie.js';
+console.log("crumb 5");
+
 
 var RentalLibrary = Backbone.Collection.extend({
   model: Movie,
