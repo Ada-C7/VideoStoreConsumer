@@ -16,10 +16,17 @@ var RentalLibraryView = Backbone.View.extend({
 
   search: function(){
     var query = this.getQueryTerm();
+
     var searchResults = new SearchResults();
     searchResults.fetch(query);
 
-  },
+
+    var searchResultsView = new SearchResultsView({
+      model: searchResults,
+      template: _.template($('#movie-list-template').html()),
+      el: 'main'
+  });
+},
 
   getQueryTerm: function(){
     var word = this.$("#query").val();

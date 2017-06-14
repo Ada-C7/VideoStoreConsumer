@@ -6,7 +6,7 @@ import SearchResults from '../collections/search_results';
 
 var SearchResultsView = Backbone.View.extend({
   initialize: function(params){
-    this.template = _.template($('#movie-list-template').html());
+    this.template = params.template;
     this.listenTo(this.model,"update", this.render);
   },
 
