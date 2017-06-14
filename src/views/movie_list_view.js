@@ -10,6 +10,7 @@ var MovieListView = Backbone.View.extend({
     // other templates maybe?
 
     this.listenTo(this.model, "update", this.render);
+
     this.model.fetch({
       success: function(data) {
         // console.log("It worked!", data);
@@ -34,9 +35,7 @@ var MovieListView = Backbone.View.extend({
     return this;
   },
   events: {
-
     "submit" : "searchFunction"
-
   },
   getInputData: function(){
     var input = this.$("input[name='query']").serialize();
@@ -47,14 +46,12 @@ var MovieListView = Backbone.View.extend({
     return input;
   },
   searchFunction: function(event){
-    // alert("i'm here!");
     event.preventDefault();
     let query = this.getInputData();
-    // add "?" + input to url
     // console.log('this.model.url: ',this.model.url);
-    this.model.fetch({data: query,
+    this.model.fetch({
+      data: query,
       success: function(data) {
-        alert("i'm fetching the search :)))");
         // console.log("It worked!", data);
       },
       failure: function(data) {
