@@ -1,20 +1,21 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie';
 import $ from 'jquery';
+import _ from 'underscore';
 
-var   findUrl = function(){
-    var html =   $('#movieName').val();
-        // var html =  $("input[name=movietitle]").val();
-        // alert(html);
-    // var html = "Jaws"
-    return html;
-  }
 
 
 var MovieList = Backbone.Collection.extend({
-
   model: Movie,
-  url: 'http://localhost:3000/movies?query=' + findUrl()
+  initialize: function(options){
+    options || (options = {});
+    this.query = options.query;
+  },
+  url: function() { return 'http://localhost:3000/movies?query=' + this.query},
 });
+
+
+
+
 
 export default MovieList;

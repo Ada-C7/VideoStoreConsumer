@@ -19,24 +19,25 @@ $(document).ready(function() {
   var application = new RentalListView(options);
   application.render();
 
-  var movieList = new MovieList();
-    movieList.fetch();
-  // movieList.fetch({data: $.param({ query: "jaws"})});
-  // movieList.fetch({query: "jaws"  });
 
-  // Backbone.sync = function(method,model){
-  //   // alert(method + ": " + model.url);
-  // };
-  // var movieList = new Backbone.Collection;
-  // movieList.url = 'http://localhost:3000/movies?query=jaws'
-  // movieList.fetch();
+  $("form").submit(function( event ) {
+    console.log("In form submit event:");
+      event.preventDefault();
+      var movieList = new MovieList();
+      movieList.fetch({data: {query: $('#movieName').val()  }});
+
+      var options = {
+        el:  $('#all-movie-list'),
+        model: movieList
+      };
+
+      var mlv = new MovieListView(options);
+      mlv.render();
+
+  });
 
 
-  var options = {
-    el:  $('#all-movie-list'),
-    model: movieList
-  };
 
-  var mlv = new MovieListView(options);
-  mlv.render();
+
+
 });

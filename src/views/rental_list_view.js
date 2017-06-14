@@ -33,6 +33,15 @@ var RentalListView = Backbone.View.extend({
     });
     this.rentalList.push(rental);
   }
+
+
+
+
+
+
+
+
+
 });
 
 export default RentalListView;
