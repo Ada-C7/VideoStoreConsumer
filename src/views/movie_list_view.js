@@ -24,12 +24,6 @@ var MovieListView = Backbone.View.extend({
       // self.listenTo(petView,'select', self.pet_details)
     });
     return this;
-  },
-  events: {
-    'click submit-button': 'clickHELP'
-  },
-  clickHELP: function() {
-    console.log("DID THE THING");
   }
 
 });

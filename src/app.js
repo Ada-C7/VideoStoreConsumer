@@ -9,7 +9,7 @@ import MovieList from './collections/movie_list';
 
 // VIEWS
 import MovieListView from './views/movie_list_view';
-import SearchListView from './views/search_list_view';
+
 var movieTemplate;
 var movieList;
 var searchTemplate;
