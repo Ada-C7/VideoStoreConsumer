@@ -50,15 +50,8 @@ var MovieListView = Backbone.View.extend ({
     console.log(this.model);
     this.template = _.template($('#search-list-template').html());
     console.log(this.template);
-    myMovieListView.render();
-
-    // var searchMovieListView = new MovieListView({
-    //   model: searchMovieList,
-    //   template: _.template($('#search-list-template').html()),
-    //   el: 'main'
-    // });
-    //
-    // searchMovieList.render();
+    this.initialize();
+    this.render();
   }
 
 
