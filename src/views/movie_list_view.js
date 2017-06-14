@@ -1,27 +1,38 @@
 import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
+
 import MovieView from './movie_view';
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
-    var self = this;
+    this.movieTemplate = _.template($('#movie-card-template').html());
+    this.movieList = [];
 
-    this.templateList = _.template($('#movie-card-template').html());
-    this.movieViewList = [];
-  },
+    this.model.forEach(function(rawMovie){
+      this.addMovie(rawMovie);
+    }, this);
 
-  render: function() {
+  this.listenTo(this.model, 'add', this.addMovie);
+  this.listenTo(this.model, 'update', this.render);
+},
 
-    var self = this;
-    self.$('.movie-cards').empty();
-    this.movieViewList.forEach(function(movieView) {
-      MovieView.render();
-      self.$('.movie-cards').append(movieView.$el);
-    });
+render: function() {
+  $('#movie-list').empty();
+  this.movieList.forEach(function(movie){
+    movie.render();
+    $('#movie-list').append(movie.$el);
+  }, this);
+  return this;
+},
 
-    return this;
-  }
+addMovie: function(movie){
+  var movie = new MovieView ({
+    model: movie,
+    template: this.movieTemplate
+  });
+  this.movieList.push(movie);
+}
 });
 
 export default MovieListView;

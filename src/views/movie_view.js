@@ -1,24 +1,20 @@
 import Backbone from 'backbone';
+import $ from 'jquery';
+import _ from 'underscore';
 
 var MovieView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
-    // this.listenTo(this.model, "search", this.render);
+    this.listenTo(this.model, "change", this.render);
   },
-  // events: {
-  //   "click": "searchMovie"
-  // },
+
   render: function() {
     var compiledTemplate = this.template({movie: this.model.toJSON()});
     this.$el.html(compiledTemplate);
 
-    // this.delegateEvents();
+    this.delegateEvents();
     return this;
   }
-  // searchMovie: function(event) {
-  //   this.trigger("selected", this.model);
-  // }
-
 });
 
 export default MovieView;
