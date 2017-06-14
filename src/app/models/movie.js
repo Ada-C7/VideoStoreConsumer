@@ -8,7 +8,6 @@ var Movie = Backbone.Model.extend({
   logStatus: function(){
     console.log('Created' + this.get('title'));
   },
-
   initialize: function(params){
     this.logStatus();
   }
