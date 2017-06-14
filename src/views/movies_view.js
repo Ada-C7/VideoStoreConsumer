@@ -21,6 +21,17 @@ var MoviesView = Backbone.View.extend({
       that.$('.main-content').append(movieView.render().el);
     });
     return this;
+  },
+  events: {
+  "click h3.button.btn-query": "searchMovies"
+  },
+  searchMovies: function(event) {
+    var searchParams = this.$('#search-item').val();
+    this.$('#search-item').val('');
+    this.model.fetch({
+      data: { query: searchParams },
+      processData: true
+    });
   }
 });
 

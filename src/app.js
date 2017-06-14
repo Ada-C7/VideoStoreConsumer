@@ -24,5 +24,9 @@ $(document).ready(function() {
 
   moviesView.render();
 
+  $('.btn-query').click(function() {
+
+  });
+
 
 });
