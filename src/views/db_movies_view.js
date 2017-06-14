@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 import DBMovieView from './db_movie_view.js';
 import DBMovie from '../models/db_movie.js';
-
+import Movie from '../models/movie.js';
 
 var DBMoviesView = Backbone.View.extend({
      initialize: function( params ) {
@@ -27,21 +27,31 @@ var DBMoviesView = Backbone.View.extend({
           return this;
      },
      events:  {
-          'click #search-button' : 'searchMovie'
+          'click #search-button' : 'searchMovie',
+          'click #add-button' : 'addMovie'
      },
-     getFormData: function() {
+     getFormSearch: function() {
           var formQuery = this.$('#query').val();
           this.$('#query').val('');
           return formQuery;
      },
+     getFormAdd: function() {
+          var formAdd = this.$('#external-id').val();
+          this.$('#external-id').val('');
+          return formAdd;
+     },
      searchMovie: function() {
-          console.log('test');
           event.preventDefault();
-          
-          this.model.fetch({
-          data: {query: this.getFormData()}
-          });
 
+          this.model.fetch({
+               data: {query: this.getFormSearch()}
+          });
+     },
+     addMovie: function() {
+          console.log(this.getFormAdd());
+          event.preventDefault();
+          var movie = new Movie(this.model.get(this.getFormAdd()));
+          this.model.create(movie);
      }
 });
 

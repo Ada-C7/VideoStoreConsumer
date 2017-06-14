@@ -38,6 +38,10 @@ div {
   display: inline;
 }
 
+.hidden {
+     display: none;   
+}
+
 /*
 * {
   border-style: solid;

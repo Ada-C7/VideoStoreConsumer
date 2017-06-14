@@ -13,13 +13,13 @@ var dbMovies = new DBMovies();
 $(document).ready(function() {
      var moviesView = new MoviesView({
           model: movies,
-          resultTemplate: _.template($('#result-movie-template').html(), {variable: 'movie'}),
+          resultTemplate: _.template($('#movie-template').html(), {variable: 'movie'}),
           el: 'main'
      });
 
      var dbMoviesView = new DBMoviesView({
           model: dbMovies,
-          stockTemplate:  _.template($('#stocked-movie-template').html(), {variable: 'movie'}),
+          stockTemplate:  _.template($('#db-movie-template').html(), {variable: 'movie'}),
           el: '#db-movies'
      });
 
