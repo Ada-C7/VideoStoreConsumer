@@ -15,7 +15,16 @@
           </header>
 
      <main>
-          <form></form>
+          <form id='searchForm' action='https://trektravel.herokuapp.com/trips' method='post'>
+               <section>
+                    <label>Title</label>
+                    <input type='text' id='title' name='title'></input>
+               </section>
+
+               <section class='button'>
+                    <button type='submit'>Search</button>
+               </section>
+          </form>
           <section>
                <section id='movie-results'></section>
                <section id='movies-stocked'></section>
