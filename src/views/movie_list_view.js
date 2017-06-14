@@ -36,15 +36,19 @@ var MovieListView = Backbone.View.extend({
 
   this.model.fetch({
     data: { 'query': queryParams }
+  });
   },
   addRental: function(event){
     let movie = event.currentTarget.id;
 
-    let addedMovie = this.model.findWhere({external_id: movie});
+    let addedMovie = this.model.filter(function(model){
+      if (model.attributes.external_id == movie) {
+        console.log(model.attributes.external_id);
+        return model
+      }
+    });
 
-    console.log(addedMovie);
-    console.log(this.model);
-    console.log(event.currentTarget.id);
+    this.model.create(addedMovie);
   }
 });
 
