@@ -7,18 +7,40 @@ import _ from 'underscore';
 import MovieList from './collections/movie_list';
 import MovieListView from './views/movie_list_view';
 
+var storeList = function(event) {
+  var movieList = new MovieList();
+  movieList.fetch();
+
+  var rentals = new MovieListView({
+    model: movieList,
+    templateMovieList: _.template($('#movie-card-template').html()),
+    el: $('#application')
+  });
+  rentals.render();
+}
+
+var databaseList = function(event) {
+  var queryParams = $('#queryParams').val();
+  var searchList = new MovieList();
+  searchList.customUrl(queryParams)
+  searchList.fetch();
+
+  var searches = new MovieListView({
+    model: searchList,
+    templateMovieList: _.template($('#movie-card-template').html()),
+    el: $('#application')
+  });
+  searches.render();
+}
+
+
 // ready to go
 $(document).ready(function() {
+  $("main").html(storeList);
 
-var movieList = new MovieList();
-movieList.fetch();
 
-var application = new MovieListView({
-  el: $('#application'),
-  model: movieList
-});
 
-application.render();
+
 
 
   // $('section.main-content').append('<p>Hello World!</p>');
