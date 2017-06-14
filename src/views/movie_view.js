@@ -12,8 +12,16 @@ var MovieView = Backbone.View.extend({
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
-
     return this;
+  },
+  events: {
+    "click h3.button.add-collection": "addMovie"
+  },
+
+  addMovie: function(event) {
+
+    event.stopPropagation();
+    this.trigger("movieAdded", this.model.attributes);
   }
 });
 

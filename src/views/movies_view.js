@@ -21,6 +21,12 @@ var MoviesView = Backbone.View.extend({
       });
       that.$('.main-content').append(movieView.render().el);
 
+      that.listenTo(movieView, "movieAdded", function(movieData) {
+        console.log(movieData);
+        this.model.create(movieData);
+        this.model.fetch();
+      });
+
     });
 
     console.log(this.isSearching);
@@ -35,7 +41,7 @@ var MoviesView = Backbone.View.extend({
     return this;
   },
   events: {
-  "click h3.button.btn-query": "searchMovies"
+  "click h3.button.btn-query": "searchMovies",
   },
   searchMovies: function(event) {
     var searchParams = this.$('#search-item').val();
@@ -46,6 +52,8 @@ var MoviesView = Backbone.View.extend({
     });
     this.isSearching = true;
   }
+
+
 });
 
 export default MoviesView;
