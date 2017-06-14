@@ -6,10 +6,10 @@ var ResultList = Backbone.Collection.extend({
   model: Result,
   url: 'http://localhost:3000/movies',
   // data: data,
-  parse: function(data) {
-      return data.results;
-    //   // data["tasks"]
-  }
+  // parse: function(data) {
+  //     return data.results;
+  //   //   // data["tasks"]
+  // }
 });
 
 console.log("stuff in result_list");

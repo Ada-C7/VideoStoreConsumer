@@ -40,22 +40,13 @@ var MovieListView = Backbone.View.extend({
   },
   search: function() {
 
-    // var myPetList = new PetList();
-    // myPetList.fetch();
     var mySearchTerm = this.getFormData().title;
     var resultList = new ResultList();
     console.log("******getFormData:" + typeof mySearchTerm);
-    // console.log(this.getFormData());
 
-    // var formTitle = this.$("#title").val();
-    // console.log(">>>>" + formTitle);
-    // var mySearchTerm = formTitle;
-    // var mySearchTerm = this.getFormData().title;
     resultList.fetch({data: {query: mySearchTerm}
 
     });
-
-
 
     var myResultListView = new ResultListView( {
       model: resultList,
