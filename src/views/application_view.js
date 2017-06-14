@@ -8,6 +8,9 @@ const ApplicationView = Backbone.View.extend({
     this.movieListTemplate = params.movieListTemplate;
     this.movieDetailsTemplate = params.movieDetailsTemplate;
   },
+  events: {
+    'click h1' : 'showList'
+  },
   showList: function () {
     var movieListView = new MovieListView({
       model: this.movieList,
@@ -18,7 +21,6 @@ const ApplicationView = Backbone.View.extend({
     this.listenTo(movieListView, 'showMovieDetails', this.showMovieDetails);
   },
   showMovieDetails: function (movie) {
-    console.log("SHOWIN DEM DETAILS");
     var movieDetailsView = new MovieDetailsView({
       model: movie,
       template: this.movieDetailsTemplate,
