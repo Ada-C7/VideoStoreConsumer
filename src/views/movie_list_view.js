@@ -10,7 +10,15 @@ var MovieListView = Backbone.View.extend({
     // other templates maybe?
 
     this.listenTo(this.model, "update", this.render);
-    this.model.fetch();
+    this.model.fetch({
+      success: function(data) {
+        // console.log("It worked!", data);
+      },
+      failure: function(data) {
+        console.log("Failure", data);
+        this.$('#movie-list').append("<h2>Request failed.</h2>");
+      }
+    });
   },
   render: function() {
     this.$('#movie-list').empty();
@@ -26,19 +34,32 @@ var MovieListView = Backbone.View.extend({
     return this;
   },
   events: {
-    "submit #search" : "getInputData"
+    "submit" : "searchFunction"
   },
   getInputData: function(){
+    var input = this.$("input[name='query']").serialize();
 
-    var input = this.$("input[name='query']").val();
-    console.log('this is the input from', input);
     this.$("input[name='query']").val('');
 
-    return input.seralize();
+    console.log('this is the input from', input);
+    return input;
   },
-  searchFunction: function(){
-    let something = this.getInputData();
-    console.log('this.model.url: ',this.model.url);
+  searchFunction: function(event){
+    // alert("i'm here!");
+    event.preventDefault();
+    let query = this.getInputData();
+    // add "?" + input to url
+    // console.log('this.model.url: ',this.model.url);
+    this.model.fetch({
+      success: function(data) {
+        // console.log("It worked!", data);
+        alert("i'm fetching the search :)))");
+      },
+      failure: function(data) {
+        console.log("Failure", data);
+        this.$('#movie-list').append("<h2>Request failed.</h2>");
+      }
+    });
   }
 });
 
