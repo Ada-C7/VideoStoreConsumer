@@ -21,6 +21,10 @@ var MovieListView = Backbone.View.extend({
         template: that.template,
       });
 
+      // if (!(movieView.model.attributes.external_id)) {
+      //   that.$('.btn-add').hide();
+      // }
+
       that.$('#movie-list').append(movieView.render().$el);
       that.listenTo(movieView, 'add', that.addToLibrary)
     });
@@ -29,17 +33,15 @@ var MovieListView = Backbone.View.extend({
 
   events: {
     'submit #searchbar' : 'searchMovies',
-    'click .btn-add': 'addRental'
+    'click .btn-add': 'addRental',
+    'click #rental-library': 'viewLibrary'
   },
 
   searchMovies: function(event) {
     event.preventDefault();
 
     var queryParams = $('#search').val();
-
-    this.model.fetch({
-      data: { 'query': queryParams }
-    });
+    this.model.fetch({ data: { 'query': queryParams } });
   },
   addToLibrary: function(movie) {
     var newMovie = {
@@ -59,6 +61,10 @@ var MovieListView = Backbone.View.extend({
       console.log(model.ajax);
       console.log('Yay?')
     };
+  },
+
+  viewLibrary: function(event) {
+    this.model.fetch();
   }
 });
 
