@@ -17,6 +17,7 @@ var ResultListView = Backbone.View.extend({
   render: function() {
     // console.log("I'm in the result_list_view render!!!!");
   this.$('#movie-list').empty();
+  this.$('#result-list').empty();
   // this.$('#result-list').empty();
   var that = this;
 
@@ -30,7 +31,7 @@ var ResultListView = Backbone.View.extend({
     });
 
     // that.listenTo(myResultView, "selected", that.petDeets);
-    that.$('#movie-list').append(myResultView.render().$el);
+    that.$('#result-list').append(myResultView.render().$el);
   });
   return this;
 

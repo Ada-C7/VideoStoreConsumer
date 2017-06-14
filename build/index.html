@@ -17,11 +17,18 @@
         </section>
       <section id='movie'></section>
       <section id='movie-list'></section>
+      <section id='result-list'></section>
 
     </main>
     <script id="movie-template" type="text/template">
       <li><%- movie.title %></li>
     </script>
+
+    <script id="result-template" type="text/template">
+      <li><%- movie.title %><button id="add-movie" class="button success">Add Movie</button></li>
+
+    </script>
+
 
     <script src="/app.bundle.js"></script>
 

@@ -50,7 +50,7 @@ var MovieListView = Backbone.View.extend({
 
     var myResultListView = new ResultListView( {
       model: resultList,
-      template: _.template($('#movie-template').html()),
+      template: _.template($('#result-template').html()),
       params: this.getFormData(),
       el: 'main'
     });
