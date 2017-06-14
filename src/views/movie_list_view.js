@@ -10,7 +10,7 @@ var MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
   },
   render: function() {
-    this.$('#movie-list').html('<ul></ul>');
+    this.$('main').html('<ul></ul>');
     var that = this;
 
     this.model.each(function(movie) {
@@ -19,9 +19,13 @@ var MovieListView = Backbone.View.extend({
         template: that.template,
         tagName: 'li'
       });
-      that.$('#movie-list ul').append(movieView.render().$el);
+      that.$('main ul').append(movieView.render().$el);
+      that.listenTo(movieView, 'showMovieDetails', that.showMovieDetails);
     });
     return this;
+  },
+  showMovieDetails: function (movie) {
+    this.trigger('showMovieDetails', movie);
   }
 });
 

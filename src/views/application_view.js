@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import MovieListView from './movie_list_view.js';
+import MovieDetailsView from './movie_details_view.js';
 
 const ApplicationView = Backbone.View.extend({
   initialize: function (params) {
@@ -14,6 +15,16 @@ const ApplicationView = Backbone.View.extend({
       el: 'body'
     });
     movieListView.render();
+    this.listenTo(movieListView, 'showMovieDetails', this.showMovieDetails);
+  },
+  showMovieDetails: function (movie) {
+    console.log("SHOWIN DEM DETAILS");
+    var movieDetailsView = new MovieDetailsView({
+      model: movie,
+      template: this.movieDetailsTemplate,
+      el: 'body'
+    });
+    movieDetailsView.render();
   }
 });
 

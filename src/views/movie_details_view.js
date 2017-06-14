@@ -3,21 +3,15 @@ import _ from 'underscore';
 import $ from 'jquery';
 import Movie from '../models/movie.js';
 
-var MovieView = Backbone.View.extend({
+var MovieDetailsView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
+    this.listenTo(this.model, 'update', this.render);
   },
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
-    this.$el.html(compiledTemplate);
-    return this;
-  },
-  events: {
-    'click' : 'showDetails'
-  },
-  showDetails: function () {
-    this.trigger('showMovieDetails', this.model);
+    this.$('main').html(compiledTemplate);
   }
 });
 
-export default MovieView;
+export default MovieDetailsView;

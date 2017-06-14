@@ -12,10 +12,7 @@
     <header>
       <h1>MOVIES</h1>
     </header>
-    <main>
-      <section id='movie'></section>
-      <section id='movie-list'></section>
-    </main>
+    <main></main>
 
     <!-- Templates -->
 
@@ -25,6 +22,7 @@
     </script>
 
     <script id="movie-info-template" type="text/template">
+      <img src=<%- image_url %> />
       <h3>Title: <%- title %></h3>
       <h4>Overview: <%- overview %></h4>
       <h4>Release Date: <%- release_date %></h4>
