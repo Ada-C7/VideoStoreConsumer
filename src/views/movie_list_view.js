@@ -20,6 +20,9 @@ var MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'add', this.addMovie);
     this.listenTo(this.model, 'update', this.render);
   },
+  events: {
+    'click #search-button': 'search'
+  },
 
   render: function() {
     var self = this;
@@ -40,6 +43,10 @@ var MovieListView = Backbone.View.extend({
 
     this.movieViewList.push(movieView);
   },
+
+  search: function(event) {
+    console.log("Working");
+  }
 });
 
 export default MovieListView;
