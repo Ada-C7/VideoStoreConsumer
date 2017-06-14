@@ -16,7 +16,6 @@ var MovieListView = Backbone.View.extend({
     this.$('#movie-list').empty();
     var that = this;
     this.model.each(function(movie){
-      console.log(movie);
       var movieView = new MovieView({
         model: movie,
         template: that.template,
@@ -30,7 +29,8 @@ var MovieListView = Backbone.View.extend({
 
   events: {
     'submit #searchbar' : 'searchMovies',
-    'click .btn-add': 'addRental'
+    'click .btn-add': 'addRental',
+    'click #rental-library': 'viewLibrary'
   },
 
   searchMovies: function(event) {
@@ -54,6 +54,10 @@ var MovieListView = Backbone.View.extend({
 
     this.model.create(newMovie);
     // , { dataType: 'jsonp' }
+  },
+
+  viewLibrary: function(event) {
+    this.model.fetch();
   }
 });
 
