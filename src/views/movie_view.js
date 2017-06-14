@@ -19,8 +19,15 @@ var MovieView = Backbone.View.extend({
     'click #add' : 'addMovie',
   },
   addMovie: function() {
-    alert(this.model.get("title"));
+    console.log(this.model);
     // put HTTP request, sending title, overview, releasedate, image_url
+    // passes JSON in request
+    // send {
+    //   title: movieTitle,
+    //   overview: movieOverview,
+    //   release_date: movieReleaseDate,
+    //   image_url: movieImage
+    // };
   }
 });
 
