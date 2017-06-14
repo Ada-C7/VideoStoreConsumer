@@ -11,38 +11,43 @@
   <main>
 
 
-  <h2>Our fantastic video store!</h2>
+    <h2>Our fantastic video store!</h2>
+    <section>
 
-  <h3>Add A New Video</h3>
-  <div class="columns">
-
-    <label>
-      <input type="text" name="search" id="search" placeholder="Enter the name of a video">
-    </label>
-    <button class="button success" id="add-video">Add video!</button>
-  </div>
-  <h4>Look at the long list of videos......</h4>
-  <ul id="video-list" class="row align-center"></ul>
-  <button class="button success" id="rent">Rent</button>
+      <h3>Find A Video</h3>
+      <div class="row">
+        <label>
+          <div class="small-4 small-centered columns">
+            <input type="text" name="search" id="title" placeholder="Enter the name of a video">
+          </label>
+          <article>
+            <button type="submit"class="button success" id="search-video">Search videos!</button>
+          </article>
+        </div>
+      </div>
+      <h4>Look at the long list of videos......</h4>
+      <ul id="video-list" class="row align-center"></ul>
+      <button class="button success" id="rent">Rent</button>
     </main>
- <!-- Underscore Templates -->
+  </section>
+  <!-- Underscore Templates -->
 
- <script type="text/template" id="video-card-template">
+  <script type="text/template" id="video-card-template">
     <li class="video small-11 medium-4 large-2 medium-offset-1 columns">
       <h4><%- video.title %></h4>
       <% if (video.image_url) { %>
         <img src= <%- video.image_url %> >
-      <% } else { %>
-         <img src= <%- video.poster_path %> >
-      <% } %>
+        <% } else { %>
+          <img src= <%- video.poster_path %> >
+          <% } %>
 
-    </li>
-  </script>
-
-
+        </li>
+      </script>
 
 
-  <script src="/app.bundle.js"></script>
 
-</body>
-</html>
+
+      <script src="/app.bundle.js"></script>
+
+    </body>
+    </html>
