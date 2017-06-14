@@ -10,13 +10,11 @@ var MovieListView = Backbone.View.extend({
     this.addFormTemplate = params.addFormTemplate;
 
     this.listenTo(this.model, 'update' , this.render);
-    this.addFormHolder = undefined;
   },
 
   render: function(){
     console.log(' Movie list View in render>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
     var self = this;
-    // self.stopListening();
     this.$('#rental-library').empty();
 
     this.model.each(function(movie){
@@ -33,7 +31,6 @@ var MovieListView = Backbone.View.extend({
 
   events: {
     'click .btn-cancel': 'clearForm',
-    //'click .btn-save': 'saveMovie'
   },
 
   addForm: function(selectedMovie){
@@ -42,7 +39,6 @@ var MovieListView = Backbone.View.extend({
       movie: selectedMovie.model.toJSON()
     });
     $('#add-form').off('click', ".btn-save")
-    // $('#add-form').off('click', ".btn-cancel")
     $('#add-form').html(compiledTemplate);
     $('#add-form').on('click', ".btn-save", this.saveMovie.bind(this))
     return this;
@@ -66,7 +62,6 @@ var MovieListView = Backbone.View.extend({
     console.log(rawMovie);
     this.model.create(rawMovie);
     this.clearForm();
-    // this.undelegateEvents();
   },
 
   getInput: function() {

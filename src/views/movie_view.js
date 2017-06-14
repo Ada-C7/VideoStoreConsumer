@@ -9,6 +9,7 @@ var MovieView = Backbone.View.extend({
     this.movieTemplate = params.movieTemplate;
 
     this.listenTo(this.model, "change", this.render);
+    this.listenTo(this.model, 'sync', this.render)
   },
 
   render: function(){
