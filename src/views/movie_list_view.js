@@ -21,6 +21,10 @@ var MovieListView = Backbone.View.extend({
         template: that.template,
       });
 
+      // if (!(movieView.model.attributes.external_id)) {
+      //   that.$('.btn-add').hide();
+      // }
+
       that.$('#movie-list').append(movieView.render().$el);
       that.listenTo(movieView, 'add', that.addToLibrary)
     });
@@ -37,10 +41,7 @@ var MovieListView = Backbone.View.extend({
     event.preventDefault();
 
     var queryParams = $('#search').val();
-
-    this.model.fetch({
-      data: { 'query': queryParams }
-    });
+    this.model.fetch({ data: { 'query': queryParams } });
   },
 
   addToLibrary: function(movie) {

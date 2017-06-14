@@ -11,6 +11,11 @@ var MovieView = Backbone.View.extend({
   render: function() {
     var movieHTML = this.template({movie: this.model.attributes});
     this.$el.html(movieHTML);
+
+    if (!(this.model.attributes.external_id)) {
+      this.$('.btn-add').hide();
+    }
+    
     return this;
   },
 
