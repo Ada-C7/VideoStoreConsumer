@@ -2,17 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/_settings.css">
     <link rel="stylesheet" type="text/css" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Backbone Baseline</title>
   </head>
   <body>
-
+    <header class="row">
+      <h1>Video Store</h1>
+    </header>
     <main class="row">
-      <h1>Sick azz movies rentalz</h1>
-      <section class="row search-bar">
-        <input type="text" name="query" id="search-item" />
+      <section class="search-bar">
+        <section class="large-4 columns">
+          <input type="text" name="query" id="search-item" />
+        </section>
         <h3 class="button btn-query">Search</h3>
       </section>
       <section class="main-content">
@@ -25,7 +29,7 @@
     <script type="text/template" id="movie-template">
       <section class="columns small-4">
           <img src="<%= image_url.toString() %>" />
-          <h4><%- title %></h4>
+          <h4 class="title"><%- title %></h4>
           <h3 class="button add-rental">Rent Movie</h3>
           <h3 class="button hide add-collection">Add to Collection</h3>
       </section>
