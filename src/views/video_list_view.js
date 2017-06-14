@@ -3,7 +3,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 
 import VideoView from './video_view.js';
-import Video from 'app/collections/video_list.js';
+import Video from '/collections/video_list.js';
 
 var VideoListView = Backbone.View.extend({
   initialize: function(params) {
@@ -16,9 +16,10 @@ var VideoListView = Backbone.View.extend({
     this.model.each(function(video) {
       var videoView = new VideoView({
         model: video,
-        template: that.template,
+        template: that.template
       });
-      that.$("#video-list").append(videoView.render().el);
+      that.$("#video-list").append(videoView.render().$el);
+      console.log(that.$("video-list"));
 
     });
     return this;

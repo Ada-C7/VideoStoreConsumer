@@ -3,6 +3,8 @@
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
+import VideoList from 'collections/video_list.js';
+import VideoListView from 'views/video_list_view';
 
 // ready to go
 $(document).ready(function() {

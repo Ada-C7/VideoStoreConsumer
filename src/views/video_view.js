@@ -7,7 +7,7 @@ var VideoView = Backbone.View.extend({
   },
   render: function() {
     var compiledTemplate = this.template(
-      {pet: this.model.toJSON()});
+      {video: this.model.toJSON()});
     this.$el.html(compiledTemplate);
     return this;
   },
