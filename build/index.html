@@ -9,6 +9,27 @@
   </head>
   <body>
 
+    <header>
+      <h1>MOVIES</h1>
+    </header>
+    <main>
+      <section id='movie'></section>
+      <section id='movie-list'></section>
+    </main>
+
+    <!-- Templates -->
+
+    <script id="movie-template" type="text/template">
+      <img src=<%- image_url %> />
+      <h2><%- title %></h2>
+    </script>
+
+    <script id="movie-info-template" type="text/template">
+      <h3>Title: <%- title %></h3>
+      <h4>Overview: <%- overview %></h4>
+      <h4>Release Date: <%- release_date %></h4>
+    </script>
+
     <script src="/app.bundle.js"></script>
 
   </body>
