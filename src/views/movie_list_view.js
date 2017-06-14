@@ -36,7 +36,7 @@ var MovieListView = Backbone.View.extend ({
     // var searchTerm = this.getFormData();
     var searchMovieList = new MovieList();
     console.log(searchMovieList);
-    searchMovieList.fetch({
+    searchMovieList.fetch({ error: function() {console.log(arguments);},
       traditional: true,
       data: {query: [this.getFormData()]}
     });
