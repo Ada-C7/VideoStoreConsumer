@@ -36,6 +36,7 @@ var MoviesView = Backbone.View.extend({
      },
      searchMovie: function() {
           console.log("test");
+          event.preventDefault();
      }
 
 });
