@@ -13,10 +13,12 @@ import MovieListView from './views/movie_list_view';
 var movieTemplate;
 var movieList;
 var searchTemplate;
+var addFormTemplate;
 // ready to go
 $(document).ready(function() {
   movieTemplate = _.template($('#rental-library-template').html());
   searchTemplate = _.template($('#search-library-template').html());
+  addFormTemplate = _.template($('#addto-rental-library-template').html());
 
   movieList = new MovieList();
   movieList.fetch();
@@ -39,6 +41,7 @@ $(document).ready(function() {
 
     var params = {
       movieTemplate: searchTemplate,
+      addFormTemplate: addFormTemplate,
       el: $('main'),
       model: searchList
     };

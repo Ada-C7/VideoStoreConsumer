@@ -12,6 +12,7 @@
 
     </header>
     <main>
+      <section id='add-form'></section>
       <section id="form">
         <label for="search">Search for Movie</label>
         <input type="text" name="title" id="title" />
@@ -20,6 +21,7 @@
         <button id="submit-button" class="button success">Search</button>
       </section>
       <section id='rental-library'> </section>
+
     </main>
 
 
@@ -30,7 +32,45 @@
 
     <script id="search-library-template" type="text/template">
       <li><%-movie.title%></li>
-      <button class="button alert">Add To Rental Library</button>
+      <button class="button alert" id= 'open-add-form'>Add To Rental Library</button>
+    </script>
+
+    <script id="addto-rental-library-template" type="text/template">
+      <section class="row contact-form">
+        <h4>You're about to save the following movie to the rental library</h4>
+        <p>
+          Title: <%-movie.title%>
+        </p>
+        <p>
+          Release date: <%-movie.release_date%>
+        </p>
+
+        <div class="columns">
+          <label>
+            <input type="text" name="title" value="<%-movie.title%>"  id = 'title'>
+          </label>
+          <label>
+            <input type="hidden" name="overview" value="<%-movie.overview%>" id = 'overview'>
+          </label>
+          <label>
+            <input type="hidden" name="release_date" value="<%-movie.release_date%>" id = 'release_date'>
+          </label>
+          <label>
+            <input type="hidden" name="image_url" value=<%-movie.image_url%>  id = 'image_url'>
+          </label>
+          <label>
+            Number of copies
+            <input type="number" name="inventory" id = 'inventory'>
+          </label>
+
+        </div>
+        <div class = 'column'>
+          <h3 class="button btn-save">Save</h3>
+          <h3 class="button btn-cancel">Cancel</h3>
+        </div>
+      </section>
+
+
     </script>
 
 

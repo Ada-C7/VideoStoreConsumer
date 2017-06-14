@@ -16,6 +16,14 @@ var MovieView = Backbone.View.extend({
     });
     this.$el.html(compiledTemplate);
     return this;
+  },
+
+  events: {
+    "click #open-add-form": "openForm"
+  },
+
+  openForm: function(e){
+    this.trigger('openform',this)
   }
 
 });
