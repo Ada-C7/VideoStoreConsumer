@@ -54,8 +54,8 @@ var MovieListView = Backbone.View.extend({
     // console.log('this.model.url: ',this.model.url);
     this.model.fetch({data: query,
       success: function(data) {
-        // console.log("It worked!", data);
         alert("i'm fetching the search :)))");
+        // console.log("It worked!", data);
       },
       failure: function(data) {
         console.log("Failure", data);
