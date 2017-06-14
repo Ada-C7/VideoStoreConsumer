@@ -9,6 +9,7 @@
   </head>
   <body>
     <main>
+      <h1>Jouckie's Redbloxbuster</h1>
       <section class="row" id="search-section">
           <label class="columns medium-12">Search
             <input type="text" name="search" id="title" placeholder="Search by title" />
@@ -21,10 +22,12 @@
 
     </main>
     <script id="movie-template" type="text/template">
+      <img src=<%- movie.image_url%>/>
       <li><%- movie.title %></li>
     </script>
 
     <script id="result-template" type="text/template">
+      <img src="<%- movie.image_url%>"/>
       <li><%- movie.title %><button id="add-movie" class="button success">Add Movie</button></li>
 
     </script>

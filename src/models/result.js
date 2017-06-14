@@ -4,7 +4,7 @@ var Result = Backbone.Model.extend({
 
   defaults: {
     title: 'no title added',
-    poster_path: ''
+    image_url: "http://7bna.net/images/random-image/random-image-4.jpg"
   },
 
   initialize: function(params) {
