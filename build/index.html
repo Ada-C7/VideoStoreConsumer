@@ -12,13 +12,26 @@
 
     </header>
     <main>
+      <section id="form">
+        <label for="search">Search for Movie</label>
+        <input type="text" name="title" id="title" />
+      </section>
+      <section id="buttons">
+        <button id="submit-button" class="button success">Search</button>
+      </section>
       <section id='rental-library'> </section>
+      <section id='search-library'></section>
     </main>
 
 
 <!-- TEMPLATES -->
     <script id="rental-library-template" type="text/template">
       <li><%-movie.title%></li>
+    </script>
+
+    <script id="search-library-template" type="text/template">
+      <li><%-movie.title%></li>
+      <button class="button alert">Add To Rental Library</button>
     </script>
 
 

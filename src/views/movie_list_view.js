@@ -7,6 +7,7 @@ import Movie from '../models/movie.js';
 var MovieListView = Backbone.View.extend({
   initialize: function(params){
     this.movieTemplate = params.movieTemplate;
+
     this.listenTo(this.model, 'update' , this.render)
   },
 
@@ -23,8 +24,13 @@ var MovieListView = Backbone.View.extend({
       // self.listenTo(petView,'select', self.pet_details)
     });
     return this;
+  },
+  events: {
+    'click submit-button': 'clickHELP'
+  },
+  clickHELP: function() {
+    console.log("DID THE THING");
   }
-
 
 });
 

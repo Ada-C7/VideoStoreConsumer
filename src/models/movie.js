@@ -4,7 +4,7 @@ var Movie = Backbone.Model.extend({
 
 
   initialize:  function(params){
-    console.log("Movie initialized: " + this.get("title"));
+    // console.log("Movie initialized: " + this.get("title"));
   }
 });
 
