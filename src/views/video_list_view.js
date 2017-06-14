@@ -2,8 +2,9 @@ import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
 
+import VideoList from '/collections/video_list.js';
 import VideoView from './video_view.js';
-import Video from '/collections/video_list.js';
+import Video from '/models/video.js';
 
 var VideoListView = Backbone.View.extend({
   initialize: function(params) {
@@ -32,14 +33,29 @@ var VideoListView = Backbone.View.extend({
     this.$("#title").val();
     this.$("#title").val('');
 
-    return {
-      title: formTitle,
-    };
+    return formTitle;
   },
-  searchVideo: function() {
+  searchVideo: function(){
+    console.log("SEARCH");
+    var videoTitle = this.getFormData();
+    fetch('http://localhost:3000/movies/' + videoTitle, {
+    	method: 'GET',
+    	mode: 'cors',
+    }).then(function(response) {
+    response.json().then(function(j) {
+      console.log(j);
+    });
+  });
+
+
+
+    // console.log(myBlob);
+    console.log("SUCCESS!!!");
+    // var mySearchResult = new VideoList();
+    // mySearchResult.fetch(this.getFormData());
     // var video = new Video(this.getFormData());
     // add to the collection
-    this.model.create(video); // the model is the collection for the video list
+    // this.model.create(video); // the model is the collection for the video list
   }
 });
 
