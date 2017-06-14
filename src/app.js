@@ -8,12 +8,10 @@ import MovieListView from './views/movie_list_view.js';
 
 var rentalList = new MovieList();
 
-console.log('>>>>>>>>>>>BreadCrumb 1');
-
 var rentalListView = new MovieListView({
   model: rentalList,
   template: _.template($('#movie-template').html()),
-  el: 'main',
+  el: 'body'
 });
 
 
