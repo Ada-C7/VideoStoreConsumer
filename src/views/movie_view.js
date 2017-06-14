@@ -7,6 +7,7 @@ var MovieView = Backbone.View.extend({
 
   initialize: function(params){
     this.movieTemplate = params.movieTemplate;
+
     this.listenTo(this.model, "change", this.render);
   },
 
@@ -23,6 +24,7 @@ var MovieView = Backbone.View.extend({
   },
 
   openForm: function(e){
+    console.log("one openForm");
     this.trigger('openform',this)
   }
 

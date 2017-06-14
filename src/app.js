@@ -34,7 +34,7 @@ $(document).ready(function() {
   application.render();
 
   $('#submit-button').click(function(event) {
-    var search = {data: $.param({query: $('#title').val()})};
+    var search = {data: $.param({query: $('#search').val()})};
 
     var searchList = new MovieList();
     searchList.fetch(search);

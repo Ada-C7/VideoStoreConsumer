@@ -15,7 +15,7 @@
       <section id='add-form'></section>
       <section id="form">
         <label for="search">Search for Movie</label>
-        <input type="text" name="title" id="title" />
+        <input type="text" name="search" id="search" />
       </section>
       <section id="buttons">
         <button id="submit-button" class="button success">Search</button>
@@ -47,7 +47,7 @@
 
         <div class="columns">
           <label>
-            <input type="text" name="title" value="<%-movie.title%>"  id = 'title'>
+            <input type="hidden" name="title" value="<%-movie.title%>"  id = 'title'>
           </label>
           <label>
             <input type="hidden" name="overview" value="<%-movie.overview%>" id = 'overview'>
@@ -56,7 +56,7 @@
             <input type="hidden" name="release_date" value="<%-movie.release_date%>" id = 'release_date'>
           </label>
           <label>
-            <input type="hidden" name="image_url" value=<%-movie.image_url%>  id = 'image_url'>
+            <input type="hidden" name="image_url" value="<%-movie.image_url%>"  id = 'image_url'>
           </label>
           <label>
             Number of copies
@@ -64,7 +64,7 @@
           </label>
 
         </div>
-        <div class = 'column'>
+        <div class='column'>
           <h3 class="button btn-save">Save</h3>
           <h3 class="button btn-cancel">Cancel</h3>
         </div>
