@@ -7,6 +7,7 @@ var RentalView = Backbone.View.extend({
     this.template = options.template;
     this.listenTo(this.model, 'change', this.render);
   },
+
   render: function() {
     var html = this.template({rental: this.model.attributes});
     this.$el.html(html);

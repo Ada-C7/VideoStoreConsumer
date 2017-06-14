@@ -15,7 +15,13 @@ var RentalListView = Backbone.View.extend({
 
     this.listenTo(this.model, 'add', this.addRental);
     this.listenTo(this.model, 'update', this.render);
+
+    this.listenTo(Backbone.pubSub, 'addToInventory', this.createRental);
   },
+  //
+  // events: {
+  //   'submit #add-button': 'createRental'
+  // },
 
   render: function() {
     $('#rental-list').empty();
@@ -31,16 +37,18 @@ var RentalListView = Backbone.View.extend({
       model: rental,
       template: this.rentalTemplate
     });
+
     this.rentalList.push(rental);
+  },
+
+  createRental: function(movie) {
+    // event.preventDefault();
+      console.log("We are in Create Rental dan");
+      // var rawRental = movie.attributes;
+      console.log(movie);
+      // this.model.create(movie.attributes);
+      // console.log(movie);
   }
-
-
-
-
-
-
-
-
 
 });
 
