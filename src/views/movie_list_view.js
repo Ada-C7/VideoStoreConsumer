@@ -11,41 +11,59 @@ var MovieListView = Backbone.View.extend({
     this.rentals = this.model
     this.listenTo(this.model, "update", this.render);
   },
-  render: function(){
+
+  render: function() {
     this.$('#movie-list').empty();
     var that = this;
     this.model.each(function(movie){
-
       var movieView = new MovieView({
         model: movie,
         template: that.template,
       });
 
       that.$('#movie-list').append(movieView.render().$el);
+      that.listenTo(movieView, 'add', that.addToLibrary)
     });
     return this;
   },
+
   events: {
     'submit #searchbar' : 'searchMovies',
     'click .btn-add': 'addRental'
   },
-  searchMovies: function(){
+
+  searchMovies: function(event) {
     event.preventDefault();
 
-  var queryParams = $('#search').val();
+    var queryParams = $('#search').val();
 
-  this.model.fetch({
-    data: { 'query': queryParams }
+    this.model.fetch({
+      data: { 'query': queryParams }
+    });
   },
-  addRental: function(event){
-    let movie = event.currentTarget.id;
 
-    let addedMovie = this.model.findWhere({external_id: movie});
+  addToLibrary: function(movie) {
+    var newMovie = {
+      title: movie.get("title"),
+      overview: movie.get("overview"),
+      release_date: movie.get("release_date"),
+      image_url: movie.get("image_url"),
+      external_id: movie.get("external_id")
+    }
 
-    console.log(addedMovie);
-    console.log(this.model);
-    console.log(event.currentTarget.id);
+    this.model.create(newMovie);
   }
+
+
+  // addRental: function(event){
+  //   let movie = event.currentTarget.id;
+  //
+  //   let addedMovie = this.model.findWhere({external_id: movie});
+  //
+  //   console.log(addedMovie);
+  //   console.log(this.model);
+  //   console.log(event.currentTarget.id);
+  // }
 });
 
 export default MovieListView;
