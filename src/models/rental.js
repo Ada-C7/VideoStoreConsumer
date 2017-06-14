@@ -5,7 +5,8 @@ var Rental = Backbone.Model.extend({
     title: "",
     overview: "",
     release_date: "",
-    image_url: ""
+    image_url: "",
+    external_id: ""
   },
   initialize: function() {
     console.log("Created new rental");
