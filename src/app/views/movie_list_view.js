@@ -6,21 +6,19 @@ import MovieView from '../views/movie_view.js';
 
 var MovieListView = Backbone.View.extend({
   initilaize: function(params){
-    this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
   },
 
   render: function(){
-    // this.$('main').empty();
-    console.log("MovieListView render");
+    this.$('.movies').empty();
     var self = this;
     this.model.each(function(movie){
       var movieView = new MovieView({
         model: movie,
-        template: self.template,
+        template: _.template($('#movie-template').html()),
         tagName: 'li'
       });
-      self.$('main').append(movieView.render().el);
+      self.$('.movies').append(movieView.render().$el);
     });
     return this;
   }
