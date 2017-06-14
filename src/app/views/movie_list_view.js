@@ -4,21 +4,25 @@ import Backbone from 'backbone';
 import Movie from '../models/movie.js';
 import MovieView from '../views/movie_view.js';
 
+
 var MovieListView = Backbone.View.extend({
-  initilaize: function(params){
+  initialize: function(params){
     this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function(){
-    this.$('.movies').empty();
+    this.$('.movie-library').empty();
     var self = this;
+    console.log("====== IN RENDER ==== ");
     this.model.each(function(movie){
       var movieView = new MovieView({
         model: movie,
         template: _.template($('#movie-template').html()),
-        tagName: 'section'
+         tagName: 'section'
       });
-      self.$('.movies').append(movieView.render().$el);
+      self.$('.movie-library').append(movieView.render().$el);
     });
     return this;
   }
