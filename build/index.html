@@ -10,63 +10,96 @@
 <body class="row">
   <header class="row">
     <h1 class="columns small-12 large-8">Rewind</h1>
-    <form class="search-form columns small-12 large-4">
-      <input type="text" name="query" id="query" placeholder="Search for a movie"/>
-      <button class="button" id="search-button">Search</button>
-    </form>
   </header>
+
   <!-- may need to rethink where to do foundation -->
   <main class="row">
     <section class="columns small-12 large-3" id="movie-details"></section>
-    <section class="columns small-12 large-9" id="list-main">main list</section>
+
+    <section class="columns small-12 large-9" id="list-main">
+
+      <form class="search-form columns small-12 large-4">
+        <input type="text" name="query" id="query" placeholder="Search for a movie"/>
+        <button class="button" id="search-button">Search</button>
+      </form>
+
+      <section id="search-header-section" class="row">
+        <h3 id="#search-subheader" class="columns small-12 large-8">Search Results for <%- query %></h3>
+        <button class="button columns small-12 large-4" id="return-library">Return to Library</button>
+      </section>
+
+      <section id="library-header-section" class="row">
+        <h3 id="#library-subheader" class="columns small-12 large-8">My Library</h3>
+      </section>
+
+      <section id="list-content" class="row">
+      </section>
+
+    </section>
+
   </main>
 
-  <script id="library-template" type="text/template">
-    <section class="row">
-      <h3 id="#subheader" class="columns small-12">Your Library</h3>
-    </section>
-    <section class="list-content" class="row">
-      <%= movie_list %>
-    </section>
-  </script>
+  <!-- <script id="library-template" type="text/template">
+  <section class="row">
+  <h3 id="#subheader" class="columns small-12">Your Library</h3>
+</section>
+<section class="list-content" class="row">
+<%= movie_list %>
+</section>
+</script> -->
 
-  <script id="search-results-template" type="text/template">
-    <section class="row">
-      <h3 id="#subheader" class="columns small-12 large-8">Search Results for <%- query %></h3>
-      <button class="button columns small-12 large-4" id="return-library">Return to Library</button>
-    </section>
+<!-- <script id="list-template" type="text/template">
+<form class="search-form columns small-12 large-4">
+<input type="text" name="query" id="query" placeholder="Search for a movie"/>
+<button class="button" id="search-button">Search</button>
+</form>
 
-    <section class="list-content" class="row">
+<section id="search-header-section" class="row">
+<h3 id="#search-subheader" class="columns small-12 large-8">Search Results for <%- query %></h3>
+<button class="button columns small-12 large-4" id="return-library">Return to Library</button>
+</section>
 
-    </section>
-  </script>
+<section id="library-header-section" class="row">
+<h3 id="#library-subheader" class="columns small-12 large-8">My Library</h3>
+</section>>
 
-  <script id="movie-details-template" type="text/template">
-    <img src=<%-image_url%> />
-    <h3><%-title%></h3>
-    <p>Overview: <%-overview%></p>
-    <p>Release Date: <%-release_date%></p>
-    <button class="button" id="hide-details">Hide</button>
-  </script>
+<section id="list-content" class="row">
+
+</section>
+</script> -->
 
 
-  <script id="movie-search-template" type="text/template">
-    <section class="columns small-12 medium-4 large-3">
-      <img class="movie small-poster" src=<%=image_url%>/>
-      <h4 class="movie small-title"><%-title%></h4>
-      <button class="button" id="add-library">Add to Library</button>
-    </section>
-  </script>
+<!-- sidebar details template -->
+<script id="movie-details-template" type="text/template">
+  <img src=<%-image_url%> />
+  <h3><%-title%></h3>
+  <p>Overview: <%-overview%></p>
+  <p>Release Date: <%-release_date%></p>
+  <button class="button" id="hide-details">Hide</button>
+</script>
 
-  <script id="movie-library-template" type="text/template">
-    <section class="columns small-12 medium-4 large-3">
-      <img class="movie small-poster" src=<%=image_url%>/>
-      <h4 class="movie small-title"><%-title%></h4>
-      <button class="button" id="rent-movie">Rent</button>
-    </section>
-  </script>
 
-  <script src="/app.bundle.js"></script>
+<script id="movie-card-template" type="text/template">
+  <section class="columns small-12 medium-4 large-3">
+    <img class="movie small-poster" src=<%=image_url%>/>
+    <h4 class="movie small-title"><%-title%></h4>
+
+    <!-- one of these two buttons will be rendered -->
+    <button class="button" id="add-library">Add to Library</button>
+    <button class="button" id="rent-movie">Rent</button>
+
+  </section>
+</script>
+
+<!-- <script id="movie-library-template" type="text/template">
+<section class="columns small-12 medium-4 large-3">
+<img class="movie small-poster" src=<%=image_url%>/>
+<h4 class="movie small-title"><%-title%></h4>
+<button class="button" id="rent-movie">Rent</button>
+</section>
+</script> -->
+
+<script src="/app.bundle.js"></script>
 
 </body>
 </html>
