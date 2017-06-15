@@ -8,6 +8,7 @@ import MovieView from '../views/movie_view.js';
 var MovieListView = Backbone.View.extend({
   initialize: function(params){
     this.listenTo(this.model, 'update', this.render);
+    this.template = _.template($('#movie-template').html());
   },
 
   render: function(){
@@ -17,7 +18,7 @@ var MovieListView = Backbone.View.extend({
     this.model.each(function(movie){
       var movieView = new MovieView({
         model: movie,
-        template: _.template($('#movie-template').html()),
+        template: self.template,
         tagName: 'section'
       });
       console.log("rendering ", movieView.model);
@@ -38,9 +39,8 @@ var MovieListView = Backbone.View.extend({
   getSearchResults: function() {
     var queryInput = this.$('.input-group-field').val();
     this.$('.input-group-field').val('');
-    //console.log("Query: " + query);
+    this.template = _.template($('#search-template').html());
     this.model.fetch({data: {query: queryInput}});
-    // return this;
   },
 
 });
