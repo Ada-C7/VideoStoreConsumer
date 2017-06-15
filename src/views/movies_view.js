@@ -38,6 +38,8 @@ var MoviesView = Backbone.View.extend({
 
         var customerDropdownList = new Customers();
         customerDropdownList.fetch();
+        // pass in a hash with key success then that goes to a funciton.
+        // can make the view rerender from that function.
         console.log(customerDropdownList);
         var rentCustomersView = new RentCustomersView({
           model: customerDropdownList,

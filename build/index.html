@@ -59,10 +59,13 @@
 
     <script type="text/template" id="rent-customer-template">
       <section class="small-6 column">
+        <h4>Select Customer</h4>
         <select id="customer-selector">
-          <!-- <% customers.each(function() { %>
-            <option value="<%= customer.get('name') %>"><%= customer.get('name') %></option>
-          <% }); %> -->
+          <% customers.each(function(customer) { %>
+            <option value="<%- customer.get('name') %>">
+              <%- customer.get('name') %>
+            </option>
+          <% }); %>
         </select>
         <h3 class="button add-rental">Checkout Movie</h3>
       </section>

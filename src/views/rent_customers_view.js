@@ -6,6 +6,7 @@ import _ from 'underscore';
 var RentCustomersView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
+    this.listenTo(this.model, "update", this.render);
     console.log(this.template);
   },
   render: function() {
