@@ -8,14 +8,12 @@ var Result = Backbone.Model.extend({
   },
 
   initialize: function(params) {
-    console.log("Starting", params);
     this.logStatus();
   },
 
   logStatus: function() {
     console.log("Model: " + this.cid);
     console.log("Title: " + this.get("title"));
-    // console.log("Completed: " + this.get("completed"));
   }
 });
 

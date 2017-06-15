@@ -14,14 +14,7 @@ var MovieView = Backbone.View.extend({
     this.$el.html(compiledTemplate);
 
     return this;
-  },
-  events: {
-    // "click button.alert": "deletePet",
-    // "click button.success": "toggleComplete"
-  },
-  deleteMovie: function() {
-    this.model.destroy();
-  },
+  }
 });
 
 export default MovieView;

@@ -9,7 +9,6 @@ import ResultListView from './result_list_view';
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
-    console.log(this.el);
     this.listenTo(this.model, "update", this.render);
   },
   render: function() {
@@ -31,7 +30,6 @@ var MovieListView = Backbone.View.extend({
   },
   getFormData: function() {
     var formTitle = this.$("#title").val();
-    console.log("This is formTitle: " + formTitle);
     this.$("#title").val('');
 
     return {
@@ -39,13 +37,10 @@ var MovieListView = Backbone.View.extend({
     };
   },
   search: function() {
-
     var mySearchTerm = this.getFormData().title;
     var resultList = new ResultList();
-    console.log("******getFormData:" + typeof mySearchTerm);
 
     resultList.fetch({data: {query: mySearchTerm}
-
     });
 
     var myResultListView = new ResultListView( {
@@ -55,12 +50,7 @@ var MovieListView = Backbone.View.extend({
       el: 'main'
     });
 
-    console.log(myResultListView);
-
     myResultListView.render();
-    //
-    // this.model.create(movie);
-
   }
 });
 
