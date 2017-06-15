@@ -37,10 +37,12 @@
       <h4><%- video.title %></h4>
       <% if (video.image_url) { %>
         <img src= <%- video.image_url %> >
-        <% } else { %>
-          <img src= <%- video.poster_path %> >
-          <% } %>
-
+      <% } else { %>
+        <img src= <%- video.poster_path %> >
+      <% } %>
+      <p>
+        <button class="button success" id="add-video">Add</button>
+      </p>
         </li>
       </script>
 

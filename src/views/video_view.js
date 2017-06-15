@@ -13,16 +13,26 @@ var VideoView = Backbone.View.extend({
   },
   events: {
     'click button.alert': "deleteVideo",
-    'click button.success': "toggleRented"
+    'click button.success': "toggleRented",
+    'click #add-video': 'addVideo'
   },
   deleteVideo: function() {
     this.model.destroy();
   },
-  toggleRented: function() {
-    var rented = this.get("rented");
-    this.set("rented", !rented);
-    this.save();
+  addVideo: function() {
+    console.log("ADD VIDEO!!");
+    console.log(this);
+    console.log(this.model);
+    // var newVideo = new Video(this.model);
+    this.model.save();
+    console.log("SAVE!");
   }
+
+  // toggleRented: function() {
+  //   var rented = this.get("rented");
+  //   this.set("rented", !rented);
+  //   this.save();
+  // }
 });
 
 export default VideoView;
