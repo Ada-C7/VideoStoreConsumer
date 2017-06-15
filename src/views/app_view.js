@@ -26,19 +26,10 @@ const AppView = Backbone.View.extend({
   },
 
   events: {
-    "click #search-button" : "getSearch"
     // hide details click : hideMovieDetails
   },
 
-  showMovieDetails: function() {
-    // show details div
-    // clear details div
-    // render the template and all that crap
-  },
 
-  hideMovieDetails: function() {
-    // hide the details div
-  },
 
   getLibrary: function() {
     console.log("inside getLibrary");

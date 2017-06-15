@@ -12,9 +12,9 @@ myMovieList.fetch();
 $(document).ready(function() {
   console.log("in document.ready");
   var myMovieListView = new MovieListView({
-    model: myMovieList,
+    model: {movie: myMovieList, search: false, query: ""},
     template: _.template($("#movie-card-template").html()),
-    search: false,
+    // search: false,
     el: "body"
   });
   myMovieListView.render();
