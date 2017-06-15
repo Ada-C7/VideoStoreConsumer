@@ -9,7 +9,10 @@ const ApplicationView = Backbone.View.extend({
     this.movieDetailsTemplate = params.movieDetailsTemplate;
   },
   events: {
-    'click h1' : 'showList'
+    'click h1' : 'showAllResults'
+  },
+  showAllResults: function () {
+    showList();
   },
   showList: function (searchTerm) {
     var path = searchTerm ? ('?query=' + searchTerm) : '';
@@ -31,6 +34,12 @@ const ApplicationView = Backbone.View.extend({
       el: 'body'
     });
     movieDetailsView.render();
+  },
+  getSearchTerm: function () {
+    var searchTerm = this.$('#search-box').val();
+    this.$('#search-box').val('');
+
+    return searchTerm;
   }
 });
 
