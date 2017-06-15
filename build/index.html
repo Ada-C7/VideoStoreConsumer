@@ -18,49 +18,49 @@
     </ul>
   </section>
   <section class='row main-content'>
-  <section class = "small-12 medium-12 large-6 columns">
-    <ul id='rental-list'>
-    </ul>
-  </section>
-  <section class = "small-12 medium-12 large-6 columns">
-    <ul id='customer-list'>
-    </ul>
-  </section>
+    <section class = "small-12 medium-12 large-6 columns">
+      <ul id='rental-list'>
+      </ul>
+    </section>
+
+    <section class = "small-12 medium-12 large-6 columns">
+      <form id="customer-list">
+      </form>
+    </section>
 
   </section>
 
 
   <script id="rental-template" type="text/template">
     <div class="row">
-    <li class="rental-list-element">
-      <div class="small-12 medium-12 large-6 columns">
-        <img src=<%- rental.image_url %> alt="movie_picture"><br>
-        <%- rental.title %>
-      </div>
-      <div class="small-12 medium-12 large-6 columns">
-        <section><%- rental.overview %>  </section>
-        <button type="submit" id="create-rental-button" class="success button"> Create rental</button>
-      </div>
-    </li>
+      <li class="rental-list-element">
+        <div class="small-12 medium-12 large-6 columns">
+          <img src=<%- rental.image_url %> alt="movie_picture"><br>
+          <%- rental.title %>
+        </div>
+        <div class="small-12 medium-12 large-6 columns">
+          <section><%- rental.overview %>  </section>
+          <button type="submit" id="create-rental-button" class="success button"> Create rental</button>
+        </div>
+      </li>
     </div>
-    </script>
+  </script>
 
-    <script id="movie-template" type="text/template">
-      <li class = "movie-list-element">
-        <img src=<%= movie.image_url %> alt="movie_picture">
-        <%- movie.title %><br>
-        <button type="submit" id="add-button" class="success button"> Add to inventory</button>
-      </li>
-    </script>
+  <script id="movie-template" type="text/template">
+    <li class = "movie-list-element">
+      <img src=<%= movie.image_url %> alt="movie_picture">
+      <%- movie.title %><br>
+      <button type="submit" id="add-button" class="success button"> Add to inventory</button>
+    </li>
+  </script>
 
-    <script id="customer-template" type="text/template">
-      <li class = "customer-list-element">
-        <%- customer.name %>
-        <button type="submit" id="add-customer-button" class="success button"> Checkout</button>
-      </li>
-    </script>
+  <script id="customer-template" type="text/template">
+    <input type="radio" class="customer-list-element" name="name">
+      <%- customer.name %><br>
+    </input>
+  </script>
 
-    <script src="/app.bundle.js"></script>
+  <script src="/app.bundle.js"></script>
 
-  </body>
-  </html>
+</body>
+</html>
