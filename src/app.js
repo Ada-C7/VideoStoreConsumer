@@ -41,7 +41,7 @@ var databaseList = function(event) {
 $(document).ready(function() {
 
   $(".list_store_rentals").click(storeList);
-  $(".search_button").click(databaseList);
+  $(".s-button").click(databaseList);
 
 
 
