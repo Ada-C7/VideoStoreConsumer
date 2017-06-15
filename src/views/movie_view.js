@@ -18,6 +18,14 @@ var MovieView = Backbone.View.extend({
   events: {
     'click #add' : 'addMovie',
   },
+  getInventory: function(){
+    var inventory = this.$("input[type='number']").val();
+
+    this.$("input[type='number']").val('');
+
+    console.log('this is the input from', inventory);
+    return inventory;
+  },
   addMovie: function() {
     console.log(this.model);
 
@@ -25,7 +33,8 @@ var MovieView = Backbone.View.extend({
       title: this.model.get('title'),
       overview: this.model.get('overview'),
       release_date: this.model.get('release_date'),
-      image_url: this.model.get('image_url')
+      image_url: this.model.get('image_url'),
+      inventory: this.getInventory()
     },
     type: 'POST'
   });
