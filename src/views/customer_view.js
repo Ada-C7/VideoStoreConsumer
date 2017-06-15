@@ -4,6 +4,16 @@ import $ from 'jquery';
 import _ from 'underscore';
 
 var CustomerView = Backbone.View.extend({
+  initialize: function() {
+    this.template = params.template;
+    this.listenTo(this.model, "change", this.render);
+
+  },
+  render: function() {
+    var compiledTemplate = this.template(this.model.toJSON());
+    this.$el.html(compiledTemplate);
+    return this;
+  }
 
 });
 
