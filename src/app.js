@@ -19,4 +19,5 @@ $(document).ready(function() {
     el: 'main'
   });
   myMovieListView.render();
+
 });

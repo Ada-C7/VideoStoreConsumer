@@ -16,8 +16,7 @@ var Result = Backbone.Model.extend({
     console.log("Model: " + this.cid);
     console.log("Title: " + this.get("title"));
     // console.log("Completed: " + this.get("completed"));
-  },
-
+  }
 });
 
 export default Result;

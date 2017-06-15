@@ -16,27 +16,39 @@ var ResultListView = Backbone.View.extend({
   },
   render: function() {
     // console.log("I'm in the result_list_view render!!!!");
-  this.$('#movie-list').empty();
-  this.$('#result-list').empty();
-  // this.$('#result-list').empty();
-  var that = this;
+    this.$('#movie-list').empty();
+    this.$('#result-list').empty();
+    // this.$('#result-list').empty();
+    var that = this;
 
-  // looped through collection
-  this.model.each(function(result) {
-    // created a new view for each pet
-    var myResultView = new ResultView({
-      model: result,
-      template: that.template
-      // tagName: 'li'
+    // looped through collection
+    this.model.each(function(result) {
+      // created a new view for each pet
+      var myResultView = new ResultView({
+        model: result,
+        template: that.template
+        // tagName: 'li'
+      });
+      // that.listenTo(myResultView, "adding", that.addNewMovie);
+      // console.log(">>>>>>>>>>> TRIGGERED");
+      // that.listenTo(myResultView, "selected", that.petDeets);
+      that.$('#result-list').append(myResultView.render().$el);
     });
+    return this;
 
-    // that.listenTo(myResultView, "selected", that.petDeets);
-    that.$('#result-list').append(myResultView.render().$el);
-  });
-  return this;
-
-}
-
+  },
+  // addNewMovie: function(result) {
+  //   result.save();
+  //   // var movie = new Movie(result);
+  //   // this.model.create(movie);
+  //   // var addedMovieView = new MovieView( {
+  //   //   model: result,
+  //   //   template: this.template,
+  //   // });
+  //   // this.$('#movie-list').append(addedMovieView.render().$el);
+  //
+  //   console.log("<<<<<<<<<<<< I'm in addNewMovie function");
+  // }
 });
 
 

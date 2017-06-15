@@ -22,12 +22,15 @@
 
     </main>
     <script id="movie-template" type="text/template">
-      <img src=<%- movie.image_url%>/>
+      <img src="<%- movie.image_url %>"/>
+      <p>
+        <%- movie.image_url %>
+      </p>
       <li><%- movie.title %></li>
     </script>
 
     <script id="result-template" type="text/template">
-      <img src="<%- movie.image_url%>"/>
+      <img src="<%- movie.image_url %>"/>
       <li><%- movie.title %><button id="add-movie" class="button success">Add Movie</button></li>
 
     </script>

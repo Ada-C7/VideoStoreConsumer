@@ -2,6 +2,7 @@ import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
 import Result from '../models/result.js';
+import Movie from '../models/movie';
 
 
 var ResultView = Backbone.View.extend({
@@ -18,8 +19,25 @@ var ResultView = Backbone.View.extend({
     this.$el.html(compiledTemplate);
 
     return this;
-  }
+  },
+  events: {
+    "click #add-movie" : "addMovie"
+  },
+  addMovie: function() {
+    // var movie = new Movie(this.model.attributes.title);
+    // movie.save({data: {title: this.model.attributes.title}});
+    // console.log(">>>>>>>>>>>>>>>>" + this.model.attributes.title);
+    // this.model.create(movie);
 
+
+    // console.log(">>>>>>>>>>>>>>> I'm in addMovie function");
+    // this.trigger("adding", this.model);
+    console.log(">>>>>>>>>>>>>>>>>> I'm in the trigger");
+    // console.log(this.model);
+
+
+    this.model.save();
+  }
 });
 
 export default ResultView;
