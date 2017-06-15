@@ -2,25 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Inline">
   <link rel="stylesheet" type="text/css" href="css/_settings.css">
   <link rel="stylesheet" type="text/css" href="css/foundation.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
   <title>Backbone Baseline</title>
 </head>
 <body>
-
-  <main>
-    <section>
-      <input id="search" name="search" type="text">
-      <h3 class="button" id="search-button">Search</h3>
-    </section>
-    <section id="movie-list"></section>
-    <section id="movie"></section>
-  </main>
+  <section id="application">
+    <header>
+      <div class="row">
+        <div class="medium-4 columns clear-fix">
+          <h1 class="title"> VIDEOBUSTER</h1>
+        </div>
+        <div class="medium-3 columns float-right search-bar">
+          <div class="input-group">
+            <input id="search" class="input-group-field" name="search" type="text">
+            <div class="input-group-button">
+              <h3 class="button" id="search-button">Search</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h2 class="text-center">Movie Rentals</h2>
+      <section id="movie-list" class="row" data-equalizer></section>
+      <section id="movie"></section>
+    </main>
+    <footer>
+      <p>Ada Developers Academy Project by Kayla + Tamiko</p>
+    </footer>
+  </section>
 
   <!-- Templates -->
   <script id="movie-list-template" type="text/template">
-    <h3>Title: <%- movie.title %></h3>
+    <section class="movie-card">
+      <div class="card columns" style="width: 300px;">
+        <div class="card-divider text-center" data-equalizer-watch>
+          <h6><%- movie.title %></h6>
+        </div>
+        <div class="card-section text-center">
+          <img src="http://lorempixel.com/185/278/">
+        </div>
+      </div>
+    </section>
   </script>
 
   <script id="movie-template" type="text/template">
