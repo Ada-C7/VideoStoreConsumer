@@ -5,29 +5,38 @@ import MovieView from './movie_view.js';
 import Movie from '../models/movie.js';
 
 const MovieListView = Backbone.View.extend({
-  initialize: function() {
+  initialize: function(params) {
+    this.template = params.movie_template;
     // this.library_card_template = _.template($("#movie-library-template").html());
     // this.search_card_template = _.template($("#movie-search-template").html());
 
-    this.listenTo(this.model, "update", this.render);
+    // this.listenTo(this.model, "update", this.render);
   },
 
-  render: function(template) {
+  render: function() {
     // make a movieView given the passed-in template and collection
     // empty out the list div
-    var libraryTemplate = template;
+    var libraryTemplate = this.template;
+    // console.log(this.model.length);
     this.$("#list-main").empty();
     var that = this;
+    var list = "";
     this.model.each(function(movie) {
       var movieView = new MovieView({
         model: movie,
         template: libraryTemplate
       });
-      that.$(".list-content").append(movieView.render().el);
-      that.listenTo(movieView, "showMovie", that.sendMovie);
+      var renderedMovie = movieView.render().$el;
+      // console.log(renderedMovie);
+      list += renderedMovie.html();
+      // that.$(".list-content").append(renderedMovie);
+      // console.log(renderedMovie);
+      // that.listenTo(movieView, "showMovie", that.sendMovie);
     });
 
-    return this;
+    // console.log(list);
+
+    return list;
 
   },
 

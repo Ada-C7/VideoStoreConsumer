@@ -39,21 +39,26 @@ const AppView = Backbone.View.extend({
 
     var myLibraryList = new MovieListView({
       model: this.model,
-      template: this.library_template,
+      list_template: this.library_template,
+      movie_template: _.template($("#movie-library-template").html()),
       el: "#list-main"
     });
-    this.listenTo(myLibraryList, "sendMovie", this.showMovieDetails);
+    // this.listenTo(myLibraryList, "sendMovie", this.showMovieDetails);
 
-    var listContent = myLibraryList.render(_.template($("#movie-library-template").html()));
-    this.$(".list-content").empty();
-    this.$(".list-content").html(listContent);
+    var listContent = myLibraryList.render();
+    // var listContent = myLibraryList.render($("#movie-library-template"));
+
+    this.$("#list-main").html(this.library_template({movie_list: listContent}));
+    
+    // this.$(".list-content").html(listContent);
+    // console.log(listContent);
     console.log("put contents in list (inside getlibrary function)");
     // makes a new movielist view with a library collection
   },
 
   getSearch: function() {
-    listenTo(movieListView, "returnToLib", getLibrary);
-    listenTo(movieListView, "sendMovie", showMovieDetails);
+    // listenTo(movieListView, "returnToLib", getLibrary);
+    // listenTo(movieListView, "sendMovie", showMovieDetails);
     // makes a new movielist view with a search collection
   }
 
