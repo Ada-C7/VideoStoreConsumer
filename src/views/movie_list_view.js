@@ -23,6 +23,7 @@ var MovieListView = Backbone.View.extend ({
       });
       that.$('#movie-list').append(movieView.render().$el);
     });
+    return this;
   },
 
   events: {
@@ -38,11 +39,13 @@ var MovieListView = Backbone.View.extend ({
 
   searchMovie: function() {
 
-
+    this.template = _.template($('#search-list-template').html());
+    this.model.fetch({ error: function() {console.log(arguments);},
+      traditional: true,
+      data: {query: [this.getFormData()]}
+    });
 
   }
-
-
 });
 
 export default MovieListView;
