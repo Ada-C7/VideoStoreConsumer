@@ -23,6 +23,7 @@ var MovieListView = Backbone.View.extend ({
       });
       that.$('#movie-list').append(movieView.render().$el);
     });
+    return this;
   },
 
   events: {
@@ -37,24 +38,12 @@ var MovieListView = Backbone.View.extend ({
   },
 
   searchMovie: function() {
-
-
-    // var searchTerm = this.getFormData();
-    var searchMovieList = new MovieList();
-    searchMovieList.fetch({ error: function() {console.log(arguments);},
+    this.template = _.template($('#search-list-template').html());
+    this.model.fetch({ error: function() {console.log(arguments);},
       traditional: true,
       data: {query: [this.getFormData()]}
     });
-
-    this.model = searchMovieList;
-    console.log(this.model);
-    this.template = _.template($('#search-list-template').html());
-    console.log(this.template);
-    this.initialize();
-    this.render();
   }
-
-
 });
 
 export default MovieListView;
