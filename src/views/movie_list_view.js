@@ -14,16 +14,21 @@ var MovieListView = Backbone.View.extend({
 
   render: function(options) {
     this.$('#movie-list').empty();
-    var that = this;
-    this.model.each(function(movie){
+
+    if (this.model.length < 1){
+      alert("No movies match your search!");
+      this.model.fetch();
+    } else {
+    this.model.each((movie)=>{
       var movieView = new MovieView({
         model: movie,
-        template: that.template,
+        template: this.template,
       });
 
-      that.$('#movie-list').append(movieView.render().$el);
-      that.listenTo(movieView, 'add', that.addToLibrary)
+      this.$('#movie-list').prepend(movieView.render().$el);
+      this.listenTo(movieView, 'add', this.addToLibrary)
     });
+  }
     return this;
   },
 
@@ -47,7 +52,7 @@ var MovieListView = Backbone.View.extend({
       release_date: movie.get("release_date"),
       image_url: movie.get("image_url")
     }
-    
+
     this.model.create(newMovie,
       {error: function (model, response){
         if (response.status == 500) {
