@@ -5,5 +5,5 @@ var Customers = Backbone.Collection.extend({
   model: Customer,
   url: "http://localhost:3000/customers"
 });
-// can add sort
+// can add sort from API if wanted. 
 export default Customers;
