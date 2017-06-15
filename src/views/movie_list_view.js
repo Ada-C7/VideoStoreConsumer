@@ -52,15 +52,16 @@ var MovieListView = Backbone.View.extend({
       external_id: movie.get("external_id")
     }
 
-    var model = this.model.create(newMovie, {wait: true});
-
-    if (model.validationError){
-      console.log('was it created?')
-    } else {
-      console.log(model);
-      console.log(model.ajax);
-      console.log('Yay?')
-    };
+    this.model.create(newMovie,
+      {error: function (model, response){
+        if (response.status == 500) {
+        alert(model.get("title") + ' is already in the rental library!');
+      }
+    },
+    success: function(model, response){
+      alert('Successfully added ' + model.get("title") + ' to the rental library!')
+    }
+  });
   },
 
   viewLibrary: function(event) {
