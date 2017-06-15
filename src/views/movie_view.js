@@ -6,7 +6,7 @@ import Movie from '../models/movie.js';
 const MovieView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
-    this.listenTo(this.model, "change", this.render);
+    // this.listenTo(this.model, "change", this.render);
   },
 
   render: function() {
@@ -18,7 +18,7 @@ const MovieView = Backbone.View.extend({
 
   events: {
     "click .movie" : "sendMovie",
-    "click #rent-movie" : "rentMovie"
+    // "click #rent-movie" : "rentMovie"
     // #addToLib click : addToLib
   },
 
