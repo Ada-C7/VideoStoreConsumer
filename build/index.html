@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,30 +10,35 @@
     <title>Backbone Baseline</title>
   </head>
   <main>
+    <h2 id="logo">OliviAnn's Rental Library</h2>
+
     <section id="search-bar">
       <label>
         <input type="text" id="query" placeholder="Enter Search Terms Here"></input>
       </label>
-      <button id="search" class="medium-3 columns button">Search</button>
+      <button id="search" class="medium-3 columns button center">Search</button>
     </section>
 
-    <aside>
+    <section>
       <section id='movie'></section>
-      <section class="center-vertical" id='movie-list'></section>
+      <section class="center" id='movie-list'></section>
 
-    </aside>
+    </section>
   </main>
 
   <!--- Templates ------------->
 
   <script id="movie-card-template" type="text/template">
-    <section class="column small-12 medium-12 large-12 movie-card">
-      <li> <%- title %> </li>
+    <section class="column small-12 medium-12 large-12 movie-card inline">
+      <p>
+        <%- title %>
+      </p>
+      <p> (<%- release_date.substring(0,4) %>)  </p>
+
     <!-- need to change image url and title to code -->
 
       <img src="<%-image_url %>"alt="<% title %>"></img>
 
-    <li> <%- release_date %>  </li>
   </section>
   </script>
 

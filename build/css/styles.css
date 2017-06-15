@@ -1,4 +1,8 @@
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+@import url('https://fonts.googleapis.com/css?family=Stalemate');
+
+
 
 main {
     background: lightblue;
@@ -47,8 +51,49 @@ div {
   padding: 100px 40px;
 
 }
-/*
-* {
-  border-style: solid;
+
+#search-bar {
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 80px;
+
+
 }
-*/
+
+#logo {
+  color: black;
+  font-family: 'Stalemate', cursive;
+  font-size: 150px;
+  -ms-transform: rotate(-3deg); /* IE 9 */
+  -webkit-transform: rotate(-3deg); /* Chrome, Safari, Opera */
+  transform: rotate(-3deg);
+  padding-bottom: 15px;
+}
+
+.button {
+  display: block;
+  background-color: #ffffff;
+  color: #E24E42;
+  border: 2px solid #E24E42;
+  border-radius: 500px;
+  text-transform: uppercase;
+}
+
+
+.button:hover {
+  color: #ffffff;
+  background-color: #E24E42;
+}
+
+.center {
+    text-align: center;
+}
+
+.inline {
+  display: inline;
+  padding-top: 20px;
+  padding-bottom: 80px;
+
+
+
+}
