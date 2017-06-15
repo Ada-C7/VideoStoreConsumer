@@ -41,7 +41,8 @@ var MoviesView = Backbone.View.extend({
     return this;
   },
   events: {
-  "click h3.button.btn-query": "searchMovies"
+  "click h3.button.btn-query": "searchMovies",
+  "click h3.button.btn-search-in-store": "searchInStore"
   },
   searchMovies: function(event) {
     var searchParams = this.$('#search-item').val();
@@ -51,9 +52,15 @@ var MoviesView = Backbone.View.extend({
       processData: true
     });
     this.isSearching = true;
+  },
+  searchInStore: function(event) {
+    var searchParams = this.$('#search-in-store').val();
+    this.$('#search-in-store').val('');
+    this.model.fetch({
+      data: { find: searchParams },
+      processData: true
+    });
   }
-
-
 });
 
 export default MoviesView;
