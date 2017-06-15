@@ -1,9 +1,12 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie.js';
+import Customer from '../models/customer.js';
+import Customers from '../collections/customers.js';
 import $ from 'jquery';
 import _ from 'underscore';
 import MovieView from './movie_view.js';
 import RentMovieView from './rent_movie_view.js';
+import RentCustomersView from './rent_customers_view.js';
 
 var MoviesView = Backbone.View.extend({
   initialize: function(params) {
@@ -32,8 +35,18 @@ var MoviesView = Backbone.View.extend({
           model: movie,
           template: _.template($("#rent-movie-template").html())
         });
+
+        var customerDropdownList = new Customers();
+        customerDropdownList.fetch();
+        console.log(customerDropdownList);
+        var rentCustomersView = new RentCustomersView({
+          model: customerDropdownList,
+          template: _.template($("#rent-customer-template").html())
+        });
+
         that.$('.main-content').empty();
         that.$('.main-content').append(rentMovieView.render().el);
+        that.$('.main-content').append(rentCustomersView.render().el);
       });
 
     });

@@ -32,7 +32,6 @@
       </section>
 
       <section class="main-content"></section>
-
     </main>
 
     <!-- TEMPLATES -->
@@ -47,26 +46,27 @@
           <h3 class="button hide add-collection">Add to Collection</h3>
       </section>
     </script>
+
     <script type="text/template" id="rent-movie-template">
-      <section class="columns small-12">
-        <section class="small-6">
-          <img class="movie-image" src="<%= image_url.toString() %>" />
-          <h4><%- title %></h4>
-          <p class="movie-overview">
-            <%- overview %>
-          </p>
-        </section>
+      <section class="small-6 column">
+        <img class="movie-image" src="<%= image_url.toString() %>" />
+        <h4><%- title %></h4>
+        <p class="movie-overview">
+          <%- overview %>
+        </p>
+      </section>
     </script>
 
-    <!-- <section class="small-6">
-      <select id="customer-selector">
-        <% customers.each(function(rate) { %>
-          <option value="<%= customer.get('name') %>"><%= rate.get('name') %></option>
-        <% }); %>
-      </select>
-      <h3 class="button add-rental">Checkout Movie</h3>
-    </section>
-  </section> -->
+    <script type="text/template" id="rent-customer-template">
+      <section class="small-6 column">
+        <select id="customer-selector">
+          <!-- <% customers.each(function() { %>
+            <option value="<%= customer.get('name') %>"><%= customer.get('name') %></option>
+          <% }); %> -->
+        </select>
+        <h3 class="button add-rental">Checkout Movie</h3>
+      </section>
+    </script>
 
     <script type="text/template" id="customer-template">
       <section class="columns small-4">
