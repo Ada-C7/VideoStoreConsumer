@@ -41,6 +41,7 @@ var movieLibrary = function() {
 };
 
 $(document).ready(function() {
+  $('#add-form').hide();
   movieTemplate = _.template($('#rental-library-template').html());
   searchTemplate = _.template($('#search-library-template').html());
   addFormTemplate = _.template($('#addto-rental-library-template').html());
