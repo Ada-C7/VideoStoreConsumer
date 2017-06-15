@@ -26,14 +26,27 @@
       </div>
     </header>
     <main>
-      <section id="movie-list"></section>
+      <h2 class="text-center">Movie Rentals</h2>
+      <section id="movie-list" class="row" data-equalizer></section>
       <section id="movie"></section>
     </main>
+    <footer>
+      <p>Ada Developers Academy Project by Kayla + Tamiko</p>
+    </footer>
   </section>
 
   <!-- Templates -->
   <script id="movie-list-template" type="text/template">
-    <h3>Title: <%- movie.title %></h3>
+    <section class="movie-card">
+      <div class="card columns" style="width: 300px;">
+        <div class="card-divider text-center" data-equalizer-watch>
+          <h6><%- movie.title %></h6>
+        </div>
+        <div class="card-section text-center">
+          <img src="http://lorempixel.com/185/278/">
+        </div>
+      </div>
+    </section>
   </script>
 
   <script id="movie-template" type="text/template">
