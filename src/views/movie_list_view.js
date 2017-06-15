@@ -3,6 +3,7 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 
 import MovieView from 'views/movie_view';
+import SearchList from 'collections/search_list';
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
@@ -46,6 +47,12 @@ var MovieListView = Backbone.View.extend({
 
   search: function(event) {
     console.log("Working");
+    console.log(event);
+
+    var query = this.$('input[name="search"]').val();
+
+    var newSearch = new SearchList();
+    newSearch.fetch({data: {query: query}});
   }
 });
 
