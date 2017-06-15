@@ -4,7 +4,7 @@ import $ from 'jquery';
 import _ from 'underscore';
 
 var CustomerView = Backbone.View.extend({
-  initialize: function() {
+  initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, "change", this.render);
 
