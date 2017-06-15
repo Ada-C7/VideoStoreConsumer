@@ -44,11 +44,14 @@ var RentalListView = Backbone.View.extend({
   createRental: function(movie) {
     console.log("We are in Create Rental");
 
-    var existingMovie = this.model.find(function(model){return model.get('title') === movie.attributes.title; });
+    var existingMovie = this.model.find(function(model){return model.get('title') === movie.attributes.title && model.get('release_date') === movie.attributes.release_date; });
     console.log(existingMovie);
     if (existingMovie == null) {
       this.model.create(movie);
-    };
+    }
+    else{
+      alert("You have already added this movie")
+    }
   }
 
 });

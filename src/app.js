@@ -23,7 +23,14 @@ $(document).ready(function() {
   $("form").submit(function(event) {
       event.preventDefault();
       var movieList = new MovieList();
-      movieList.fetch({data: {query: $('#movieName').val()  }});
+        console.log($('#movieName').val());
+      if ($('#movieName').val() === ""){
+        alert("Please, enter message term")
+        console.log("Please, enter message term")
+      }
+      else{
+        movieList.fetch({data: {query: $('#movieName').val()  }});
+      }
 
       var options = {
         el:  $('#all-movie-list'),
