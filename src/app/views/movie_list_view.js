@@ -8,36 +8,36 @@ import MovieView from '../views/movie_view.js';
 var MovieListView = Backbone.View.extend({
   initialize: function(params){
     this.listenTo(this.model, 'update', this.render);
-    this.listenTo(this.model, 'change', this.render);
-    this.listenTo(this.model, 'sync', this.render);
-
   },
 
   render: function(){
-    this.$('.movie-library').empty();
+    this.clearLibrary();
     var self = this;
-    console.log("====== IN RENDER ==== ");
+
     this.model.each(function(movie){
       var movieView = new MovieView({
         model: movie,
         template: _.template($('#movie-template').html()),
-         tagName: 'section'
+        tagName: 'section'
       });
       self.$('.movie-library').append(movieView.render().$el);
     });
+
     return this;
   },
 
   events: {
-    "click .search-button" : "getQuery"
+    "click .search-button" : "getSearchResults"
   },
 
-  getQuery: function() {
-    var formQuery = this.$('.input-group-field').val();
-    alert("hi! i'm searching" + formQuery);
-    return {
-      query: formQuery
-    };
+  clearLibrary: function(){
+    this.$('.movie-library').empty();
+  },
+
+  getSearchResults: function() {
+    var query = this.$('.input-group-field').val();
+    this.$('.input-group-field').val('');
+    console.log("Query: " + query);
   }
 });
 
