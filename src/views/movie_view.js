@@ -25,21 +25,10 @@ var MovieView = Backbone.View.extend({
       title: this.model.get('title'),
       overview: this.model.get('overview'),
       release_date: this.model.get('release_date'),
-      // image_url: this.model.get('image_url')
+      image_url: this.model.get('image_url')
     },
     type: 'POST'
-  }
-
-);
-    // put HTTP request, sending title, overview, releasedate, image_url
-    // passes JSON in request
-    // send {
-      // title: movieTitle,
-      // overview: movieOverview,
-      // release_date: movieReleaseDate,
-      // image_url: movieImage
-    // };
-  }
-});
+  });
+}});
 
 export default MovieView;
