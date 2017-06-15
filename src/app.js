@@ -17,9 +17,11 @@ var storeList = function(event) {
     el: $('#application')
   });
   rentals.render();
-}
+};
+console.log("I am outside of database list");
 
 var databaseList = function(event) {
+  console.log("I am inside the database");
   var queryParams = $('#queryParams').val();
   console.log(queryParams);
   var searchList = new MovieList();
@@ -37,9 +39,11 @@ var databaseList = function(event) {
 
 // ready to go
 $(document).ready(function() {
-  $(".list_store_rentals").click(storeList);
 
+  $(".list_store_rentals").click(storeList);
   $(".search_button").click(databaseList);
+
+
 
 
 
