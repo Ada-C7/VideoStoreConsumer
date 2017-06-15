@@ -5,6 +5,8 @@ import RentalList from './collections/rental_list';
 import RentalListView from './views/rental_list_view';
 import MovieList from 'collections/movie_list';
 import MovieListView from 'views/movie_list_view';
+import CustomerList from 'collections/customer_list';
+import CustomerListView from 'views/customer_list_view';
 
 $(document).ready(function() {
 
@@ -18,6 +20,8 @@ $(document).ready(function() {
 
   var application = new RentalListView(options);
   application.render();
+
+
 
 
   $("form").submit(function(event) {
@@ -41,7 +45,16 @@ $(document).ready(function() {
 
   });
 
+  var customerList = new CustomerList();
+  customerList.fetch();
 
+  var options = {
+    el:  $('.main-content'),
+    model: customerList
+  };
+
+  var customerListView = new CustomerListView(options);
+  customerListView.render();
 
 
 

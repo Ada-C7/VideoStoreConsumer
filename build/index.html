@@ -52,6 +52,14 @@
         <button type="submit" id="add-button" class="success button"> Add to inventory</button>
       </li>
     </script>
+
+    <script id="customer-template" type="text/template">
+      <li class = "customer-list-element">
+        <%- customer.name %>
+        <button type="submit" id="add-customer-button" class="success button"> Checkout</button>
+      </li>
+    </script>
+
     <script src="/app.bundle.js"></script>
 
   </body>
