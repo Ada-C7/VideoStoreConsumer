@@ -20,20 +20,43 @@ var storeList = function(event) {
 };
 console.log("I am outside of database list");
 
-var databaseList = function(event) {
-  console.log("I am inside the database");
-  var queryParams = $('#queryParams').val();
-  console.log(queryParams);
-  var searchList = new MovieList();
-  searchList.customUrl(queryParams);
-  searchList.fetch();
+// var databaseList = function(event) {
+//   var queryParams;
+//   console.log("I am inside the database");
+//   if (queryParams == $('#queryParams').val("")) {
+//     alert ("This is a warning message!");
+//   } else if (queryParams == $('#queryParams').val()) {
+//     console.log(queryParams);
+//     var searchList = new MovieList();
+//     searchList.customUrl(queryParams);
+//     searchList.fetch();
+//
+//     var searches = new MovieListView({
+//       model: searchList,
+//       templateMovieList: _.template($('#movie-card-template').html()),
+//       el: $('#application')
+//     }
+//   });
+//   searches.render();
+// }
 
-  var searches = new MovieListView({
-    model: searchList,
-    templateMovieList: _.template($('#movie-card-template').html()),
-    el: $('#application')
-  });
-  searches.render();
+var databaseList = function(event) {
+  //first we have to declare what the variable is with the expected value, which here we are saying can be anything
+  var queryParams = $('#queryParams').val();
+  //then we ask if the expected value, which can be anything, happens to be empty
+  if (queryParams == ''){
+    alert ("Search cannot be empty");
+  } else {
+    var searchList = new MovieList();
+    searchList.customUrl(queryParams);
+    searchList.fetch();
+    var searches = new MovieListView({
+      model: searchList,
+      templateMovieList: _.template($('#movie-card-template').html()),
+      el: $('#application')
+    });
+    searches.render();
+  };
 }
 
 
