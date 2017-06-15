@@ -16,7 +16,7 @@ var movieListView = new MovieListView({
   model: movieList,
   movieListTemplate: movieListTemplate,
   movieTemplate: movieTemplate,
-  el: $("main")
+  el: $("#application")
 });
 
 $(document).ready(function() {
