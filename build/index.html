@@ -10,9 +10,9 @@
     <title>Backbone Baseline</title>
   </head>
   <main>
-    <h2 id="logo">OliviAnn's Rental Library</h2>
+    <h2 id="logo" class="center">OliviAnn's Rental Library</h2>
 
-    <section id="search-bar">
+    <section id="search-bar" class="center">
       <label>
         <input type="text" id="query" placeholder="Enter Search Terms Here"></input>
       </label>
@@ -21,7 +21,7 @@
 
     <section>
       <section id='movie'></section>
-      <section class="center" id='movie-list'></section>
+      <section class="center row" id='movie-list'></section>
 
     </section>
   </main>
@@ -29,17 +29,22 @@
   <!--- Templates ------------->
 
   <script id="movie-card-template" type="text/template">
+
     <section class="column small-12 medium-12 large-12 movie-card inline">
       <p>
         <%- title %>
       </p>
+
+      <button id="add-to-library" class="medium-3 columns button center ">Add to Library</button>
+
+
       <p> (<%- release_date.substring(0,4) %>)  </p>
 
     <!-- need to change image url and title to code -->
 
       <img src="<%-image_url %>"alt="<% title %>"></img>
-
   </section>
+
   </script>
 
   <script src="/app.bundle.js" charset="utf-8"></script>
