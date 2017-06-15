@@ -7,10 +7,11 @@ import Movie from '../models/movie.js';
 const MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.movie_template;
+    this.model = params.model;
     // this.library_card_template = _.template($("#movie-library-template").html());
     // this.search_card_template = _.template($("#movie-search-template").html());
 
-    // this.listenTo(this.model, "update", this.render);
+    this.listenTo(this.model, "update", this.render);
   },
 
   render: function() {
