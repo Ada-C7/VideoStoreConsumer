@@ -3,7 +3,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 import MovieView from './movie_view';
 import Movie from '../models/movie.js';
-import MovieList from '../collections/movie_list';
+// import MovieList from '../collections/movie_list';
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params){
@@ -17,9 +17,9 @@ var MovieListView = Backbone.View.extend({
   render: function(){
     console.log(' Movie list View in render>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
     var self = this;
-    this.$('#rental-library').empty();
+    self.$('#rental-library').empty();
 
-    this.model.each(function(movie){
+    self.model.each(function(movie){
       var movieView = new MovieView({
         model: movie,
         movieTemplate: self.movieTemplate
@@ -36,7 +36,7 @@ var MovieListView = Backbone.View.extend({
   },
 
   addForm: function(selectedMovie){
-    console.log("ran one AddForm");
+    // console.log("ran one AddForm");
     var compiledTemplate = this.addFormTemplate({
       movie: selectedMovie.model.toJSON()
     });
@@ -47,7 +47,7 @@ var MovieListView = Backbone.View.extend({
   },
 
   clearForm: function(){
-    console.log("triggered clearForm once");
+    // console.log("triggered clearForm once");
     this.$('#title').val('');
     this.$('#overview').val('');
     this.$('#release_date').val('');
@@ -58,18 +58,26 @@ var MovieListView = Backbone.View.extend({
   },
 
   saveMovie: function(event) {
-    console.log(this);
     event.preventDefault();
     event.stopPropagation();
     var rawMovie = this.getInput();
-    console.log(rawMovie);
-    this.model.create(rawMovie);
-    this.clearForm();
-    this.renderRentalLibraryCallback();
-  },
+    // console.log(rawMovie);
+    this.model.create(rawMovie, {
+      wait: true,
+      success: function(resp){
+        this.renderRentalLibraryCallback();
+        console.log(resp);
+      }.bind(this),
+      error: function(err) {
+        console.log(err);
+      }.bind(this)
+    });
+      this.clearForm();
+      // this.renderRentalLibraryCallback();
+    },
 
   getInput: function() {
-    console.log("in getInput");
+    // console.log("in getInput");
     var movie = {
       title: this.$('#title').val(),
       overview: this.$('#overview').val(),
