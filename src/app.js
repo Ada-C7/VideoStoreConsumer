@@ -21,7 +21,10 @@ var movieListView = new MovieListView({
   el: $("#application")
 });
 
+var newSearch = new SearchList();
+
 var movieSearchView = new MovieSearchView({
+  model: newSearch,
   movieListTemplate: movieListTemplate,
   movieTemplate: movieTemplate,
   el: $("#application")
