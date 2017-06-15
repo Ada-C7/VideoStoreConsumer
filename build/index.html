@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <section id='all-movie-list'>
-      <form>
-        <input type="text" placeholder="Movie" name = "movietitle" id="movieName"></input>
-        <button type="submit" id="submit-button" class="success button"> Search Movies</button>
-      </form>
-      <ul id='movie-list'>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Backbone Baseline</title>
+</head>
+<body>
+  <section id='all-movie-list'>
+    <form>
+      <input type="text" placeholder="Movie" name = "movietitle" id="movieName"></input>
+      <button type="submit" id="submit-button" class="success button"> Search Movies</button>
+    </form>
+    <ul id='movie-list'>
 
-      </ul>
-    </section>
-    <section class='main-content'>
-      <ul id='rental-list'>
-      </ul>
-    </section>
+    </ul>
+  </section>
+  <section class='main-content'>
+    <div>
+    <ul id='rental-list'>
+    </ul>
+  </section>
 
 
-    <script id="rental-template" type="text/template">
-      <li class = "rental-list-element">
+  <script id="rental-template" type="text/template">
+    <div class="row">
+    <li class="rental-list-element">
+      <div class="small-12 medium-6 large-3 columns">
         <img src=<%- rental.image_url %> alt="movie_picture"><br>
-        <%- rental.title %> </li>
+        <%- rental.title %>
+      </div>
+      <div class="small-12 medium-6 large-4 columns">
+        <%- rental.overview %>
+      </div>
+    </li>
+    </div>
     </script>
 
     <script id="movie-template" type="text/template">
       <li class = "movie-list-element">
         <img src=<%= movie.image_url %> alt="movie_picture">
         <%- movie.title %><br>
-          <button type="submit" id="add-button" class="success button"> Add to rentals</button>
+        <button type="submit" id="add-button" class="success button"> Add to rentals</button>
       </li>
     </script>
     <script src="/app.bundle.js"></script>
