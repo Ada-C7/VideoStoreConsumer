@@ -8,6 +8,7 @@ var MovieListView = Backbone.View.extend({
   initialize: function(params){
     this.movieTemplate = params.movieTemplate;
     this.addFormTemplate = params.addFormTemplate;
+    this.renderRentalLibraryCallback = params.renderRentalLibraryCallback;
 
     this.listenTo(this.model, 'update' , this.render);
   },
@@ -63,6 +64,7 @@ var MovieListView = Backbone.View.extend({
     console.log(rawMovie);
     this.model.create(rawMovie);
     this.clearForm();
+    this.renderRentalLibraryCallback();
   },
 
   getInput: function() {
