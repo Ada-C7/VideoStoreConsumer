@@ -5,8 +5,6 @@ import $ from 'jquery';
 import _ from 'underscore';
 import VideoList from 'collections/video_list.js';
 import VideoListView from 'views/video_list_view';
-import SearchListView from 'views/search_list_view';
-import SearchList from 'collections/search_list';
 
 
 

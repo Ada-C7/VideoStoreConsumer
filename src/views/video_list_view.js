@@ -15,7 +15,8 @@ var VideoListView = Backbone.View.extend({
     this.$('#video-list').empty();
     var that = this;
     this.model.each(function(video) {
-      var videoView = new VideoView({ // create a new view for each video in the collection
+      var videoView = new VideoView({
+        // create a new view for each video in the collection
         model: video,
         template: that.template
       });
