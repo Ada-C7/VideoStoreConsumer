@@ -20,7 +20,7 @@ var errorHandler = function(collection, response, options) {
 };
 
 myMovieList.fetch({
-  reset: true,
+  //reset: true,
   success: successHandler,
   error: errorHandler
 });
