@@ -26,7 +26,10 @@ var moviesView = new MoviesView({
   el: 'main'
 });
 
+
+
 $(document).ready(function() {
+
 
   moviesView.render();
 
@@ -40,7 +43,13 @@ $(document).ready(function() {
       template: _.template($("#customer-template").html()),
       el: 'main'
     });
+    customersView.render();
   });
+
+  $('.view-movies').click(function() {
+    moviesView.render();
+  });
+
 
 
 
