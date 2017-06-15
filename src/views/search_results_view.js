@@ -27,6 +27,19 @@ var SearchResultsView = Backbone.View.extend({
       that.$("#movie-list").append(movieView.render().el);
     });
 
+  },
+
+  events:  {
+    "click #add-to-library": "add"
+  },
+
+  add: function(){
+    var data = getData();
+    this.model.create();
+  },
+
+  getData: function(){
+    
   }
 });
 
