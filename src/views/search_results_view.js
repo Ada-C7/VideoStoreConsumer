@@ -29,18 +29,6 @@ var SearchResultsView = Backbone.View.extend({
 
   },
 
-  events:  {
-    "click #add-to-library": "add"
-  },
-
-  add: function(){
-    var data = getData();
-    this.model.create();
-  },
-
-  getData: function(){
-    
-  }
 });
 
 export default SearchResultsView;

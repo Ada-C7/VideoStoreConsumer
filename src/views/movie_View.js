@@ -1,9 +1,9 @@
+
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
 
 import Movie from '../models/movie.js';
-console.log("crumb 4");
 
 
 var MovieView = Backbone.View.extend({
@@ -18,7 +18,24 @@ var MovieView = Backbone.View.extend({
     this.template(this.model.toJSON() );
     this.$el.html(compiledTemplate);
     return this;
-  }
+  },
+
+  events:  {
+    "click #add-to-library": "add"
+  },
+
+  add: function(){
+    var newMovie = new Movie(this.model);
+    newMovie.create();
+    // use fetch with data: JSON
+
+    // adjust rails route for create, controller for create method
+    // newMovie.fetch({
+    //   data: $.params({
+    //     title: newMovie.get('title');
+    //   })
+    // })
+  },
 
 });
 
