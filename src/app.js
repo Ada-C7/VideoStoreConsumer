@@ -46,6 +46,7 @@ $(document).ready(function() {
   addFormTemplate = _.template($('#addto-rental-library-template').html());
 
   rentalLibrary();
+
   $('#home').click(function(event) {
     rentalLibrary();
   });
@@ -53,7 +54,4 @@ $(document).ready(function() {
   $('#submit-button').click(function(event) {
     movieLibrary();
   });
-
-  $
-
 });

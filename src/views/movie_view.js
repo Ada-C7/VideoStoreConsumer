@@ -4,7 +4,8 @@ import $ from 'jquery';
 import Movie from '../models/movie.js';
 
 var MovieView = Backbone.View.extend({
-
+  tagName: 'table',
+  className: 'table-list',
   initialize: function(params){
     this.movieTemplate = params.movieTemplate;
 
@@ -26,9 +27,9 @@ var MovieView = Backbone.View.extend({
 
   openForm: function(e){
     console.log("one openForm");
+    $('#add-form').show()
     this.trigger('openform',this)
   }
-
 });
 
 

@@ -42,3 +42,25 @@ div {
   border-style: solid;
 }
 */
+.table-list {
+  margin-bottom: 0.25rem;
+  background-color: white;
+}
+
+.button {
+  margin: 0;
+}
+
+#add-form {
+  z-index: 10;
+  position: fixed;
+  width: 60%;
+  height: 400px;
+  top: 8%;
+  right: 30%;
+  background-color: lightgreen;
+  text-align: left;
+  border: 0.1em solid white;
+  margin-left: 10%;
+  border-radius: 1rem;
+}
