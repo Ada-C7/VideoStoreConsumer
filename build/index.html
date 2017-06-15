@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-
+      <h3>Video Store</h3>
     </header>
     <main>
       <section id='add-form'></section>
@@ -20,30 +20,38 @@
       <section id="buttons">
         <button id="submit-button" class="button success">Search</button>
       </section>
-      <section id='rental-library'> </section>
+      <section id='rental-library' class='row'> </section>
 
     </main>
 
 
 <!-- TEMPLATES -->
     <script id="rental-library-template" type="text/template">
-      <li><%-movie.title%></li>
+      <tr>
+        <td class=column><%-movie.title%></td>
+      </tr>
+
     </script>
 
     <script id="search-library-template" type="text/template">
-      <li><%-movie.title%></li>
-      <button class="button alert" id= 'open-add-form'>Add To Rental Library</button>
+      <tr>
+        <td class='large-7 medium-7 column'><%-movie.title%></td>
+        <td class='large-2 medium-2 column'><%-movie.release_date%></td>
+        <td class='large-3 medium-3 column'><button class="button tiny alert" id= 'open-add-form'>Add To Rental Library</button></td>
+      </tr>
     </script>
 
     <script id="addto-rental-library-template" type="text/template">
       <section class="row contact-form">
-        <h4>You're about to save the following movie to the rental library</h4>
-        <p>
-          Title: <%-movie.title%>
-        </p>
-        <p>
-          Release date: <%-movie.release_date%>
-        </p>
+        <div class="columns">
+          <h4>Save to the rental library</h4>
+          <p>
+            Title: <%-movie.title%>
+          </p>
+          <p>
+            Release date: <%-movie.release_date%>
+          </p>
+        </div>
 
         <div class="columns">
           <label>
