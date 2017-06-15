@@ -12,7 +12,7 @@ const ApplicationView = Backbone.View.extend({
     'click h1' : 'showAllResults'
   },
   showAllResults: function () {
-    showList();
+    this.showList();
   },
   showList: function (searchTerm) {
     var path = searchTerm ? ('?query=' + searchTerm) : '';
