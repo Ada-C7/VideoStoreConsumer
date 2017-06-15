@@ -21,16 +21,7 @@ var MovieView = Backbone.View.extend({
   },
 
   addMovie: function() {
-    console.log("ADD MOVIE");
-    console.log(this.model);
-    var movie = new Movie(
-      {title: this.model.attributes.title,
-      release_date: this.model.attributes.release_date,
-      overview: this.model.attributes.overview,
-      image_url: this.model.attributes.image_url
-    });
-    console.log(movie);
-    this.model.create(movie);
+    this.model.save();
   }
 });
 
