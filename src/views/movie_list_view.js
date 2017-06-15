@@ -3,6 +3,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 import MovieView from './movie_view';
 import Movie from '../models/movie.js';
+import MovieList from '../collections/movie_list';
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params){
