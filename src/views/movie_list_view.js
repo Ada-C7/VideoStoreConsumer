@@ -9,7 +9,6 @@ var MovieListView = Backbone.View.extend ({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
-    this.listenTo(this.model, 'change', this.render);
   },
 
   render: function() {
@@ -37,15 +36,25 @@ var MovieListView = Backbone.View.extend ({
     return formTitle;
   },
 
+
   searchMovie: function() {
+    var errorHandler = function() {
+      $(".messages").html("<h4>Error: Search field cannot be blank.</h4>");
+    };
 
     this.template = _.template($('#search-list-template').html());
-    this.model.fetch({ error: function() {console.log(arguments);},
+    this.model.fetch({
+      error: errorHandler,
       traditional: true,
       data: {query: [this.getFormData()]}
     });
 
+
+
+
   }
+
+
 });
 
 export default MovieListView;
