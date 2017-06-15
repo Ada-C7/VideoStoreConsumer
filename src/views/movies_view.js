@@ -3,13 +3,13 @@ import Movie from '../models/movie.js';
 import $ from 'jquery';
 import _ from 'underscore';
 import MovieView from './movie_view.js';
+import RentMovieView from './rent_movie_view.js';
 
 var MoviesView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, "update", this.render);
     this.isSearching = false;
-
   },
   render: function() {
     this.$('.main-content').empty();
@@ -26,10 +26,19 @@ var MoviesView = Backbone.View.extend({
         this.isSearching = false;
         this.model.fetch();
       });
+      that.listenTo(movieView, "addNewRental", function(movie) {
+        // console.log($("#rent-movie-template").html());
+        var rentMovieView = new RentMovieView({
+          model: movie,
+          template: _.template($("#rent-movie-template").html())
+        });
+        that.$('.main-content').empty();
+        that.$('.main-content').append(rentMovieView.render().el);
+      });
 
     });
 
-    console.log(this.isSearching);
+    // console.log(this.isSearching);
     if (this.isSearching) {
       $('.add-collection').removeClass('hide');
       $('.add-rental').addClass('hide');

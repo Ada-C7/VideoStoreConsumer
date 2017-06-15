@@ -16,7 +16,8 @@ var MovieView = Backbone.View.extend({
   },
   events: {
     "click h3.button.add-collection": "addMovie",
-    "click img.movie-image": "showOverview"
+    "click img.movie-image": "showOverview",
+    "click h3.button.add-rental": "addRental"
   },
   addMovie: function(event) {
     event.stopPropagation();
@@ -26,6 +27,9 @@ var MovieView = Backbone.View.extend({
   },
   showOverview: function(event) {
     this.$("p.movie-overview").toggleClass('hide');
+  },
+  addRental: function(event) {
+    this.trigger("addNewRental", this.model);
   }
 });
 
