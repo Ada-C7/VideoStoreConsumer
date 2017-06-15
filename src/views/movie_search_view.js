@@ -11,8 +11,6 @@ var MovieSearchView = Backbone.View.extend({
 
     this.movieListTemplate = params.movieListTemplate;
 
-    this.movieSearchViewList = [];
-
     this.model.forEach(function(movieData) {
       self.addSearchMovie(movieData);
     });
@@ -36,20 +34,20 @@ var MovieSearchView = Backbone.View.extend({
 
   render: function(event){
     console.log("render being called");
+
     var self = this;
-    this.$('#search-list').empty();
+    this.$('#movie-list').empty();
 
     this.movieSearchViewList.forEach(function(movieView) {
       movieView.render();
-      self.$('#search-list').append(movieView.$el); // exp w/deleting el
+      self.$('#movie-list').append(movieView.$el); // exp w/deleting el
     });
+
     return this;
   },
 
   search: function(event) {
-    console.log("Working");
-    console.log(event);
-
+    this.movieSearchViewList = [];
     var query = this.$('input[name="search"]').val();
 
     this.model.fetch({data: {query: query}});
