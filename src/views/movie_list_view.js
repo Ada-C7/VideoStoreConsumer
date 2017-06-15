@@ -56,6 +56,7 @@ var MovieListView = Backbone.View.extend({
     this.$('#image_url').val('');
     this.$('#inventory').val('');
     this.$('#add-form').empty();
+    this.$('#add-form').hide()
   },
 
   saveMovie: function(event) {
