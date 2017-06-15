@@ -1,21 +1,45 @@
 @include foundation-everything;
 
-main {
-    background: lightblue;
+/* colors
+#FFA903 orange
+#0E3FA9 blue
+*/
+
+body{
+  background-color: #0E3FA9;
+  color: white;
 }
 
 header {
-  background-color: lightgreen;
+  color: #FFA903;
   padding: 0.5rem;
+  border-bottom: 2px #FFA903 dashed;
+  align-content: space-around;
 }
 
-#completed-checkbox {
-  display: inline;
+main {
+  font-family: helvetica, sans-serif;
 }
 
-label {
-  display: inline;
+footer {
+  text-align: center;
+  padding: 0.5rem;
+  border-top: 2px #FFA903 dashed;
 }
+
+.title {
+  font-family: 'Bungee Inline', cursive;
+}
+
+.button {
+  background-color: #FFA903;
+}
+
+.search-bar {
+  padding-top: 1rem;
+}
+
+/* starter css code */
 
 button.success {
   margin-right: 1.2rem;
@@ -30,15 +54,14 @@ aside label {
   color: #FFFFFF;
 }
 
+#completed-checkbox {
+  display: inline;
+}
+
+label {
+  display: inline;
+}
+
 .completed {
   text-decoration: line-through;
 }
-
-div {
-  display: inline;
-}
-/*
-* {
-  border-style: solid;
-}
-*/
