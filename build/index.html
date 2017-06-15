@@ -13,6 +13,8 @@
       <h1>Video Store</h1>
     </header>
     <main class="row">
+      <h3 class="button view-customers">View Customers</h3>
+      <h3 class="button view-movies">View Movies</h3>
       <section class="search-bar">
         <section class="large-6 columns">
           <h4>Find Movie In Store</h4>
@@ -45,7 +47,6 @@
           <h3 class="button hide add-collection">Add to Collection</h3>
       </section>
     </script>
-
     <script type="text/template" id="rent-movie-template">
       <section class="columns small-12">
         <section class="small-6">
@@ -66,6 +67,12 @@
       <h3 class="button add-rental">Checkout Movie</h3>
     </section>
   </section> -->
+
+    <script type="text/template" id="customer-template">
+      <section class="columns small-4">
+        <h4><%- name %></h4>
+      </section>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
