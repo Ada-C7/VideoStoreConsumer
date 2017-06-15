@@ -21,9 +21,6 @@ var MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'add', this.addMovie);
     this.listenTo(this.model, 'update', this.render);
   },
-  events: {
-    'click #search-button': 'search'
-  },
 
   render: function() {
     var self = this;
@@ -43,16 +40,6 @@ var MovieListView = Backbone.View.extend({
     });
 
     this.movieViewList.push(movieView);
-  },
-
-  search: function(event) {
-    console.log("Working");
-    console.log(event);
-
-    var query = this.$('input[name="search"]').val();
-
-    var newSearch = new SearchList();
-    newSearch.fetch({data: {query: query}});
   }
 });
 
