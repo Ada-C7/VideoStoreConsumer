@@ -23,8 +23,23 @@ var VideoListView = Backbone.View.extend({
 
     });
     return this;
-  }
+  },
+  events: {
+    "click #add-video": "addVideo",
+    "click #search-video": "searchVideo"
+  },
+  getFormData: function() {
+    var formTitle =
+    this.$("#title").val();
+    this.$("#title").val('');
 
+    return formTitle;
+  },
+  searchVideo: function(){
+    this.$('#video-list').empty();
+    var videoTitle = this.getFormData();
+    this.model.fetch( {data: { query: videoTitle}});
+  }
 });
 
 export default VideoListView;

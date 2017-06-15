@@ -16,6 +16,7 @@ $(document).ready(function() {
   var myVideoList = new VideoList();
   myVideoList.fetch();
 
+  // var mySearchList = new VideoList();
 
 
   var myVideoListView = new VideoListView({
@@ -23,6 +24,12 @@ $(document).ready(function() {
     template: _.template($('#video-card-template').html()),
     el: 'main'
   });
+
+  // var mySearchListView = new SearchListView({
+  //   model: mySearchList,
+  //   template: _.template($('#video-card-template').html()),
+  //   el: 'main'
+  // });
   // myVideoListView.render();
 
 });
