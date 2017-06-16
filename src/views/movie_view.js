@@ -25,6 +25,7 @@ const MovieView = Backbone.View.extend({
   addToLib: function() {
     console.log("clicked addtolib");
     console.log(this.model);
+    this.model.url = "http://localhost:3000/movies";
     this.model.save();
     // this.trigger("addToLib", this.model)
   },
