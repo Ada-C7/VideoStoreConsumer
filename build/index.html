@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/_settings.css">
     <link rel="stylesheet" type="text/css" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Backbone Baseline</title>
-  </head>
-  <body>
+</head>
+
+<body>
+    <canvas></canvas>
+    <h1 id="rental-library"> Comfort's Comfortable Movies </h1>
+    <main>
+        <section class="main-content">
+
+            <form id="searchbar">
+                <input type="text" name="search" id="search">
+                <button type="submit" class="button btn-search">Search</button>
+            </form>
+
+            <section class="reveal" id='movie-details' data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
+            </section>
+            <ul id='movie-list'></ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <img src="https://www.themoviedb.org/assets/static_cache/27b65cb40d26f78354a4ac5abf87b2be/images/v4/logos/powered-by-rectangle-green.svg" class="api-credit">
+    </footer>
+
+    <script id="movie-list-template" type="text/template">
+        <button class="button success btn-add" id=<%- movie.external_id%>>Add</button>
+        <h3><%- movie.title %></h3>
+        <img src=<%=movie.image_url%> />
+    </script>
+
+    <script type="text/template" id="movie-details-template">
+        <h4 class="close-modal">X</h4>
+        <h3><%- movie.title %></h3>
+        <img src=<%=movie.image_url%> />
+        <h4>Release Date: <%- movie.release_date %></h4>
+        <h4><%- movie.overview %></h4>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
-  </body>
-  </html>
+</body>
+
+</html>
