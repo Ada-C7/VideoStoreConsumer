@@ -10,6 +10,8 @@ import CustomerListView from 'views/customer_list_view';
 import RentalList from './collections/rental_list';
 import RentalListView from './views/rental_list_view';
 
+Backbone.pubSub = _.extend({}, Backbone.Events);
+
 $(document).ready(function() {
 
   var inventoryList = new InventoryList();
@@ -18,6 +20,7 @@ $(document).ready(function() {
   var options = {
     el:  $('.main-content'),
     model: inventoryList
+    // state: applicationState
   };
 
   var application = new InventoryListView(options);

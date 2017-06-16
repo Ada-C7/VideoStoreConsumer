@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 import _ from 'underscore';
 
-Backbone.pubSub = _.extend({}, Backbone.Events);
+
 
 var CustomerView = Backbone.View.extend({
   initialize: function(options) {
@@ -23,6 +23,7 @@ var CustomerView = Backbone.View.extend({
 
   customerSelected: function(event) {
     console.log("In customerSelected")
+    Backbone.pubSub.selectedCustomer = this.model
     Backbone.pubSub.trigger('customerChosen', this.model)
     // console.log(this.model);
   }

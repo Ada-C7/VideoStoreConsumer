@@ -16,17 +16,17 @@ var RentalListView = Backbone.View.extend({
     this.listenTo(this.model, 'add', this.addRental);
     this.listenTo(this.model, 'update', this.render);
 
-    // this.listenTo(Backbone.pubSub, 'customerChosen', this.createRental);
-    // this.listenTo(Backbone.pubSub, 'inventoryChosen', this.createRental);
+    this.listenTo(Backbone.pubSub, 'customerChosen', this.createRental);
+    this.listenTo(Backbone.pubSub, 'inventoryChosen', this.createRental);
 
-    this.listenTo(Backbone.pubSub, 'all', function(event_name, data ){
-
-      if( event_name == "customerChosen"  && event_name == "inventoryChosen" ){
-        createRental();
-      }
-
-    });
+    // this.listenTo(Backbone.pubSub, 'all', function(event_name, data ){
+    //
+    //   if( event_name == "customerChosen"  && event_name == "inventoryChosen" ){
+    //     createRental();
+    //   }
+    // });
   },
+
 
   render: function() {
     $('#rental-list').empty();
@@ -48,7 +48,9 @@ var RentalListView = Backbone.View.extend({
 
   createRental: function(movie) {
     console.log("We are in Create Rental");
-    //
+    if (Backbone.pubSub.selectedMovie && Backbone.pubSub.selectedCustomer){
+    console.log("Movie and Customers are selected")
+  }
     //   params = {
     //     customer_id: 1,
     //     movie_id: 2,
