@@ -14,7 +14,13 @@
 
   <!-- may need to rethink where to do foundation -->
   <main class="row">
-    <section class="columns small-12 large-3" id="movie-details"></section>
+
+
+    <section class="columns small-12 large-3" id="movie-details">
+
+    </section>
+
+
 
     <section class="columns small-12 large-9" id="list-main">
 
@@ -38,39 +44,11 @@
 
   </main>
 
-  <!-- <script id="library-template" type="text/template">
-  <section class="row">
-  <h3 id="#subheader" class="columns small-12">Your Library</h3>
-</section>
-<section class="list-content" class="row">
-<%= movie_list %>
-</section>
-</script> -->
-
-<!-- <script id="list-template" type="text/template">
-<form class="search-form columns small-12 large-4">
-<input type="text" name="query" id="query" placeholder="Search for a movie"/>
-<button class="button" id="search-button">Search</button>
-</form>
-
-<section id="search-header-section" class="row">
-<h3 id="#search-subheader" class="columns small-12 large-8">Search Results for <%- query %></h3>
-<button class="button columns small-12 large-4" id="return-library">Return to Library</button>
-</section>
-
-<section id="library-header-section" class="row">
-<h3 id="#library-subheader" class="columns small-12 large-8">My Library</h3>
-</section>>
-
-<section id="list-content" class="row">
-
-</section>
-</script> -->
 
 
 <!-- sidebar details template -->
 <script id="movie-details-template" type="text/template">
-  <img src=<%-image_url%> />
+  <img src=<%-image_url%> >
   <h3><%-title%></h3>
   <p>Overview: <%-overview%></p>
   <p>Release Date: <%-release_date%></p>

@@ -38,7 +38,7 @@ const MovieView = Backbone.View.extend({
 
   sendMovie: function(event) {
     console.log("in movie view clicked on movie");
-    this.trigger("sendMovie", this);
+    this.trigger("showMovie", this);
   },
 
   rentMovie: function() {

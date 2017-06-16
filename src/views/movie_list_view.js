@@ -40,9 +40,7 @@ const MovieListView = Backbone.View.extend({
         template: that.template
       });
       that.$("#list-content").append(movieView.render().el);
-      that.listenTo(movieView, "showMovie", that.sendMovie);
-      // that.listenTo(movieView, "addToLib", that.addToLib);
-
+      that.listenTo(movieView, "showMovie", that.showMovieDetails);
     });
 
     if (this.search === true) {
@@ -59,20 +57,8 @@ const MovieListView = Backbone.View.extend({
   events: {
     "click #search-button" : "getSearch",
     "click #return-library" : "returnToLib"
-    // hide details click : hideMovieDetails
+    hide details click : hideMovieDetails
   },
-
-  // addToLib: function(movie) {
-  //   console.log("adding movie to library");
-  //   console.log(movie);
-  //   this.model.url = "http://localhost:3000/movies";
-  //   var newMovie = new Movie(movie.attributes);
-  //   console.log(newMovie);
-  //   this.model.create(newMovie);
-  //   // newMovie.save();
-  //   // disable and change button
-  //   // add opaque div to view
-  // },
 
   getSearch: function() {
     this.model.url = "http://localhost:3000/movies";
@@ -96,14 +82,25 @@ const MovieListView = Backbone.View.extend({
 
   },
 
-  showMovieDetails: function() {
-    // show details div
-    // clear details div
-    // render the template and all that crap
+  showMovieDetails: function(movie) {
+    console.log("inside showMovieDetails");
+    this.$("#movie-details").show();
+    this.$("#list-main").removeClass("large-12");
+    this.$("#list-main").addClass("large-9");
+    this.$(".movie-card").removeClass("large-3");
+    this.$(".movie-card").addClass("large-4");
+    this.$("#movie-details").empty();
+    var myDetailedMovie = new MovieView({
+      model: movie.model,
+      template: _.template($("#movie-details-template").html()),
+      // search: false,
+      el: "#movie-details"
+    });
+    this.$("#movie-details").append(myDetailedMovie.render().el);
   },
 
   hideMovieDetails: function() {
-    // hide the details div
+
   },
 
   returnToLib: function(event) {
