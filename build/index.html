@@ -2,47 +2,56 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <main>
-    <h2 id="logo">OliviAnn's Rental Library</h2>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Backbone Baseline</title>
+</head>
+<main>
+  <h2 id="logo">OliviAnn's Rental Library</h2>
 
-    <section id="search-bar">
-      <label>
-        <input type="text" id="query" placeholder="Enter Search Terms Here"></input>
-      </label>
-      <button id="search" class="medium-3 columns button center">Search</button>
-    </section>
+  <section id="search-bar">
+    <label>
+      <input type="text" id="query" placeholder="Enter Search Terms Here"></input>
+    </label>
+    <button id="search" class="medium-3 columns button center">Search</button>
+  </section>
 
-    <section>
-      <section id='movie'></section>
-      <section class="center" id='movie-list'></section>
+  <section>
+    <section id='movie-card'></section>
+    <section class="center" id='movie-list'></section>
 
-    </section>
-  </main>
+  </section>
 
-  <!--- Templates ------------->
 
-  <script id="movie-card-template" type="text/template">
-    <section class="column small-12 medium-12 large-12 movie-card inline">
-      <p>
-        <%- title %>
-      </p>
-      <p> (<%- release_date.substring(0,4) %>)  </p>
+
+</main>
+
+<!--- Templates ------------->
+
+<script id="movie-card-template" type="text/template">
+  <section class="column small-12 medium-12 large-12 movie-card inline">
+    <p>
+      <%- title %>
+    </p>
+    <p> (<%- release_date.substring(0,4) %>)  </p>
 
     <!-- need to change image url and title to code -->
 
-      <img src="<%-image_url %>"alt="<% title %>"></img>
+    <img src=<%-image_url %> alt=<% title %>></img>
 
   </section>
-  </script>
-
-  <script src="/app.bundle.js" charset="utf-8"></script>
+</script>
+<script id="movie-details-template" type="text/template">
+  <section>
+    <img src="<%-image_url %>"alt="<% title %>"></img>
+    <li><%- release_date %></li>
+    <li><%- overview %></li>
+  </section>
+</script>
+<script src="/app.bundle.js" charset="utf-8"></script>
 
 
 </html>
