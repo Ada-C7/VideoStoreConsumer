@@ -14,7 +14,7 @@ $(document).ready(function() {
      var moviesView = new MoviesView({
           model: movies,
           resultTemplate: _.template($('#movie-template').html(), {variable: 'movie'}),
-          el: 'main'
+          el: '#movies'
      });
 
      var dbMoviesView = new DBMoviesView({

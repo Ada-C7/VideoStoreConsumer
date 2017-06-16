@@ -4,6 +4,7 @@ import $ from 'jquery';
 
 import MovieView from './movie_view.js';
 import Movie from '../models/movie.js';
+import DBMoviesView from './db_movies_view.js';
 
 
 var MoviesView = Backbone.View.extend({
@@ -11,11 +12,12 @@ var MoviesView = Backbone.View.extend({
           this.template = params.resultTemplate;
           this.detailsTemplate = params.stockTemplate;
           this.listenTo(this.model, 'update', this.render);
+          // this.listenTo(DBMoviesView, 'refresh', this.render);
 
           this.model.fetch();
      },
      render: function() {
-
+        // this.$('#movies').empty();
          this.$('#movie-results').empty();
          this.$('#movies-stocked').empty();
 
@@ -26,13 +28,16 @@ var MoviesView = Backbone.View.extend({
                model: movie,
                template: that.template
           });
+
           that.$('#movies-stocked').append(movieView.render().$el);
           });
+          console.log('test');
           return this;
+
      }
-     // events:  {
-     //      'click #search-button' : 'searchMovie'
-     // },
+    //  events:  {
+    //       'click #add-button' : 'render'
+    //  }
      // getFormData: function() {
      //      var formQuery = this.$('#query').val();
      //      this.$('#query').val('');

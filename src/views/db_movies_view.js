@@ -43,8 +43,10 @@ var DBMoviesView = Backbone.View.extend({
           });
      },
      addMovie: function(movie) {
+          console.log(movie);
           event.preventDefault();
           this.model.create(movie);
+          // this.trigger('refresh');
      }
 
 
