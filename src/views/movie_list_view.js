@@ -83,8 +83,10 @@ var MovieListView = Backbone.View.extend({
       overview: this.$('#overview').val(),
       release_date: this.$('#release_date').val(),
       image_url: this.$('#image_url').val(),
-      inventory: this.$('#inventory').val()
+      inventory: parseInt(this.$('#inventory').val())
     };
+    movie.image_url = movie.image_url.substring(movie.image_url.indexOf("5")+1)
+    console.log(movie.image_url);
     return movie;
   }
 
