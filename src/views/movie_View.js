@@ -26,16 +26,10 @@ var MovieView = Backbone.View.extend({
 
   add: function(){
     console.log(this.model);
-    var newMovie = {
-      title: this.model.get('title'),
-      overview: this.model.get('overview'),
-      release_date: this.model.get('release_date'),
-      inventory: 0,
-      image_
+
+    this.model.save();
 
 
-    };
-    newMovie.fetch(newMovie);
 
     // t.string   "title"
     // t.text     "overview"
