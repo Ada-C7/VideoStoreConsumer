@@ -38,6 +38,15 @@ const MovieListView = Backbone.View.extend({
       that.$("#list-content").append(movieView.render().el);
       that.listenTo(movieView, "showMovie", that.sendMovie);
     });
+
+    if (this.search === true) {
+      this.$(".add-library").show();
+      this.$(".rent-movie").hide();
+    } else {
+      this.$(".add-library").hide();
+      this.$(".rent-movie").show();
+    }
+
     return this;
   },
 
