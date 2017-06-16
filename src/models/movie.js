@@ -2,7 +2,6 @@ import Backbone from 'backbone';
 
 var Movie = Backbone.Model.extend({
      defaults: {
-          id: '',
           title: '',
           overview: '',
           release_date: '',

@@ -9,7 +9,6 @@ var DBMoviesView = Backbone.View.extend({
      initialize: function( params ) {
           this.template = params.stockTemplate;
           this.listenTo(this.model, 'update', this.render);
-          this.stopListening(this.model, 'stop');
      },
      render: function() {
 
@@ -22,7 +21,9 @@ var DBMoviesView = Backbone.View.extend({
                model: dbMovie,
                template: that.template
           });
-          that.listenTo(DBMovieView, 'created', that.addMovie)
+
+          that.listenTo(dbMovieView,'created', that.addMovie);
+
           that.$('#movie-results').append( dbMovieView.render().$el );
           });
           return this;
@@ -42,13 +43,10 @@ var DBMoviesView = Backbone.View.extend({
           });
      },
      addMovie: function(movie) {
-          this.trigger('stop', movie)
-
-          console.log('test');
+          event.preventDefault();
           this.model.create(movie);
-          event.stopPropagation()
-
      }
+
 
 });
 

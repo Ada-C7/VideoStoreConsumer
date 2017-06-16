@@ -17,7 +17,7 @@ var DBMovieView = Backbone.View.extend({
           return this;
      },
      events:  {
-          'click #add-button' : 'addMovie'
+          'click #add-button' : 'createMovie'
      },
      formatForMovie: function() {
           return {
@@ -31,8 +31,7 @@ var DBMovieView = Backbone.View.extend({
      createMovie: function() {
           event.preventDefault();
           var movie = new Movie(this.formatForMovie());
-          this.trigger('created', movie)
-          console.log(movie);
+          this.trigger('created', movie);
      }
 });
 
