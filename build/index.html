@@ -9,7 +9,7 @@
 </head>
 <body>
   <section id='all-movie-list'>
-    <form>
+    <form id = "search-form">
       <input type="text" placeholder="Movie" name = "movietitle" id="movieName"></input>
       <button type="submit" id="submit-button" class="success button"> Search Movies</button>
     </form>
@@ -29,7 +29,6 @@
       <form id="customer-list">
 
       </form>
-      <button type="submit" id="submit-rental-button" class="success large button"> Create rental</button>
 
       <ul id='rental-list'>
       </ul>
@@ -47,7 +46,7 @@
         <div class="small-12 medium-12 large-6 columns">
 
           <section><%- inventory.overview %>  </section>
-          <button type="submit" id="create-rental-button" class="success button"> Create Rental</button>
+          <button type="submit" id="choose-movie-button" class="success button"> Choose Movie </button>
         </div>
       </li>
     </div>
@@ -62,9 +61,11 @@
   </script>
 
   <script id="customer-template" type="text/template">
-    <input type="radio" class="customer-list-element" name="name">
+
     <%- customer.name %><br>
-  </input>
+    <button type="submit" id="choose-customer-button" class="success large button"> Create rental</button>
+
+  
 </script>
 
 <script id="rental-template" type="text/template">

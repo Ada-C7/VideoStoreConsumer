@@ -7,6 +7,8 @@ import MovieList from 'collections/movie_list';
 import MovieListView from 'views/movie_list_view';
 import CustomerList from 'collections/customer_list';
 import CustomerListView from 'views/customer_list_view';
+import RentalList from './collections/rental_list';
+import RentalListView from './views/rental_list_view';
 
 $(document).ready(function() {
 
@@ -24,7 +26,7 @@ $(document).ready(function() {
 
 
 
-  $("form").submit(function(event) {
+  $("#search-form").submit(function(event) {
       event.preventDefault();
       var movieList = new MovieList();
         console.log($('#movieName').val());
@@ -55,6 +57,17 @@ $(document).ready(function() {
 
   var customerListView = new CustomerListView(options);
   customerListView.render();
+
+  var rentalList = new RentalList();
+  rentalList.fetch();
+
+  var options = {
+    el:  $('.main-content'),
+    model: rentalList
+  };
+
+  var rentalListView = new RentalListView(options);
+  rentalListView.render();
 
 
 
