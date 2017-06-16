@@ -35,7 +35,7 @@ var imageData = context.createImageData(width, height);
     requestAnimationFrame(loop);
 
 })();
-// ready to go
+
 $(document).ready(function() {
 
   movieList.fetch();

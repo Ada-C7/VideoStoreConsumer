@@ -20,22 +20,8 @@
                 <button type="submit" class="button btn-search">Search</button>
             </form>
 
-
             <section class="reveal" id='movie-details' data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
             </section>
-
-            <!-- <article class="reveal" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
-              <a href="#" class="close-modal">X</a>
-              <section id='movie-details'></section>
-            </article> -->
-            <!-- <div class="popup-backdrop" id="popup">
-              <article class="popup">
-                <a id="close-popup" href="#">X</a>
-                <div id="movie-details"></div>
-              </article>
-            </div> -->
-            <!-- <section id='movie-list'></section> -->
-            <!-- reveal tiny, small, medium, large, full -->
             <ul id='movie-list'></ul>
 
         </section>
@@ -48,8 +34,7 @@
     </script>
 
     <script type="text/template" id="movie-details-template">
-      <!-- <a href="#" class="close-modal">X</a> -->
-      <a class="close-reveal-modal" aria-label="Close">X</a>
+      <a class="close-modal">X</a>
       <h3><%- movie.title %></h3>
       <img src=<%=movie.image_url%> />
       <h4>Release Date: <%- movie.release_date %></h4>

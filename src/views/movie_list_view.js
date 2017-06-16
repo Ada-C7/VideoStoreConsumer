@@ -39,10 +39,12 @@ var MovieListView = Backbone.View.extend({
   events: {
     'submit #searchbar' : 'searchMovies',
     'click .btn-add': 'addRental',
-    'click #rental-library': 'viewLibrary'
+    'click #rental-library': 'viewLibrary',
+    'click .close-modal' : 'closeDetails'
   },
 
   searchMovies: function(event) {
+    this.closeDetails();
     event.preventDefault();
 
     var queryParams = $('#search').val();
@@ -71,6 +73,7 @@ var MovieListView = Backbone.View.extend({
 },
 
   viewLibrary: function(event) {
+    this.closeDetails();
     this.model.fetch();
   },
 
@@ -78,9 +81,12 @@ var MovieListView = Backbone.View.extend({
     console.log(movie);
     var movieHTML = this.movieDetailsTemplate({ movie: movie.attributes });
     $('#movie-details').html(movieHTML);
-    // $('#popup-backdrop').fadeIn(500);
-    // $('#movie-details').foundation('reveal', 'open');
-    $('#movie-details').show();
+    $('#movie-details').fadeIn(200);
+
+  },
+
+  closeDetails: function(event) {
+    $('#movie-details').fadeOut(200);
   }
 });
 

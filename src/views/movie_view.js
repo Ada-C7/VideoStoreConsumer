@@ -4,9 +4,9 @@ import $ from 'jquery';
 var MovieView = Backbone.View.extend({
   tagName: 'li',
   attributes: { 'data-open': "movie-details"},
+  className: 'movie',
   initialize: function(params) {
     this.template = params.template;
-    // this.listenTo(this.model, 'change', this.render);
   },
 
   render: function() {
@@ -27,7 +27,6 @@ var MovieView = Backbone.View.extend({
 
   addRental: function(event) {
     this.trigger('add', this.model);
-    // event.stopPropagation();
   },
 
   showDetails: function(event) {
