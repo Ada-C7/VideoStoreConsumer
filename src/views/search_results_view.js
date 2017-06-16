@@ -3,7 +3,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 
 import SearchResults from '../collections/search_results';
-import MovieView from '../views/movie_view';
+import MovieView from '../views/movie_View';
 console.log("crumb 7");
 
 
