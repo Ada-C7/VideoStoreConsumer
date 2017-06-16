@@ -2,6 +2,7 @@ import Backbone from 'backbone';
 
 var Inventory = Backbone.Model.extend({
   defaults :{
+    id: 0,
     title: "",
     overview: "",
     release_date: "",
@@ -10,6 +11,7 @@ var Inventory = Backbone.Model.extend({
   },
   initialize: function() {
     console.log("Added new inventory");
+    // console.log(this.model);
   }
 });
 

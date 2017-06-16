@@ -2,6 +2,7 @@ import Backbone from 'backbone';
 
 var Customer = Backbone.Model.extend({
   defaults :{
+  customer_id: 0,
   name: "",
   registered_at: "",
   address: "",

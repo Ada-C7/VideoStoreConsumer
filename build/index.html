@@ -19,17 +19,21 @@
   </section>
   <section class='row main-content'>
     <section class = "small-12 medium-12 large-6 columns">
+      <h3> Inventory List </h3>
       <ul id='inventory-list'>
       </ul>
     </section>
 
     <section class = "small-12 medium-12 large-6 columns">
+      <h4> Customer List </h4>
       <form id="customer-list">
 
       </form>
       <button type="submit" id="submit-rental-button" class="success large button"> Create rental</button>
-    </section>
 
+      <ul id='rental-list'>
+      </ul>
+    </section>
   </section>
 
 
@@ -59,11 +63,15 @@
 
   <script id="customer-template" type="text/template">
     <input type="radio" class="customer-list-element" name="name">
-      <%- customer.name %><br>
-    </input>
-  </script>
+    <%- customer.name %><br>
+  </input>
+</script>
 
-  <script src="/app.bundle.js"></script>
+<script id="rental-template" type="text/template">
+  <li> <%- rental.customer_id %> </li>
+</script>
+
+<script src="/app.bundle.js"></script>
 
 </body>
 </html>
