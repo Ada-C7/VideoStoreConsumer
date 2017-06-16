@@ -7,6 +7,8 @@ import Movie from '../models/movie.js'
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
+    this.movieDetailsTemplate = _.template($('#movie-details-template').html());
+    // fix
     this.template = params.template;
     this.rentals = this.model
     this.listenTo(this.model, "update", this.render);
@@ -26,7 +28,9 @@ var MovieListView = Backbone.View.extend({
       });
 
       this.$('#movie-list').prepend(movieView.render().$el);
-      this.listenTo(movieView, 'add', this.addToLibrary)
+      this.listenTo(movieView, 'add', this.addToLibrary);
+      this.listenTo(movieView, 'show', this.showDetails)
+
     });
   }
     return this;
@@ -35,10 +39,12 @@ var MovieListView = Backbone.View.extend({
   events: {
     'submit #searchbar' : 'searchMovies',
     'click .btn-add': 'addRental',
-    'click #rental-library': 'viewLibrary'
+    'click #rental-library': 'viewLibrary',
+    'click .close-modal' : 'closeDetails'
   },
 
   searchMovies: function(event) {
+    this.closeDetails();
     event.preventDefault();
 
     var queryParams = $('#search').val();
@@ -67,7 +73,20 @@ var MovieListView = Backbone.View.extend({
 },
 
   viewLibrary: function(event) {
+    this.closeDetails();
     this.model.fetch();
+  },
+
+  showDetails: function(movie) {
+    console.log(movie);
+    var movieHTML = this.movieDetailsTemplate({ movie: movie.attributes });
+    $('#movie-details').html(movieHTML);
+    $('#movie-details').fadeIn(200);
+
+  },
+
+  closeDetails: function(event) {
+    $('#movie-details').fadeOut(200);
   }
 });
 

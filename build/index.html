@@ -20,6 +20,8 @@
                 <button type="submit" class="button btn-search">Search</button>
             </form>
 
+            <section class="reveal" id='movie-details' data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
+            </section>
             <ul id='movie-list'></ul>
 
         </section>
@@ -35,9 +37,16 @@
         <img src=<%=movie.image_url%> />
     </script>
 
+    <script type="text/template" id="movie-details-template">
+      <a class="close-modal">X</a>
+      <h3><%- movie.title %></h3>
+      <img src=<%=movie.image_url%> />
+      <h4>Release Date: <%- movie.release_date %></h4>
+      <h4><%- movie.overview %></h4>
+    </script>
+
     <script src="/app.bundle.js"></script>
 
-</body>
+  </body>
 
 </html>
->
