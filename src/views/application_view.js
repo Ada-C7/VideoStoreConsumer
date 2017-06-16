@@ -9,7 +9,8 @@ const ApplicationView = Backbone.View.extend({
     this.movieDetailsTemplate = params.movieDetailsTemplate;
   },
   events: {
-    'click h1' : 'showAllResults'
+    'click h1' : 'showAllResults',
+    'click #search-button' : 'searchMovies'
   },
   showAllResults: function () {
     this.showList();
@@ -26,6 +27,10 @@ const ApplicationView = Backbone.View.extend({
     });
     movieListView.render();
     this.listenTo(movieListView, 'showMovieDetails', this.showMovieDetails);
+  },
+  searchMovies: function () {
+    var searchTerm = this.getSearchTerm();
+    this.showList(searchTerm);
   },
   showMovieDetails: function (movie) {
     var movieDetailsView = new MovieDetailsView({
