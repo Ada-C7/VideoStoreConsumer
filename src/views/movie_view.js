@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 import _ from 'underscore';
 
-import Rental from '../models/rental'
+import Inventory from '../models/inventory'
 
 Backbone.pubSub = _.extend({}, Backbone.Events);
 

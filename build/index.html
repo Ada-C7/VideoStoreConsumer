@@ -19,7 +19,7 @@
   </section>
   <section class='row main-content'>
     <section class = "small-12 medium-12 large-6 columns">
-      <ul id='rental-list'>
+      <ul id='inventory-list'>
       </ul>
     </section>
 
@@ -31,16 +31,16 @@
   </section>
 
 
-  <script id="rental-template" type="text/template">
+  <script id="inventory-template" type="text/template">
     <div class="row">
-      <li class="rental-list-element">
+      <li class="inventory-list-element">
         <div class="small-12 medium-12 large-6 columns">
-          <img src=<%- rental.image_url %> alt="movie_picture"><br>
-          <%- rental.title %>
+          <img src=<%- inventory.image_url %> alt="movie_picture"><br>
+          <%- inventory.title %>
         </div>
         <div class="small-12 medium-12 large-6 columns">
-          <section><%- rental.overview %>  </section>
-          <button type="submit" id="create-rental-button" class="success button"> Create rental</button>
+          <section><%- inventory.overview %>  </section>
+          <button type="submit" id="create-rental-button" class="success button"> Create Rental</button>
         </div>
       </li>
     </div>

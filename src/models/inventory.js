@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-var Rental = Backbone.Model.extend({
+var Inventory = Backbone.Model.extend({
   defaults :{
     title: "",
     overview: "",
@@ -9,9 +9,9 @@ var Rental = Backbone.Model.extend({
     external_id: ""
   },
   initialize: function() {
-    console.log("Created new rental");
+    console.log("Added new inventory");
   }
 });
 
 
-export default Rental
+export default Inventory
