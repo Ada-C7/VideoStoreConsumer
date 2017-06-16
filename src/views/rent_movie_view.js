@@ -12,6 +12,10 @@ var RentMovieView = Backbone.View.extend({
     var compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     return this;
+  },
+  selectedMovie: function () {
+    var movie = this.model.get('title');
+    return movie;
   }
 });
 

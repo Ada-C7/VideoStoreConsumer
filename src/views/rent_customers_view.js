@@ -13,6 +13,10 @@ var RentCustomersView = Backbone.View.extend({
     var compiledTemplate = this.template({customers: this.model});
     this.$el.html(compiledTemplate);
     return this;
+  },
+  selectedCustomer: function () {
+    var customer = this.$('#customer-selector').val();
+    return customer;
   }
 });
 
