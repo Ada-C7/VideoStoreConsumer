@@ -23,13 +23,26 @@ var MovieListView = Backbone.View.extend({
       });
       console.log("rendering ", movieView.model);
       self.$('.movie-library').append(movieView.render().$el);
+      self.listenTo(movieView, "addMovieListen", self.addToLibrary);
     });
 
     return this;
   },
 
   events: {
-    "click .search-button" : "getSearchResults"
+    "click .search-button" : "getSearchResults",
+    // "click .add-movie" : "addToLibrary"
+  },
+
+  addToLibrary: function(movie){
+    this.template = _.template($('#movie-template').html());
+
+    console.log('We are in addToLibrary' + movie);
+    var movie = new Movie(movie);
+    this.model.add(movie);
+    console.log('We are in addToLibrary2' + this.model);
+    // this.model.save();
+
   },
 
   clearLibrary: function(){
@@ -40,6 +53,7 @@ var MovieListView = Backbone.View.extend({
     var queryInput = this.$('.input-group-field').val();
     this.$('.input-group-field').val('');
     this.template = _.template($('#search-template').html());
+
     this.model.fetch({data: {query: queryInput}});
   },
 
