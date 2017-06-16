@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="css/_settings.css">
   <link rel="stylesheet" type="text/css" href="css/foundation.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <title>Backbone Baseline</title>
+  <title>Video Store</title>
 </head>
 <body>
   <main>
@@ -24,32 +24,39 @@
               <input type="submit" class="button secondary" value="Search" id="search-video">
             </div>
           </div>
-      </div>
-      <h4>Look at the long list of videos......</h4>
-      <ul id="video-list" class="row align-center"></ul>
-      <button class="button success" id="rent">Rent</button>
-    </main>
-  </section>
-  <!-- Underscore Templates -->
-
-  <script type="text/template" id="video-card-template">
-    <li class="video small-11 medium-4 large-2 medium-offset-1 columns">
-      <h4><%- video.title %></h4>
-      <% if (video.image_url) { %>
-        <img src= <%- video.image_url %> >
-      <% } else { %>
-        <img src= <%- video.poster_path %> >
-      <% } %>
-      <p>
-        <button class="button success" id="add-video">Add</button>
-      </p>
-        </li>
-      </script>
+        </div>
 
 
 
 
-      <script src="/app.bundle.js"></script>
+        <ul id="video-list" class="row align-center"></ul>
+      </main>
+    </section>
+    <!-- Underscore Templates -->
 
-    </body>
-    </html>
+    <script type="text/template" id="video-card-template">
+      <li class="video small-11 medium-4 large-2 medium-offset-1 columns" style="list-style-type:none">
+        <div class="card card-product">
+          <div class="card-product-img-wrapper">
+            <% if (video.image_url) { %>
+              <img src= <%- video.image_url %> >
+              <% } else { %>
+                <img src= <%- video.poster_path %> >
+                <% } %>
+                  </div>
+                  <button class="button success" id="add-video">Add</button>
+<div id="hide-thing">
+
+                    <button class="button success" id="rent-video">Rent</button>
+                  </div>
+
+                  <h3 class="card-product-name"><h4><%- video.title %></h4></h3>
+                  <p class="card-product-inventory"><h4><%- video.inventory %></h4></p>
+                </div>
+
+                  </li>
+                </script>
+
+                <script src="/app.bundle.js"></script>
+              </body>
+              </html>

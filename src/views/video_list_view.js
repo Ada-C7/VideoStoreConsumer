@@ -26,7 +26,7 @@ var VideoListView = Backbone.View.extend({
     return this;
   },
   events: {
-    "click #add-video": "addVideo",
+    "click #rent-video": "rentVideo",
     "click #search-video": "searchVideo"
   },
   getFormData: function() {
@@ -40,6 +40,7 @@ var VideoListView = Backbone.View.extend({
     this.$('#video-list').empty();
     var videoTitle = this.getFormData();
     this.model.fetch( {data: { query: videoTitle}});
+    this.$('#hide-thing').empty();
   }
 });
 

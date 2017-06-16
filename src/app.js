@@ -14,7 +14,6 @@ $(document).ready(function() {
   var myVideoList = new VideoList();
   myVideoList.fetch();
 
-  // var mySearchList = new VideoList();
 
 
   var myVideoListView = new VideoListView({
