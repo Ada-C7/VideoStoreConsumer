@@ -38,7 +38,7 @@ var imageData = context.createImageData(width, height);
 
 $(document).ready(function() {
 
-  $('#rental-library').click(function(){
+  $('#rental-library').click(function(event){
     movieList.fetch();
   })
   movieList.fetch();

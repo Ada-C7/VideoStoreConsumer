@@ -27,6 +27,7 @@ var MovieView = Backbone.View.extend({
 
   addRental: function(event) {
     this.trigger('add', this.model);
+    event.stopPropagation();
   },
 
   showDetails: function(event) {

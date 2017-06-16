@@ -39,7 +39,6 @@ var MovieListView = Backbone.View.extend({
   events: {
     'submit #searchbar' : 'searchMovies',
     'click .btn-add': 'addRental',
-    'click #rental-library': 'viewLibrary',
     'click .close-modal' : 'closeDetails'
   },
 
@@ -71,11 +70,6 @@ var MovieListView = Backbone.View.extend({
     silent: true
   });
 },
-
-  viewLibrary: function(event) {
-    this.closeDetails();
-    this.model.fetch();
-  },
 
   showDetails: function(movie) {
     console.log(movie);

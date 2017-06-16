@@ -63,6 +63,7 @@ h1{
 
 h1#rental-library:hover{
   color: #ffb300;
+  cursor:pointer;
 }
 
 section.main-content{
@@ -114,6 +115,7 @@ li {
 }
 
 li:hover{
+  cursor:pointer;
   color: #ff6f00;
 }
 
@@ -176,6 +178,10 @@ footer{
   float: right;
   color: #3f51b5;
   font-weight: bold;
+}
+
+h4.close-modal:hover{
+  cursor:pointer;
 }
 
 #movie-details {
