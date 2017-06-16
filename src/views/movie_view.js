@@ -6,12 +6,22 @@ var MovieView = Backbone.View.extend({
   initialize: function(options) {
     this.template = options.template;
   },
+  events: {
+    "click .add-movie": "addMovie"
+  },
   render: function(){
     var compiledTemplate = this.template({
-      movie: this.model.toJSON()});
-      this.$el.html(compiledTemplate);
-      return this;
-    }
-  });
+      movie: this.model.toJSON()
+    });
+    this.$el.html(compiledTemplate);
+    return this;
+  },
+  addMovie: function(event) {
+    console.log("I clicked add movie");
+    console.log(event);
 
-  export default MovieView;
+    // this.model
+  }
+});
+
+export default MovieView;

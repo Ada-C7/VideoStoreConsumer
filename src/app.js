@@ -18,27 +18,8 @@ var storeList = function(event) {
   });
   rentals.render();
 };
-console.log("I am outside of database list");
+// console.log("I am outside of database list");
 
-// var databaseList = function(event) {
-//   var queryParams;
-//   console.log("I am inside the database");
-//   if (queryParams == $('#queryParams').val("")) {
-//     alert ("This is a warning message!");
-//   } else if (queryParams == $('#queryParams').val()) {
-//     console.log(queryParams);
-//     var searchList = new MovieList();
-//     searchList.customUrl(queryParams);
-//     searchList.fetch();
-//
-//     var searches = new MovieListView({
-//       model: searchList,
-//       templateMovieList: _.template($('#movie-card-template').html()),
-//       el: $('#application')
-//     }
-//   });
-//   searches.render();
-// }
 
 var databaseList = function(event) {
   //first we have to declare what the variable is with the expected value, which here we are saying can be anything
@@ -57,7 +38,8 @@ var databaseList = function(event) {
     });
     searches.render();
   };
-}
+};
+
 
 
 // ready to go
@@ -66,6 +48,7 @@ $(document).ready(function() {
   $(".list_store_rentals").click(storeList);
   $(".s-button").click(databaseList);
 
+  // $(".add-movie").click(addMovie);
 
 
 
