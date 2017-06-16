@@ -47,6 +47,7 @@ $(document).ready(function() {
   });
 
   $('.view-movies').click(function() {
+    movieList.fetch();
     moviesView.render();
   });
 
