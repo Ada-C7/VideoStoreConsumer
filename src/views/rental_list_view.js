@@ -26,6 +26,8 @@ var RentalListView = Backbone.View.extend({
   render: function() {
     $('#rental-list').empty();
     this.rentalList.forEach(function(rental){
+      console.log("IN RENTAL RENDER")
+      console.log(rental);
       rental.render();
       $('#rental-list').append(rental.$el);
     }, this);
