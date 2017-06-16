@@ -16,17 +16,23 @@ var MovieListView = Backbone.View.extend({
 
   render: function(options) {
     this.$('#movie-list').empty();
-    var that = this;
-    this.model.each(function(movie){
+
+    if (this.model.length < 1){
+      alert("No movies match your search!");
+      this.model.fetch();
+    } else {
+    this.model.each((movie)=>{
       var movieView = new MovieView({
         model: movie,
-        template: that.template,
+        template: this.template,
       });
 
-      that.$('#movie-list').append(movieView.render().$el);
-      that.listenTo(movieView, 'add', that.addToLibrary);
-      that.listenTo(movieView, 'show', that.showDetails)
+      this.$('#movie-list').prepend(movieView.render().$el);
+      this.listenTo(movieView, 'add', this.addToLibrary);
+      this.listenTo(movieView, 'show', this.showDetails)
+
     });
+  }
     return this;
   },
 

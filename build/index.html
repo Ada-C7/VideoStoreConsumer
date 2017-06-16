@@ -10,14 +10,16 @@
 </head>
 
 <body>
+    <canvas></canvas>
+    <h1 id="rental-library"> Comfort's Comfortable Movies </h1>
     <main>
         <section class="main-content">
-            <h1 id="rental-library"> Rental Library </h1>
 
             <form id="searchbar">
                 <input type="text" name="search" id="search">
                 <button type="submit" class="button btn-search">Search</button>
             </form>
+
 
             <section class="reveal" id='movie-details' data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
             </section>
@@ -32,15 +34,17 @@
                 <div id="movie-details"></div>
               </article>
             </div> -->
-            <section id='movie-list'></section>
+            <!-- <section id='movie-list'></section> -->
             <!-- reveal tiny, small, medium, large, full -->
+            <ul id='movie-list'></ul>
+
         </section>
     </main>
 
     <script id="movie-list-template" type="text/template">
-        <h3>Title: <%- movie.title %></h3>
-        <img src=<%=movie.image_url%> />
         <button class="button success btn-add" id=<%- movie.external_id%>>Add</button>
+        <h3><%- movie.title %></h3>
+        <img src=<%=movie.image_url%> />
     </script>
 
     <script type="text/template" id="movie-details-template">
@@ -54,6 +58,6 @@
 
     <script src="/app.bundle.js"></script>
 
-</body>
+  </body>
 
 </html>
