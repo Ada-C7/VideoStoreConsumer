@@ -12,3 +12,13 @@ header {
 main {
   background-color: lightgreen;
 }
+
+.grayed_out {
+    filter: grayscale(100%);
+    opacity: .5;
+}
+
+.added-movie {
+  border: black dashed 1px;
+
+}

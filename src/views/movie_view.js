@@ -27,6 +27,9 @@ const MovieView = Backbone.View.extend({
       console.log("clicked addtolib");
       this.$(".add-library").html("Added");
       this.$(".add-library").addClass("unclickable success");
+      this.$(".small-poster").addClass("grayed_out");
+      this.$(".movie-card").addClass("added-movie");
+
       this.model.url = "http://localhost:3000/movies";
       this.model.save();
     }
