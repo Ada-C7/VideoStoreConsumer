@@ -22,6 +22,7 @@ const MovieListView = Backbone.View.extend({
     if (this.search === true) {
       this.$("#search-header-section").show();
       this.$("#library-header-section").hide();
+      this.$("#query-text").html(this.$("#query").val());
     } else {
       this.$("#library-header-section").show();
       this.$("#search-header-section").hide();
@@ -82,6 +83,7 @@ const MovieListView = Backbone.View.extend({
 
   returnToLib: function(event) {
     console.log("clicked on return to lib button");
+    this.search = false;
     this.model.url = "http://localhost:3000/movies";
     this.model.fetch();
   }

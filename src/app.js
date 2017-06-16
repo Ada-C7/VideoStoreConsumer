@@ -1,5 +1,4 @@
 
-import AppView from './views/app_view.js';
 import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
