@@ -1,11 +1,14 @@
 import Backbone from 'backbone';
 
 var Movie = Backbone.Model.extend({
-  defaults: {
-    title: 'Mystery',
-    inventory: 1,
-    image: 'insert image here'
-  },
+     defaults: {
+          id: '',
+          title: '',
+          overview: '',
+          release_date: '',
+          image_url: '',
+          external_id: ''
+     },
   // logStatus: function() {
   //   console.log('Model ' + this.cid);
   //   console.log('Title ' + this.get('title'));
