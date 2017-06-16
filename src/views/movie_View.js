@@ -1,9 +1,9 @@
-
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
-
-import Movie from '../models/movie.js';
+import MovieCardView from "./movie_card_view";
+import Movie from '../models/movie';
+console.log("crumb 4");
 
 
 var MovieView = Backbone.View.extend({
@@ -13,15 +13,28 @@ var MovieView = Backbone.View.extend({
     this.listenTo(this.model, "change",
     this.render);
   },
+
+  selected: function(event) {
+    console.log(this.model);
+    console.log("clicked on a movie");
+    // $('#movie-list').empty();
+    this.trigger("selected", this.model);
+    event.stopPropagation();
+  },
+  // var that = this;
+  // this.model.each(function(movie){
+  //listener will have this code and that happens in the library view
+
   render: function() {
-    var compiledTemplate =
-    this.template(this.model.toJSON() );
+    var compiledTemplate = this.template(this.model.toJSON() );
     this.$el.html(compiledTemplate);
     return this;
   },
 
   events:  {
-    "click #add-to-library": "add"
+    "click #add-to-library": "add",
+    "click .movie-card": "selected"
+
   },
 
   add: function(){
@@ -37,6 +50,8 @@ var MovieView = Backbone.View.extend({
     // })
   },
 
+
 });
 
-export default MovieView;
+
+  export default MovieView;

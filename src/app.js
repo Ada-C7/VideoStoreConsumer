@@ -2,9 +2,9 @@ import $ from 'jquery';
 import _ from 'underscore';
 // ready to go
 
-import MovieView from './views/movie_view';
-import RentalLibrary from './collections/rental_library.js';
-import RentalLibraryView from './views/rental_library_view.js';
+import MovieView from './views/movie_View';
+import RentalLibrary from './collections/rental_library';
+import RentalLibraryView from './views/rental_library_view';
 
 
 var rentalLibrary = new RentalLibrary();
@@ -18,7 +18,6 @@ var rentalLibraryView = new RentalLibraryView({
   template: _.template($('#movie-card-template').html()),
   el: 'main'
 });
-
 
 
 $(document).ready(function() {
