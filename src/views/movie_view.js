@@ -14,8 +14,11 @@ var MovieView = Backbone.View.extend({
   },
 
   render: function(){
+    var self = this;
+    console.log('render individual movie ****************************');
+    console.log(self.model.toJSON());
     var compiledTemplate = this.movieTemplate({
-      movie: this.model.toJSON()
+      movie: self.model.toJSON()
     });
     this.$el.html(compiledTemplate);
     return this;
