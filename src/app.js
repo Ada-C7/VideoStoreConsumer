@@ -34,6 +34,8 @@ $(document).ready(function() {
   moviesView.render();
 
   $('.view-customers').click(function() {
+    $('.rental').addClass('hide');
+    $('.main-content').removeClass('hide');
     var customerList = new Customers();
     customerList.fetch();
     // ready to go
@@ -47,6 +49,8 @@ $(document).ready(function() {
   });
 
   $('.view-movies').click(function() {
+    $('.rental').addClass('hide');
+    $('.main-content').removeClass('hide');
     movieList.fetch();
     moviesView.render();
   });

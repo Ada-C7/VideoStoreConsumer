@@ -32,6 +32,8 @@
       </section>
 
       <section class="main-content"></section>
+      <section class="hide rental">
+      </section>
     </main>
 
     <!-- TEMPLATES -->
@@ -66,15 +68,18 @@
               <%- customer.get('name') %>
             </option>
           <% }); %>
-        </select>
-        <h3 class="button add-rental">Checkout Movie</h3>
-      </section>
+        </section>
     </script>
 
     <script type="text/template" id="customer-template">
       <section class="columns small-4">
         <h4><%- name %></h4>
       </section>
+    </script>
+
+    <script type="text/template" id="rental-template">
+      <section id="movie-customer-area"></section>
+      <h3 class="button add-rental">Checkout Movie</h3>
     </script>
 
     <script src="/app.bundle.js"></script>

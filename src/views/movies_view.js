@@ -1,12 +1,11 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie.js';
+import Rental from '../models/rental.js';
 import Customer from '../models/customer.js';
-import Customers from '../collections/customers.js';
 import $ from 'jquery';
 import _ from 'underscore';
 import MovieView from './movie_view.js';
-import RentMovieView from './rent_movie_view.js';
-import RentCustomersView from './rent_customers_view.js';
+import RentalView from './rental_view.js';
 
 var MoviesView = Backbone.View.extend({
   initialize: function(params) {
@@ -30,25 +29,18 @@ var MoviesView = Backbone.View.extend({
         this.model.fetch();
       });
       that.listenTo(movieView, "addNewRental", function(movie) {
-        // console.log($("#rent-movie-template").html());
-        var rentMovieView = new RentMovieView({
-          model: movie,
-          template: _.template($("#rent-movie-template").html())
+        // movie becomes a variable which is sent to rental.
+        // create rental view here
+        that.$('.rental').empty();
+        that.$('.rental').removeClass('hide');
+        that.$('.main-content').addClass('hide');
+        var rental = new Rental();
+        var rentalView = new RentalView({
+          movie: movie,
+          model: rental,
+          template: _.template($("#rental-template").html())
         });
-
-        var customerDropdownList = new Customers();
-        customerDropdownList.fetch();
-        // pass in a hash with key success then that goes to a funciton.
-        // can make the view rerender from that function.
-        console.log(customerDropdownList);
-        var rentCustomersView = new RentCustomersView({
-          model: customerDropdownList,
-          template: _.template($("#rent-customer-template").html())
-        });
-
-        that.$('.main-content').empty();
-        that.$('.main-content').append(rentMovieView.render().el);
-        that.$('.main-content').append(rentCustomersView.render().el);
+        that.$('.rental').append(rentalView.render().el);
       });
 
     });
@@ -69,6 +61,8 @@ var MoviesView = Backbone.View.extend({
   "click h3.button.btn-search-in-store": "searchInStore"
   },
   searchMovies: function(event) {
+    $('.rental').addClass('hide');
+    $('.main-content').removeClass('hide');
     var searchParams = this.$('#search-item').val();
     this.$('#search-item').val('');
     this.model.fetch({
@@ -78,6 +72,8 @@ var MoviesView = Backbone.View.extend({
     this.isSearching = true;
   },
   searchInStore: function(event) {
+    $('.rental').addClass('hide');
+    $('.main-content').removeClass('hide');
     var searchParams = this.$('#search-in-store').val();
     this.$('#search-in-store').val('');
     this.model.fetch({
