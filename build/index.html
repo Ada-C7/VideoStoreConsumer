@@ -5,31 +5,40 @@
     <link rel="stylesheet" type="text/css" href="css/_settings.css">
     <link rel="stylesheet" type="text/css" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Jouckie's Redbloxbuster</title>
+    <title>Joukie's Redbloxbuster</title>
   </head>
   <body>
     <main>
-      <h1>Jouckie's Redbloxbuster</h1>
-      <section class="row" id="search-section">
-          <label class="columns medium-12">Search
-            <input type="text" name="search" id="title" placeholder="Search by title" />
-          </label>
-          <button id="submit-search" class="medium-3 columns button success">Submit</button>
+      <header>
+        <section class="row">
+          <img class="columns medium-4 home" id="logo" src="./images/Redbloxbuster_logo.png" alt="Awesomest logo"/>
+          <section class="columns medium-8" id="search-section">
+            <label>Search
+              <input type="text" name="search" id="title" placeholder="Search by title" />
+            </label>
+            <button id="submit-search" class="medium-3 columns button success">Submit</button>
+          </section>
+          <h1 class="columns medium-12 home" id="thisisit">Joukie's Redbloxbuster</h1>
         </section>
+      </header>
+
       <section id='movie'></section>
-      <section id='movie-list'></section>
-      <section id='result-list'></section>
+      <section id='movie-list' class="row"></section>
+      <section id='result-list' class="row"></section>
 
     </main>
     <script id="movie-template" type="text/template">
-      <img src="<%- movie.image_url %>"/>
-      <li><%- movie.title %></li>
+      <section class="column small-3 medium-3 large-3">
+        <img src="<%- movie.image_url %>"/>
+        <li><%- movie.title %></li>
+      </section>
     </script>
 
     <script id="result-template" type="text/template">
-      <img src="<%- movie.image_url %>"/>
-      <li><%- movie.title %><button id="add-movie" class="button success">Add Movie</button></li>
-
+      <section class="column small-3 medium-3 large-3">
+        <img src="<%- movie.image_url %>"/>
+        <li><%- movie.title %><button id="add-movie" class="button success">Add Movie</button></li>
+      </section>
     </script>
 
 

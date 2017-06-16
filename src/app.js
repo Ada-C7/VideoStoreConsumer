@@ -8,6 +8,10 @@ import MovieList from 'collections/movie_list';
 // import MovieView from '/views/movie_view';
 import MovieListView from 'views/movie_list_view';
 
+var homeHandler = function() {
+  window.location.replace("http://localhost:8081");
+};
+
 var myMovieList = new MovieList();
 myMovieList.fetch();
 
@@ -20,4 +24,5 @@ $(document).ready(function() {
   });
   myMovieListView.render();
 
+  $('.home').click(homeHandler);
 });
