@@ -9,10 +9,12 @@ var MovieListView = Backbone.View.extend ({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.model, 'change', this.render);
   },
 
   render: function() {
     this.$('#movie-list').empty();
+    this.$('.messages').empty();
     var that = this;
 
     this.model.each(function(movie){
@@ -48,9 +50,6 @@ var MovieListView = Backbone.View.extend ({
       traditional: true,
       data: {query: [this.getFormData()]}
     });
-
-
-
 
   }
 

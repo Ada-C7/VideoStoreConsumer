@@ -21,7 +21,20 @@ var MovieView = Backbone.View.extend({
   },
 
   addMovie: function() {
-    this.model.save();
+    var successHandler = function() {
+      $(".messages").html("<h4>Movie successfully added.</h4>");
+    };
+
+    var errorHandler = function() {
+      $(".messages").html("<h4>Movie could not be added.</h4>");
+    };
+
+    this.model.save(null, {
+      type: 'POST',
+      success: successHandler,
+      error: errorHandler
+      }
+    );
   }
 });
 
