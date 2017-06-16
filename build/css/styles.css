@@ -42,7 +42,7 @@ div {
   border-style: solid;
 }
 */
-#thisisit, #thisisit:hover, #thisisit:focus {
+#thisisit:hover, #thisisit:focus {
   text-decoration: none;
 	color: #aaf;
 	text-shadow: none;
@@ -53,6 +53,10 @@ div {
 	outline: 0 none;
   color: #fff;
 	text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+}
+
+#thisisit {
+  color: #FFFFFF;
 }
 
 #logo {
@@ -74,4 +78,12 @@ li {
 #movie-list .column {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.button.add {
+  background-color: red;
+}
+
+.button.add:hover {
+  background-color: darkred;
 }
