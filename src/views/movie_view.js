@@ -19,13 +19,14 @@ const MovieView = Backbone.View.extend({
   events: {
     "click .movie" : "sendMovie",
     // "click #rent-movie" : "rentMovie"
-    // #addToLib click : addToLib
+    "click .add-library" : "addToLib"
   },
 
   addToLib: function() {
-    // call create on the object
-    // disable and change button
-    // add opaque div to view
+    console.log("clicked addtolib");
+    console.log(this.model);
+    this.model.save();
+    // this.trigger("addToLib", this.model)
   },
 
   sendMovie: function(event) {

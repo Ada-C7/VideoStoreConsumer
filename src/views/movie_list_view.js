@@ -23,14 +23,9 @@ const MovieListView = Backbone.View.extend({
       this.$("#search-header-section").show();
       this.$("#library-header-section").hide();
       this.$("#query-text").html(this.$("#query").val());
-
-
       if (this.model.length === 0) {
         this.$("#search-header-section h3").html("No Movies found");
       }
-
-
-
     } else {
       this.$("#library-header-section").show();
       this.$("#search-header-section").hide();
@@ -46,6 +41,8 @@ const MovieListView = Backbone.View.extend({
       });
       that.$("#list-content").append(movieView.render().el);
       that.listenTo(movieView, "showMovie", that.sendMovie);
+      // that.listenTo(movieView, "addToLib", that.addToLib);
+
     });
 
     if (this.search === true) {
@@ -64,6 +61,18 @@ const MovieListView = Backbone.View.extend({
     "click #return-library" : "returnToLib"
     // hide details click : hideMovieDetails
   },
+
+  // addToLib: function(movie) {
+  //   console.log("adding movie to library");
+  //   console.log(movie);
+  //   this.model.url = "http://localhost:3000/movies";
+  //   var newMovie = new Movie(movie.attributes);
+  //   console.log(newMovie);
+  //   this.model.create(newMovie);
+  //   // newMovie.save();
+  //   // disable and change button
+  //   // add opaque div to view
+  // },
 
   getSearch: function() {
     this.model.url = "http://localhost:3000/movies";
