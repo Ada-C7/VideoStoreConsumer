@@ -56,8 +56,8 @@ const MovieListView = Backbone.View.extend({
 
   events: {
     "click #search-button" : "getSearch",
-    "click #return-library" : "returnToLib"
-    hide details click : hideMovieDetails
+    "click #return-library" : "returnToLib",
+    "click #hide-details" : "hideMovieDetails"
   },
 
   getSearch: function() {
@@ -100,7 +100,11 @@ const MovieListView = Backbone.View.extend({
   },
 
   hideMovieDetails: function() {
-
+    this.$("#movie-details").hide();
+    this.$("#list-main").addClass("large-12");
+    this.$("#list-main").removeClass("large-9");
+    this.$(".movie-card").addClass("large-3");
+    this.$(".movie-card").removeClass("large-4");
   },
 
   returnToLib: function(event) {
