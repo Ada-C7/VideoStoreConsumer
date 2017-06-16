@@ -23,6 +23,14 @@ const MovieListView = Backbone.View.extend({
       this.$("#search-header-section").show();
       this.$("#library-header-section").hide();
       this.$("#query-text").html(this.$("#query").val());
+
+
+      if (this.model.length === 0) {
+        this.$("#search-header-section h3").html("No Movies found");
+      }
+
+
+
     } else {
       this.$("#library-header-section").show();
       this.$("#search-header-section").hide();
@@ -64,9 +72,17 @@ const MovieListView = Backbone.View.extend({
     console.log(this.search);
     this.search = true;
     console.log(this.search);
-    this.model.query = this.$("#query").val();
+    var text= this.$("#query").val();
+    this.model.query = text;
     this.model.url += "?query=" + this.$("#query").val();
-    this.model.fetch();
+    this.model.fetch({
+      success: function(data) {
+        console.log("It worked!", data);
+      },
+      failure: function(data) {
+        console.log("Failure", data);
+      }
+    });
     console.log(this.model.url);
 
   },
@@ -83,6 +99,7 @@ const MovieListView = Backbone.View.extend({
 
   returnToLib: function(event) {
     console.log("clicked on return to lib button");
+    this.$("#query").val("");
     this.search = false;
     this.model.url = "http://localhost:3000/movies";
     this.model.fetch();
