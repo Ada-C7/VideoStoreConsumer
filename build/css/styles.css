@@ -62,10 +62,11 @@ div {
 #logo {
   color: black;
   font-family: 'Stalemate', cursive;
-  font-size: 150px;
+  font-size: 100px;
   -ms-transform: rotate(-3deg); /* IE 9 */
   -webkit-transform: rotate(-3deg); /* Chrome, Safari, Opera */
   transform: rotate(-3deg);
+  padding-top: 25px;
   padding-bottom: 15px;
 }
 

@@ -38,8 +38,21 @@ var MovieView = Backbone.View.extend({
   },
 
   add: function(){
-    var newMovie = new Movie(this.model);
-    newMovie.create();
+    console.log(this.model);
+
+    this.model.save();
+
+
+
+    // t.string   "title"
+    // t.text     "overview"
+    // t.date     "release_date"
+    // t.integer  "inventory"
+    // t.datetime "created_at",   null: false
+    // t.datetime "updated_at",   null: false
+    // t.string   "image_url"
+
+
     // use fetch with data: JSON
 
     // adjust rails route for create, controller for create method
