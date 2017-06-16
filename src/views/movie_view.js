@@ -7,9 +7,8 @@ var MovieView = Backbone.View.extend({
 
   render: function() {
     var html = this.movieListTemplate({movie: this.model.toJSON()});
-    // console.log(this.model.toJSON()); // look at JSON
+    // console.log(this.model.toJSON());
     this.$el.html(html);
-
     this.delegateEvents();
     return this;
   }

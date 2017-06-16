@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Inline">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Outline|Bungee|Montserrat">
   <link rel="stylesheet" type="text/css" href="css/_settings.css">
   <link rel="stylesheet" type="text/css" href="css/foundation.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <title>Backbone Baseline</title>
 </head>
 <body>
@@ -13,25 +14,26 @@
     <header>
       <div class="row">
         <div class="medium-4 columns clear-fix">
-          <h1 class="title"> VIDEOBUSTER</h1>
+          <h1 class="title-font"> VIDEOBUSTER</h1>
         </div>
-        <div class="medium-3 columns float-right search-bar">
+        <div class="medium-4 columns float-right top-padding">
           <div class="input-group">
             <input id="search" class="input-group-field" name="search" type="text">
             <div class="input-group-button">
-              <h3 class="button" id="search-button">Search</h3>
+              <button class="button orange-color title-font" id="search-button">Search</button>
             </div>
           </div>
         </div>
       </div>
     </header>
     <main>
-      <h2 class="text-center">Movie Rentals</h2>
+      <h2 class="text-center inline-font">Movie Rentals</h2>
       <!-- <section id="search-list"></section> -->
-      <section id="movie-list" class="row" data-equalizer></section>
+      <section id="movie-list" class="row"></section>
       <section id="movie"></section>
     </main>
     <footer>
+      <h3 class="inline-font"> powered by <a class="title-font" href="https://www.themoviedb.org/documentation/api">The Movie DB</a></h3>
       <p>Ada Developers Academy Project by Kayla + Tamiko</p>
     </footer>
   </section>
@@ -39,12 +41,17 @@
   <!-- Templates -->
   <script id="movie-list-template" type="text/template">
     <section class="movie-card">
-      <div class="card columns" style="width: 300px;">
-        <div class="card-divider text-center" data-equalizer-watch>
-          <h6><%- movie.title %></h6>
+      <div class="card columns" style="width: 280px;">
+        <div class="card-divider text-center">
+          <p class="no-padding"><strong><%- movie.title %></strong></p>
         </div>
-        <div class="card-section text-center">
-          <img src="http://lorempixel.com/185/278/">
+        <div class="card-section text-center movie-image">
+          <img src=<%- movie.image_url %>>
+        </div>
+        <div class="card-divider text-center">
+          <% if (movie.external_id) { %>
+            <h4 class="button add-btn">Add Movie</h4>
+          <% } %>
         </div>
       </div>
     </section>
