@@ -7,6 +7,8 @@ import Movie from '../models/movie.js'
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
+    this.movieDetailsTemplate = _.template($('#movie-details-template').html());
+    // fix
     this.template = params.template;
     this.rentals = this.model
     this.listenTo(this.model, "update", this.render);
@@ -22,7 +24,8 @@ var MovieListView = Backbone.View.extend({
       });
 
       that.$('#movie-list').append(movieView.render().$el);
-      that.listenTo(movieView, 'add', that.addToLibrary)
+      that.listenTo(movieView, 'add', that.addToLibrary);
+      that.listenTo(movieView, 'show', that.showDetails)
     });
     return this;
   },
@@ -47,7 +50,7 @@ var MovieListView = Backbone.View.extend({
       release_date: movie.get("release_date"),
       image_url: movie.get("image_url")
     }
-    
+
     this.model.create(newMovie,
       {error: function (model, response){
         if (response.status == 500) {
@@ -63,6 +66,15 @@ var MovieListView = Backbone.View.extend({
 
   viewLibrary: function(event) {
     this.model.fetch();
+  },
+
+  showDetails: function(movie) {
+    console.log(movie);
+    var movieHTML = this.movieDetailsTemplate({ movie: movie.attributes });
+    $('#movie-details').html(movieHTML);
+    // $('#popup-backdrop').fadeIn(500);
+    // $('#movie-details').foundation('reveal', 'open');
+    $('#movie-details').show();
   }
 });
 
