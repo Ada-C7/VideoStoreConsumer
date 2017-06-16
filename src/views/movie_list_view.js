@@ -17,8 +17,7 @@ const MovieListView = Backbone.View.extend({
     this.$("#list-main").addClass("large-12");
   },
 
-  render: function() {
-    console.log(this.search);
+  resetHeaders: function() {
     if (this.search === true) {
       this.$("#search-header-section").show();
       this.$("#library-header-section").hide();
@@ -30,6 +29,21 @@ const MovieListView = Backbone.View.extend({
       this.$("#library-header-section").show();
       this.$("#search-header-section").hide();
     }
+  },
+
+  resetButtons: function() {
+    if (this.search === true) {
+      this.$(".add-library").show();
+      this.$(".rent-movie").hide();
+    } else {
+      this.$(".add-library").hide();
+      this.$(".rent-movie").show();
+    }
+  },
+
+  render: function() {
+    console.log(this.search);
+    this.resetHeaders();
 
     console.log("inside movie list render ");
     this.$("#list-content").empty();
@@ -42,15 +56,7 @@ const MovieListView = Backbone.View.extend({
       that.$("#list-content").append(movieView.render().el);
       that.listenTo(movieView, "showMovie", that.showMovieDetails);
     });
-
-    if (this.search === true) {
-      this.$(".add-library").show();
-      this.$(".rent-movie").hide();
-    } else {
-      this.$(".add-library").hide();
-      this.$(".rent-movie").show();
-    }
-
+    this.resetButtons();
     return this;
   },
 
