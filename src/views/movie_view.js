@@ -17,9 +17,9 @@ var MovieView = Backbone.View.extend({
     return this;
   },
   addMovie: function(event) {
-    console.log("I clicked add movie");
-    console.log(event);
-
+    // console.log("I clicked add movie");
+    // console.log(event);
+    console.log(this.model.attributes);
     // this.model
   }
 });
