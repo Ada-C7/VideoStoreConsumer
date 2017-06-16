@@ -29,8 +29,14 @@
     <li class="large-3 medium-6 small-12 columns">
       <img src=<%- image_url %>>
       <h3><%- title %></h3>
-      <input type='number' min="1" max="10" value="1"/>
-      <button id="add" class="button alert">Add</button>
+
+      <% if (external_id) { %>
+        <input type='number' min="1" max="10" value="1"/>
+        <button id="add" class="button success">Add</button>
+      <%  } else { %>
+        <button id="delete" class="button alert">Delete</button>
+      <%  } %>
+
     </li>
   </script>
 

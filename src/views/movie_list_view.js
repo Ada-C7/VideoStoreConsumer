@@ -13,7 +13,7 @@ var MovieListView = Backbone.View.extend({
 
     this.model.fetch({
       success: function(data) {
-        // console.log("It worked!", data);
+        console.log("It worked (index)!", data);
       },
       failure: function(data) {
         console.log("Failure", data);
@@ -52,7 +52,7 @@ var MovieListView = Backbone.View.extend({
     this.model.fetch({
       data: query,
       success: function(data) {
-        // console.log("It worked!", data);
+        console.log("It worked! (search)", data);
       },
       failure: function(data) {
         console.log("Failure", data);
