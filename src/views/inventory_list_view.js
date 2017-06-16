@@ -44,6 +44,7 @@ var InventoryListView = Backbone.View.extend({
     console.log(existingMovie);
     if (existingMovie == null) {
       this.model.create(movie);
+      alert("You have successfully added this movie")
     }
     else{
       alert("You have already added this movie")
