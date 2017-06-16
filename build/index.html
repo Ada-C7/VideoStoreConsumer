@@ -46,7 +46,13 @@
   </section>
 
   </script>
-
+  <script id="movie-details-template" type="text/template">
+     <section>
+       <img src="<%-image_url %>"alt="<% title %>"></img>
+      <li><%- release_date %></li>
+       <li><%- overview %></li>
+     </section>
+  </script>
   <script src="/app.bundle.js" charset="utf-8"></script>
 
 
