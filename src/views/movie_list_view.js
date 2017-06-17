@@ -10,6 +10,7 @@ var MovieListView = Backbone.View.extend({
     // other templates maybe?
 
     this.listenTo(this.model, "update", this.render);
+    // this.listenTo(this.model, "remove", this.render);
 
     this.model.fetch({
       success: function(data) {

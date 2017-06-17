@@ -8,6 +8,7 @@ var MovieView = Backbone.View.extend({
     this.template = params.template;
 
     this.listenTo(this.model, "change", this.render);
+    this.listenTo(this.model, "request", this.render);
   },
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
@@ -17,6 +18,7 @@ var MovieView = Backbone.View.extend({
   },
   events: {
     'click #add' : 'addMovie',
+    'click #delete': 'deleteMovie'
   },
   getInventory: function(){
     var inventory = this.$("input[type='number']").val();
@@ -37,7 +39,19 @@ var MovieView = Backbone.View.extend({
       inventory: this.getInventory()
     },
     type: 'POST'
-  });
-}});
+  });},
+  deleteMovie: function(){
+    this.model.fetch({
+      data: {
+        id: this.model.get("id"),
+        title: this.model.get('title')
+      },
+      type: 'DELETE'
+    });
+    alert('pressed');
+    this.model.destroy();
+  }
+// }
+});
 
 export default MovieView;
