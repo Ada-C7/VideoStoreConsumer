@@ -64,7 +64,7 @@
         <h4>Select Customer</h4>
         <select id="customer-selector">
           <% customers.each(function(customer) { %>
-            <option value="<%- customer.get('name') %>">
+            <option value="<%- customer.get('id') %>">
               <%- customer.get('name') %>
             </option>
           <% }); %>

@@ -42,12 +42,13 @@ var RentalView = Backbone.View.extend({
     'click h3.button.add-rental': 'createRental'
   },
   createRental: function(event) {
-    var movie = this.rentMovieView.selectedMovie();
-    var customer = this.rentCustomersView.selectedCustomer();
-    console.log(customer);
-    console.log(movie);
-    // console.log(this.rentMovieView.model);
-    // should trigger the sub views to access their data & return it???
+    var rental_movie = this.rentMovieView.selectedMovie();
+    var rental_customer = this.rentCustomersView.selectedCustomer();
+    // console.log(customer);
+    // console.log(movie);
+    console.log(this.model);
+    this.model.set({movie: rental_movie, customer: rental_customer});
+    console.log(this.model);
   }
 });
 
