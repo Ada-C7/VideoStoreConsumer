@@ -10,9 +10,25 @@
 <body class="row">
   <header class="row">
     <h1 class="columns small-12 large-8">Rewind</h1>
+    <section class="search-form columns small-12 large-4">
+      <input type="text" name="query" id="query" placeholder="Search for a movie"/>
+      <button class="button" id="search-button">Search</button>
+    </section>
+
+    <button class="button columns small-12 large-2" id="return-library">Return to Library</button>
+
+    <section id="search-header-section" class="row second-header">
+      <h3 id="#search-subheader" class="columns small-12">Search Results for <span id="query-text"></span></h3>
+
+    </section>
+
+    <section id="library-header-section" class="row second-header">
+      <h3 id="#library-subheader" class="columns small-12">My Library</h3>
+    </section>
   </header>
 
   <!-- may need to rethink where to do foundation -->
+
   <main class="row">
 
 
@@ -24,18 +40,9 @@
 
     <section class="columns small-12 large-9" id="list-main">
 
-      <section class="search-form columns small-12 large-4">
-        <input type="text" name="query" id="query" placeholder="Search for a movie"/>
-        <button class="button" id="search-button">Search</button>
-      </section>
 
-      <section id="search-header-section" class="row">
-        <h3 id="#search-subheader" class="columns small-12 large-8">Search Results for <span id="query-text"></span></h3>
-        <button class="button columns small-12 large-4" id="return-library">Return to Library</button>
-      </section>
-      <section id="library-header-section" class="row">
-        <h3 id="#library-subheader" class="columns small-12 large-8">My Library</h3>
-      </section>
+
+
 
       <section id="list-content" class="row">
       </section>
@@ -52,6 +59,9 @@
   <h3><%-title%></h3>
   <p>Overview: <%-overview%></p>
   <p>Release Date: <%-release_date%></p>
+  <p>Inventory:
+    <%-inventory%>
+  </p>
   <button class="button" id="hide-details">Hide</button>
 </script>
 

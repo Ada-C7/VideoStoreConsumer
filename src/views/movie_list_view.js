@@ -19,6 +19,7 @@ const MovieListView = Backbone.View.extend({
 
   resetHeaders: function() {
     if (this.search === true) {
+      this.$("#return-library").show();
       this.$("#search-header-section").show();
       this.$("#library-header-section").hide();
       this.$("#query-text").html(this.$("#query").val());
@@ -26,6 +27,7 @@ const MovieListView = Backbone.View.extend({
         this.$("#search-header-section h3").html("No Movies found");
       }
     } else {
+      this.$("#return-library").hide();
       this.$("#library-header-section").show();
       this.$("#search-header-section").hide();
     }
@@ -90,6 +92,7 @@ const MovieListView = Backbone.View.extend({
 
   showMovieDetails: function(movie) {
     console.log("inside showMovieDetails");
+    console.log(movie.model);
     this.$("#movie-details").show();
     this.$("#list-main").removeClass("large-12");
     this.$("#list-main").addClass("large-9");
