@@ -46,9 +46,9 @@ var RentalView = Backbone.View.extend({
     var rental_customer = this.rentCustomersView.selectedCustomer();
     // console.log(customer);
     // console.log(movie);
+    var options = {movie: rental_movie, customer: rental_customer};
     console.log(this.model);
-    this.model.set({movie: rental_movie, customer: rental_customer});
-    console.log(this.model);
+    this.model.save('check-out', this.model, options);
   }
 });
 
