@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-import Movie from 'models/movie';
+import Movie from '../models/movie';
 
 var MovieList = Backbone.Collection.extend({
   model: Movie,

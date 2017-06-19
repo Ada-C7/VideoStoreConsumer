@@ -1,9 +1,8 @@
-
 import Backbone from 'backbone';
 
 var Movie = Backbone.Model.extend({
-  initialize: function(params) {
-
+  initialize: function() {
+    console.log("Created new movie");
   }
 });
 

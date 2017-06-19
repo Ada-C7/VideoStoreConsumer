@@ -10,12 +10,43 @@ $(document).ready(function() {
   var movieList = new MovieList();
   movieList.fetch();
 
-  var movieListViewParams = {
-    el: $('main'),
+  var params = {
+    el:  $('main'),
     model: movieList
   };
 
-  var myMovieListView = new MovieListView(movieListViewParams);
-  myMovieListView.render();
-  //initializing a new view
+  var application = new MovieListView(params);
+  application.render();
+
+  // var search = new MovieList();
+  // search.fetch();
+  //
+  // var searchViewParams = {
+  //   el: $('main'),
+  //   model: search
+  // };
+  //
+  // var myMovieListView = new MovieListView(params);
+  // myMovieListView.render();
+  // //initializing a new view
+  //
+  // $("form").submit(function(event) {
+  //   event.preventDefault();
+  //   var search = new Search();
+  //   console.log($('#movieTitle').val());
+  //   if ($('#movieTitle').val() === ""){
+  //     alert("Please type a movie title")
+  //     // console.log("Please type a movie title")
+  //   }
+  //   else{
+  //     search.fetch({data: {query: $('#movieTitle').val()  }});
+  //   }
+  //
+  //   var options = {
+  //     el:  $('#all-movie-list'),
+  //     model: search
+  //   };
+  //   var mlv = new SearchView(options);
+  //   mlv.render();
+  // });
 });
