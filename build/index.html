@@ -8,57 +8,56 @@
   <title>Backbone Baseline</title>
 </head>
 <body>
-
   <header>
     <h1>Movies!</h1>
   </header>
   <main>
-    <!-- <form>
-    <div class="medium-12 columns">
-    <input type="text" placeholder="Search" name = "searchtitle" id="movieTitle"></input>
-    <button type="submit" id="submit-button" class="success button"> Search Movies</button>
-  </div>
-  <button type="button" class="search-movie button">Search</button>
-</form> -->
+    <form>
+      <div class="medium-12 columns" id='all-rentals'>
+        <input type="text" placeholder="Rental" name = "rentalTitle" id="RentalTitle"></input>
+      </div>
+      <button type="submit" id="submit-button" class="success button"> Search Movies</button>
+    </form>
 
-<div>
-  <ul>
-    <li id='movie-list'>
-    </li>
-  </ul>
-</div>
-<div>
-  <ul>
-    <li id='rental-list'>
-    </li>
-  </ul>
-</div>
-</main>
+    <div>
+      <ul>
+        <li id='movie-list'>
+        </li>
+      </ul>
+    </div>
 
-
-<!-- TEMPLATES!!!!! -->
-<script id="movie-template" type="text/template">
-  <ul>
-    <li class="movie-list-each">
-      <%- movie.title %>
-      <!-- <img src=<%= movie.image_url %> alt="movie_picture"> -->
-      <!-- <button type="submit" id="add-button" class="success button"> Add to inventory</button> -->
-    </li>
-  </ul>
-</script>
-
-<script id="rental-template" type="text/template">
-  <ul>
-    <li class="rental-list-each">
-      <%- movie.title %>
-      <!-- <img src=<%= movie.image_url %> alt="movie_picture"> -->
-      <!-- <button type="submit" id="add-button" class="success button"> Add to inventory</button> -->
-    </li>
-  </ul>
-</script>
+    <!-- <div>
+      <ul>
+        <li id='rental-list'>
+        </li>
+      </ul>
+    </div> -->
+  </main>
 
 
-<script src="/app.bundle.js"></script>
+  <!-- TEMPLATES!!!!! -->
+  <script id="movie-template" type="text/template">
+    <ul>
+      <li class="movie-list-each">
+        <%- movie.title %>
+        <!-- <img src=<%= movie.image_url %> alt="movie_picture"> -->
+        <!-- <button type="submit" id="add-button" class="success button"> Add to inventory</button> -->
+      </li>
+    </ul>
+  </script>
+
+  <script id="rental-template" type="text/template">
+    <ul>
+      <li class="rental-list-each">
+        <%- movie.title %>
+        <!-- <img src=<%= movie.image_url %> alt="movie_picture"> -->
+        <!-- <button type="submit" id="add-button" class="success button"> Add to inventory</button> -->
+      </li>
+    </ul>
+  </script>
+
+
+  <script src="/app.bundle.js"></script>
 
 </body>
 </html>
