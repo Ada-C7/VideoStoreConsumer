@@ -28,8 +28,9 @@ $(document).ready(function() {
     console.log("HEREEEEE!!!!!!!!!!!");
     event.preventDefault();
 
-    var rentalList = new RentalList();
-    rentalList.fetch({data: {query: $("#rentalTitle").val()}});
+    var rentalList = new RentalList( {query:$("#rentalTitle").val()} );
+    rentalList.fetch();
+    //
 
     var params = {
       el: $('#all-rentals'),

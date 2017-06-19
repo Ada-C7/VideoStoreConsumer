@@ -8,10 +8,11 @@ var RentalList = Backbone.Collection.extend({
   model: Rental,
   initialize: function(params) {
     params || (params = {});
+    console.log(params);
     this.query = params.query;
   },
   url: function() {
-    return 'http://localhost:3000/movies?query=' + this.query
+    return 'http://localhost:3000/movies/' + this.query
   }
 
 });
