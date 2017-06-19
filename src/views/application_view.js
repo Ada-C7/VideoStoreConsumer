@@ -9,9 +9,10 @@ const ApplicationView = Backbone.View.extend({
     this.movieDetailsTemplate = params.movieDetailsTemplate;
   },
   events: {
-    'click h1' : 'showAllResults'
+    'click h1' : 'showAllMovies'
   },
   showAllMovies: function () {
+    console.log("HERE I AM");
     var movieList = new MovieList();
     movieList.fetch();
 
