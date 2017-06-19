@@ -17,11 +17,16 @@ var MovieView = Backbone.View.extend({
     return this;
   },
   addMovie: function(event) {
-    // console.log("I clicked add movie");
-    // console.log(event);
     console.log(this.model.attributes);
-    // this.model
+    var movieUrl = "http://localhost:3000/movies";
+    var data = { movie: this.model.attributes };
+    $.post(movieUrl, data, function(response){
+      console.log(response);
+      console.log("Made post request");
+    });
   }
+
+
 });
 
 export default MovieView;
