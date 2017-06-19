@@ -13,8 +13,8 @@ $(document).ready(function() {
   var appView = new ApplicationView({
     el: 'body',
     model: application,
-    movieListTemplate: _.template($('#movie-template').html()),
+    movieTemplate: _.template($('#movie-template').html()),
     movieDetailsTemplate: _.template($('#movie-info-template').html())
   });
-  appView.showList();
+  appView.showAllMovies();
 });

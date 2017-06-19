@@ -11,6 +11,12 @@ var MovieDetailsView = Backbone.View.extend({
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
     this.$('main').html(compiledTemplate);
+  },
+  events: {
+    'click #add-movie' : 'addMovie'
+  },
+  addMovie: function () {
+    this.trigger('addMovie', this.model.attributes);
   }
 });
 
