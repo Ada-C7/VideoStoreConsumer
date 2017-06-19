@@ -1,12 +1,24 @@
-// /src/app.js
-
-// Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
 
-// ready to go
-$(document).ready(function() {
+import RentalLibrary from './collections/rentalLibrary';
+import RentalLibraryView from './views/rentalLibraryView';
 
-  $('main').append('<p>Hello World!</p>');
+
+var rentalList = new RentalLibrary();
+rentalList.fetch();
+
+var libraryView = new RentalLibraryView({
+
+  model: rentalList,
+  template: _.template($('#movie-card-template').html()),
+  el: 'main'
+});
+
+
+
+$(document).ready(function() {
+libraryView.render();
+
 
 });

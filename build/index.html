@@ -9,13 +9,19 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
-      
-    <div>
+    <section id="movie-list"></section>
 
-    </div>
 
-    <script src="/app.bundle.js"></script>
+
 
   </body>
 </main>
-</html>
+
+<script id="movie-card-template" type="text/template">
+<p class="movie-title"><%-title%></p>
+<p (<%-release_date%>)</p>
+<img src=<%-image_url %> alt=<% title %></img>
+</script>
+
+  <script src="/app.bundle.js"></script>
+  </html>
