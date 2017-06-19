@@ -60,18 +60,18 @@ $(document).ready(function() {
   var customerListView = new CustomerListView(options);
   customerListView.render();
 
-  
-  var rentalList = new RentalList();
-  rentalList.fetch();
 
-  var options = {
-    el:  $('.main-content'),
-    model: rentalList
-  };
-
-
-  var rentalListView = new RentalListView(options);
-  rentalListView.render()
+  // var rentalList = new RentalList();
+  // rentalList.fetch();
+  //
+  // var options = {
+  //   el:  $('.main-content'),
+  //   model: rentalList
+  // };
+  //
+  //
+  // var rentalListView = new RentalListView(options);
+  // rentalListView.render()
 
 
 

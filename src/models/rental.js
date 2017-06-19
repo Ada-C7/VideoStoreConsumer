@@ -9,7 +9,6 @@ var Rental = Backbone.Model.extend({
   },
   initialize: function(options) {
     this.query = options;
-    console.log("Created new movie");
   }
 });
 

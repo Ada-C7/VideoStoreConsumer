@@ -19,7 +19,7 @@ var RentalListView = Backbone.View.extend({
     this.listenTo(Backbone.pubSub, 'customerChosen', this.createRental);
     this.listenTo(Backbone.pubSub, 'inventoryChosen', this.createRental);
 
-     this.listenTo(Backbone.pubSub, 'displayRentals', this.showRentals);
+    // this.listenTo(Backbone.pubSub, 'displayRentals', this.showRentals);
 
 
   },
@@ -29,6 +29,7 @@ var RentalListView = Backbone.View.extend({
     console.log("WE ARE IN RENTALS LIST RENDER")
     $('#rental-list').empty();
     this.rentalList.forEach(function(rental){
+
       rental.render();
       $('#rental-list').append(rental.$el);
     }, this);
@@ -40,57 +41,42 @@ var RentalListView = Backbone.View.extend({
       model: rental,
       template: this.rentalTemplate
     });
-
     this.rentalList.push(rental);
   },
 
-  showRentals: function(){
-  console.log("IN SHOW RENTALS FUNCTON:")
-  console.log(Backbone.pubSub.selectedCustomerId)
-  var customerId = Backbone.pubSub.selectedCustomerId
-  console.log(this.model)
-    this.rentalList = this.model.where({customer_id: customerId})
-    console.log(this.rentalList);
-
-
-    // var rentalList = new RentalList();
-    // rentalList.fetch();
-
-    var options = {
-      el:  $('.main-content'),
-      model: this.rentalList
-    };
-
-
-    var rentalListView = new RentalListView(options);
-    rentalListView.render()
-
-  },
+  // showRentals: function(){
+  //   console.log("IN SHOW RENTALS FUNCTON:")
+  //   console.log(Backbone.pubSub.selectedCustomerId)
+  //   var customerId = Backbone.pubSub.selectedCustomerId
+  //   console.log(this.model)
+  //   this.rentalList = this.model.where({customer_id: customerId})
+  //   console.log(this.rentalList);
+  // },
 
   createRental: function(movie) {
     console.log("We are in Create Rental");
     if (Backbone.pubSub.selectedMovie && Backbone.pubSub.selectedCustomer){
-    console.log("Movie and Customers are selected")
+      console.log("Movie and Customers are selected")
 
-    var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    var due = new Date();
-    var msDueDate = new Date(due.setTime( due.getTime() + 14 * 86400000 ));
-    var dueDate = msDueDate.getFullYear()+'-'+(msDueDate.getMonth()+1)+'-'+msDueDate.getDate();
+      var today = new Date();
+      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      var due = new Date();
+      var msDueDate = new Date(due.setTime( due.getTime() + 14 * 86400000 ));
+      var dueDate = msDueDate.getFullYear()+'-'+(msDueDate.getMonth()+1)+'-'+msDueDate.getDate();
 
-    var params = {
-      customer_id: Backbone.pubSub.selectedCustomer.attributes.id,
-      movie_id: Backbone.pubSub.selectedMovie.attributes.id,
-      checkout_date: date,
-      due_date: dueDate
+      var params = {
+        customer_id: Backbone.pubSub.selectedCustomer.attributes.id,
+        movie_id: Backbone.pubSub.selectedMovie.attributes.id,
+        checkout_date: date,
+        due_date: dueDate
+      }
+
+      var title = Backbone.pubSub.selectedMovie.attributes.title;
+      this.model.create(params, {url:'http://localhost:3000/rentals/' + title + '/check-out'});
     }
 
-    var title = Backbone.pubSub.selectedMovie.attributes.title;
-    this.model.create(params, {url:'http://localhost:3000/rentals/' + title + '/check-out'});
   }
 
-    }
+});
 
-  });
-
-  export default RentalListView;
+export default RentalListView;

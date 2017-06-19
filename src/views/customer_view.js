@@ -1,8 +1,8 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
 import _ from 'underscore';
-
-
+import RentalListView from './rental_list_view'
+import RentalList from '../collections/rental_list'
 
 var CustomerView = Backbone.View.extend({
   initialize: function(options) {
@@ -29,10 +29,26 @@ var CustomerView = Backbone.View.extend({
   },
 
   customerNameSelected: function(event){
-      console.log("In customer NAME Selected")
+    console.log("In customer NAME Selected")
 
-    Backbone.pubSub.selectedCustomerId = this.model.attributes.id;
-    Backbone.pubSub.trigger('displayRentals', this.model);
+    var customerId =   Backbone.pubSub.selectedCustomerId
+
+    var rentalList = new RentalList({ customerId: customerId });
+    rentalList.fetch();
+
+    var options = {
+      el:  $('.main-content'),
+      model: rentalList
+    };
+
+    var rentalListView = new RentalListView(options);
+    rentalListView.render()
+
+    console.log(rentalList)
+
+
+
+
   }
 
 
