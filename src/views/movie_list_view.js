@@ -35,10 +35,10 @@ const MovieListView = Backbone.View.extend({
   resetButtons: function() {
     if (this.search === true) {
       this.$(".add-library").show();
-      this.$(".rent-movie").hide();
+      this.$(".lib-buttons").hide();
     } else {
       this.$(".add-library").hide();
-      this.$(".rent-movie").show();
+      this.$(".lib-buttons").show();
     }
   },
 
@@ -54,6 +54,7 @@ const MovieListView = Backbone.View.extend({
         model: movie,
         template: that.template
       });
+      console.log(movie);
       that.$("#list-content").append(movieView.render().el);
       that.listenTo(movieView, "showMovie", that.showMovieDetails);
     });
