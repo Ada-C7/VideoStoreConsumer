@@ -31,7 +31,7 @@ var MovieListView = Backbone.View.extend({
         template: this.template
       });
       this.$('#movie-list').append(movieView.render().el);
-      // this.listenTo(movieView, 'delete', this.destroy);
+      this.listenTo(movieView, 'selectedMovie', this.showMovieDetails);
     });
 
     return this;
@@ -61,6 +61,24 @@ var MovieListView = Backbone.View.extend({
         this.$('#movie-list').append("<h2>Request failed.</h2>");
       }
     });
+  },
+  showMovieDetails: function(movie){
+    // empty
+    // show
+    // create new instance of Movie View
+    // append things
+    // check if the movie has a external id
+      // If does not have an external id
+      // make a call to rails to get list of customers
+      // save the response in a variable
+      // listen for check_out
+      // listen for check in
+    //else
+      // show movie
+    // end
+  },
+  hideMovieDetails: function(){
+    this.$('#movie-details').hide();
   }
 });
 

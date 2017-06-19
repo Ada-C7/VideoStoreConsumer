@@ -14,3 +14,17 @@ li {
   height: 450px;
   margin-bottom: 50px;
 }
+
+#movie-details {
+  z-index: 10;
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  top: 30%;
+  left: 30%;
+  background-color: yellow;
+  text-align: center;
+  border: 1em solid black;
+  margin-left: 20%;
+  /*border-radius: 10%;*/
+}

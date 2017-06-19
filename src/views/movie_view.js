@@ -48,13 +48,15 @@ var MovieView = Backbone.View.extend({
       },
       type: 'DELETE'
     });
-    alert('pressed');
-    // this.model.destroy();
-    // this.model.trigger('delete', this.model);
     // NOTE this does not bubble up to any other collection the moview belongs to. Acoordint to `oak-tree`
     this.model.collection.remove(this.model);
+  },
+  onClick: function(event){
+
+    event.stopPropagation();
+
+    this.trigger('selectedMovie', this.model);
   }
-// }
 });
 
 export default MovieView;
