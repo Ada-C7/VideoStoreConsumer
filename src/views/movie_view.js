@@ -17,7 +17,8 @@ var MovieView = Backbone.View.extend({
   },
 
   events: {
-    'click .add-movie': 'addMovie'
+    'click .add-movie': 'addMovie',
+    'click .movie-details': 'showDetails'
   },
 
   addMovie: function() {
@@ -35,6 +36,10 @@ var MovieView = Backbone.View.extend({
       error: errorHandler
       }
     );
+  },
+
+  showDetails: function() {
+    
   }
 });
 

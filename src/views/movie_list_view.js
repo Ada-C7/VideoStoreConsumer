@@ -37,8 +37,6 @@ var MovieListView = Backbone.View.extend ({
 
     return formTitle;
   },
-
-
   searchMovie: function() {
     var errorHandler = function() {
       $(".messages").html("<h4>Error: Search field cannot be blank.</h4>");
