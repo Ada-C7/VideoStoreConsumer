@@ -19,12 +19,9 @@ var RentalListView = Backbone.View.extend({
     this.listenTo(Backbone.pubSub, 'customerChosen', this.createRental);
     this.listenTo(Backbone.pubSub, 'inventoryChosen', this.createRental);
 
-    // this.listenTo(Backbone.pubSub, 'all', function(event_name, data ){
-    //
-    //   if( event_name == "customerChosen"  && event_name == "inventoryChosen" ){
-    //     createRental();
-    //   }
-    // });
+     this.listenTo(Backbone.pubSub, 'displayRentals', this.showRentals);
+
+
   },
 
 
@@ -44,6 +41,15 @@ var RentalListView = Backbone.View.extend({
     });
 
     this.rentalList.push(rental);
+  },
+
+  showRentals: function(){
+  console.log("IN SHOW RENTALS FUNCTON:")
+  console.log(Backbone.pubSub.selectedCustomerId)
+  var customerId = Backbone.pubSub.selectedCustomerId
+  console.log(this.model)
+    var rentals = this.model.where({customer_id: customerId})
+    console.log(rentals)
   },
 
   createRental: function(movie) {

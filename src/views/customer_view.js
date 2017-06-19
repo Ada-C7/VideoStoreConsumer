@@ -11,7 +11,8 @@ var CustomerView = Backbone.View.extend({
   },
 
   events: {
-    'click #choose-customer-button': 'customerSelected'
+    'click #choose-customer-button': 'customerSelected',
+    'click #customer-name' : 'customerNameSelected'
   },
 
   render: function() {
@@ -25,8 +26,19 @@ var CustomerView = Backbone.View.extend({
     console.log("In customerSelected")
     Backbone.pubSub.selectedCustomer = this.model
     Backbone.pubSub.trigger('customerChosen', this.model)
-    // console.log(this.model);
+  },
+
+  customerNameSelected: function(event){
+      console.log("In customer NAME Selected")
+
+    Backbone.pubSub.selectedCustomerId = this.model.attributes.id;
+    Backbone.pubSub.trigger('displayRentals', this.model);
+    // event.stopPropagation();
   }
+
+
+
+
 });
 
 export default CustomerView;

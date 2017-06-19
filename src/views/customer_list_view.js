@@ -15,6 +15,7 @@ var CustomerListView = Backbone.View.extend({
 
     this.listenTo(this.model, 'add', this.addCustomer);
     this.listenTo(this.model, 'update', this.render);
+    // this.listenTo(this.model, 'displayRentals', this.showRentals);    
   },
 
   render: function() {
@@ -35,6 +36,13 @@ var CustomerListView = Backbone.View.extend({
     });
     this.customerList.push(customer);
   }
+
+  // showRentals: function(){
+  //
+  //   var rentals = this.model.find(function(model){return model.get('title') === movie.attributes.title && model.get('release_date') === movie.attributes.release_date; });
+  //
+  // }
+
 });
 
 export default CustomerListView;
