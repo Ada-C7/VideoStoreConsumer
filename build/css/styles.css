@@ -1,23 +1,22 @@
 @include foundation-everything;
 
+* {
+  font-family: 'Fredericka the Great', cursive !important;
+}
+
 main {
     background: #2F2F2F;
 }
 
-.hide-it {
-  display: none;
-}
-
-label {
-  display: inline;
-}
 
 h2 {
   color: white;
+  text-align: center;
 }
 
 h3 {
   color: white;
+  text-align: center;
 }
 
 
@@ -37,10 +36,7 @@ div {
   margin: 2em;
   /*align-self: center;*/
 }
-/*#video-list {
-  padding-left: 3em;
-  padding-right: 2em:
-}*/
+
 
 .card-product:hover .card-product-img-wrapper img {
   -webkit-filter: grayscale(0);
@@ -131,7 +127,6 @@ div {
 
 button.expanded:focus {
   outline: none;
-  outline-color: none;
 }
 
 button.expanded:hover {
