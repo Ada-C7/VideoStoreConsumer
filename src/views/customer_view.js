@@ -10,7 +10,7 @@ const CustomerView = Backbone.View.extend({
 
   render: function() {
     console.log("rendering indiv customer view");
-    console.log(this.model);
+    // console.log(this.model);
     var compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     return this;

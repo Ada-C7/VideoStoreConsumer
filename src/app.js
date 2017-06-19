@@ -8,7 +8,7 @@ import AppView from './views/app_view.js';
 
 
 var myCustomersList = new CustomerList();
-// myCustomersList.fetch();
+myCustomersList.fetch();
 var myMoviesList = new MovieList();
 myMoviesList.fetch();
 

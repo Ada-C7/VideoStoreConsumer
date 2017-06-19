@@ -8,13 +8,12 @@ const CustomerListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.model = params.model;
-    this.model.fetch();
+    // this.model.fetch();
+    this.listenTo(this.model,"reset", this.render);
 
   },
 
-
   render: function() {
-
     console.log("inside customer list render ");
     this.$("#customer-data").empty();
     this.$("#customer-list").show();
@@ -29,21 +28,59 @@ const CustomerListView = Backbone.View.extend({
         template: that.template,
         tagName: "tr"
       });
-      console.log("log customer: ");
-      console.log(customer);
+      // console.log("log customer: ");
+      // console.log(customer);
       that.$("#customer-data").append(customerView.render().el);
-      // that.listenTo(movieView, "showMovie", that.showMovieDetails);
     });
 
     return this;
   },
 
   events: {
-    "click #customer-list-button": "render"
-    // sort button click events here
+    "click #customer-list-button": "sortByName",
+    "click #cust-name-sort": "sortByName",
+    "click #cust-pcode-sort": "sortByPostCode",
+    "click #cust-reg-at-sort": "sortByRegisteredAt"
+  },
+  sortByName: function() {
+    console.log("clicked sort by name");
+    this.model.url = 'http://localhost:3000/customers?sort=name';
+    this.model.fetch({
+      reset:true,
+      success: function(data) {
+        console.log("Sort worked!");
+      },
+      failure: function(data) {
+        console.log("Sort Failure");
+      }
+    });
+  },
+  sortByPostCode: function() {
+    console.log("clicked sort by post code");
+
+    this.model.url = 'http://localhost:3000/customers?sort=registered_at';
+    this.model.fetch({
+      reset:true,
+      success: function(data) {
+        console.log("Sort worked!");
+      },
+      failure: function(data) {
+        console.log("Sort Failure");
+      }
+    });
+  },
+  sortByRegisteredAt: function() {
+    console.log("clicked sort by registered at");
+    this.model.url = 'http://localhost:3000/customers?sort=postal_code';
+    this.model.fetch({
+      reset:true,
+      success: function(data) {
+        console.log("Sort worked!");
+      },
+      failure: function(data) {
+        console.log("Sort Failure");
+      }
+    });
   }
-
-
 });
-
 export default CustomerListView;
