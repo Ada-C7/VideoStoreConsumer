@@ -39,7 +39,11 @@ div {
 }
 
 .hidden {
-     display: none;   
+     display: none;
+}
+
+#db-movies {
+     background-color: skyblue;
 }
 
 /*

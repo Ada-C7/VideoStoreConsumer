@@ -7,8 +7,6 @@ import DBMoviesView from './views/db_movies_view.js';
 
 
 var movies = new Movies();
-var dbMovies = new DBMovies();
-
 
 $(document).ready(function() {
      var moviesView = new MoviesView({
@@ -17,13 +15,6 @@ $(document).ready(function() {
           el: '#movies'
      });
 
-     var dbMoviesView = new DBMoviesView({
-          model: dbMovies,
-          stockTemplate:  _.template($('#db-movie-template').html(), {variable: 'movie'}),
-          el: '#db-movies'
-     });
-
      moviesView.render();
-     dbMoviesView.render();
 
 });

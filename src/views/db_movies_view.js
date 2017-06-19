@@ -4,15 +4,18 @@ import $ from 'jquery';
 
 import DBMovieView from './db_movie_view.js';
 import DBMovie from '../models/db_movie.js';
+import Movies from '../collections/movies.js';
+
 
 var DBMoviesView = Backbone.View.extend({
      initialize: function( params ) {
           this.template = params.stockTemplate;
+          this.movies = params.movies
           this.listenTo(this.model, 'update', this.render);
      },
      render: function() {
 
-         this.$( '#movie-results' ).empty();
+          this.$( '#movie-results' ).empty();
 
           var that = this;
 
@@ -23,7 +26,6 @@ var DBMoviesView = Backbone.View.extend({
           });
 
           that.listenTo(dbMovieView,'created', that.addMovie);
-
           that.$('#movie-results').append( dbMovieView.render().$el );
           });
           return this;
@@ -43,13 +45,8 @@ var DBMoviesView = Backbone.View.extend({
           });
      },
      addMovie: function(movie) {
-          console.log(movie);
-          event.preventDefault();
-          this.model.create(movie);
-          // this.trigger('refresh');
+          this.movies.create(movie);
      }
-
-
 });
 
 export default DBMoviesView;
