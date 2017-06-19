@@ -12,13 +12,14 @@ var Rental = Backbone.Model.extend({
     if (method == "create") {
       // console.log("inside sync!");
       method = 'check-out';
-      // console.log(method);
-      options.url =  this.url + this.get('title') + '/check-out';
-      // this = this.toJSON();
-      options.data["customer_id"] = this.get('customer_id');
-      // console.log(options.data);
+      console.log(options.customer_id);
+      // options.url =  this.url + this.get('title') + '/check-out';
+      // // this = this.toJSON();
+      options.data = JSON.stringify(this.attributes);
+      options.contentType = 'application/json';
+      // options.data['due_date'] = "1/1/19";
+      console.log(options.data);
       // console.log(options.url);
-      console.log(options);
       return Backbone.sync(method, model, options);
     }
   }

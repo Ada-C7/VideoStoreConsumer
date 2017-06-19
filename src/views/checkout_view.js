@@ -46,10 +46,12 @@ var CheckoutView = Backbone.View.extend({
     var rental_customer = this.checoutCustomersView.selectedCustomer();
     console.log(rental_customer);
     console.log(rental_movie);
-    var attributes = {title: rental_movie, customer_id: rental_customer, due_date: Date.today};
+    var attributes = {title: rental_movie, customer_id: rental_customer, due_date: "1/1/19"};
     var options = {
         type: 'POST',
-        url: 'http://localhost:3000/rentals/' + rental_movie + '/check-out'
+        url: 'http://localhost:3000/rentals/' + rental_movie + '/check-out',
+        customer_id: rental_customer,
+        due_date: "1/1/19"
       };
     this.model.save(attributes, options);
   }
