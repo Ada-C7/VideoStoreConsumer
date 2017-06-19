@@ -16,11 +16,9 @@ var RentalLibraryView = Backbone.View.extend( {
   },
 
   render: function(){
-    console.log("hi");
     this.$('#movie-list').empty();
 
     var that = this;
-
     this.model.each(function(movie) {
       var movieView = new MovieView ({
         model: movie,
