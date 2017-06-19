@@ -12,32 +12,24 @@
 
 
     <h2>Our fantastic video store!</h2>
+    <h3>Find A Video</h3>
     <section>
 
-      <h3>Find A Video</h3>
-      <div class="row">
-        <label>
-
-          <div class="input-group input-group-rounded">
+          <div class="input-group input-group-rounded row column medium-5 large-5">
             <input class="input-group-field" type="search" id="title" type="text" placeholder="Enter the name of a video">
             <div class="input-group-button">
               <input type="submit" class="button secondary" value="Search" id="search-video">
             </div>
-          </div>
         </div>
-
-
-
-
-        <ul id="video-list" class="row align-center"></ul>
+        <ul id="video-list" class="row"></ul>
       </main>
     </section>
     <!-- Underscore Templates -->
 
     <script type="text/template" id="video-card-template">
-      <li class="video small-11 medium-4 large-2 medium-offset-1 columns" style="list-style-type:none">
-        <div class="card card-product">
-          <h3 class="card-product-name"><h4><%- video.title %></h4></h3>
+      <li class="video small-10 medium-4 large-3 columns card card-product align-center" style="list-style-type:none">
+
+          <h4 class="card-product-name"><%- video.title %></h4>
           <div class="card-product-img-wrapper">
             <% if (video.image_url) { %>
               <img src= <%- video.image_url %> >
@@ -52,7 +44,7 @@
                 <% } %>
 
               <p class="card-product-inventory"><h4><%- video.inventory %></h4></p>
-            </div>
+
 
           </li>
         </script>

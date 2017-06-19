@@ -1,4 +1,4 @@
-@include foundation-everything;
+/*@include foundation-everything;
 
 main {
     background: #BDC4A7;
@@ -17,7 +17,7 @@ label {
   display: inline;
 }*/
 
-
+/*
 div {
   display: inline;
 }
@@ -72,4 +72,4 @@ div {
   color: #8a8a8a;
   font-size: 0.875rem;
   margin-bottom: 0;
-}
+}*/
