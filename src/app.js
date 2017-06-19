@@ -28,7 +28,6 @@ $(document).ready(function() {
 
 
 
-
   $("#search-form").submit(function(event) {
       event.preventDefault();
       var movieList = new MovieList();
@@ -61,6 +60,7 @@ $(document).ready(function() {
   var customerListView = new CustomerListView(options);
   customerListView.render();
 
+  
   var rentalList = new RentalList();
   rentalList.fetch();
 
@@ -69,6 +69,12 @@ $(document).ready(function() {
     model: rentalList
   };
 
+
   var rentalListView = new RentalListView(options);
+  rentalListView.render()
+
+
+
+
 
 });

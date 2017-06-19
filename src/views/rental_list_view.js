@@ -26,6 +26,7 @@ var RentalListView = Backbone.View.extend({
 
 
   render: function() {
+    console.log("WE ARE IN RENTALS LIST RENDER")
     $('#rental-list').empty();
     this.rentalList.forEach(function(rental){
       rental.render();
@@ -48,8 +49,22 @@ var RentalListView = Backbone.View.extend({
   console.log(Backbone.pubSub.selectedCustomerId)
   var customerId = Backbone.pubSub.selectedCustomerId
   console.log(this.model)
-    var rentals = this.model.where({customer_id: customerId})
-    console.log(rentals)
+    this.rentalList = this.model.where({customer_id: customerId})
+    console.log(this.rentalList);
+
+
+    // var rentalList = new RentalList();
+    // rentalList.fetch();
+
+    var options = {
+      el:  $('.main-content'),
+      model: this.rentalList
+    };
+
+
+    var rentalListView = new RentalListView(options);
+    rentalListView.render()
+
   },
 
   createRental: function(movie) {

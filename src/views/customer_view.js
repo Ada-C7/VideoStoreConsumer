@@ -33,7 +33,6 @@ var CustomerView = Backbone.View.extend({
 
     Backbone.pubSub.selectedCustomerId = this.model.attributes.id;
     Backbone.pubSub.trigger('displayRentals', this.model);
-    // event.stopPropagation();
   }
 
 
