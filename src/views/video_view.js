@@ -18,7 +18,9 @@ var VideoView = Backbone.View.extend({
   events: {
     'click button.alert': "deleteVideo",
     'click button.success': "toggleRented",
-    'click #add-video': 'addVideo'
+    'click #add-video': 'addVideo',
+    "mouseover .card-product": "showDescription",
+    "mouseout .card-product": "hideDescription"
   },
   deleteVideo: function() {
     this.model.destroy();
@@ -26,10 +28,13 @@ var VideoView = Backbone.View.extend({
   addVideo: function() {
     this.model.save();
     return "Movie added successfully!";
-
-
+  },
+  showDescription: function(){
+    this.$('.video-description').show();
+  },
+  hideDescription: function(){
+    this.$('.video-description').hide();
   }
-
   // toggleRented: function() {
   //   var rented = this.get("rented");
   //   this.set("rented", !rented);
