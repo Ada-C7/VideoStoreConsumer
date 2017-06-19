@@ -22,7 +22,7 @@ var RentalListView = Backbone.View.extend({
 
 
   render: function() {
-    this.rentalList.shift();
+    // this.rentalList.shift();
     $('#rental-list').empty();
     $('#rental-list').append('<h3>Rental list for </h3>');
     this.rentalList.forEach(function(rental){
@@ -35,7 +35,8 @@ var RentalListView = Backbone.View.extend({
   addRental: function(rental){
     var rental = new RentalView ({
       model: rental,
-      template: this.rentalTemplate
+      template: this.rentalTemplate //,
+      //movie_title: "Psycho"  // NEED TO REMOVE THIS
     });
 
     this.rentalList.push(rental);

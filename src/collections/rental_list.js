@@ -12,7 +12,9 @@ var RentalList = Backbone.Collection.extend({
     if (this.customerId) {
       var customerRentals = [];
       data.forEach((rental) => {
-        if (rental.customer_id == this.customerId) {
+        if (rental.customer_id == this.customerId &&  rental.returned === false )  {
+          console.log("RENTAL RETURNED?")
+          // console.log( v)
           customerRentals.push(rental);
         }
       });
