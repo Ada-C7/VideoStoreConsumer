@@ -31,6 +31,7 @@ var MovieListView = Backbone.View.extend({
         template: this.template
       });
       this.$('#movie-list').append(movieView.render().el);
+      // this.listenTo(movieView, 'delete', this.destroy);
     });
 
     return this;
