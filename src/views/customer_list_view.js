@@ -35,10 +35,12 @@ var CustomerListView = Backbone.View.extend ({
     e.preventDefault();
 
     console.log(e.currentTarget.value);
-    // var id = e.currentTarget.value;
-    // console.log(id);
-    // var customer = this.collection.get(id);
-    // console.log(customer);
+    var customerID = e.currentTarget.value;
+
+    var customer = this.model.get(customerID);
+    console.log(customer);
+
+    var customerInfo = customer.fetch();  
   }
 
 
