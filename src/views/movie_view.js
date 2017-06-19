@@ -18,10 +18,9 @@ var MovieView = Backbone.View.extend({
   },
 
   addSearchedMovie: function(){
-    console.log("inside addSearchedMovie()");
+    console.log("new movie added!");
     console.log(this.model.toJSON());
-    // format as movies/:id/params
-    // .save() put request to Rails API
+    this.model.save(this.model.toJSON());
   },
 });
 
