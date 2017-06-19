@@ -6,7 +6,6 @@ import Movie from '../models/movie.js';
 var MovieView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
-    this.detailsClicked = params.detailsClicked;
     this.listenTo(this.model, 'change', this.render);
   },
   render: function() {
@@ -37,14 +36,12 @@ var MovieView = Backbone.View.extend({
     );
   },
   showDetails: function() {
-    console.log("hello");
 
     if (this.model.attributes.id) {
       this.model.fetch();
       this.detailsClicked = !this.detailsClicked;
-      // this.render();
+      this.render();
     }
-    console.log(this.model);
   }
 });
 
