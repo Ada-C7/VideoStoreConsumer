@@ -16,20 +16,16 @@ var MovieView = Backbone.View.extend({
 
   events: {
     'click .add-movie': 'addMovie',
-    'click .rent-movie': 'rentMovie'
-  },
-
-  rentMovie: function() {
-    console.log(this.model);
-    // var customers =
-    var rentalTemplate = _.template($("#rental-template").html());
-    var compiledRentalTemplate = rentalTemplate(this.model.toJSON());
-    $("#create-rental").html(compiledRentalTemplate);
-    
+    'click .rent-movie': 'rentMovie',
     'click .movie-image-details': 'showDetails'
-
   },
-
+  rentMovie: function() {
+    // console.log(this.model);
+    // var customers =
+    // var rentalTemplate = _.template($("#rental-template").html());
+    // var compiledRentalTemplate = rentalTemplate(this.model.toJSON());
+    // $("#create-rental").html(compiledRentalTemplate);
+  },
   addMovie: function() {
 
     var successHandler = function() {
