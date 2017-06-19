@@ -9,6 +9,8 @@ var MovieListView = Backbone.View.extend({
   initialize: function(params){
     this.listenTo(this.model, 'update', this.render);
     this.template = _.template($('#movie-template').html());
+    this.modalTemplate = _.template($('#movie-details-template').html());
+
   },
 
   render: function(){
@@ -24,6 +26,7 @@ var MovieListView = Backbone.View.extend({
       // console.log("rendering ", movieView.model);
       self.$('.movie-library').append(movieView.render().$el);
       self.listenTo(movieView, "addMovieListen", self.addToLibrary);
+      self.listenTo(movieView, "showDetailsListen", self.showDetails);
     });
 
     return this;
@@ -42,6 +45,13 @@ var MovieListView = Backbone.View.extend({
       self.template = _.template($('#movie-template').html());
       self.model.fetch();
     }});
+  },
+
+  showDetails: function(movie){
+    $('.movie-details').empty();
+    $('.movie-details').show();
+    var generatedModalTemplate= this.modalTemplate(movie.toJSON());
+    this.$('.movie-details').append(generatedModalTemplate);
   },
 
   clearLibrary: function(){

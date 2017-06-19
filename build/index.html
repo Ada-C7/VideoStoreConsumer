@@ -20,6 +20,10 @@
         </div>
       </div>
 
+      <section class="movie-details">
+
+      </section>
+
       <section class="movie-library">
 
       </section>
@@ -27,6 +31,11 @@
 
       </section>
     </main>
+    <script id='movie-details-template' type='text/template'>
+      <%= title %>
+      <%= overview %>
+      <%= release_date %>
+    </script>
 
     <script id='movie-template' type='text/template'>
       <img src="<%= movie.image_url%>" alt="<%= movie.title %> image">

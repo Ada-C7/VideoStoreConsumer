@@ -10,12 +10,18 @@ var MovieView = Backbone.View.extend({
   },
 
   events: {
-    "click .add-movie" : "addMovieHandler"
+    "click .add-movie" : "addMovieHandler",
+    "click img" : "showDetailsHandler"
   },
 
   addMovieHandler: function(event){
     event.stopPropagation();
     this.trigger('addMovieListen', this.model);
+  },
+
+  showDetailsHandler: function(event){
+    event.stopPropagation();
+    this.trigger('showDetailsListen', this.model);
   },
 
   render: function(){
