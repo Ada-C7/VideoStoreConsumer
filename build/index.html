@@ -42,6 +42,10 @@
                 <img src= <%- video.poster_path %> >
                 <% } %>
               </div>
+
+              <h5 class="video-description" style="display: none"><%- video.overview %></h5>
+
+
                 <% if (isSearch) { %>
                   <button class="button expanded" id="add-video">Add</button>
                 <% } else { %>

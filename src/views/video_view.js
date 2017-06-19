@@ -24,12 +24,10 @@ var VideoView = Backbone.View.extend({
     this.model.destroy();
   },
   addVideo: function() {
-    console.log("ADD VIDEO!!");
-    console.log(this);
-    console.log(this.model);
-    // var newVideo = new Video(this.model);
     this.model.save();
-    console.log("SAVE!");
+    return "Movie added successfully!";
+
+
   }
 
   // toggleRented: function() {

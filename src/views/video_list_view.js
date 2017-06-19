@@ -29,7 +29,9 @@ var VideoListView = Backbone.View.extend({
   },
   events: {
     "click #rent-video": "rentVideo",
-    "click #search-video": "searchVideo"
+    "click #search-video": "searchVideo",
+    "mouseover .card-product": "showDescription",
+    "mouseout .card-product": "hideDescription"
   },
   getFormData: function() {
     var formTitle =
@@ -43,6 +45,12 @@ var VideoListView = Backbone.View.extend({
     this.$('#video-list').empty();
     var videoTitle = this.getFormData();
     this.model.fetch( {data: { query: videoTitle}});
+  },
+  showDescription: function(){
+    this.$('.video-description').show();
+  },
+  hideDescription: function(){
+    this.$('.video-description').hide();
   }
 });
 
