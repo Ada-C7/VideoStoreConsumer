@@ -11,7 +11,7 @@ var RentalList = Backbone.Collection.extend({
     this.query = params.query;
   },
   url: function() {
-    return 'http://localhost:3000/movies?' + this.query
+    return 'http://localhost:3000/movies?query=' + this.query
   }
 
 });
