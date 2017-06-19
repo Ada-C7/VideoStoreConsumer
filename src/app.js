@@ -29,9 +29,14 @@ $(document).ready(function() {
     event.preventDefault();
 
     var rentalList = new RentalList( {query:$("#rentalTitle").val()} );
+<<<<<<< HEAD
     // rentalList.fetch({data: {query: $("#rentalTitle").val()}});
     rentalList.fetch();
 
+=======
+    rentalList.fetch();
+    //
+>>>>>>> d66dbd64a7a961146990efe732db902a5a5ebaf2
 
     var params = {
       el: $('#all-rentals'),

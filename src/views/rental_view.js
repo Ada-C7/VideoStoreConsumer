@@ -13,7 +13,7 @@ var RentalView = Backbone.View.extend({
   },
 
   render: function() {
-    var html = this.template({rental: this.model.attributes});
+    var html = this.template({movie: this.model.attributes});
     this.$el.html(html);
     this.delegateEvents();
     return this;

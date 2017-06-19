@@ -8,7 +8,7 @@ var RentalListView = Backbone.View.extend({
   initialize: function(params) {
     this.rentalTemplate = _.template($('#rental-template').html());
     this.rentalList = [];
-
+    console.log(this);
     this.model.forEach(function(rawRental){
       this.addRental(rawRental);
     }, this);
