@@ -35,10 +35,7 @@ var MovieListView = Backbone.View.extend({
 
   addToLibrary: function(movie){
     this.template = _.template($('#movie-template').html());
-
-    console.log('We are in addToLibrary' + "model: " + this.model + "collection: " + this.collection );
     var newMovie = new Movie(movie);
-    console.log("movie" + newMovie);
     this.model.create(newMovie);
   },
 
