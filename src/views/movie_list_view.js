@@ -19,7 +19,7 @@ var MovieListView = Backbone.View.extend({
 
   render: function() {
     $('#movie-list').empty();
-    $('#movie-list').append('<h3>Movie list</h3>');
+    $('#movie-list').append('<h3>Search results </h3>');
     this.movieList.forEach(function(movie){
       movie.render();
       $('#movie-list').append(movie.$el);
