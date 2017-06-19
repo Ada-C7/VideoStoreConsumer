@@ -11,12 +11,13 @@ var CustomerView = Backbone.View.extend({
 
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
-    this.$el.html(compiledTemplate);
+    this.$el = compiledTemplate;
+    // this.$el.html(compiledTemplate);
     return this;
   },
 
   events: {
-    //
+
   }
 
 

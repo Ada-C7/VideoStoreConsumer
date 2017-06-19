@@ -10,6 +10,7 @@ var CustomerListView = Backbone.View.extend ({
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
     this.listenTo(this.model, 'change', this.render);
+    // this.listenTo(this.model, 'click', );
   },
 
   render: function() {
@@ -18,12 +19,26 @@ var CustomerListView = Backbone.View.extend ({
       var customerView = new CustomerView({
         model: customer,
         template: that.template,
-        tagName: 'option'
+
       });
-      that.$(".customer-dropdown").append(customerView.render().$el);
+      that.$("#customer-dropdown").append(customerView.render().$el);
 
     });
     return this;
+  },
+
+  events: {
+    'change select': 'showCustomer'
+  },
+
+  showCustomer: function(e) {
+    e.preventDefault();
+
+    console.log(e.currentTarget.value);
+    // var id = e.currentTarget.value;
+    // console.log(id);
+    // var customer = this.collection.get(id);
+    // console.log(customer);
   }
 
 
