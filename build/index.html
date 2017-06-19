@@ -24,7 +24,12 @@
 
       <section id='movie'></section>
       <section id='movie-list' class="row"></section>
-      <section id='result-list' class="row"></section>
+      <section id='result-list' class="row">
+        <div class='modal-container'>
+          <section id='messages'></section>
+        </div>
+      </section>
+
 
     </main>
     <script id="movie-template" type="text/template">
@@ -42,6 +47,11 @@
       </section>
     </script>
 
+    <script id="added-message-template" type="text/template">
+      <section class="column small-3 medium-3 large-3">
+        <p><%- movie.title %> added successfully!</p>
+      </section>
+    </script>
 
     <script src="/app.bundle.js"></script>
 

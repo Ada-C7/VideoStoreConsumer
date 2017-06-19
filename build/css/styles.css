@@ -1,20 +1,12 @@
 @include foundation-everything;
 
 main {
-    background: white;
+  background: white;
 }
 
 header {
-  background-color: firebrick;
+  background-color: black;
   padding: 0.5rem;
-}
-
-#completed-checkbox {
-  display: inline;
-}
-
-label {
-  display: inline;
 }
 
 button.success {
@@ -22,30 +14,12 @@ button.success {
   display: inline;
 }
 
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
-}
-
-.completed {
-  text-decoration: line-through;
-}
-
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
-}
-*/
+
 #thisisit:hover, #thisisit:focus {
   text-decoration: none;
-	color: #aaf;
-	text-shadow: none;
 	-webkit-transition: 500ms linear 0s;
 	-moz-transition: 500ms linear 0s;
 	-o-transition: 500ms linear 0s;
@@ -55,6 +29,16 @@ div {
 	text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
 }
 
+#logo {
+  -webkit-filter: drop-shadow(0px 0px 0px rgba(255,255,255,0.80));
+	-webkit-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+
+#logo:hover {
+  -webkit-filter: drop-shadow(0px 0px 8px rgba(0, 231, 255, 0.8));
+}
 #thisisit {
   color: #FFFFFF;
 }
@@ -85,5 +69,5 @@ li {
 }
 
 .button.add:hover {
-  background-color: darkred;
+  background-color: firebrick;
 }
