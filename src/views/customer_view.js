@@ -31,7 +31,10 @@ var CustomerView = Backbone.View.extend({
   customerNameSelected: function(event){
     console.log("In customer NAME Selected")
 
+    Backbone.pubSub.selectedCustomerId = this.model.attributes.id;
     var customerId =   Backbone.pubSub.selectedCustomerId
+
+
 
     var rentalList = new RentalList({ customerId: customerId });
     rentalList.fetch();
