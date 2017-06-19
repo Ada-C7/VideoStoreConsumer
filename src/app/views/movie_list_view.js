@@ -34,9 +34,14 @@ var MovieListView = Backbone.View.extend({
   },
 
   addToLibrary: function(movie){
-    this.template = _.template($('#movie-template').html());
-    var newMovie = new Movie(movie);
-    this.model.create(newMovie);
+    // var newMovie = new Movie(movie);
+    // this.model.create(newMovie);
+    var self = this;
+
+    movie.save(undefined, {success: function(){
+      self.template = _.template($('#movie-template').html());
+      self.model.fetch();
+    }});
   },
 
   clearLibrary: function(){
