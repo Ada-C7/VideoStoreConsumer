@@ -53,7 +53,19 @@ var MovieView = Backbone.View.extend({
   },
   onClick: function(event){
     event.stopPropagation();
-    this.trigger('selectedMovie', this.model);
+    self = this;
+    this.model.fetch({
+      // data: movie.title,
+      success: function(data) {
+        console.log("It worked (details)!", data);
+        self.trigger('selectedMovie', data);
+
+      },
+      failure: function(data) {
+        console.log("Failure", data);
+        this.$('#movie-list').append("<h2>Request failed.</h2>");
+      }
+    });
   }
 });
 

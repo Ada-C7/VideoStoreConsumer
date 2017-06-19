@@ -63,25 +63,15 @@ var MovieListView = Backbone.View.extend({
   showMovieDetails: function(movie){
     // alert('heyyy movie details');
 
-    movie.fetch({
-      data: movie.title,
-      success: function(data) {
-        console.log("It worked (details)!", data);
-        this.$("#movie-details").empty();
-        this.$("#movie-details").toggleClass('hide');
+    this.$("#movie-details").empty();
+    this.$("#movie-details").toggleClass('hide');
 
-        var detailsView = new MovieView({
-          model: movie,
-          template: _.template($('#tmpl-movie-details').html())
-        });
-        // append things
-        this.$('#movie-details').append(detailsView.render().el);
-      },
-      failure: function(data) {
-        console.log("Failure", data);
-        this.$('#movie-list').append("<h2>Request failed.</h2>");
-      }
+    var detailsView = new MovieView({
+      model: movie,
+      template: _.template($('#tmpl-movie-details').html())
     });
+    // append things
+    this.$('#movie-details').append(detailsView.render().el);
 
     // console.log(movie);
     // create new instance of Movie View

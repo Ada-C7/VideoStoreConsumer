@@ -46,7 +46,7 @@
     <h4><%- release_date %></h4>
     <h4><%- overview %></h4>
     <% if (!external_id) { %>
-      <h4> inventory </h4>
+      <h4> inventory <%- inventory %> </h4>
       <select id='customer-options'></select>
       <button id="check_out" class="button alert">Check Out</button>
       <button id="check_in" class="button success">Check In</button>
