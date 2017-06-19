@@ -1,7 +1,7 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+    background: #BDC4A7;
 }
 
 .hide-it {
@@ -12,10 +12,10 @@ label {
   display: inline;
 }
 
-button.success {
+/*button.expanded {
   margin-right: 1.2rem;
   display: inline;
-}
+}*/
 
 
 div {
@@ -53,9 +53,9 @@ div {
   margin-bottom: 0;
 }
 
-/*.card-product-img-wrapper .button:hover {
+.card-product-img-wrapper .button:hover {
   background-color: #7ca0b7;
-}*/
+}
 
 .card-product-img-wrapper img {
   transition: all 0.2s ease;

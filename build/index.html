@@ -37,6 +37,7 @@
     <script type="text/template" id="video-card-template">
       <li class="video small-11 medium-4 large-2 medium-offset-1 columns" style="list-style-type:none">
         <div class="card card-product">
+          <h3 class="card-product-name"><h4><%- video.title %></h4></h3>
           <div class="card-product-img-wrapper">
             <% if (video.image_url) { %>
               <img src= <%- video.image_url %> >
@@ -44,14 +45,12 @@
                 <img src= <%- video.poster_path %> >
                 <% } %>
               </div>
-
                 <% if (isSearch) { %>
-                  <button class="button success" id="add-video">Add</button>
+                  <button class="button expanded" id="add-video">Add</button>
                 <% } else { %>
-                  <button class="button success" id="rent-video">Rent</button>
+                  <button class="button expanded" id="rent-video">Rent</button>
                 <% } %>
 
-              <h3 class="card-product-name"><h4><%- video.title %></h4></h3>
               <p class="card-product-inventory"><h4><%- video.inventory %></h4></p>
             </div>
 
