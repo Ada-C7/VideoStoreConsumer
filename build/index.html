@@ -40,6 +40,18 @@
     </li>
   </script>
 
+  <script type="text/template" id="tmpl-movie-details">
+    <h3><%- title %></h3>
+    <h4><%- release_date %></h4>
+    <h4><%- overview %></h4>
+    <% if (!external_id) { %>
+      <h4><%- inventory %></h4>
+      <select id='customer-options'></select>
+      <button id="check_out" class="button alert">Check Out</button>
+      <button id="check_in" class="button success">Check In</button>
+    <%  } %>
+  </script>
+
   <script src="/app.bundle.js"></script>
 
 </body>
