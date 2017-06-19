@@ -70,8 +70,5 @@ $(document).ready(function() {
   };
 
   var rentalListView = new RentalListView(options);
-  rentalListView.render();
-
-
 
 });

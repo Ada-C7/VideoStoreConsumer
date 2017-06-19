@@ -64,12 +64,8 @@ var RentalListView = Backbone.View.extend({
       due_date: dueDate
     }
 
-    // console.log(params);
     var title = Backbone.pubSub.selectedMovie.attributes.title;
     this.model.create(params, {url:'http://localhost:3000/rentals/' + title + '/check-out'});
-    // this.model.create(params);
-    // console.log(this.model);
-    // console.log(this.model);
   }
 
     }
