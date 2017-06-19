@@ -14,7 +14,7 @@
     </header>
     <main class='main-content'>
       <section class='messages'>
-        
+
       </section>
 
 
@@ -26,7 +26,9 @@
           <button id="search-movies" class="button">Search Movies</button>
         </div>
       </section>
+      <section class='row' id='create-rental'></section>
       <section class='row' id="movie-list" data-equalizer ></section>
+
 
     </main>
     <!-- templates -->
@@ -39,7 +41,7 @@
           <img src="<%- image_url %>" alt="movie poster">
         </div>
         <div class='row'>
-          <button class="button">Rent me!</button>
+          <button class="rent-movie button">Rent me!</button>
         </div>
       </section>
     </script>
@@ -55,6 +57,13 @@
         <div class='row'>
           <button class="add-movie button">Add to Store</button>
         </div>
+      </section>
+    </script>
+
+    <script id="rental-template" type="text/template">
+      <section>
+        <h4><%- title %></h4>
+        <h3>Customers Here</h3>
       </section>
     </script>
     <script src="/app.bundle.js"></script>

@@ -17,10 +17,20 @@ var MovieView = Backbone.View.extend({
   },
 
   events: {
-    'click .add-movie': 'addMovie'
+    'click .add-movie': 'addMovie',
+    'click .rent-movie': 'rentMovie'
+  },
+
+  rentMovie: function() {
+    console.log(this.model);
+    var rentalTemplate = _.template($("#rental-template").html());
+    var compiledRentalTemplate = rentalTemplate(this.model.toJSON());
+    $("#create-rental").html(compiledRentalTemplate);
+    return this;
   },
 
   addMovie: function() {
+
     var successHandler = function() {
       $(".messages").html("<h4>Movie successfully added.</h4>");
     };
