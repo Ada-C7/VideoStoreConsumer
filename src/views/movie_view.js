@@ -11,7 +11,17 @@ var MovieView = Backbone.View.extend({
     this.$el.html(html);
     this.delegateEvents();
     return this;
-  }
+  },
+
+  events: {
+    'click #add-button': 'addSearchedMovie'
+  },
+
+  addSearchedMovie: function(){
+    console.log("new movie added!");
+    console.log(this.model.toJSON());
+    this.model.save(this.model.toJSON());
+  },
 });
 
 export default MovieView;
