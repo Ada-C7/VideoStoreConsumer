@@ -11,7 +11,18 @@ var MovieView = Backbone.View.extend({
     this.$el.html(html);
     this.delegateEvents();
     return this;
-  }
+  },
+
+  events: {
+    'click #add-button': 'addSearchedMovie'
+  },
+
+  addSearchedMovie: function(){
+    console.log("inside addSearchedMovie()");
+    console.log(this.model.toJSON());
+    // format as movies/:id/params
+    // .save() put request to Rails API
+  },
 });
 
 export default MovieView;
