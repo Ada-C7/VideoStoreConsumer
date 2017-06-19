@@ -34,6 +34,7 @@ var MovieListView = Backbone.View.extend({
 
   events: {
     "click .search-button" : "getSearchResults",
+    "click" : "hideDetails"
   },
 
   addToLibrary: function(movie){
@@ -52,6 +53,10 @@ var MovieListView = Backbone.View.extend({
     $('.movie-details').show();
     var generatedModalTemplate= this.modalTemplate(movie.toJSON());
     this.$('.movie-details').append(generatedModalTemplate);
+  },
+
+  hideDetails: function(){
+    this.$('.movie-details').empty();
   },
 
   clearLibrary: function(){
