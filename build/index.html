@@ -21,15 +21,15 @@
     <section id="movie-list" class="row"><ul>
 
     </ul> </section>
-    <section id="movie-details"></section>
+    <section id="movie-details" class="hide"></section>
   </main>
 
   <!-- Templates -->
 
   <script id="movie-template" type='text/template'>
     <li class="large-3 medium-6 small-12 columns">
-      <img src=<%- image_url %>>
-      <h3><%- title %></h3>
+      <img id="poster" src=<%- image_url %>>
+      <h3 id="title"><%- title %></h3>
 
       <% if (external_id) { %>
         <input type='number' min="1" max="10" value="1"/>
@@ -41,12 +41,12 @@
     </li>
   </script>
 
-  <script type="text/template" id="tmpl-movie-details">
+  <script id="tmpl-movie-details" type="text/template">
     <h3><%- title %></h3>
     <h4><%- release_date %></h4>
     <h4><%- overview %></h4>
     <% if (!external_id) { %>
-      <h4><%- inventory %></h4>
+      <h4> inventory </h4>
       <select id='customer-options'></select>
       <button id="check_out" class="button alert">Check Out</button>
       <button id="check_in" class="button success">Check In</button>

@@ -16,6 +16,5 @@ var rentalListView = new MovieListView({
 
 
 $(document).ready(function() {
-  // $('section.main-content').append('<p>Hello World!</p>');
 
 });

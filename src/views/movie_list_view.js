@@ -7,10 +7,8 @@ import Movie from '../models/movie.js';
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
-    // other templates maybe?
 
     this.listenTo(this.model, "update", this.render);
-    // this.listenTo(this.model, "remove", this.render);
 
     this.model.fetch({
       success: function(data) {
@@ -63,10 +61,30 @@ var MovieListView = Backbone.View.extend({
     });
   },
   showMovieDetails: function(movie){
-    // empty
-    // show
+    // alert('heyyy movie details');
+
+    movie.fetch({
+      data: movie.title,
+      success: function(data) {
+        console.log("It worked (details)!", data);
+        this.$("#movie-details").empty();
+        this.$("#movie-details").toggleClass('hide');
+
+        var detailsView = new MovieView({
+          model: movie,
+          template: _.template($('#tmpl-movie-details').html())
+        });
+        // append things
+        this.$('#movie-details').append(detailsView.render().el);
+      },
+      failure: function(data) {
+        console.log("Failure", data);
+        this.$('#movie-list').append("<h2>Request failed.</h2>");
+      }
+    });
+
+    // console.log(movie);
     // create new instance of Movie View
-    // append things
     // check if the movie has a external id
       // If does not have an external id
       // make a call to rails to get list of customers
@@ -78,7 +96,7 @@ var MovieListView = Backbone.View.extend({
     // end
   },
   hideMovieDetails: function(){
-    this.$('#movie-details').hide();
+    this.$('#movie-details').toggleClass('hide');
   }
 });
 
