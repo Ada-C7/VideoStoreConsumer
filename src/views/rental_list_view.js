@@ -30,6 +30,7 @@ var RentalListView = Backbone.View.extend({
     console.log(this.rentalList);
     this.rentalList.shift();
     $('#rental-list').empty();
+    $('#rental-list').append('<h3>Rental list</h3>');
     this.rentalList.forEach(function(rental){
       rental.render();
       $('#rental-list').append(rental.$el);

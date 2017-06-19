@@ -13,9 +13,17 @@
       <input type="text" placeholder="Movie" name = "movietitle" id="movieName"></input>
       <button type="submit" id="submit-button" class="success button"> Search Movies</button>
     </form>
-    <ul id='movie-list'>
 
+
+
+    <ul id='movie-list'>
     </ul>
+  </section>
+  <section>
+
+      
+        <ul id='rental-list'>
+        </ul>
   </section>
   <section class='row main-content'>
     <section class = "small-12 medium-12 large-6 columns">
@@ -60,17 +68,16 @@
   </script>
 
   <script id="customer-template" type="text/template">
-    <li id = "customer-name"><%- customer.name %></li><br>
-    <ul id='rental-list'>
-    </ul>
+    <li class = "customer-name"><%- customer.name %></li><br>
     <button type="submit" id="choose-customer-button" class="success large button"> Create rental</button>
-</script>
+  </script>
 
-<script id="rental-template" type="text/template">
-  <li> <%- rental.id %> </li>
-</script>
+  <script id="rental-template" type="text/template">
 
-<script src="/app.bundle.js"></script>
+    <li> <%- rental.id %> </li>
+  </script>
+
+  <script src="/app.bundle.js"></script>
 
 </body>
 </html>
