@@ -59,6 +59,7 @@ var MovieListView = Backbone.View.extend({
   },
 
   getSearchResults: function() {
+    $('.movie-details').empty();
     var queryInput = this.$('.input-group-field').val();
     this.$('.input-group-field').val('');
     this.template = _.template($('#search-template').html());
