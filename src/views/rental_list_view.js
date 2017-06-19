@@ -50,16 +50,28 @@ var RentalListView = Backbone.View.extend({
     console.log("We are in Create Rental");
     if (Backbone.pubSub.selectedMovie && Backbone.pubSub.selectedCustomer){
     console.log("Movie and Customers are selected")
+
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var due = new Date();
+    var msDueDate = new Date(due.setTime( due.getTime() + 14 * 86400000 ));
+    var dueDate = msDueDate.getFullYear()+'-'+(msDueDate.getMonth()+1)+'-'+msDueDate.getDate();
+
+    var params = {
+      customer_id: Backbone.pubSub.selectedCustomer.attributes.id,
+      movie_id: Backbone.pubSub.selectedMovie.attributes.id,
+      checkout_date: date,
+      due_date: dueDate
+    }
+
+    // console.log(params);
+    var title = Backbone.pubSub.selectedMovie.attributes.title;
+    this.model.create(params, {url:'http://localhost:3000/rentals/' + title + '/check-out'});
+    // this.model.create(params);
+    // console.log(this.model);
+    // console.log(this.model);
   }
-    //   params = {
-    //     customer_id: 1,
-    //     movie_id: 2,
-    //     checkout_date: "2017-06-16",
-    //     due_date: "2017-06-26"
-    //   }
-    //
-    //   this.model.create(params);
-    //   console.log(this.model);
+
     }
 
   });
