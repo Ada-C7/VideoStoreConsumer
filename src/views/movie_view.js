@@ -23,7 +23,7 @@ var MovieView = Backbone.View.extend({
 
   rentMovie: function() {
     console.log(this.model);
-    var customers = 
+    // var customers = 
     var rentalTemplate = _.template($("#rental-template").html());
     var compiledRentalTemplate = rentalTemplate(this.model.toJSON());
     $("#create-rental").html(compiledRentalTemplate);
