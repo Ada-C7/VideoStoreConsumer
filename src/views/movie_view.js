@@ -19,9 +19,15 @@ const MovieView = Backbone.View.extend({
   events: {
     "click .movie" : "sendMovie",
     // "click #rent-movie" : "rentMovie"
-    "click .add-library" : "addToLib"
+    "click .add-library" : "addToLib",
+    "click .remove-movie" : "removeFromLib"
   },
-
+  removeFromLib: function() {
+    console.log("remove clicked");
+    console.log(this.model.id);
+    this.model.url = "http://localhost:3000/movies/" + this.model.id;
+    this.model.destroy();
+  },
   addToLib: function() {
     if (this.$(".add-library").hasClass("unclickable") === false) {
       console.log("clicked addtolib");
