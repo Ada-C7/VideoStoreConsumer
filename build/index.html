@@ -13,10 +13,7 @@
       <p>Laserdisc, Beta, HDDVD...we have you covered</p>
     </header>
     <main class='main-content'>
-      <section class='messages'>
-
-      </section>
-
+      <section class='messages'></section>
 
       <section class="row">
         <div class="small-4 columns">
@@ -33,15 +30,32 @@
     <script id="movie-list-template" type="text/template">
       <section class="columns large-3 small-12 movie-card" data-equalizer-watch >
         <div class='row'>
-          <h4><%- title %></h4>
+          <h4><%- movie.title %></h4>
         </div>
-        <div class='row'>
-          <img class="movie-details" src="<%- image_url %>" alt="movie poster">
-        </div>
+        <section class="movie-image-details">
+          <% if (detailsClicked) { %>
+            <section class="row" id="movie-details">
+              <div class='row'>
+                release date: <%- movie.release_date %>
+              </div>
+              <div class='row'>
+                overview: <%- movie.overview %>
+              </div>
+              <div class='row'>
+                available inventory: <%- movie.available_inventory %>
+              </div>
+            </section>
+          <% } else { %>
+            <div class='row'>
+              <img class="movie-details-poster" src="<%- movie.image_url %>" alt="movie poster">
+            </div>
+          <% } %>
+        </section>
         <div class='row'>
           <button class="button">Rent me!</button>
         </div>
       </section>
+
     </script>
 
     <script id="search-list-template" type="text/template">
@@ -57,6 +71,11 @@
         </div>
       </section>
     </script>
+
+
     <script src="/app.bundle.js"></script>
   </body>
   </html>
+  <!--
+
+   -->

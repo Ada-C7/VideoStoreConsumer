@@ -3,22 +3,20 @@ import _ from 'underscore';
 import $ from 'jquery';
 import Movie from '../models/movie.js';
 
-
-
 var MovieView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, 'change', this.render);
   },
   render: function() {
-    var compiledTemplate = this.template(this.model.toJSON());
+    var compiledTemplate = this.template({movie: this.model.toJSON(), detailsClicked: this.detailsClicked});
     this.$el.html(compiledTemplate);
     return this;
   },
 
   events: {
     'click .add-movie': 'addMovie',
-    'click .movie-details': 'showDetails'
+    'click .movie-image-details': 'showDetails'
   },
 
   addMovie: function() {
@@ -37,9 +35,13 @@ var MovieView = Backbone.View.extend({
       }
     );
   },
-
   showDetails: function() {
-    
+
+    if (this.model.attributes.id) {
+      this.model.fetch();
+      this.detailsClicked = !this.detailsClicked;
+      this.render();
+    }
   }
 });
 
