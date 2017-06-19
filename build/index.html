@@ -28,10 +28,10 @@
                          </section>
                     </form>
 
-                    <section id='movie-results'>test</section>
+                    <section id='movie-results'></section>
                </section>
                <section>
-                    <section id='movies-stocked'>test</section>
+                    <section id='movies-stocked'></section>
                </section>
           </section>
      </main>
@@ -39,14 +39,14 @@
      <footer></footer>
 
      <script id='movie-template' type='text/template'>
-          <h4> <%- movie.image %></h4>
+          <img src=<%-movie.image_url%> >
           <h4> Title: <%- movie.title %></h4>
           <h4> Release Date: <%- movie.release_date %></h4>
           <h4> Remaining: <%- movie.inventory %></h4>
      </script>
 
      <script id='db-movie-template' type='text/template'>
-          <h4> <%- movie.image %></h4>
+          <img src=<%-movie.image_url%> >
           <h4> Title: <%- movie.title %></h4>
           <form>
                <button class='small button' id='add-button'>Add Movie</button>
