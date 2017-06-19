@@ -23,6 +23,8 @@ var MovieListView = Backbone.View.extend({
   },
 
   render: function() {
+    // when movie list is rendered index button should be disabled
+    $('#index-button').prop('disabled', true);
     var self = this;
     this.$('#movie-list').empty();
 

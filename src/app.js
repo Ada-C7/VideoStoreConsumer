@@ -32,5 +32,4 @@ var movieSearchView = new MovieSearchView({
 
 $(document).ready(function() {
   movieList.fetch();
-
 });
