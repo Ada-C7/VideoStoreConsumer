@@ -3,7 +3,7 @@ import Movie from '../models/movie.js';
 import $ from 'jquery';
 import _ from 'underscore';
 
-var RentMovieView = Backbone.View.extend({
+var CheckoutMovieView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     console.log(this.template);
@@ -19,4 +19,4 @@ var RentMovieView = Backbone.View.extend({
   }
 });
 
-export default RentMovieView;
+export default CheckoutMovieView;

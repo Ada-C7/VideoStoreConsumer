@@ -5,7 +5,7 @@ import Customer from '../models/customer.js';
 import $ from 'jquery';
 import _ from 'underscore';
 import MovieView from './movie_view.js';
-import RentalView from './rental_view.js';
+import CheckoutView from './checkout_view.js';
 
 var MoviesView = Backbone.View.extend({
   initialize: function(params) {
@@ -35,12 +35,12 @@ var MoviesView = Backbone.View.extend({
         that.$('.rental').removeClass('hide');
         that.$('.main-content').addClass('hide');
         var rental = new Rental();
-        var rentalView = new RentalView({
+        var checkoutView = new CheckoutView({
           movie: movie,
           model: rental,
           template: _.template($("#rental-template").html())
         });
-        that.$('.rental').append(rentalView.render().el);
+        that.$('.rental').append(checkoutView.render().el);
       });
 
     });

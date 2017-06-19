@@ -3,7 +3,7 @@ import Customers from '../collections/customers.js';
 import $ from 'jquery';
 import _ from 'underscore';
 
-var RentCustomersView = Backbone.View.extend({
+var CheckoutCustomersView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, "update", this.render);
@@ -20,4 +20,4 @@ var RentCustomersView = Backbone.View.extend({
   }
 });
 
-export default RentCustomersView;
+export default CheckoutCustomersView;
