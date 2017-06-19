@@ -16,9 +16,6 @@ var MovieView = Backbone.View.extend({
   },
 
   selected: function(event) {
-    console.log(this.model);
-    console.log("clicked on a movie");
-    // $('#movie-list').empty();
     this.trigger("selected", this.model);
     event.stopPropagation();
   },
@@ -42,25 +39,6 @@ var MovieView = Backbone.View.extend({
 
     this.model.save();
 
-
-
-    // t.string   "title"
-    // t.text     "overview"
-    // t.date     "release_date"
-    // t.integer  "inventory"
-    // t.datetime "created_at",   null: false
-    // t.datetime "updated_at",   null: false
-    // t.string   "image_url"
-
-
-    // use fetch with data: JSON
-
-    // adjust rails route for create, controller for create method
-    // newMovie.fetch({
-    //   data: $.params({
-    //     title: newMovie.get('title');
-    //   })
-    // })
   },
 });
 
