@@ -3,11 +3,15 @@ import Backbone from 'backbone';
 var VideoView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
+    this.isSearch = params.isSearch;
     this.listenTo(this.model, "change", this.render);
   },
   render: function() {
-    var compiledTemplate = this.template(
-      {video: this.model.toJSON()});
+    var compiledTemplate = this.template({
+      video: this.model.toJSON(),
+      isSearch: this.isSearch
+    }); // save this.model.toJSON() as varaible and variable.isSearch = whatever
+
     this.$el.html(compiledTemplate);
     return this;
   },

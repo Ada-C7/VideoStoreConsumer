@@ -43,20 +43,21 @@
               <% } else { %>
                 <img src= <%- video.poster_path %> >
                 <% } %>
-                  </div>
+              </div>
+
+                <% if (isSearch) { %>
                   <button class="button success" id="add-video">Add</button>
-<div id="hide-thing">
+                <% } else { %>
+                  <button class="button success" id="rent-video">Rent</button>
+                <% } %>
 
-                    <button class="button success" id="rent-video">Rent</button>
-                  </div>
+              <h3 class="card-product-name"><h4><%- video.title %></h4></h3>
+              <p class="card-product-inventory"><h4><%- video.inventory %></h4></p>
+            </div>
 
-                  <h3 class="card-product-name"><h4><%- video.title %></h4></h3>
-                  <p class="card-product-inventory"><h4><%- video.inventory %></h4></p>
-                </div>
+          </li>
+        </script>
 
-                  </li>
-                </script>
-
-                <script src="/app.bundle.js"></script>
-              </body>
-              </html>
+            <script src="/app.bundle.js"></script>
+          </body>
+          </html>

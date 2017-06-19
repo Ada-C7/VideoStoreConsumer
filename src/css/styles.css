@@ -53,9 +53,9 @@ div {
   margin-bottom: 0;
 }
 
-.card-product-img-wrapper .button:hover {
+/*.card-product-img-wrapper .button:hover {
   background-color: #7ca0b7;
-}
+}*/
 
 .card-product-img-wrapper img {
   transition: all 0.2s ease;
@@ -66,10 +66,6 @@ div {
 
 .card-product-img-wrapper .card-product-name {
   font-size: 1.375rem;
-}
-
-.card-product-img-wrapper .card-product-price {
-  font-weight: bold;
 }
 
 .card-product-img-wrapper .card-product-inventory {
