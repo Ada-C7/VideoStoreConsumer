@@ -1,8 +1,27 @@
 @include foundation-everything;
 
-img.movie-image {
+img.movie-image{
+  width: 100%;
+  display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.add-rental, .add-collection {
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.movie-title, .movie-overview {
+  text-align: center;
+}
+
+.movie-title {
+  padding-top: 15px;
+  height: 50px;
+  overflow: scroll;
 }
 
 header {
@@ -14,7 +33,6 @@ header h1 {
   font-family: 'Pacifico', cursive;
   text-align:center;
   font-size: 5.0em;
-
 }
 
 #completed-checkbox {
