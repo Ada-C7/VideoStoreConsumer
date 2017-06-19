@@ -14,17 +14,22 @@
       <input type="text" name="query" id="query" placeholder="Search for a movie"/>
       <button class="button" id="search-button">Search</button>
     </section>
+    <button class="button" id="customer-list-button">Customers</button>
 
-    <button class="button columns small-12 large-2" id="return-library">Return to Library</button>
+    <button class="button columns small-12 large-2" id="return-library">Library</button>
 
-    <section id="search-header-section" class="row second-header">
-      <h3 id="#search-subheader" class="columns small-12">Search Results for <span id="query-text"></span></h3>
+    <section id="movie-headers">
 
+      <section id="search-header-section" class="row second-header">
+        <h3 id="#search-subheader" class="columns small-12">Search Results for <span id="query-text"></span></h3>
+
+      </section>
+
+      <section id="library-header-section" class="row second-header">
+        <h3 id="#library-subheader" class="columns small-12">My Library</h3>
+      </section>
     </section>
 
-    <section id="library-header-section" class="row second-header">
-      <h3 id="#library-subheader" class="columns small-12">My Library</h3>
-    </section>
   </header>
 
   <!-- may need to rethink where to do foundation -->
@@ -32,22 +37,56 @@
   <main class="row">
 
 
-    <section class="columns small-12 large-3" id="movie-details">
+
+
+    <!-- customers list -->
+    <section class="columns small-12" id="customer-list">
+      <table>
+        <thead>
+          <td>
+            ID
+          </td>
+          <td id="cust-name-sort">
+            Name
+          </td>
+          <td>
+            Address
+          </td>
+          <td id="cust-pcode-sort">
+            Postal Code
+          </td>
+          <td>
+            Phone #
+          </td>
+          <td id="cust-reg-at-sort">
+            Registered At
+          </td>
+          <td>
+            Checked Out
+          </td>
+        </thead>
+        <tbody id="customer-data">
+
+        </tbody>
+      </table>
 
     </section>
 
+    <section id="all-movie-stuff">
 
+      <section class="columns small-12 large-3" id="movie-details">
 
-    <section class="columns small-12" id="list-main">
-
-
-
-
-
-      <section id="list-content" class="row">
       </section>
 
+      <!-- movies list -->
+      <section class="columns small-12" id="list-main">
+
+        <section id="list-content" class="row">
+        </section>
+
+      </section>
     </section>
+
 
   </main>
 
@@ -61,6 +100,30 @@
   <p>Release Date: <%-release_date%></p>
 
   <button class="button" id="hide-details">Hide</button>
+</script>
+
+<script id="customer-row-template" type="text/template">
+    <td>
+      <%= id %>
+    </td>
+    <td>
+      <%= name %>
+    </td>
+    <td>
+      <%= address %>, <%= city %>, <%= state %>
+    </td>
+    <td>
+      <%= postal_code %>
+    </td>
+    <td>
+      <%= phone %>
+    </td>
+    <td>
+      <%= registered_at %>
+    </td>
+    <td>
+      <%= movies_checked_out_count %>
+    </td>
 </script>
 
 

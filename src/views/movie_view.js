@@ -24,7 +24,7 @@ const MovieView = Backbone.View.extend({
   },
   removeFromLib: function() {
     console.log("remove clicked");
-    console.log(this.model.id);
+    // console.log(this.model.id);
     this.model.url = "http://localhost:3000/movies/" + this.model.id;
     this.model.destroy();
   },

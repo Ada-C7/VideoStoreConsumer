@@ -3,19 +3,23 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
 import MovieList from './collections/movie_list.js';
-import MovieListView from './views/movie_list_view.js';
+import CustomerList from './collections/customer_list.js';
+import AppView from './views/app_view.js';
 
-var myMovieList = new MovieList();
-myMovieList.fetch();
+
+var myCustomersList = new CustomerList();
+// myCustomersList.fetch();
+var myMoviesList = new MovieList();
+myMoviesList.fetch();
 
 $(document).ready(function() {
+
   console.log("in document.ready");
-  var myMovieListView = new MovieListView({
-    model: {movie: myMovieList, search: false, query: ""},
-    template: _.template($("#movie-card-template").html()),
-    // search: false,
-    el: "body"
+  var myAppView = new AppView({
+    customer_list: myCustomersList,
+    movie_list: myMoviesList
   });
-  myMovieListView.render();
+
+  myAppView.render();
 
 });

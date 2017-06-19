@@ -6,6 +6,8 @@ import Movie from '../models/movie.js';
 
 const MovieListView = Backbone.View.extend({
   initialize: function(params) {
+
+
     this.details = false;
     this.template = params.template;
     this.model = params.model.movie;
@@ -18,7 +20,6 @@ const MovieListView = Backbone.View.extend({
 
   resetHeaders: function() {
     if (this.search === true) {
-      this.$("#return-library").show();
       this.$("#search-header-section").show();
       this.$("#library-header-section").hide();
       this.$("#query-text").html(this.$("#query").val());
@@ -26,7 +27,6 @@ const MovieListView = Backbone.View.extend({
         this.$("#search-header-section h3").html("No Movies found");
       }
     } else {
-      this.$("#return-library").hide();
       this.$("#library-header-section").show();
       this.$("#search-header-section").hide();
     }
@@ -43,6 +43,10 @@ const MovieListView = Backbone.View.extend({
   },
 
   render: function() {
+    this.$("#customer-list").hide();
+    this.$("#all-movie-stuff").show();
+    this.$("#movie-headers").show();
+
     console.log(this.search);
     this.resetHeaders();
 
@@ -54,7 +58,7 @@ const MovieListView = Backbone.View.extend({
         model: movie,
         template: that.template
       });
-      console.log(movie);
+      // console.log(movie);
       that.$("#list-content").append(movieView.render().el);
       that.listenTo(movieView, "showMovie", that.showMovieDetails);
     });
