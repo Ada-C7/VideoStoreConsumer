@@ -21,7 +21,7 @@ var MovieListView = Backbone.View.extend({
         template: self.template,
         tagName: 'section'
       });
-      console.log("rendering ", movieView.model);
+      // console.log("rendering ", movieView.model);
       self.$('.movie-library').append(movieView.render().$el);
       self.listenTo(movieView, "addMovieListen", self.addToLibrary);
     });
@@ -31,18 +31,15 @@ var MovieListView = Backbone.View.extend({
 
   events: {
     "click .search-button" : "getSearchResults",
-    // "click .add-movie" : "addToLibrary"
   },
 
   addToLibrary: function(movie){
     this.template = _.template($('#movie-template').html());
 
-    console.log('We are in addToLibrary' + movie);
-    var movie = new Movie(movie);
-    this.model.add(movie);
-    console.log('We are in addToLibrary2' + this.model);
-    // this.model.save();
-
+    console.log('We are in addToLibrary' + "model: " + this.model + "collection: " + this.collection );
+    var newMovie = new Movie(movie);
+    console.log("movie" + newMovie);
+    this.model.create(newMovie);
   },
 
   clearLibrary: function(){

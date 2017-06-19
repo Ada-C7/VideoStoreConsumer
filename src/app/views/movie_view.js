@@ -7,12 +7,13 @@ var MovieView = Backbone.View.extend({
   initialize: function(params){
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.model, 'change', this.render);
   },
 
   events: {
-    // This is the middle man function between the movie and the collection
     "click .add-movie" : "addMovieHandler"
   },
+
   addMovieHandler: function(event){
     event.stopPropagation();
     this.trigger('addMovieListen', this.model);
@@ -20,7 +21,7 @@ var MovieView = Backbone.View.extend({
 
   render: function(){
     var compiledTemplate = this.template({ movie: this.model.toJSON()});
-    console.log("Appending " + compiledTemplate);
+    // console.log("Appending " + compiledTemplate);
     this.$el.html(compiledTemplate);
     return this;
   },
