@@ -81,3 +81,7 @@ footer {
   font-family: 'Bungee', sans-serif;
   overflow: hidden;
 }
+
+.inline {
+  display: inline;
+}

@@ -23,6 +23,7 @@ var MovieSearchView = Backbone.View.extend({
 
   events: {
     'click #search-button': 'search',
+    'click #index-button': 'showIndex',
   },
 
   addSearchMovie: function(movie){
@@ -38,22 +39,33 @@ var MovieSearchView = Backbone.View.extend({
     console.log("render being called");
 
     var self = this;
-    this.$('#movie-list').empty();
+    this.$('#search-list').empty();
 
     this.movieSearchViewList.forEach(function(movieView) {
       movieView.render();
-      self.$('#movie-list').append(movieView.$el); // exp w/deleting el
+      self.$('#search-list').append(movieView.$el); // exp w/deleting el
     });
-
     return this;
   },
 
   search: function(event) {
+    this.hideIndex();
     this.movieSearchViewList = [];
     var query = this.$('input[name="search"]').val();
 
     this.model.fetch({data: {query: query}});
-  }
+  },
+
+  hideIndex: function(){
+    $('#movie-list').hide(); //hide movie index view
+    $('#index-button').prop('disabled', false);
+  },
+
+  showIndex: function(){
+    $('#search-list').hide();
+    $('#movie-list').show();
+    $('#index-button').prop('disabled', true);
+  },
 });
 
 export default MovieSearchView;
