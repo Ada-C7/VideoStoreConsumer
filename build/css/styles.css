@@ -30,3 +30,22 @@ main {
 /*#list-content {
   overflow: visible;
 }*/
+
+#cust-name-sort:hover, #cust-pcode-sort:hover, #cust-reg-at-sort:hover {
+  cursor: pointer;
+}
+#query {
+  width: 300px;
+}
+/*#header-buttons * {
+  width: 100px;
+}*/
+
+#search-stuff * {
+  display: inline;
+  margin: 0px;
+}
+
+#header-buttons button {
+  width: 100px;
+}

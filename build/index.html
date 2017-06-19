@@ -9,14 +9,21 @@
 </head>
 <body class="row">
   <header class="row">
-    <h1 class="columns small-12 large-8">Rewind</h1>
-    <section class="search-form columns small-12 large-4">
-      <input type="text" name="query" id="query" placeholder="Search for a movie"/>
-      <button class="button" id="search-button">Search</button>
-    </section>
-    <button class="button" id="customer-list-button">Customers</button>
+    <h1 class="columns small-12">Rewind</h1>
+    <section id="header-buttons" class="row">
 
-    <button class="button columns small-12 large-2" id="return-library">Library</button>
+      <button class="button columns small-12 large-2" id="customer-list-button">Customers</button>
+
+      <button class="button columns small-12 large-2" id="return-library">Library</button>
+      <section id="search-stuff" class="columns small-12 large-8">
+        <input  type="text" name="query" id="query" placeholder="Search for a movie"/>
+        <button class="button" id="search-button">Search
+        </button>
+      </section>
+
+
+    </section>
+
 
     <section id="movie-headers">
 
