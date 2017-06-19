@@ -18,10 +18,6 @@ var RentalListView = Backbone.View.extend({
 
     this.listenTo(Backbone.pubSub, 'customerChosen', this.createRental);
     this.listenTo(Backbone.pubSub, 'inventoryChosen', this.createRental);
-
-    // this.listenTo(Backbone.pubSub, 'displayRentals', this.showRentals);
-
-
   },
 
 
