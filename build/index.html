@@ -11,8 +11,13 @@
 
     <header>
       <h1>Movies R We</h1>
-      <input type="text" name="search-term" id="search-box" />
-      <h3 class="button" id="search-button" >Submit</h3>
+      <ul class="menu">
+        <li><h3 class="button" id="show-movies-button">Movies</h3></li>
+        <li><h3 class="button" id="show-customers-button">Customers</h3></li>
+        <li><input type="text" name="search-term" id="search-box" /></li>
+        <li><h3 class="button" id="search-button" >Search Movies</h3></li>
+      </ul>
+
     </header>
     <main></main>
 
@@ -34,6 +39,16 @@
       <% } else { %>
         <h4 class="button" id="rent-movie">Rent Movie</h4>
       <% } %>
+    </script>
+
+    <script id="customer-template" type="text/template">
+      <h2><%- name %></h2>
+    </script>
+
+    <script id="customer-info-template" type="text/template">
+      <h3>Name: <%- name %></h3>
+      <h4>Customer since: <%- registered_at %></h4>
+      <h4>Address: <%- address + " " + city + ",  " + state + " " + postal_code %></h4>
     </script>
 
     <script id="alert-template" type="text/template">

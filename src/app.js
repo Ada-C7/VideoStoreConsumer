@@ -15,6 +15,8 @@ $(document).ready(function() {
     model: application,
     movieTemplate: _.template($('#movie-template').html()),
     movieDetailsTemplate: _.template($('#movie-info-template').html()),
+    customerTemplate: _.template($('#customer-template').html()),
+    customerDetailsTemplate: _.template($('#customer-info-template').html()),
     alertTemplate: _.template($('#alert-template').html())
   });
   appView.showAllMovies();
