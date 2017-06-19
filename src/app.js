@@ -18,10 +18,11 @@ var storeList = function(event) {
   });
   rentals.render();
 };
-// console.log("I am outside of database list");
 
 
 var databaseList = function(event) {
+  //prevent event default from taking place, which would be to refresh page
+  event.preventDefault();
   //first we have to declare what the variable is with the expected value, which here we are saying can be anything
   var queryParams = $('#queryParams').val();
   //then we ask if the expected value, which can be anything, happens to be empty
@@ -44,17 +45,7 @@ var databaseList = function(event) {
 
 // ready to go
 $(document).ready(function() {
-
   $(".list_store_rentals").click(storeList);
-  $(".s-button").click(databaseList);
-
-  // $(".add-movie").click(addMovie);
-
-
-
-
-
-
-  // $('section.main-content').append('<p>Hello World!</p>');
-
+  //submit will look for when a form is being submitted, whether that is from hitting enter or clicking submit button on form
+  $('#search-form').submit(databaseList);
 });

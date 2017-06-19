@@ -26,15 +26,12 @@
   </section>
 
   <section>
-    <form>
+    <form id="search-form">
       <label for="title">Search</label>
       <input type="text" name="query" id="queryParams"></input>
+      <button class="s-button button" type="submit">Search</button>
     </form>
-    <button class="s-button button" type="submit">Search</button>
   </section>
-
-
-  <!-- <button class="random" type="submit">Random</button> -->
 
   <!-- Templates -->
 
@@ -42,6 +39,7 @@
     <li class="movie-name-temp"><%- movie.title %></li>
     <%-movie.overview%><br>
     <img src="<%-movie.image_url%>"><br>
+    Poster path: <%-movie.poster_path%><br>
     <button class="add-movie button" type="submit">Add Movie</button>
   </script>
 

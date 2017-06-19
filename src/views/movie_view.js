@@ -17,6 +17,8 @@ var MovieView = Backbone.View.extend({
     return this;
   },
   addMovie: function(event) {
+    //console.log this.model attributes cause when we click on the
+    // console.log(event);
     console.log(this.model.attributes);
     var movieUrl = "http://localhost:3000/movies";
     var data = { movie: this.model.attributes };
@@ -25,8 +27,6 @@ var MovieView = Backbone.View.extend({
       console.log("Made post request");
     });
   }
-
-
 });
 
 export default MovieView;
