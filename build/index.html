@@ -16,34 +16,33 @@
       <label>
         <input type="text" id="query" placeholder="Search for Movies to Add to the Library"></input>
       </label>
-      <button id="search" class="cemedium-3 columns button">Search</button>
+      <button id="search" class="medium-3 columns button">Search</button>
     </section>
 
-      <section id='movie-card'></section>
+      <section class="hidden" id='movie-card'></section>
       <section class="center row" id='movie-list'></section>
   </main>
 
   <!--- Templates ------------->
 
   <script id="movie-card-template" type="text/template">
-
     <section class="column small-12 medium-12 large-12 movie-card inline">
-      <p class="movie-title">
-        <%- title %>
-      </p>
+      <p class="movie-title"><%- title %></p>
       <p> (<%- release_date %>)  </p>
-
-
-      <button id="add-to-library" class="medium-3 large-12 columns button center ">+</button>
-
-
-
-    <!-- need to change image url and title to code -->
-
       <img src=<%-image_url %> alt=<% title %>></img>
-  </section>
-
+    </section>
   </script>
+
+
+  <script id="new-movie-card-template" type="text/template">
+    <section class="column small-12 medium-12 large-12 movie-card inline">
+      <p class="movie-title"><%- title %></p>
+      <p> (<%- release_date %>)  </p>
+      <button id="add-to-library" class="medium-3 large-12 columns button center ">+</button>
+      <img src=<%-image_url %> alt=<% title %>></img>
+    </section>
+  </script>
+
   <script id="movie-details-template" type="text/template">
      <section>
        <img src="<%-image_url %>"alt="<% title %>"></img>
