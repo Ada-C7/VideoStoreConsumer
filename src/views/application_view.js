@@ -7,12 +7,12 @@ const ApplicationView = Backbone.View.extend({
   initialize: function (params) {
     this.movieTemplate = params.movieTemplate;
     this.movieDetailsTemplate = params.movieDetailsTemplate;
+    this.alertTemplate = params.alertTemplate;
   },
   events: {
     'click h1' : 'showAllMovies'
   },
   showAllMovies: function () {
-    console.log("HERE I AM");
     var movieList = new MovieList();
     movieList.fetch();
 
@@ -20,6 +20,7 @@ const ApplicationView = Backbone.View.extend({
       model: movieList,
       movieTemplate: this.movieTemplate,
       movieDetailsTemplate: this.movieDetailsTemplate,
+      alertTemplate: this.alertTemplate,
       el: 'body'
     });
     movieListView.render();

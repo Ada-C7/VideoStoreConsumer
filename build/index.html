@@ -28,10 +28,14 @@
       <h3>Title: <%- title %></h3>
       <h4>Overview: <%- overview %></h4>
       <h4>Release Date: <%- release_date %></h4>
-      
+
       <% if (external_id) { %>
         <h4 class="button" id="add-movie">Add Movie</h4>
       <% } %>
+    </script>
+
+    <script id="alert-template" type="text/template">
+      <p>Successfully added <%- title %> to inventory!</p>
     </script>
 
     <script src="/app.bundle.js"></script>

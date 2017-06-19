@@ -14,7 +14,8 @@ $(document).ready(function() {
     el: 'body',
     model: application,
     movieTemplate: _.template($('#movie-template').html()),
-    movieDetailsTemplate: _.template($('#movie-info-template').html())
+    movieDetailsTemplate: _.template($('#movie-info-template').html()),
+    alertTemplate: _.template($('#alert-template').html())
   });
   appView.showAllMovies();
 });
