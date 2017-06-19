@@ -22,6 +22,17 @@ button.success {
   display: inline;
 }
 
+.movie-card {
+  padding: 1%;
+  border-style: solid;
+  border-width: thin;
+}
+
+.movie-card img {
+  padding-bottom: 3%;
+}
+
+
 aside.create-tasklist {
   background-color: navy;
   color: #FFFFFF;
@@ -42,3 +53,13 @@ div {
   border-style: solid;
 }
 */
+
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
