@@ -29,7 +29,8 @@ var MovieListView = Backbone.View.extend({
     return this;
   },
   events: {
-    "click #submit-search" : "search"
+    "click #submit-search" : "search",
+    "click #create-rental" : "createRental"
   },
   getFormData: function() {
     var formTitle = this.$("#title").val();
@@ -63,7 +64,37 @@ var MovieListView = Backbone.View.extend({
     var movieDetails = this.template2({movie: movie.attributes});
 
     this.$('#movie-details').append(movieDetails);
+  },
+
+  getRentalFormData: function() {
+    var formCustomerId = this.$("#customer-id").val();
+    this.$("#customer-id").val('');
+
+    var formDueDate = this.$("#due-date").val();
+    this.$("#due-date").val('');
+
+    var formMovieTitle = this.model.title;
+
+    return {
+      customer_id: formCustomerId,
+      due_date: formDueDate,
+      checkout_date: "2016-06-19",
+      title: formMovieTitle
+    };
+  },
+
+  createRental: function() {
+    var myNewRental = new Rental(this.getRentalFormData());
+
+    // var myNewRentalInfo = this.getRentalFormData();
+    // console.log("I'm in the createRental function");
+    // console.log(myNewRentalInfo.customer_id);
+    // console.log(myNewRentalInfo.due_date);
+
+    Rental.create(myNewRentalInfo);
+
   }
+
 });
 
 export default MovieListView;

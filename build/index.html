@@ -51,6 +51,17 @@
         <p><%- movie.release_date %></p>
         <p><%- movie.overview %></p>
         <p><%- movie.inventory %></p>
+
+        <section class="columns medium-8" id="search-section">
+          <label>Customer ID
+            <input type="text" name="customer-id" id="customer-id" placeholder="enter customer id" />
+          </label>
+          <label>Due Date
+            <input type="date" name="due-date" id="due-date" />
+          </label>
+          <button id="create-rental" class="medium-3 columns button success">Submit</button>
+        </section>
+
       </section>
     </script>
 
