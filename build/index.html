@@ -27,8 +27,8 @@
             <button id="search-movies" class="button">Search Movies</button>
           </div>
         </section>
-        <section>
-          <select class='large-2 columns'>Go to Customer</select>
+        <section >
+          <select class='customer-dropdown large-2 columns'>Select Customer</select>
         </section>
       </nav>
 
@@ -72,6 +72,12 @@
         <h3>Customers Here</h3>
       </section>
     </script>
+
+    <script id='customer-list-template' type='text/template'>
+        <option value="<%- id %>"><%- name %></option>
+    </script>
+
+
     <script src="/app.bundle.js"></script>
   </body>
   </html>
