@@ -51,6 +51,10 @@ div {
   cursor: pointer;
 }
 
+.movie {
+  cursor: pointer;
+}
+
 li {
   list-style-type: none;
 }

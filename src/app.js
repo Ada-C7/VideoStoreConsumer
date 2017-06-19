@@ -20,6 +20,7 @@ $(document).ready(function() {
   var myMovieListView = new MovieListView( {
     model: myMovieList,
     template: _.template($('#movie-template').html()),
+    detailsTemplate: _.template($('#movie-details-template').html()),
     el: 'main'
   });
   myMovieListView.render();

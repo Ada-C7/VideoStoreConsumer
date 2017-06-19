@@ -14,6 +14,13 @@ var MovieView = Backbone.View.extend({
     this.$el.html(compiledTemplate);
 
     return this;
+  },
+  events: {
+    "click .movie" : "detailsHandler"
+  },
+  detailsHandler: function() {
+    console.log("I'm in the detailsHandler");
+    this.trigger("selected", this.model);
   }
 });
 

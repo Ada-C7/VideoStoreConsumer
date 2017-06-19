@@ -21,16 +21,16 @@
           <h1 class="columns medium-12 home" id="thisisit">Joukie's Redbloxbuster</h1>
         </section>
       </header>
-      
+
       <section id='messages'></section>
-      <section id='movie'></section>
+      <section id='movie-details'></section>
       <section id='movie-list' class="row"></section>
       <section id='result-list' class="row"></section>
 
 
     </main>
     <script id="movie-template" type="text/template">
-      <section class="column small-3 medium-3 large-3">
+      <section class="movie column small-3 medium-3 large-3">
         <img src="<%- movie.image_url %>"/>
         <li><%- movie.title %></li>
       </section>
@@ -44,9 +44,13 @@
       </section>
     </script>
 
-    <script id="added-message-template" type="text/template">
+    <script id="movie-details-template" type="text/template">
       <section class="column small-3 medium-3 large-3">
-        <p><%- movie.title %> added successfully!</p>
+        <img src="<%- movie.image_url %>"/>
+        <p><%- movie.title %></p>
+        <p><%- movie.release_date %></p>
+        <p><%- movie.overview %></p>
+        <p><%- movie.inventory %></p>
       </section>
     </script>
 

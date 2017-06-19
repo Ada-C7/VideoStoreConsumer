@@ -9,6 +9,8 @@ import ResultListView from './result_list_view';
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
+    this.template2 = params.detailsTemplate;
+
     this.listenTo(this.model, "update", this.render);
   },
   render: function() {
@@ -20,6 +22,7 @@ var MovieListView = Backbone.View.extend({
         model: movie,
         template: that.template,
       });
+      that.listenTo(movieView, "selected", that.movieDetails);
       that.$('#movie-list').append(movieView.render().$el);
     });
 
@@ -51,6 +54,15 @@ var MovieListView = Backbone.View.extend({
     });
 
     myResultListView.render();
+  },
+
+  movieDetails: function(movie) {
+    $('#movie-list').empty();
+    $('#movie-details').empty();
+
+    var movieDetails = this.template2({movie: movie.attributes});
+
+    this.$('#movie-details').append(movieDetails);
   }
 });
 
