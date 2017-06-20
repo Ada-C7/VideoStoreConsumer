@@ -40,7 +40,19 @@ var CustomerListView = Backbone.View.extend ({
     var customer = this.model.get(customerID);
     console.log(customer);
 
-    var customerInfo = customer.fetch();
+
+
+    var that = this;
+      var customerDetailsView = new CustomerView({
+        model: customer,
+        template: _.template($('#customer-details-template').html())
+
+
+      });
+      $("#movie-list").empty();
+      that.$("#customer-info").append(customerDetailsView.render().$el);
+
+
   }
 
 
