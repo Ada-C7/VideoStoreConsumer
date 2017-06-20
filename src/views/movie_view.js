@@ -15,8 +15,8 @@ var MovieView = Backbone.View.extend({
 
   render: function(){
     var self = this;
-    console.log('render individual movie ****************************');
-    console.log(self.model.toJSON());
+    // console.log('render individual movie ****************************');
+    // console.log(self.model.toJSON());
     var compiledTemplate = this.movieTemplate({
       movie: self.model.toJSON()
     });
@@ -25,13 +25,18 @@ var MovieView = Backbone.View.extend({
   },
 
   events: {
-    "click #open-add-form": "openForm"
+    "click #open-add-form": "openForm",
+    "click #to-movie-view": "openMovie"
   },
 
   openForm: function(e){
     console.log("one openForm");
     $('#add-form').show()
     this.trigger('openform',this)
+  },
+
+  openMovie: function(e){
+    console.log("in openMovie callback-function");
   }
 });
 
