@@ -13,11 +13,10 @@
       <h1>Video Store</h1>
     </header>
     <main class="row">
+      <h3 class="button view-customers">View Customers</h3>
+      <h3 class="button view-movies">View Movies</h3>
 
       <section class="search-bar row top-bar">
-        <h3 class="button view-customers">View Customers</h3>
-        <h3 class="button view-movies">View Movies</h3>
-
         <section class="columns">
           <h5>Find Movies</h5>
           <input type="text" name="find" id="movie-search" />
@@ -25,15 +24,15 @@
           <input type="radio" name="search" value="query" id="query" /> External Database
           <h3 class="button btn-search">Search</h3>
         </section>
-
       </section>
+
       <section class="main-content"></section>
       <section class="hide rental"></section>
     </main>
 
     <!-- TEMPLATES -->
     <script type="text/template" id="movie-template">
-      <section class="columns small-6 medium-4">
+      <section class="columns small-6 medium-4 large-3 individual-movie">
           <img class="movie-image" src="<%= image_url.toString() %>" />
           <h4 class="movie-title"><%- title %></h4>
           <p class="hide movie-overview">
@@ -47,7 +46,7 @@
     <script type="text/template" id="rent-movie-template">
       <section class="small-6 column">
         <img class="movie-image" src="<%= image_url.toString() %>" />
-        <h4><%- title %></h4>
+        <h4 class="movie-title"><%- title %></h4>
         <p class="movie-overview">
           <%- overview %>
         </p>

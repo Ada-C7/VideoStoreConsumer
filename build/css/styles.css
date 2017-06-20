@@ -1,12 +1,16 @@
 @include foundation-everything;
 
-main {
-  
-img.movie-image{
-  /*height: 100px;*/
+img.movie-image {
+  height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.individual-movie {
+  /*margin: 10px 0;*/
+  padding-top: 20px;
+  border: 2px solid lightgreen;
 }
 
 #in-store, #query {
