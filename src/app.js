@@ -3,41 +3,28 @@ import _ from 'underscore';
 
 import MovieList from './collections/movie_list';
 import MovieListView from './views/movie_list_view';
-import RentalList from './collections/rental_list';
-import RentalListView from './views/rental_list_view';
+import VideoStore from './models/video_store';
+
 
 $(document).ready(function() {
 
   var movieList = new MovieList();
   movieList.fetch();
 
-  var params = {
-    el:  $('main'),
-    model: movieList
+  var searchList = new MovieList();
+
+  var videoStore = new VideoStore({
+    library: movieList,
+    searchResults: searchList
+  });
+
+  var movieListViewParams = {
+    el: $('main'),
+    model: videoStore
   };
 
-  var application = new MovieListView(params);
-  application.render();
+  var myMovieListView = new MovieListView(movieListViewParams);
+  myMovieListView.render();
+  //initializing a new view
 
-  // var rentalList = new RentalList();
-  // rentalList.fetch();
-  //
-
-
-  $('form').submit(function(event){
-    console.log("HEREEEEE!!!!!!!!!!!");
-    event.preventDefault();
-
-    var rentalList = new RentalList( {query:$("#rentalTitle").val()} );
-    rentalList.fetch();
-    //
-
-    var params = {
-      el: $('#all-rentals'),
-      model: rentalList
-    };
-
-    var rentalListView = new RentalListView(params);
-    rentalListView.render();
-  });
-}); //closing documento listo.
+});

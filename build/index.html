@@ -8,54 +8,30 @@
   <title>Backbone Baseline</title>
 </head>
 <body>
+
   <header>
     <h1>Movies!</h1>
   </header>
   <main>
-    <form>
-      <div class="medium-12 columns" id='all-rentals'>
-        <input type="text" placeholder="Rental" id="rentalTitle"></input>
+    <form class="search-movie-form">
+      <div class="medium-12 columns">
+        <label for="name">Title</label>
+        <input type="text" name="title"></input>
       </div>
-      <button type="submit" id="submit-button" class="success button"> Search Movies</button>
+      <button type="button" class="search-movie button">Search</button>
+
     </form>
-
-    <div>
-      <ul>
-        <li id='movie-list'>
-        </li>
-      </ul>
-    </div>
-
-    <!-- <div>
-      <ul>
-        <li id='rental-list'>
-        </li>
-      </ul>
-    </div> -->
+    <section id='movie'></section>
+    <section id='movie-list'>
+      <ul class="movie-cards"> </ul>
+    </section>
+    <section id='new-movie'></section>
   </main>
 
-
-  <!-- TEMPLATES!!!!! -->
-  <script id="movie-template" type="text/template">
-    <ul>
-      <li class="movie-list-each">
-        <%- movie.title %>
-        <!-- <img src=<%= movie.image_url %> alt="movie_picture"> -->
-        <!-- <button type="submit" id="add-button" class="success button"> Add to inventory</button> -->
-      </li>
-    </ul>
+  <script id="movie-card-template" type="text/template">
+    <li><%- movie.title %></li>
+    <img src = "<%- movie.image_url %>" />
   </script>
-
-  <script id="rental-template" type="text/template">
-    <ul>
-      <li class="rental-list-each">
-        <%- movie.title %>
-        <!-- <img src=<%= movie.image_url %> alt="movie_picture"> -->
-        <!-- <button type="submit" id="add-button" class="success button"> Add to inventory</button> -->
-      </li>
-    </ul>
-  </script>
-
 
   <script src="/app.bundle.js"></script>
 
