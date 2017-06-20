@@ -38,10 +38,18 @@ const CustomerListView = Backbone.View.extend({
 
   events: {
     "click #customer-list-button": "sortByName",
+    "click #overdue-customers": "overdue",
     "click #cust-name-sort": "sortByName",
     "click #cust-pcode-sort": "sortByPostCode",
     "click #cust-reg-at-sort": "sortByRegisteredAt"
   },
+
+  overdue: function() {
+    this.model.url = "http://localhost:3000/rentals/overdue";
+    this.render();
+  },
+
+
   sortByName: function() {
     console.log("clicked sort by name");
     this.model.url = 'http://localhost:3000/customers?sort=name&p=1&n=200';
