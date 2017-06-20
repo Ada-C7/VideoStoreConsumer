@@ -53,7 +53,6 @@ var MoviesView = Backbone.View.extend({
       $('.add-collection').addClass('hide');
       $('.add-rental').removeClass('hide');
     }
-
     return this;
   },
   events: {

@@ -7,12 +7,13 @@ img.movie-image{
   margin-right: auto;
 }
 
-.top-bar {
-  background-color: lightgreen;
+#in-store, #query {
+  margin-left: 50px;
 }
 
 .add-rental, .add-collection {
   display: block;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -35,6 +36,7 @@ img.movie-image{
 header {
   margin: 2%;
   padding: 0.5rem;
+  background-color: lightgreen;
 }
 
 header h1 {

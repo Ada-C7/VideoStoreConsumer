@@ -28,7 +28,6 @@ var moviesView = new MoviesView({
 
 $(document).ready(function() {
 
-
   moviesView.render();
 
   $('.view-customers').click(function() {
