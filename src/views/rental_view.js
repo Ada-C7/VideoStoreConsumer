@@ -6,7 +6,6 @@ var RentalView = Backbone.View.extend({
   initialize: function(options) {
     this.template = options.template;
     this.listenTo(this.model, 'change', this.render);
-    //this.movie_title = options.movie_title; // NEED TO REMOVE THIS
   },
 
   events: {
@@ -24,10 +23,13 @@ var RentalView = Backbone.View.extend({
     console.log("IN DELETE RENTAL FUNCTION:")
     console.log(this.model.attributes.movie_id)
     // var title = this.movie_title;
-    var title = "Psycho"
+    var title = "The Exorcist"
 
     this.model.save(null, {type: 'POST', url:'http://localhost:3000/rentals/' + title + '/return'});
-    // this.model.trigger('update');
+      Backbone.pubSub.trigger('renderRentals', this.model);
+
+
+    // this.model.trigger('renderRentals');
     // this.model.destroy();
     // this.model.destroy({url:'http://localhost:3000/rentals/' + title + '/return'});
 

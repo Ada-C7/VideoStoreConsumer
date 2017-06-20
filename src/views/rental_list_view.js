@@ -15,16 +15,21 @@ var RentalListView = Backbone.View.extend({
 
     this.listenTo(this.model, 'add', this.addRental);
     this.listenTo(this.model, 'update', this.render);
+      this.listenTo(Backbone.pubSub, 'renderRentals', this.render);
+
   },
 
 
   render: function() {
+      console.log("I AM IN RENDER RENTAL LIST VIEW")
     this.rentalList.shift();
     $('#rental-list').empty();
     $('#rental-list').append('<h3>Rental list for </h3>');
     this.rentalList.forEach(function(rental){
-      rental.render();
-      $('#rental-list').append(rental.$el);
+      if (rental.returned !=  false){
+        rental.render();
+        $('#rental-list').append(rental.$el);
+      }
     }, this);
     return this;
   },
