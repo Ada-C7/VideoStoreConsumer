@@ -44,7 +44,7 @@ const CustomerListView = Backbone.View.extend({
   },
   sortByName: function() {
     console.log("clicked sort by name");
-    this.model.url = 'http://localhost:3000/customers?sort=name';
+    this.model.url = 'http://localhost:3000/customers?sort=name&p=1&n=200';
     this.model.fetch({
       reset:true,
       success: function(data) {
@@ -58,7 +58,7 @@ const CustomerListView = Backbone.View.extend({
   sortByPostCode: function() {
     console.log("clicked sort by post code");
 
-    this.model.url = 'http://localhost:3000/customers?sort=registered_at';
+    this.model.url = 'http://localhost:3000/customers?sort=registered_at&p=1&n=200';
     this.model.fetch({
       reset:true,
       success: function(data) {
@@ -71,7 +71,7 @@ const CustomerListView = Backbone.View.extend({
   },
   sortByRegisteredAt: function() {
     console.log("clicked sort by registered at");
-    this.model.url = 'http://localhost:3000/customers?sort=postal_code';
+    this.model.url = 'http://localhost:3000/customers?sort=postal_code&p=1&n=200';
     this.model.fetch({
       reset:true,
       success: function(data) {
