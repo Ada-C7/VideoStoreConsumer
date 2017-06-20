@@ -92,12 +92,23 @@
 
     <script id="movie-checkout-template" type = 'text/template'>
       <section>
-        <h4>This is the checkout template</h4>
+        <h4>Check Out <%-movie.title%></h4>
         <div>
-          <!-- <h3 class="button btn-save">Save</h3> -->
+          <label>
+            Due Date
+            <input type="date" name="due_date" id="due_date" />
+          </label>
+          <input type="hidden" name="title" value="<%-movie.title%>" id="movie_title" />
+          <select id="customer_dropdown" name="customer">
+          </select>
+          <h3 class="button btn-save">Save</h3>
           <h3 class="button co-btn-cancel">Cancel</h3>
         </div>
       </section>
+    </script>
+
+    <script id="customer-checkout-template" type = 'text/template'>
+      <option value="<%-customer.id%>"> <%-customer.name%> </option>
     </script>
 
 
