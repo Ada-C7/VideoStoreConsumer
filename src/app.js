@@ -20,5 +20,5 @@ var libraryView = new RentalLibraryView({
 $(document).ready(function() {
 libraryView.render();
 
-
+ 
 });

@@ -9,19 +9,25 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
+
+    <section id="search-bar" class="center">
+      <label><input type="text" id="query" placeholder="Search for movies to add to the library"></input>
+      </label>
+      <button id="search"class="button">Search</button>
+
+    </section>
+
     <section id="movie-list"></section>
-
-
 
 
   </body>
 </main>
 
 <script id="movie-card-template" type="text/template">
-<p class="movie-title"><%-title%></p>
-<p (<%-release_date%>)</p>
-<img src=<%-image_url %> alt=<% title %></img>
+  <p class="movie-title"><%-title%></p>
+  <p><%- release_date %></p>
+  <img src=<%- image_url %> alt=<% title %></img>
 </script>
 
-  <script src="/app.bundle.js"></script>
-  </html>
+<script src="/app.bundle.js"></script>
+</html>

@@ -6,7 +6,7 @@ import _ from 'underscore';
 //the power to select any html element within js, uing a dollar sign and then access additional methods
 import $ from 'jquery';
 
-var SearchResults = Backbone.View.extend({
+var SearchResultsView = Backbone.View.extend({
 
   initialize: function(params){
     this.template = params.template;

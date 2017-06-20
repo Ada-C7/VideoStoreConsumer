@@ -4,7 +4,7 @@ import Movie from '../models/movie';
 
 var SearchResults = Backbone.Collection.extend({
   model: Movie,
-  url: 'http://localhost:3000/movies?query='
+  url: 'http://localhost:3000/movies/search?'
 
 });
 
