@@ -76,6 +76,8 @@ var MovieListView = Backbone.View.extend({
     });
 
   ////////
+  this.$('#movie-details').append(detailsView.render().el);
+
     var customers = new CustomerList();
     var customersView = new CustomerListView({
       model: customers,
@@ -86,7 +88,6 @@ var MovieListView = Backbone.View.extend({
     customersView.render();
 
     // append things
-    this.$('#movie-details').append(detailsView.render().el);
     // check if the movie has a external id
       // If does not have an external id
       // make a call to rails to get list of customers

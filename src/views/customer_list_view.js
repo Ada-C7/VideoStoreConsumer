@@ -30,7 +30,7 @@ var CustomerListView = Backbone.View.extend({
   },
   render: function() {
 
-    this.$('#customer-list').empty();
+    // this.$('#customer-list').empty();
 
     console.log('this.model: ',this.model);
 
@@ -41,11 +41,14 @@ var CustomerListView = Backbone.View.extend({
       console.log('customer: ', customer);
       var customerView = new CustomerView({
         model: customer,
-        template: this.template
+        template: this.template,
+        tagName: 'option'
       });
       console.log('Before Append ');
-      this.$('#customer-list').append(customerView.render().el);
+      console.log("this.el == ", this.el);
+      this.$el.append(customerView.render().el);
       // this.listenTo(customerView, 'selectedCustomer', this.showCustomerDetails);
+      console.log('after append',customerView.el );
     });
 
 
