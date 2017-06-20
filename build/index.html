@@ -36,9 +36,19 @@
 
       <% if (external_id) { %>
         <h4 class="button" id="add-movie">Add Movie</h4>
-      <% } else { %>
-        <h4 class="button" id="rent-movie">Rent Movie</h4>
       <% } %>
+    </script>
+
+    <script id="rent-movie-template" type="text/template">
+      <h4>Select Customer</h4>
+      <select id="customer-selector">
+        <% customers.each(function(customer) { %>
+          <option value="<%- customer.get('id') %>">
+            <%- customer.get('name') %>
+          </option>
+        <% }); %>
+      </select>
+      <h4 class="button" id="rent-movie">Rent Movie</h4>
     </script>
 
     <script id="customer-template" type="text/template">
