@@ -5,6 +5,7 @@ import MovieView from './movie_view';
 import Movie from '../models/movie';
 import ResultList from '../collections/result_list';
 import ResultListView from './result_list_view';
+import MovieDetailsView from './movie_details_view';
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
@@ -22,15 +23,29 @@ var MovieListView = Backbone.View.extend({
         model: movie,
         template: that.template,
       });
-      that.listenTo(movieView, "selected", that.movieDetails);
+      that.listenTo(movieView, "selected", function(movie1) {
+        $('#movie-list').empty();
+        $('#movie-details').empty();
+
+        // var movieDetails = this.template({movie: movie.attributes});
+
+        console.log("movie: ", movie1);
+        var myMovieDetailsView = new MovieDetailsView({
+            model: movie1,
+            template: _.template($('#movie-details-template').html()),
+            el: '.movie-container'
+          });
+
+          myMovieDetailsView.render();
+        // this.$('#movie-details').append(myMovieDetailsView);
+      });
       that.$('#movie-list').append(movieView.render().$el);
     });
 
     return this;
   },
   events: {
-    "click #submit-search" : "search",
-    "click #create-rental" : "createRental"
+    "click #submit-search" : "search"
   },
   getFormData: function() {
     var formTitle = this.$("#title").val();
@@ -55,45 +70,18 @@ var MovieListView = Backbone.View.extend({
     });
 
     myResultListView.render();
-  },
-
-  movieDetails: function(movie) {
-    $('#movie-list').empty();
-    $('#movie-details').empty();
-
-    var movieDetails = this.template2({movie: movie.attributes});
-
-    this.$('#movie-details').append(movieDetails);
-  },
-
-  getRentalFormData: function() {
-    var formCustomerId = this.$("#customer-id").val();
-    this.$("#customer-id").val('');
-
-    var formDueDate = this.$("#due-date").val();
-    this.$("#due-date").val('');
-
-    var formMovieTitle = this.model.title;
-
-    return {
-      customer_id: formCustomerId,
-      due_date: formDueDate,
-      checkout_date: "2016-06-19",
-      title: formMovieTitle
-    };
-  },
-
-  createRental: function() {
-    var myNewRental = new Rental(this.getRentalFormData());
-
-    // var myNewRentalInfo = this.getRentalFormData();
-    // console.log("I'm in the createRental function");
-    // console.log(myNewRentalInfo.customer_id);
-    // console.log(myNewRentalInfo.due_date);
-
-    Rental.create(myNewRentalInfo);
-
   }
+
+  // movieDetails: function(movie) {
+  //   $('#movie-list').empty();
+  //   $('#movie-details').empty();
+  //
+  //   var movieDetails = this.template2({movie: movie.attributes});
+  //
+  //   this.$('#movie-details').append(movieDetails);
+  // },
+
+
 
 });
 
