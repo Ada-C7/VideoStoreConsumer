@@ -25,12 +25,11 @@ var MovieView = Backbone.View.extend({
 
     this.$("input[type='number']").val('');
 
-    console.log('this is the input from', inventory);
+
     return inventory;
   },
   addMovie: function() {
-    console.log("#1");
-    console.log(this.model);
+
 
     this.model.fetch({data: {
       title: this.model.get('title'),
@@ -43,7 +42,7 @@ var MovieView = Backbone.View.extend({
   });
   },
   deleteMovie: function(){
-    console.log("#1");
+
     this.model.fetch({
       data: {
         id: this.model.get("id"),
@@ -57,15 +56,15 @@ var MovieView = Backbone.View.extend({
   onClick: function(event){
     event.stopPropagation();
     self = this;
-    console.log("#1");
+
     this.model.fetch({
       success: function(data) {
-        console.log("It worked (details)!", data);
+
         self.trigger('selectedMovie', data);
 
       },
       failure: function(data) {
-        console.log("Failure", data);
+
         this.$('#movie-list').append("<h2>Request failed.</h2>");
       }
     });

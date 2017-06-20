@@ -3,10 +3,13 @@ import _ from 'underscore';
 import $ from 'jquery';
 import MovieView from './movie_view.js';
 import Movie from '../models/movie.js';
+import CustomerList from '../collections/customer_list.js';
+import Customer from '../models/customer.js';
+import CustomerListView from './customer_list_view.js';
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
-    this.template = params.template;
+    this.template = _.template($('#movie-template').html());
 
     this.listenTo(this.model, "update", this.render);
 
@@ -71,6 +74,17 @@ var MovieListView = Backbone.View.extend({
       model: movie,
       template: _.template($('#tmpl-movie-details').html())
     });
+
+  ////////
+    var customers = new CustomerList();
+    var customersView = new CustomerListView({
+      model: customers,
+      template: _.template($('#tmpl-customer').html()),
+      el: '#customer-list'
+
+    });
+    customersView.render();
+
     // append things
     this.$('#movie-details').append(detailsView.render().el);
     // check if the movie has a external id

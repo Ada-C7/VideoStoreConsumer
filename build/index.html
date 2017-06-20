@@ -22,6 +22,7 @@
 
     </ul> </section>
     <section id="movie-details" class="hide"></section>
+    <div id='test'></div>
   </main>
 
   <!-- Templates -->
@@ -48,11 +49,16 @@
     <% if (!external_id) { %>
       <h4> Inventory: <%- available_inventory %> out of <%- inventory %> </h4>
       <p> Customer: </p>
-      <select id='customer-options'></select>
+      <select id='customer-list'></select>
       <button id="check_out" class="button alert">Check Out</button>
       <button id="check_in" class="button success">Check In</button>
     <%  } %>
   </script>
+
+  <script id='tmpl-customer' type="text/template">
+    <option> <%- name %></option>
+  </script>
+
 
   <script src="/app.bundle.js"></script>
 
