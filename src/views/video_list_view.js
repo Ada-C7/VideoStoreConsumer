@@ -30,6 +30,7 @@ var VideoListView = Backbone.View.extend({
   events: {
     "click #rent-video": "rentVideo",
     "click #search-video": "searchVideo",
+    "keypress #title" : "enterSearch",
     "click #home": "goHome"
   },
   getFormData: function() {
@@ -39,11 +40,17 @@ var VideoListView = Backbone.View.extend({
 
     return formTitle;
   },
-  searchVideo: function() {
-    this.isSearch = true;
-    this.$('#video-list').empty();
-    var videoTitle = this.getFormData();
-    this.model.fetch( {data: { query: videoTitle}});
+  enterSearch: function(e){
+    if (e.which == 13) {
+      this.searchVideo();
+    }
+  },
+  searchVideo: function(e) {
+      this.isSearch = true;
+      this.$('#video-list').empty();
+      var videoTitle = this.getFormData();
+      this.model.fetch( {data: { query: videoTitle}});
+
   },
   goHome: function() {
     console.log("HOME");
