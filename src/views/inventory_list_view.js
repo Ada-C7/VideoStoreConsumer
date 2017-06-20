@@ -73,6 +73,8 @@ var InventoryListView = Backbone.View.extend({
 
       var title = Backbone.pubSub.selectedMovie.attributes.title;
       this.model.create(params, {type: "POST", url:'http://localhost:3000/rentals/' + title + '/check-out'});
+      Backbone.pubSub.selectedMovie = null;
+      Backbone.pubSub.selectedCustomer = null;
     }
 
   }

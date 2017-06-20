@@ -24,9 +24,10 @@ var RentalView = Backbone.View.extend({
     console.log("IN DELETE RENTAL FUNCTION:")
     console.log(this.model.attributes.movie_id)
     // var title = this.movie_title;
-    var title = "Jaws"
+    var title = "Psycho"
 
     this.model.save(null, {type: 'POST', url:'http://localhost:3000/rentals/' + title + '/return'});
+    // this.model.trigger('update');
     // this.model.destroy();
     // this.model.destroy({url:'http://localhost:3000/rentals/' + title + '/return'});
 
