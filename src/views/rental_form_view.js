@@ -19,13 +19,15 @@ const RentalFormView = Backbone.View.extend ({
     var selectOptions = "";
     console.log(this.collection);
     this.collection.each(function(customer){
-      var newOption = "<option value='" + customer.id + "' >" + customer.name + "</option>";
+      var newOption = "<option value='" + customer.id + "' >" + customer.get("name") + "</option>";
       selectOptions += newOption;
     });
     console.log(selectOptions);
-    this.options = selectOptions;
 
-    var compiledTemplate = this.template(this.model.toJSON());
+    var compiledTemplate = this.template({
+      model: this.model.toJSON(),
+      options: selectOptions
+    });
     this.$el.html(compiledTemplate);
     return this;
   }

@@ -143,8 +143,8 @@ const MovieListView = Backbone.View.extend({
     var rentalForm = new RentalFormView({
       model: movie.model,
       template: _.template($("#rental-form-template").html()),
-      tagName: "section",
-      el: "#sidebar"
+      tagName: "section"
+      // el: "#side-bar"
     });
     this.$("#rental-form").append(rentalForm.render().el);
 
