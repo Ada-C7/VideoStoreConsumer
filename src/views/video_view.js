@@ -27,9 +27,11 @@ var VideoView = Backbone.View.extend({
     this.model.destroy();
   },
   addVideo: function() {
-    this.model.save();
-
-    $('#success-message').html('Movie added!');
+    if (this.model.save()) {
+      $('#success-message').html('Movie added!');
+    } else {
+      $('#success-message').html('Unable to add movie. :(');
+    }
   },
   showDescription: function(){
     this.$('.video-description').show();
