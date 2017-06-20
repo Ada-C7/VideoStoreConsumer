@@ -10,7 +10,20 @@ var MovieList = Backbone.Collection.extend({
   },
   comparator: function (model) {
         return model.get("title");
-  }
+  },
+  checkOut: function(data) {
+          var url = "http://localhost:3000/rentals/" + this.get('title') + "/check-out";
+           // note that these are just $.ajax() options
+
+       // add any additional options, e.g. a "success" callback or data
+      //  _.extend(options, opts);
+
+       return (this.sync || Backbone.sync).call(this, null, this, _.extend({
+         url: url,
+         type: 'POST',
+         data: data
+       }, options));
+   },
 });
 
 
