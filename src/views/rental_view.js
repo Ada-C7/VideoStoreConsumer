@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
 import _ from 'underscore';
+import InventoryList from '../collections/inventory_list'
 
 var RentalView = Backbone.View.extend({
   initialize: function(options) {
@@ -21,12 +22,16 @@ var RentalView = Backbone.View.extend({
   },
 
   deleteRental: function() {
-    console.log("IN DELETE RENTAL FUNCTION:")
-    console.log(this.model.attributes.movie_id)
-    // var title = this.movie_title;
-    var title = "Psycho"
+    console.log("IN DELETE RENTAL FUNCTION:");
+    console.log(this.model.attributes.movie_id);
 
-    this.model.save(null, {type: 'POST', url:'http://localhost:3000/rentals/' + title + '/return'});
+    // var title = movies.find(function(movie){return movie.get('id') === this.model.attributes.movie_id; });
+    // var title = movies.find(function(movie){return movie.get('id') === this.model.attributes.movie_id; });
+    // var rentals = this.model.find(function(model){return model.get('title') === movie.attributes.title && model.get('release_date') === movie.attributes.release_date; });
+    var id = this.model.attributes.movie_id;
+
+    // console.log(title);
+    this.model.save(null, {type: 'POST', url:'http://localhost:3000/rentals/' + id + '/return'});
     // this.model.trigger('update');
     // this.model.destroy();
     // this.model.destroy({url:'http://localhost:3000/rentals/' + title + '/return'});
