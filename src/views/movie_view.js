@@ -2,10 +2,12 @@ import Backbone from "backbone";
 import _ from 'underscore';
 import $ from 'jquery';
 import Movie from '../models/movie.js';
+import CustomerListView from './customer_list_view.js';
 
 var MovieView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
+    this.customers = params.customers;
     this.listenTo(this.model, 'change', this.render);
   },
   render: function() {
@@ -23,6 +25,15 @@ var MovieView = Backbone.View.extend({
     var rentalTemplate = _.template($("#rental-template").html());
     var compiledRentalTemplate = rentalTemplate(this.model.toJSON());
     $("#create-rental").html(compiledRentalTemplate);
+
+    var rentalCustomerView = new CustomerListView({
+      model: this.customers,
+      template: _.template($('#customer-list-template').html()),
+      tagName: "select",
+      className: "customer-dropdown"
+    });
+
+    $("#create-rental label.customers-select").append(rentalCustomerView.render().$el);
   },
   addMovie: function() {
 
@@ -47,7 +58,8 @@ var MovieView = Backbone.View.extend({
       this.detailsClicked = !this.detailsClicked;
       this.render();
     }
-  }
+  },
+
 });
 
 export default MovieView;

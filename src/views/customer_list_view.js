@@ -10,6 +10,7 @@ var CustomerListView = Backbone.View.extend ({
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
     this.listenTo(this.model, 'change', this.render);
+    this.showDetails = params.showDetails || false;
     // this.listenTo(this.model, 'click', );
   },
 
@@ -21,17 +22,21 @@ var CustomerListView = Backbone.View.extend ({
         template: that.template,
 
       });
-      that.$("#customer-dropdown").append(customerView.render().$el);
+      that.$el.append(customerView.render().$el);
 
     });
     return this;
   },
 
   events: {
-    'change select': 'showCustomer'
+    'change': 'showCustomer'
   },
 
   showCustomer: function(e) {
+    if (!this.showDetails) {
+      return;
+    }
+
     e.preventDefault();
 
     console.log(e.currentTarget.value);
@@ -50,7 +55,7 @@ var CustomerListView = Backbone.View.extend ({
 
       });
       $("#movie-list").empty();
-      that.$("#customer-info").append(customerDetailsView.render().$el);
+      $("#customer-info").append(customerDetailsView.render().$el);
 
 
   }

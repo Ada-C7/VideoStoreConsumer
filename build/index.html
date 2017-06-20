@@ -33,7 +33,7 @@
               <input id="search-movies" type="submit" class="button secondary" value="Search">
             </div>
           </div>
-          <select id='customer-dropdown' class='large-2 columns right'>
+          <select class='customer-dropdown' class='large-2 columns right'>
             <option value="">** Select Customer **</option>
           </select>
         </section>
@@ -90,14 +90,12 @@
     <script id="rental-template" type="text/template">
       <section>
         <h1>Rental Form: </h1>
-        <h4>Selected movie: <strong><%- title %></strong></h4>
-        <div class="row">
-          <h4>Selected Customer:</h4>
-            <select id='rental-customer-dropdown'>
-              <option value="">** Select Customer **</option>
-            </select>
-        </div>
-        <button class="submit button">Finish!</button>
+        <label>Selected movie:
+          <input type="text" name="name" id="name" value="<%- title %>">
+        </label>
+        <label class="customers-select">Selected Customer:
+        </label>
+        <button id="submit button">Finish!</button>
       </section>
     </script>
 
