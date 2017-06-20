@@ -35,9 +35,7 @@ var MovieView = Backbone.View.extend({
 
   add: function(){
     console.log(this.model);
-
     this.model.save();
-
   },
 });
 
