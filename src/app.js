@@ -31,9 +31,6 @@ var myCustomerListView = new CustomerListView({
 
 
 
-
-
-
 $(document).ready(function() {
   myMovieListView.render();
   myCustomerListView.render();
