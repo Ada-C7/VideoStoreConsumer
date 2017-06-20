@@ -25,8 +25,6 @@ p {
   font-family: 'Roboto', sans-serif;
 }
 
-
-
 label {
   display: inline;
 }
@@ -64,13 +62,10 @@ aside label {
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
-}
-*/
 
-input[type=text] {
+/*search bar styling*/
+
+/*input[type=text] {
     width: 130px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
@@ -78,4 +73,15 @@ input[type=text] {
 
 input[type=text]:focus {
     width: 100%;
+}*/
+
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
 }
