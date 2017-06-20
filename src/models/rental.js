@@ -15,10 +15,6 @@ var Rental = Backbone.Model.extend({
      }
      return Backbone.sync(method, model, options);
   }
-
-
-
-
   // defaults: {
   //   image_url: "http://7bna.net/images/random-image/random-image-4.jpg"
   // }

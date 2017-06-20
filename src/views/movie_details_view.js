@@ -65,19 +65,27 @@ var MovieDetailsView = Backbone.View.extend({
       // console.log(myNewRentalInfo.customer_id);
       // console.log(myNewRentalInfo.due_date);
 
-       if (myNewRental.save()) {
-         alert("WHOOP THERE IT IS! New Rental created!");
-       } else {
-         alert("Something went wrong :(");
-       }
+      //  if (myNewRental.save()) {
+      //    alert("WHOOP THERE IT IS! New Rental created!");
+      //  } else {
+      //    alert("Something went wrong :(");
+      //  }
+
 
       // Movie.create(adf)
 
 
       // url: localhost:3000/movies
-    }
 
-
+      myNewRental.save(myNewRental.attributes, {
+        success: function() {
+          alert("Added a rental successfully!");
+        },
+        error: function() {
+          alert("What did you do??");
+        }
+      });
+    }  
 });
 
 export default MovieDetailsView;

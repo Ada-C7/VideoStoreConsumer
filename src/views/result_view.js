@@ -21,11 +21,12 @@ var ResultView = Backbone.View.extend({
     "click #add-movie" : "addMovie"
   },
   addMovie: function() {
-    if(this.model.save()) {
-      alert("WHOOP THERE IT IS!");
-    } else {
-      alert("Something went wrong :(");
-    }
+    // if(this.model.save()) {
+    // alert("WHOOP THERE IT IS!");
+    // } else {
+    //   alert("Something went wrong :(");
+    // }
+    this.model.save(this.model.attributes, {success: function() { alert("YEEEEEESSS");}, error: function(){ alert("NOOOOO");}});
   }
 });
 

@@ -50,10 +50,10 @@
     <script id="movie-details-template" type="text/template">
       <section class="column small-3 medium-3 large-3">
         <img src="<%- movie.image_url %>"/>
-        <p><%- movie.title %></p>
-        <p><%- movie.release_date %></p>
-        <p><%- movie.overview %></p>
-        <p><%- movie.inventory %></p>
+        <h3><%- movie.title %></h3>
+        <p>Release Date: <%- movie.release_date %></p>
+        <p><em><%- movie.overview %></em><br></p>
+        <p>Inventory: <%- movie.inventory %></p>
 
         <section class="columns medium-8" id="search-section">
           <label>Customer ID
