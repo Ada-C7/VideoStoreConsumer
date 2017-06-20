@@ -1,14 +1,13 @@
 @include foundation-everything;
 
 img.movie-image{
-  width: 100%;
+  /*height: 100px;*/
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 .add-rental, .add-collection {
-  width: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -21,6 +20,11 @@ img.movie-image{
 .movie-title {
   padding-top: 15px;
   height: 50px;
+  overflow: scroll;
+}
+
+.main-content {
+  height: 300px;
   overflow: scroll;
 }
 
