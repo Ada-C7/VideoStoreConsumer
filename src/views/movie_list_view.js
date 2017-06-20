@@ -107,6 +107,7 @@ const MovieListView = Backbone.View.extend({
     this.showSideBar();
     this.$("#rental-form").hide();
     this.$("#movie-details").empty();
+    this.$("#movie-details").show();
 
     var myDetailedMovie = new MovieView({
       model: movie.model,
@@ -139,6 +140,7 @@ const MovieListView = Backbone.View.extend({
     this.showSideBar();
     this.$("#movie-details").hide();
     this.$("#rental-form").show();
+    this.$("#rental-form").empty();
 
     var rentalForm = new RentalFormView({
       model: movie.model,
