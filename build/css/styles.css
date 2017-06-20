@@ -11,12 +11,14 @@ main {
 
 header {
   font-family: 'Josefin Sans', sans-serif;
-  background-color: lightgreen;
   padding: 0.5rem;
+  text-align: center;
 }
+
 
 h1, h2, h3, h4, h5 {
   font-family: 'Josefin Sans', sans-serif;
+  color: darkgreen;
 }
 
 p {
@@ -36,21 +38,25 @@ button.success {
 
 .movie-card {
   padding: 1%;
-  border-style: solid;
-  border-width: thin;
+  /*border-style: solid;
+  border-width: thin;*/
 }
 
 .movie-card img {
-  padding-bottom: 3%;
+  display: block;
 }
 
-
+#movie-details {
+  padding-right: 5%;
+}
 
 aside label {
   color: #FFFFFF;
 }
 
-
+button {
+  padding: 1%;
+}
 
 div {
   display: inline;

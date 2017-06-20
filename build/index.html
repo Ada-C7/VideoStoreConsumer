@@ -15,11 +15,10 @@
 
     <main class='main-content'>
 
-      <section class='messages'>
-
-      </section>
+      <section class='messages'></section>
 
       <nav>
+
         <section class="row">
           <div class="small-4 columns">
             <form class="search-container">
@@ -28,14 +27,15 @@
             <button id="search-movies" class="button">Search Movies</button>
           </div>
         </section>
+
         <section >
           <select id='customer-dropdown' class='large-2 columns'>
             <option value="">** Select Customer **</option>
           </select>
         </section>
+
       </nav>
 
-      <section class='messages'></section>
 
 
       <section class='row' id='create-rental'></section>
@@ -45,8 +45,8 @@
     </main>
     <!-- templates -->
     <script id="movie-list-template" type="text/template">
-      <section class="columns large-3 small-12 movie-card" data-equalizer-watch >
-        <div class='row'>
+      <section class="columns large-4 small-12 movie-card" data-equalizer-watch >
+        <div class='row text-center'>
           <h4><%- movie.title %></h4>
         </div>
         <section class="movie-image-details">
@@ -64,28 +64,22 @@
             </section>
           <% } else { %>
             <div class='row'>
-              <img class="movie-details-poster" src="<%- movie.image_url %>" alt="movie poster">
+              <img class="float-center movie-details-poster" src="<%- movie.image_url %>" alt="movie poster">
             </div>
           <% } %>
         </section>
         <div class='row'>
-          <button class="rent-movie button">Rent me!</button>
+          <button class="float-center rent-movie button">Rent me!</button>
         </div>
       </section>
 
     </script>
 
     <script id="search-list-template" type="text/template">
-      <section class="columns large-3 small-12 movie-card" data-equalizer-watch >
-        <div class='row'>
-          <h4><%- title %></h4>
-        </div>
-        <div class='row'>
-          <img src="<%- image_url %>" alt="movie poster">
-        </div>
-        <div class='row'>
+      <section class="columns large-4 small-12 movie-card" data-equalizer-watch >
+          <h4><%- movie.title %></h4>
+          <img src="<%- movie.image_url %>" alt="movie poster">
           <button class="add-movie button">Add to Store</button>
-        </div>
       </section>
     </script>
 
