@@ -85,16 +85,9 @@
       <section class="columns small-12 large-3" id="side-bar">
         <section id="movie-details"></section>
 
-        <form id="rental-form">
-          Movie: <span id="rental-title">
-          </span>
-          <section class="input-group">
-            Customer: <select type="select" name="customer"></select>
-            Due Date:<input type="date" name="due_date"></input>
-            <button class="button" id="confirm-rental">Confirm Rental</button>
-            <button class="button" id="cancel-rental">Cancel</button>
-          </section>
-        </form>
+        <section id="rental-form">
+
+        </section>
 
       </section>
 
@@ -108,6 +101,21 @@
   </main>
 
 
+  <!-- rental form -->
+  <script type="text/template" id="rental-form-template">
+    <h3>Movie: <%= model.title %></h3>
+    <form>
+      <section class="input-group">
+        Customer:
+        <select id="customer-select" type="select" name="customer"> <%= options %>
+        </select>
+        
+        Due Date:<input type="date" name="due_date"></input>
+        <button class="button" id="confirm-rental">Confirm Rental</button>
+        <button class="button" id="cancel-rental">Cancel</button>
+      </section>
+    </form>
+  </script>
 
   <!-- sidebar details template -->
   <script id="movie-details-template" type="text/template">

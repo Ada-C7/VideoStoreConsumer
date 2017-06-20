@@ -3,6 +3,7 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 import MovieView from './movie_view.js';
 import Movie from '../models/movie.js';
+import RentalFormView from './rental_form_view.js';
 
 const MovieListView = Backbone.View.extend({
   initialize: function(params) {
@@ -132,10 +133,22 @@ const MovieListView = Backbone.View.extend({
     this.model.fetch();
   },
 
-  getRentalForm: function() {
+  getRentalForm: function(movie) {
+    console.log("inside getRentalForm");
+    // console.log(movie.model.title);
     this.showSideBar();
     this.$("#movie-details").hide();
     this.$("#rental-form").show();
+
+    var rentalForm = new RentalFormView({
+      model: movie.model,
+      template: _.template($("#rental-form-template").html()),
+      tagName: "section",
+      el: "#sidebar"
+    });
+    this.$("#rental-form").append(rentalForm.render().el);
+
+
   }
 
 });

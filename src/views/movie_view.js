@@ -48,7 +48,7 @@ const MovieView = Backbone.View.extend({
   },
 
   rentMovie: function() {
-    console.log("you have inside movie view for rental");
+    console.log("clicked rent movie from indiv movie view");
     this.trigger("getRentForm",this);
   }
 
