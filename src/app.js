@@ -6,7 +6,7 @@ import _ from 'underscore';
 import MovieList from './collections/movie_list';
 import SearchList from './collections/search_list';
 import MovieListView from './views/movie_list_view';
-import MovieSearchView from './views/movie_search_view';
+import ApplicationView from 'views/application_view';
 
 
 var movieListTemplate = _.template($('#movie-list-template').html());
@@ -23,7 +23,7 @@ var movieListView = new MovieListView({
 
 var newSearch = new SearchList();
 
-var movieSearchView = new MovieSearchView({
+var applicationView = new ApplicationView({
   model: newSearch,
   movieListTemplate: movieListTemplate,
   movieTemplate: movieTemplate,

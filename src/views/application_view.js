@@ -5,8 +5,6 @@ import Backbone from 'backbone';
 import MovieView from 'views/movie_view';
 import SearchList from 'collections/search_list';
 
-//TODO: this represents the entire list so rename to search_list_view
-
 var MovieSearchView = Backbone.View.extend({
   initialize: function(params) {
     var self = this;
