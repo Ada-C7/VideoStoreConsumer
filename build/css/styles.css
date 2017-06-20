@@ -1,6 +1,5 @@
 @include foundation-everything;
 @import url('https://fonts.googleapis.com/css?family=Yellowtail');
-@import url('https://fonts.googleapis.com/css?family=Stalemate');
 
 
 
@@ -61,7 +60,6 @@ div {
 
 #logo {
   color: black;
-  font-family: 'Stalemate', cursive;
   font-size: 100px;
   -ms-transform: rotate(-3deg); /* IE 9 */
   -webkit-transform: rotate(-3deg); /* Chrome, Safari, Opera */
