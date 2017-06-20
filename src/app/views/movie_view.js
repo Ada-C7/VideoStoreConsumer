@@ -8,9 +8,9 @@ var MovieView = Backbone.View.extend({
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
   },
-  
+
   attributes: {
-    class: 'medium-4 columns movie nopadding'
+    class: 'medium-3 columns movie nopadding'
   },
 
   events: {
