@@ -66,15 +66,13 @@ var MovieListView = Backbone.View.extend({
     this.$("#movie-details").empty();
     this.$("#movie-details").toggleClass('hide');
 
+    // create new instance of Movie View
     var detailsView = new MovieView({
       model: movie,
       template: _.template($('#tmpl-movie-details').html())
     });
     // append things
     this.$('#movie-details').append(detailsView.render().el);
-
-    // console.log(movie);
-    // create new instance of Movie View
     // check if the movie has a external id
       // If does not have an external id
       // make a call to rails to get list of customers

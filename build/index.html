@@ -42,11 +42,12 @@
   </script>
 
   <script id="tmpl-movie-details" type="text/template">
-    <h3><%- title %></h3>
-    <h4><%- release_date %></h4>
-    <h4><%- overview %></h4>
+    <h3>Title: <%- title %></h3>
+    <h4>Released: <%- release_date %></h4>
+    <h4>Overview: <%- overview %></h4>
     <% if (!external_id) { %>
-      <h4> inventory <%- inventory %> </h4>
+      <h4> Inventory: <%- available_inventory %> out of <%- inventory %> </h4>
+      <p> Customer: </p>
       <select id='customer-options'></select>
       <button id="check_out" class="button alert">Check Out</button>
       <button id="check_in" class="button success">Check In</button>

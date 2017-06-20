@@ -39,7 +39,8 @@ var MovieView = Backbone.View.extend({
       inventory: this.getInventory()
     },
     type: 'POST'
-  });},
+  });
+  },
   deleteMovie: function(){
     this.model.fetch({
       data: {
@@ -55,7 +56,6 @@ var MovieView = Backbone.View.extend({
     event.stopPropagation();
     self = this;
     this.model.fetch({
-      // data: movie.title,
       success: function(data) {
         console.log("It worked (details)!", data);
         self.trigger('selectedMovie', data);
