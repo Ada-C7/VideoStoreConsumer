@@ -28,6 +28,12 @@ var MovieListView = Backbone.View.extend({
       self.listenTo(movieView, "showDetailsListen", self.showDetails);
     });
 
+    $('body').keydown(function(event){
+      if (event.keyCode == 13) {
+        self.getSearchResults();
+      }
+    });
+
     return this;
   },
 
