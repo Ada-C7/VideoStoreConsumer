@@ -1,4 +1,5 @@
 import Backbone from 'backbone';
+import $ from 'jQuery';
 
 var VideoView = Backbone.View.extend({
   initialize: function(params) {
@@ -27,7 +28,8 @@ var VideoView = Backbone.View.extend({
   },
   addVideo: function() {
     this.model.save();
-    return "Movie added successfully!";
+
+    $('#success-message').html('Movie added!');
   },
   showDescription: function(){
     this.$('.video-description').show();

@@ -9,6 +9,8 @@ var Video = Backbone.Model.extend({
   initialize: function(params) {
     this.logStatus();
   },
+  message: function() {
+  },
   toggleComplete: function() {
     var rented =
     this.get("rented");
