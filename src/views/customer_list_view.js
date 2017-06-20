@@ -40,7 +40,7 @@ var CustomerListView = Backbone.View.extend ({
     var customer = this.model.get(customerID);
     console.log(customer);
 
-    var customerInfo = customer.fetch();  
+    var customerInfo = customer.fetch();
   }
 
 
