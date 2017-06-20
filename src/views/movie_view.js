@@ -26,7 +26,7 @@ var MovieView = Backbone.View.extend({
 
   events: {
     "click #open-add-form": "openForm",
-    "click #to-movie-view": "openMovie"
+    "click #to-movie-checkout": "openCheckout"
   },
 
   openForm: function(e){
@@ -35,8 +35,10 @@ var MovieView = Backbone.View.extend({
     this.trigger('openform',this)
   },
 
-  openMovie: function(e){
-    console.log("in openMovie callback-function");
+  openCheckout: function(e){
+    console.log("in openCheckout callback-function");
+    $('#movie-checkout-form').show()
+    this.trigger('opencheckout',this)
   }
 });
 

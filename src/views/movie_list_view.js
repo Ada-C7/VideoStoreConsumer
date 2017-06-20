@@ -10,6 +10,7 @@ var MovieListView = Backbone.View.extend({
     this.movieTemplate = params.movieTemplate;
     this.addFormTemplate = params.addFormTemplate;
     this.renderRentalLibraryCallback = params.renderRentalLibraryCallback;
+    this.movieCheckoutFormTemplate = params.movieCheckoutFormTemplate;
 
     this.listenTo(this.model, 'update' , this.render);
   },
@@ -27,12 +28,14 @@ var MovieListView = Backbone.View.extend({
       self.$('#rental-library').append(movieView.render().$el);
 
       self.listenTo(movieView, 'openform' , self.addForm)
+      self.listenTo(movieView, 'opencheckout' , self.checkoutForm)
     });
     return this;
   },
 
   events: {
     'click .btn-cancel': 'clearForm',
+    'click .co-btn-cancel': 'clearCheckoutForm',
   },
 
   addForm: function(selectedMovie){
@@ -46,6 +49,13 @@ var MovieListView = Backbone.View.extend({
     return this;
   },
 
+  checkoutForm: function(selectedMovie){
+    var compiledTemplate = this.movieCheckoutFormTemplate({
+      movie: selectedMovie.model.toJSON()
+    });
+    $('#movie-checkout-form').html(compiledTemplate);
+  },
+
   clearForm: function(){
     // console.log("triggered clearForm once");
     this.$('#title').val('');
@@ -55,6 +65,11 @@ var MovieListView = Backbone.View.extend({
     this.$('#inventory').val('');
     this.$('#add-form').empty();
     this.$('#add-form').hide()
+  },
+
+  clearCheckoutForm: function(){
+    this.$('#movie-checkout-form').empty();
+    this.$('#movie-checkout-form').hide()
   },
 
   saveMovie: function(event) {

@@ -13,12 +13,14 @@ import MovieListView from './views/movie_list_view';
 var movieTemplate;
 var searchTemplate;
 var addFormTemplate;
+var movieCheckoutFormTemplate;
 // ready to go
 var rentalLibrary = function() {
   var movieList = new MovieList();
   movieList.fetch();
   var params = {
     movieTemplate: movieTemplate,
+    movieCheckoutFormTemplate: movieCheckoutFormTemplate,
     el: $('main'),
     model: movieList
   };
@@ -43,10 +45,12 @@ var movieLibrary = function() {
 
 $(document).ready(function() {
   $('#add-form').hide();
+  $('#movie-checkout-form').hide();
 
   movieTemplate = _.template($('#rental-library-template').html());
   searchTemplate = _.template($('#search-library-template').html());
   addFormTemplate = _.template($('#addto-rental-library-template').html());
+  movieCheckoutFormTemplate = _.template($('#movie-checkout-template').html());
 
   rentalLibrary();
 

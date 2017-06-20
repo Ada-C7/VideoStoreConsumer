@@ -13,6 +13,7 @@
     </header>
     <main>
       <section id='add-form'></section>
+      <section id='movie-checkout-form'> </section>
       <section class="row">
       <section id="form">
         <label for="search">Search for Movie</label>
@@ -30,7 +31,7 @@
 <!-- TEMPLATES -->
     <script id="rental-library-template" type="text/template">
       <tr>
-        <td class='large-2 medium-2 column'><a id= 'to-movie-view'><img src= '<%-movie.image_url%>'/></a></td>
+        <td class='large-2 medium-2 column'><a id= 'to-movie-checkout'><img src= '<%-movie.image_url%>'/></a></td>
         <td class='large-3 medium-3 column'>
           <h5><%-movie.title%></h5>
           <p><%-movie.release_date%></p>
@@ -87,9 +88,17 @@
         </div>
       </section>
 
-
     </script>
 
+    <script id="movie-checkout-template" type = 'text/template'>
+      <section>
+        <h4>This is the checkout template</h4>
+        <div>
+          <!-- <h3 class="button btn-save">Save</h3> -->
+          <h3 class="button co-btn-cancel">Cancel</h3>
+        </div>
+      </section>
+    </script>
 
 
     <script src="/app.bundle.js"></script>
