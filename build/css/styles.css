@@ -64,3 +64,11 @@ div {
   margin-left: 10%;
   border-radius: 1rem;
 }
+
+table.table-list {
+  padding: 1rem;
+}
+
+img {
+  border-radius: 1rem;
+}

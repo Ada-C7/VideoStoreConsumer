@@ -33,7 +33,7 @@
         <td class='large-2 medium-2 column'><img src= '<%-movie.image_url%>'/></td>
         <td class='large-3 medium-3 column'>
           <h5><%-movie.title%></h5>
-          <p><%-movie.release_date.substr(0,4)%></p>
+          <p><%-movie.release_date%></p>
         </td>
         <td class='large-7 medium-7 column'>
           <%-movie.overview%>
@@ -45,7 +45,7 @@
     <script id="search-library-template" type="text/template">
       <tr>
         <td class='large-7 medium-7 column'><%-movie.title%></td>
-        <td class='large-2 medium-2 column'><%-movie.release_date.substr(0,4)%></td>
+        <td class='large-2 medium-2 column'><%-movie.release_date%></td>
         <td class='large-3 medium-3 column'><button class="button tiny alert" id= 'open-add-form'>Add To Rental Library</button></td>
       </tr>
     </script>
