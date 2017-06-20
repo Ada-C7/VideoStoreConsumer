@@ -21,6 +21,7 @@
 
         <section class="row">
           <!-- <div class="small-4 columns">
+          <div class="small-4 columns left">
             <form class="search-container">
               <input id="title" placeholder="Search our movie database" type="text">
             </form>
@@ -32,16 +33,14 @@
               <input id="search-movies" type="submit" class="button secondary" value="Search">
             </div>
           </div>
-        </section>
-
-        <section >
-          <select id='customer-dropdown' class='large-2 columns'>
+          <select id='customer-dropdown' class='large-2 columns right'>
             <option value="">** Select Customer **</option>
           </select>
         </section>
 
       </nav>
 
+      <section class='row' id='customer-info'></section>
       <section class='row' id='create-rental'></section>
       <section class='row' id="movie-list" data-equalizer ></section>
 
@@ -93,6 +92,14 @@
         <h4><%- title %></h4>
         <h3>Customers Here</h3>
       </section>
+    </script>
+
+    <script id='customer-details-template' type='text/template'>
+      <h2>Customer Info: </h2>
+      <h4>Name: <%- name %></h4>
+      <h4>Phone: <%- phone %></h4>
+      <h2>Rentals</h2>
+
     </script>
 
     <script id='customer-list-template' type='text/template'>

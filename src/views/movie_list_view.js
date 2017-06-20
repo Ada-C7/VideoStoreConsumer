@@ -14,6 +14,7 @@ var MovieListView = Backbone.View.extend ({
   render: function() {
     this.$('#movie-list').empty();
     this.$('.messages').empty();
+    this.$('#customer-info').empty();
     var that = this;
 
       this.model.each(function(movie){
