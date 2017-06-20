@@ -20,11 +20,9 @@ var MovieView = Backbone.View.extend({
     'click .movie-image-details': 'showDetails'
   },
   rentMovie: function() {
-    // console.log(this.model);
-    // var customers =
-    // var rentalTemplate = _.template($("#rental-template").html());
-    // var compiledRentalTemplate = rentalTemplate(this.model.toJSON());
-    // $("#create-rental").html(compiledRentalTemplate);
+    var rentalTemplate = _.template($("#rental-template").html());
+    var compiledRentalTemplate = rentalTemplate(this.model.toJSON());
+    $("#create-rental").html(compiledRentalTemplate);
   },
   addMovie: function() {
 
@@ -44,7 +42,6 @@ var MovieView = Backbone.View.extend({
     );
   },
   showDetails: function() {
-
     if (this.model.attributes.id) {
       this.model.fetch();
       this.detailsClicked = !this.detailsClicked;
