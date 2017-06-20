@@ -82,16 +82,25 @@
 
     <section id="all-movie-stuff">
 
-      <section class="columns small-12 large-3" id="movie-details">
+      <section class="columns small-12 large-3" id="side-bar">
+        <section id="movie-details"></section>
+
+        <form id="rental-form">
+          Movie: <span id="rental-title">
+          </span>
+          <section class="input-group">
+            Customer: <select type="select" name="customer"></select>
+            Due Date:<input type="date" name="due_date"></input>
+            <button class="button" id="confirm-rental">Confirm Rental</button>
+            <button class="button" id="cancel-rental">Cancel</button>
+          </section>
+        </form>
 
       </section>
 
       <!-- movies list -->
       <section class="columns small-12" id="list-main">
-
-        <section id="list-content" class="row">
-        </section>
-
+        <section id="list-content" class="row"></section>
       </section>
     </section>
 
@@ -100,17 +109,17 @@
 
 
 
-<!-- sidebar details template -->
-<script id="movie-details-template" type="text/template">
-  <img src=<%-image_url%> >
-  <h3><%-title%></h3>
-  <p>Overview: <%-overview%></p>
-  <p>Release Date: <%-release_date%></p>
+  <!-- sidebar details template -->
+  <script id="movie-details-template" type="text/template">
+    <img src=<%-image_url%> >
+    <h3><%-title%></h3>
+    <p>Overview: <%-overview%></p>
+    <p>Release Date: <%-release_date%></p>
 
-  <button class="button" id="hide-details">Hide</button>
-</script>
+    <button class="button" id="hide-details">Hide</button>
+  </script>
 
-<script id="customer-row-template" type="text/template">
+  <script id="customer-row-template" type="text/template">
     <td>
       <%= id %>
     </td>
@@ -132,29 +141,29 @@
     <td>
       <%= movies_checked_out_count %>
     </td>
-</script>
+  </script>
 
 
-<script id="movie-card-template" type="text/template">
-  <section class="movie-card columns small-12 medium-4 large-3">
-    <img class="movie small-poster" src=<%=image_url%>>
-    <h4 class="movie small-title"><%-title%></h4>
+  <script id="movie-card-template" type="text/template">
+    <section class="movie-card columns small-12 medium-4 large-3">
+      <img class="movie small-poster" src=<%=image_url%>>
+      <h4 class="movie small-title"><%-title%></h4>
 
-    <!-- one of these two buttons will be rendered -->
-    <button class="button add-library">Add to Library</button>
-    <section class="lib-buttons">
-      <button class="button rent-movie">Rent</button>
-      <button class="button remove-movie">Remove from Library</button>
+      <!-- one of these two buttons will be rendered -->
+      <button class="button add-library">Add to Library</button>
+      <section class="lib-buttons">
+        <button class="button rent-movie">Rent</button>
+        <button class="button remove-movie">Remove from Library</button>
+      </section>
+
     </section>
+  </script>
 
-  </section>
-</script>
-
-<!-- <script id="movie-library-template" type="text/template">
-<section class="columns small-12 medium-4 large-3">
-<img class="movie small-poster" src=<%=image_url%>/>
-<h4 class="movie small-title"><%-title%></h4>
-<button class="button" id="rent-movie">Rent</button>
+  <!-- <script id="movie-library-template" type="text/template">
+  <section class="columns small-12 medium-4 large-3">
+  <img class="movie small-poster" src=<%=image_url%>/>
+  <h4 class="movie small-title"><%-title%></h4>
+  <button class="button" id="rent-movie">Rent</button>
 </section>
 </script> -->
 

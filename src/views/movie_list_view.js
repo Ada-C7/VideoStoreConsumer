@@ -13,7 +13,7 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.model, "update", this.render);
     this.$("#search-header-section").hide();
     this.$("#library-header-section").hide();
-    this.$("#movie-details").hide();
+    this.$("#side-bar").hide();
   },
 
   resetHeaders: function() {
@@ -59,6 +59,8 @@ const MovieListView = Backbone.View.extend({
       // console.log(movie);
       that.$("#list-content").append(movieView.render().el);
       that.listenTo(movieView, "showMovie", that.showMovieDetails);
+      that.listenTo(movieView, "getRentForm", that.getRentalForm);
+
     });
     this.resetButtons();
     if (this.details === true) {
@@ -71,7 +73,8 @@ const MovieListView = Backbone.View.extend({
   events: {
     "click #search-button" : "getSearch",
     "click #return-library" : "returnToLib",
-    "click #hide-details" : "hideMovieDetails"
+    "click #hide-details" : "hideSideBar",
+    "click #cancel-rental": "hideSideBar"
   },
 
   getSearch: function() {
@@ -90,15 +93,20 @@ const MovieListView = Backbone.View.extend({
       }
     });
   },
+  showSideBar: function() {
+    this.$("#side-bar").show();
+    this.$("#list-main").addClass("large-9");
+    this.$(".movie-card").removeClass("large-3");
+    this.$(".movie-card").addClass("large-4");
+  },
 
   showMovieDetails: function(movie) {
     this.details = true;
     console.log("inside showMovieDetails");
-    this.$("#movie-details").show();
-    this.$("#list-main").addClass("large-9");
-    this.$(".movie-card").removeClass("large-3");
-    this.$(".movie-card").addClass("large-4");
+    this.showSideBar();
+    this.$("#rental-form").hide();
     this.$("#movie-details").empty();
+
     var myDetailedMovie = new MovieView({
       model: movie.model,
       template: _.template($("#movie-details-template").html()),
@@ -108,9 +116,9 @@ const MovieListView = Backbone.View.extend({
     this.$("#movie-details").append(myDetailedMovie.render().el);
   },
 
-  hideMovieDetails: function() {
+  hideSideBar: function() {
     this.details = false;
-    this.$("#movie-details").hide();
+    this.$("#side-bar").hide();
     this.$("#list-main").removeClass("large-9");
     this.$(".movie-card").addClass("large-3");
     this.$(".movie-card").removeClass("large-4");
@@ -122,6 +130,12 @@ const MovieListView = Backbone.View.extend({
     this.search = false;
     this.model.url = "http://localhost:3000/movies";
     this.model.fetch();
+  },
+
+  getRentalForm: function() {
+    this.showSideBar();
+    this.$("#movie-details").hide();
+    this.$("#rental-form").show();
   }
 
 });

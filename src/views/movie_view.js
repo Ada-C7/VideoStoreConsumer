@@ -18,7 +18,7 @@ const MovieView = Backbone.View.extend({
 
   events: {
     "click .movie" : "sendMovie",
-    // "click #rent-movie" : "rentMovie"
+    "click .rent-movie" : "rentMovie",
     "click .add-library" : "addToLib",
     "click .remove-movie" : "removeFromLib"
   },
@@ -48,7 +48,8 @@ const MovieView = Backbone.View.extend({
   },
 
   rentMovie: function() {
-    console.log("you have rented this movie");
+    console.log("you have inside movie view for rental");
+    this.trigger("getRentForm",this);
   }
 
 });
