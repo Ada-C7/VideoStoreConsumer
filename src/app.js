@@ -6,14 +6,17 @@ import _ from 'underscore';
 
 // MODELS
 import MovieList from './collections/movie_list';
+import CustomerList from './collections/customer_list';
 
 // VIEWS
 import MovieListView from './views/movie_list_view';
+import CustomerListView from './views/customer_list_view';
 
 var movieTemplate;
 var searchTemplate;
 var addFormTemplate;
 var movieCheckoutFormTemplate;
+var customerTemplate;
 // ready to go
 var rentalLibrary = function() {
   var movieList = new MovieList();
@@ -21,10 +24,23 @@ var rentalLibrary = function() {
   var params = {
     movieTemplate: movieTemplate,
     movieCheckoutFormTemplate: movieCheckoutFormTemplate,
+    customerShowMethod: customerShow,
     el: $('main'),
     model: movieList
   };
   var application = new MovieListView(params);
+  application.render();
+};
+
+var customerShow = function() {
+  var customerList = new CustomerList();
+  customerList.fetch();
+  var params = {
+    customerTemplate: customerTemplate,
+    el: $('main'),
+    model: customerList
+  };
+  var application = new CustomerListView(params);
   application.render();
 };
 
@@ -51,6 +67,7 @@ $(document).ready(function() {
   searchTemplate = _.template($('#search-library-template').html());
   addFormTemplate = _.template($('#addto-rental-library-template').html());
   movieCheckoutFormTemplate = _.template($('#movie-checkout-template').html());
+  customerTemplate = _.template($('#customer-checkout-template').html());
 
   rentalLibrary();
 

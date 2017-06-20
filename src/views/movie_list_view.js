@@ -11,6 +11,7 @@ var MovieListView = Backbone.View.extend({
     this.addFormTemplate = params.addFormTemplate;
     this.renderRentalLibraryCallback = params.renderRentalLibraryCallback;
     this.movieCheckoutFormTemplate = params.movieCheckoutFormTemplate;
+    this.customerShowMethod = params.customerShowMethod;
 
     this.listenTo(this.model, 'update' , this.render);
   },
@@ -54,6 +55,7 @@ var MovieListView = Backbone.View.extend({
       movie: selectedMovie.model.toJSON()
     });
     $('#movie-checkout-form').html(compiledTemplate);
+    this.customerShowMethod();
   },
 
   clearForm: function(){
