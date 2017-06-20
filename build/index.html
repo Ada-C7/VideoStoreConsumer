@@ -30,7 +30,6 @@
           <h3 class="button btn-query">Search</h3>
         </section>
       </section>
-
       <section class="main-content"></section>
       <section class="hide rental">
       </section>
@@ -38,7 +37,7 @@
 
     <!-- TEMPLATES -->
     <script type="text/template" id="movie-template">
-      <section class="columns small-4">
+      <section class="columns small-4 background-tile">
           <img class="movie-image" src="<%= image_url.toString() %>" />
           <h4><%- title %></h4>
           <p class="hide movie-overview">
@@ -73,7 +72,11 @@
 
     <script type="text/template" id="customer-template">
       <section class="columns small-4">
-        <h4><%- name %></h4>
+        <h4 class="button customer"><%- name %></h4>
+        <% var id_name = name.split(" ")[0]; %>
+        <ul id="<%-id_name %>">
+      
+        </ul>
       </section>
     </script>
 

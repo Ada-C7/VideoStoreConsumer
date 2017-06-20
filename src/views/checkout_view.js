@@ -44,8 +44,8 @@ var CheckoutView = Backbone.View.extend({
   createRental: function(event) {
     var rental_movie = this.checoutMovieView.selectedMovie();
     var rental_customer = this.checoutCustomersView.selectedCustomer();
-    console.log(rental_customer);
-    console.log(rental_movie);
+    // console.log(rental_customer);
+    // console.log(rental_movie);
     var attributes = {title: rental_movie, customer_id: rental_customer, due_date: "Tue, 20 Jun 2017"};
     var options = {
         type: 'POST',
@@ -53,6 +53,7 @@ var CheckoutView = Backbone.View.extend({
         customer_id: rental_customer
       };
     this.model.save(attributes, options);
+    $('#movie-customer-area').append("<h2>Movie Checked out! <h2>");
   }
 });
 

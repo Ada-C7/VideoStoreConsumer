@@ -1,14 +1,16 @@
 @include foundation-everything;
 
 main {
-
 }
 
 
 header {
   margin: 2%;
   padding: 0.5rem;
+  background-color: lightgreen;
 }
+
+
 
 header h1 {
   font-family: 'Pacifico', cursive;
@@ -45,6 +47,8 @@ aside label {
 .title {
   font-family: 'Pacifico', cursive;
 }
+
+
 
 div {
   display: inline;
