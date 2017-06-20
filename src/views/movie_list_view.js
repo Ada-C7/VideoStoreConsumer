@@ -9,7 +9,7 @@ var MovieListView = Backbone.View.extend({
     this.movieTemplate = _.template($('#movie-card-template').html());
     this.movieList = [];
 
-    this.model.forEach(function(rawMovie){
+    this.model.get("library").forEach(function(rawMovie){
       this.addMovie(rawMovie);
     }, this);
 
@@ -17,8 +17,8 @@ var MovieListView = Backbone.View.extend({
       title: this.$('.search-movie-form input[name="title"]')
     };
 
-    this.listenTo(this.model, 'add', this.addMovie);
-    this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.model.get("library"), 'add', this.addMovie);
+    this.listenTo(this.model.get("library"), 'update', this.render);
   },
 
   render: function() {
