@@ -11,7 +11,6 @@ var CustomerListView = Backbone.View.extend({
     this.customerDetailsTemplate = params.customerDetailsTemplate;
     this.alertTemplate = params.alertTemplate;
     this.listenTo(this.model, 'update', this.render);
-    this.listenTo(this.model, 'addCustomer', this.addCustomer);
   },
   render: function() {
     this.$('main').html('<ul></ul>');
@@ -35,14 +34,6 @@ var CustomerListView = Backbone.View.extend({
       el: 'body'
     });
     customerDetailsView.render();
-
-    this.listenTo(customerDetailsView, 'addCustomer', this.addCustomer);
-  },
-  addCustomer: function (customerAttributes) {
-    this.model.create(customerAttributes);
-
-    var compiledTemplate = this.alertTemplate(customerAttributes);
-    this.$('main').prepend(compiledTemplate);
   }
 });
 

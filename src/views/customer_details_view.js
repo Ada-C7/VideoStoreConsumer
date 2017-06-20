@@ -11,12 +11,6 @@ var CustomerDetailsView = Backbone.View.extend({
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
     this.$('main').html(compiledTemplate);
-  },
-  events: {
-    'click #add-customer' : 'addCustomer'
-  },
-  addCustomer: function () {
-    this.trigger('addCustomer', this.model.attributes);
   }
 });
 
