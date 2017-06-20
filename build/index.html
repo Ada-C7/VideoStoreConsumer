@@ -10,39 +10,51 @@
 <body>
 
   <header>
-    <h1>On backbone</h1>
+    <h1>Search</h1>
   </header>
   <main id='application'>
     <section id='movie'></section>
-    <section id='movie-list'></section>
+    <!-- <section id='movie-list'></section> -->
     <section id='new-movie'></section>
     <section id='movie-details'></section>
+    <section>
+      <form id="search-form">
+        <input type="text" name="query" id="queryParams"></input>
+        <button class="s-button button" type="submit">Search</button>
+      </form>
 
+    </section>
+    <button type="submit" class="list_store_rentals button">Available Rentals</button>
+<div class="checking">
     <ul class="movie-list"></ul>
+  </div>
   </main>
 
-  <section>
-    <button type="submit" class="list_store_rentals button">Available Rentals</button>
-  </section>
 
-  <section>
-    <form id="search-form">
-      <label for="title">Search</label>
-      <input type="text" name="query" id="queryParams"></input>
-      <button class="s-button button" type="submit">Search</button>
-    </form>
-  </section>
+
+
+
+  <!-- <section>
+    <button type="submit" class="list_store_rentals button">Available Rentals</button>
+  </section> -->
+
+
 
   <!-- Templates -->
-
+<section class="row">
   <script id="movie-card-template" type="text/template">
-    <li class="movie-name-temp"><%- movie.title %></li>
-    <%-movie.overview%><br>
+    <div class="parent-div large-3 columns">
+    <li class="movie-name-temp "><%- movie.title %></li>
+    <!-- <%-movie.overview%><br> -->
     <img src="<%-movie.image_url%>"><br>
-    Poster path: <%-movie.poster_path%><br>
-    <button class="add-movie button" type="submit">Add Movie</button>
+    <!-- Poster path: <%-movie.poster_path%><br> -->
+    <% if (isSearchResult) { %>
+      <button class="add-movie button" type="submit">Add Movie</button>
+    <% } %>
+  </div>
   </script>
 
   <script src="/app.bundle.js"></script>
+</section>
 
   </html>

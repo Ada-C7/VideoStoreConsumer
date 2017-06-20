@@ -42,3 +42,15 @@ div {
   border-style: solid;
 }
 */
+
+/*.movie-list {
+  border: solid;
+}*/
+
+ul {
+  list-style-type: none;
+}
+
+.parent-div {
+  text-align:center;
+}
