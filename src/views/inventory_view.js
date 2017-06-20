@@ -23,7 +23,7 @@ var InventoryView = Backbone.View.extend({
   },
 
   inventorySelected: function(event) {
-    console.log("In inventorySelected")
+    console.log("In inventorySelected");
     Backbone.pubSub.selectedMovie = this.model;
     Backbone.pubSub.trigger('inventoryChosen', this.model);
     // console.log(this.model);

@@ -15,13 +15,11 @@ var CustomerListView = Backbone.View.extend({
 
     this.listenTo(this.model, 'add', this.addCustomer);
     this.listenTo(this.model, 'update', this.render);
-    // this.listenTo(this.model, 'displayRentals', this.showRentals);    
   },
 
   render: function() {
     $('#customer-list').empty();
     this.customerList.forEach(function(customer){
-      // console.log();
       customer.render();
 
       $('#customer-list').append(customer.$el);

@@ -29,23 +29,23 @@ $(document).ready(function() {
 
 
   $("#search-form").submit(function(event) {
-      event.preventDefault();
-      var movieList = new MovieList();
-        console.log($('#movieName').val());
-      if ($('#movieName').val() === ""){
-        alert("Please, enter message term")
-        console.log("Please, enter message term")
-      }
-      else{
-        movieList.fetch({data: {query: $('#movieName').val()  }});
-      }
+    event.preventDefault();
+    var movieList = new MovieList();
+    console.log($('#movieName').val());
+    if ($('#movieName').val() === ""){
+      alert("Please, enter message term")
+      console.log("Please, enter message term")
+    }
+    else{
+      movieList.fetch({data: {query: $('#movieName').val()  }});
+    }
 
-      var options = {
-        el:  $('#all-movie-list'),
-        model: movieList
-      };
-      var mlv = new MovieListView(options);
-      mlv.render();
+    var options = {
+      el:  $('#all-movie-list'),
+      model: movieList
+    };
+    var mlv = new MovieListView(options);
+    mlv.render();
 
   });
 
@@ -59,21 +59,6 @@ $(document).ready(function() {
 
   var customerListView = new CustomerListView(options);
   customerListView.render();
-
-
-  // var rentalList = new RentalList();
-  // rentalList.fetch();
-  //
-  // var options = {
-  //   el:  $('.main-content'),
-  //   model: rentalList
-  // };
-  //
-  //
-  // var rentalListView = new RentalListView(options);
-  // rentalListView.render()
-
-
 
 
 

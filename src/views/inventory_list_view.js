@@ -17,6 +17,8 @@ var InventoryListView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
 
     this.listenTo(Backbone.pubSub, 'addToInventory', this.createInventory);
+    this.listenTo(Backbone.pubSub, 'customerChosen', this.createRental);
+    this.listenTo(Backbone.pubSub, 'inventoryChosen', this.createRental);
   },
 
   render: function() {
@@ -49,6 +51,30 @@ var InventoryListView = Backbone.View.extend({
     else{
       alert("You have already added this movie");
     }
+  },
+
+  createRental: function(movie) {
+    console.log("We are in Create Rental");
+    if (Backbone.pubSub.selectedMovie && Backbone.pubSub.selectedCustomer){
+      console.log("Movie and Customers are selected")
+
+      var today = new Date();
+      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      var due = new Date();
+      var msDueDate = new Date(due.setTime( due.getTime() + 14 * 86400000 ));
+      var dueDate = msDueDate.getFullYear()+'-'+(msDueDate.getMonth()+1)+'-'+msDueDate.getDate();
+
+      var params = {
+        customer_id: Backbone.pubSub.selectedCustomer.attributes.id,
+        movie_id: Backbone.pubSub.selectedMovie.attributes.id,
+        checkout_date: date,
+        due_date: dueDate
+      }
+
+      var title = Backbone.pubSub.selectedMovie.attributes.title;
+      this.model.create(params, {type: "POST", url:'http://localhost:3000/rentals/' + title + '/check-out'});
+    }
+
   }
 
 });
