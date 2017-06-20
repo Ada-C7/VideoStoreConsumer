@@ -1,5 +1,22 @@
 @include foundation-everything;
 
+body{
+  background-color: red;
+}
+#side-bar {
+color: white;
+
+}
+
+#movie-listing{
+  background-color: black;
+
+}
+
+.movie{
+  height: 200px;
+}
+
 /*main {
     background: lightblue;
 }

@@ -8,42 +8,43 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
-    <h1>Rana and Kelsey's Video Store!</h1>
 
     <main>
-      <div id="search-bar" class="row">
-        <div class="input-group input-group-rounded small-3 columns">
-          <input class="input-group-field" type="search"></input>
-          <div class="input-group-button">
-            <button type="submit" class="button secondary search-button" value="Search">Search</button>
+      <div class='row'>
+        <div id='side-bar' class='medium-4 columns'>
+          <h1>Welcome to WEBFLEX</h1>
+          <div id="search-bar" >
+            <div class="input-group input-group-rounded small-3 columns">
+              <input class="input-group-field" type="search"></input>
+              <div class="input-group-button">
+                <button type="submit" class="button secondary search-button" value="Search">Search</button>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <section class="movie-details" ></section>
       </div>
 
-      <section class="movie-details">
+      <div id='movie-listing' class='medium-8 columns'>
+        <section class="movie-library"></section>
+        <section class="movie-search"></section>
+      </div>
+    </div>
 
-      </section>
-
-      <section class="movie-library">
-
-      </section>
-      <section class="movie-search">
-
-      </section>
     </main>
-    <script id='movie-details-template' type='text/template'>
+    <script id='movie-details-template'  type='text/template'>
       <h2><%= title %></h2>
       <p><%= overview %></p>
       <p><strong>Release Date: </strong><%= release_date %></p>
       <p><strong>Availability: </strong><%= inventory %> / <%= available_inventory %></p>
     </script>
 
-    <script id='movie-template' type='text/template'>
+    <script id='movie-template' type='text/template' >
       <img src="<%= movie.image_url%>" alt="<%= movie.title %> image">
       <%= movie.title %>
     </script>
 
-    <script id='search-template' type='text/template'>
+    <script id='search-template' type='text/template' >
       <img src="<%= movie.image_url%>" alt="<%= movie.title %> image">
       <%= movie.title %>
       <a href="#" class="button add-movie">Add to Library</a>

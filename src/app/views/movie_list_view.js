@@ -60,10 +60,14 @@ var MovieListView = Backbone.View.extend({
       success: function() {
         $('.movie-details').empty();
         $('.movie-details').show();
-        var generatedModalTemplate= self.modalTemplate(movie.toJSON());
+        var generatedModalTemplate =  self.modalTemplate(movie.toJSON());
         self.$('.movie-details').append(generatedModalTemplate);
+        console.log("this is " + movie);
+
       }
     });
+    // console.log("this is " + movie);
+
   },
 
   hideDetails: function(){
