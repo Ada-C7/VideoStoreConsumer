@@ -32,10 +32,10 @@
       </section>
     </main>
     <script id='movie-details-template' type='text/template'>
-      <%= title %>
-      <%= overview %>
-      <%= release_date %>
-      <%= inventory %>
+      <h2><%= title %></h2>
+      <p><%= overview %></p>
+      <p><strong>Release Date: </strong><%= release_date %></p>
+      <p><strong>Availability: </strong><%= inventory %> / <%= available_inventory %></p>
     </script>
 
     <script id='movie-template' type='text/template'>
