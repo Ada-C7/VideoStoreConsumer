@@ -27,7 +27,6 @@
         </section>
 
       </section>
-
       <section class="main-content"></section>
       <section class="hide rental"></section>
     </main>
@@ -70,7 +69,11 @@
 
     <script type="text/template" id="customer-template">
       <section class="columns small-4">
-        <h4><%- name %></h4>
+        <h4 class="button customer"><%- name %></h4>
+        <% var id_name = name.split(" ")[0]; %>
+        <ul id="<%-id_name %>">
+
+        </ul>
       </section>
     </script>
 

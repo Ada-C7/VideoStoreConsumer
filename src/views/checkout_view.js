@@ -53,6 +53,7 @@ var CheckoutView = Backbone.View.extend({
         customer_id: rental_customer
       };
     this.model.save(attributes, options);
+    $('#movie-customer-area').append("<h2>Movie Checked out! <h2>");
   }
 });
 

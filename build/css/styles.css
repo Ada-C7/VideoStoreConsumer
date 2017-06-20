@@ -1,5 +1,7 @@
 @include foundation-everything;
 
+main {
+  
 img.movie-image{
   /*height: 100px;*/
   display: block;
@@ -39,6 +41,8 @@ header {
   background-color: lightgreen;
 }
 
+
+
 header h1 {
   font-family: 'Pacifico', cursive;
   text-align:center;
@@ -73,6 +77,8 @@ aside label {
 .title {
   font-family: 'Pacifico', cursive;
 }
+
+
 
 div {
   display: inline;

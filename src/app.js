@@ -37,7 +37,7 @@ $(document).ready(function() {
     customerList.fetch();
     // ready to go
 
-    var customersView = new MoviesView({
+    var customersView = new CustomersView({
       model: customerList,
       template: _.template($("#customer-template").html()),
       el: 'main'
