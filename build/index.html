@@ -12,7 +12,7 @@
     <main>
       <div class='row'>
         <div id='side-bar' class='medium-4 columns'>
-          <h1>Welcome to WEBFLEX</h1>
+          <img src="../images/netflix-logo.png" alt="webflix! logo">
           <div id="search-bar" >
             <div class="input-group input-group-rounded small-3 columns">
               <input class="input-group-field" type="search"></input>
@@ -26,8 +26,10 @@
       </div>
 
       <div id='movie-listing' class='medium-8 columns'>
-        <section class="movie-library"></section>
-        <section class="movie-search"></section>
+        <div class="row collapse">
+          <section class="movie-library"></section>
+          <section class="movie-search"></section>
+        </div>
       </div>
     </div>
 
@@ -46,7 +48,7 @@
 
     <script id='search-template' type='text/template' >
       <img src="<%= movie.image_url%>" alt="<%= movie.title %> image">
-      <%= movie.title %>
+      <p><%= movie.title %></p>
       <a href="#" class="button add-movie">Add to Library</a>
     </script>
     <script src="/app.bundle.js"></script>

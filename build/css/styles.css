@@ -1,11 +1,12 @@
 @include foundation-everything;
 
-body{
-  background-color: red;
-}
-#side-bar {
-color: white;
 
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+}
+body{
+  background-color: black;
 }
 
 #movie-listing{
@@ -13,8 +14,25 @@ color: white;
 
 }
 
-.movie{
-  height: 200px;
+.movie {
+  height: 400px;
+  color: white;
+}
+
+img {
+  height: 300px;
+  width: 100%;
+}
+
+.column.nonpadding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.button {
+  border-radius: 500px;
+  background-color: #D81F26;
+  color: white;
 }
 
 /*main {
@@ -63,9 +81,11 @@ div {
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
   padding-left: 1rem;
+  border: none;
 }
 
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
+  background-color: #D81F26;
 }

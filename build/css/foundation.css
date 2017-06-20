@@ -508,8 +508,8 @@ pre {
     margin-left: -0.625rem; }
     @media print, screen and (min-width: 40em) {
       .row .row {
-        margin-right: -0.9375rem;
-        margin-left: -0.9375rem; } }
+        margin-right: -0rem;
+        margin-left: -0rem; } }
     @media print, screen and (min-width: 64em) {
       .row .row {
         margin-right: -0.9375rem;
@@ -525,17 +525,17 @@ pre {
   .row:not(.expanded) .row {
     max-width: none; }
   .row.gutter-small > .column, .row.gutter-small > .columns {
-    padding-right: 0.625rem;
-    padding-left: 0.625rem; }
+    padding-right: 0rem;
+    padding-left: 0rem; }
   .row.gutter-medium > .column, .row.gutter-medium > .columns {
-    padding-right: 0.9375rem;
-    padding-left: 0.9375rem; }
+    padding-right: 0rem;
+    padding-left: 0rem; }
 
 .column, .columns {
   width: 100%;
   float: left;
-  padding-right: 0.625rem;
-  padding-left: 0.625rem; }
+  padding-right: 0rem;
+  padding-left: 0rem; }
   @media print, screen and (min-width: 40em) {
     .column, .columns {
       padding-right: 0.9375rem;
