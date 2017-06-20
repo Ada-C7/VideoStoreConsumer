@@ -12,7 +12,7 @@ var storeList = function(event) {
   movieList.fetch();
 
   var rentals = new MovieListView({
-    isSearchResult: false,
+    isSearchResult: false, //added with dan
     model: movieList,
     templateMovieList: _.template($('#movie-card-template').html()),
     el: $('#application')
@@ -34,7 +34,7 @@ var databaseList = function(event) {
     searchList.customUrl(queryParams);
     searchList.fetch();
     var searches = new MovieListView({
-      isSearchResult: true,
+      isSearchResult: true, //added with dan
       model: searchList,
       templateMovieList: _.template($('#movie-card-template').html()),
       el: $('#application')

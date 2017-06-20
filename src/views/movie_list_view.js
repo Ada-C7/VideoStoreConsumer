@@ -5,7 +5,7 @@ import MovieView from './movie_view';
 
 var MovieListView = Backbone.View.extend({
   initialize: function(options) {
-    this.isSearchResult = options.isSearchResult;
+    this.isSearchResult = options.isSearchResult; //added with dan
     //we are creating our template to be used later on
     this.moviesBulletTemplate = options.templateMovieList;
     //keeping track of the element we will want to append to later on
@@ -39,7 +39,7 @@ var MovieListView = Backbone.View.extend({
 
   addMovie: function(movie){
     var movie = new MovieView({
-      isSearchResult: this.isSearchResult,
+      isSearchResult: this.isSearchResult, //added with dan
       model: movie,
       template: this.moviesBulletTemplate
     });

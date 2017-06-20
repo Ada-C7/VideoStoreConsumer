@@ -5,7 +5,7 @@ import _ from 'underscore';
 var MovieView = Backbone.View.extend({
   initialize: function(options) {
     this.template = options.template;
-    this.isSearchResult = options.isSearchResult;
+    this.isSearchResult = options.isSearchResult; //added with dan
   },
   events: {
     "click .add-movie": "addMovie"
@@ -13,7 +13,7 @@ var MovieView = Backbone.View.extend({
   render: function(){
     var templateSettings = {
       movie: this.model.toJSON(),
-      isSearchResult: this.isSearchResult
+      isSearchResult: this.isSearchResult //added with dan
     };
     console.log(templateSettings);
     var generatedHtml = this.template(templateSettings);
@@ -21,7 +21,6 @@ var MovieView = Backbone.View.extend({
     return this;
   },
   addMovie: function(event) {
-    // console.log(this.model.attributes);
     var movieUrl = "http://localhost:3000/movies";
     var data = { movie: this.model.attributes };
     $.post(movieUrl, data, function(response){
