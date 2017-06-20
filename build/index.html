@@ -13,22 +13,17 @@
       <h1>Video Store</h1>
     </header>
     <main class="row">
-      <div id="top-buttons" class="small-12 columns">
-        <h3 class="button view-customers float-center">View Customers</h3>
-        <h3 class="button view-movies float-center">View Movies</h3>
-      </div>
 
       <section class="search-bar top-bar">
-        <section class="columns top-bar-left">
-          <h5>Find Movie In Store</h5>
-          <input type="text" name="find" id="search-in-store" />
-          <h3 class="button btn-search-in-store">Search</h3>
-        </section>
+        <h3 class="button view-customers top-bar-left">View Customers</h3>
+        <h3 class="button view-movies top-bar-left">View Movies</h3>
 
         <section class="columns top-bar-right">
-          <h5>Find New Movies</h5>
-          <input type="text" name="query" id="search-item" />
-          <h3 class="button btn-query">Search</h3>
+          <h5>Find Movies</h5>
+          <input type="text" name="find" id="movie-search" />
+          <input type="radio" name="search" value="in-store" id="inStore" checked="checked"> In Store </br>
+          <input type="radio" name="search" value="query" id="query"> In External Database
+          <h3 class="button btn-search">Search</h3>
         </section>
       </section>
 
@@ -68,7 +63,8 @@
               <%- customer.get('name') %>
             </option>
           <% }); %>
-        </section>
+        </select>
+      </section>
     </script>
 
     <script type="text/template" id="customer-template">
@@ -79,7 +75,7 @@
 
     <script type="text/template" id="rental-template">
       <section id="movie-customer-area"></section>
-      <h3 class="button add-rental">Checkout Movie</h3>
+      <h3 class="button checkout columns">Checkout Movie</h3>
     </script>
 
     <script src="/app.bundle.js"></script>

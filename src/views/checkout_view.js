@@ -16,7 +16,7 @@ var CheckoutView = Backbone.View.extend({
     var compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
 
-    var checoutMovieView = new CheckoutMovieView({
+    var checkoutMovieView = new CheckoutMovieView({
       model: this.movie,
       template: _.template($("#rent-movie-template").html())
     });
@@ -31,10 +31,10 @@ var CheckoutView = Backbone.View.extend({
       template: _.template($("#rent-customer-template").html())
     });
 
-    this.checoutMovieView = checoutMovieView;
+    this.checkoutMovieView = checkoutMovieView;
     this.checoutCustomersView = checoutCustomersView;
 
-    this.$('#movie-customer-area').append(checoutMovieView.render().el);
+    this.$('#movie-customer-area').append(checkoutMovieView.render().el);
     this.$('#movie-customer-area').append(checoutCustomersView.render().el);
     return this;
   },
@@ -42,7 +42,7 @@ var CheckoutView = Backbone.View.extend({
     'click h3.button.add-rental': 'createRental'
   },
   createRental: function(event) {
-    var rental_movie = this.checoutMovieView.selectedMovie();
+    var rental_movie = this.checkoutMovieView.selectedMovie();
     var rental_customer = this.checoutCustomersView.selectedCustomer();
     // console.log(rental_customer);
     // console.log(rental_movie);

@@ -7,6 +7,10 @@ img.movie-image{
   margin-right: auto;
 }
 
+.top-bar {
+  background-color: lightgreen;
+}
+
 .add-rental, .add-collection {
   display: block;
   margin-left: auto;
@@ -24,7 +28,7 @@ img.movie-image{
 }
 
 .main-content {
-  height: 300px;
+  height: 500px;
   overflow: scroll;
 }
 

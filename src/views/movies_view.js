@@ -57,25 +57,30 @@ var MoviesView = Backbone.View.extend({
     return this;
   },
   events: {
-  "click h3.button.btn-query": "searchMovies",
-  "click h3.button.btn-search-in-store": "searchInStore"
+  "click h3.button.btn-search": "searchMovies",
   },
   searchMovies: function(event) {
     $('.rental').addClass('hide');
     $('.main-content').removeClass('hide');
-    var searchParams = this.$('#search-item').val();
-    this.$('#search-item').val('');
-    this.model.fetch({
-      data: { query: searchParams },
-      processData: true
-    });
-    this.isSearching = true;
+
+    var radio = this.$("input[name='search']:checked").val();
+
+    if (radio == 'in-store') {
+      this.searchInStore(event);
+    } else {
+      var searchParams = this.$('#movie-search').val();
+      this.$('#movie-search').val('');
+      this.$('#movie-search').val('');
+      this.model.fetch({
+        data: { query: searchParams },
+        processData: true
+      });
+      this.isSearching = true;
+    }
   },
   searchInStore: function(event) {
-    $('.rental').addClass('hide');
-    $('.main-content').removeClass('hide');
-    var searchParams = this.$('#search-in-store').val();
-    this.$('#search-in-store').val('');
+    var searchParams = this.$('#movie-search').val();
+    this.$('#movie-search').val('');
     this.model.fetch({
       data: { find: searchParams },
       processData: true
