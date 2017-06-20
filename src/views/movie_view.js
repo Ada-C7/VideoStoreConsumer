@@ -29,6 +29,7 @@ var MovieView = Backbone.View.extend({
     return inventory;
   },
   addMovie: function() {
+    console.log("#1");
     console.log(this.model);
 
     this.model.fetch({data: {
@@ -42,6 +43,7 @@ var MovieView = Backbone.View.extend({
   });
   },
   deleteMovie: function(){
+    console.log("#1");
     this.model.fetch({
       data: {
         id: this.model.get("id"),
@@ -55,6 +57,7 @@ var MovieView = Backbone.View.extend({
   onClick: function(event){
     event.stopPropagation();
     self = this;
+    console.log("#1");
     this.model.fetch({
       success: function(data) {
         console.log("It worked (details)!", data);
