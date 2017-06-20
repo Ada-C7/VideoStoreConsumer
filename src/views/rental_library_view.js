@@ -7,7 +7,6 @@ import MovieView from './movie_View';
 import Movie from '../models/movie';
 import SearchResults from '../collections/search_results';
 import SearchResultsView from '../views/search_results_view';
-import MovieCardView from './movie_card_view';
 
 var RentalLibraryView = Backbone.View.extend({
   initialize: function(params) {
@@ -28,13 +27,15 @@ var RentalLibraryView = Backbone.View.extend({
 
       });
       that.$("#movie-list").append(movieView.render().el);
-      that.listenTo(movieView, "selected", that.renderModal);
+      // that.listenTo(movieView, "selected", that.renderModal);
     });
   },
 
   events: {
     "click #search": "search",
-    "click #logo": "render"
+    "click #logo": "render",
+    "click": "hideModal"
+
   },
 
   search: function(){
@@ -45,6 +46,7 @@ var RentalLibraryView = Backbone.View.extend({
     var searchResults = new SearchResults();
     searchResults.fetch({ data: $.param({ query }) });
 
+
     var searchResultsView = new SearchResultsView({
       model: searchResults,
       template: _.template($('#new-movie-card-template').html()),
@@ -52,25 +54,10 @@ var RentalLibraryView = Backbone.View.extend({
     });
   },
 
-
-  renderModal: function(event){
-    console.log("inside render modal func");
-    this.$("#movie-card").removeClass('hidden');
-
-    var myCardView = new MovieCardView({
-      model: event,
-      template: _.template($('#movie-details-template').html())
-    });
-    this.$("#movie-card").removeClass('hidden');
-    this.$('#movie-card').empty();
-    // var myMovieCard = this.generateHTML(movie);
-    this.$("#movie-card").append(myCardView.render().el);
-
-  },
-
   hideModal: function() {
-    this.$('#movie-card').addClass('hidden');
-  },
+    $('#movie-details').addClass('hidden');
+  }
+
 
 
 });

@@ -29,6 +29,15 @@ var SearchResultsView = Backbone.View.extend({
 
   },
 
+  events: {
+    "click": "hideModal"
+  },
+
+
+    hideModal: function() {
+      $('#movie-details').addClass('hidden');
+    },
+
 });
 
 export default SearchResultsView;

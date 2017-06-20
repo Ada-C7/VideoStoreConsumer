@@ -3,7 +3,7 @@ import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
 
-import MovieCardView from "./movie_card_view";
+import MovieDetailsView from "./movie_details_view";
 import Movie from '../models/movie';
 
 var MovieView = Backbone.View.extend({
@@ -22,21 +22,38 @@ var MovieView = Backbone.View.extend({
 
   events:  {
     "click #add-to-library": "add",
-    "click .movie-card": "selected"
+    "click #movie-card": "renderModal",
   },
 
   selected: function(event) {
     this.trigger("selected", this.model);
     event.stopPropagation();
   },
-  // var that = this;
-  // this.model.each(function(movie){
-  //listener will have this code and that happens in the library view
 
   add: function(){
     console.log(this.model);
     this.model.save();
   },
+
+
+  renderModal: function(event){
+    event.stopPropagation();
+
+    $('#movie-details').empty();
+    $("#movie-details").removeClass('hidden');
+
+    // console.log(this.model);
+    var myDetailsView = new MovieDetailsView({
+      model: this.model,
+      template: _.template($('#movie-details-template').html())
+    });
+
+    // console.log(myDetailsView.render());
+    $("#movie-details").append(myDetailsView.generateHTML());
+
+  }
+
+
 });
 
 

@@ -5,20 +5,18 @@ import $ from 'jquery';
 import Movie from '../models/movie';
 import MovieView from './movie_View';
 
-var MovieCardView = Backbone.View.extend({
+var MovieDetailsView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.model = params.model;
-    this.listenTo(this.model, "change",
-    this.render);
-
   },
-  render: function() {
-    var compiledTemplate =
-    this.template(this.model.toJSON() );
-    this.$el.html(compiledTemplate);
-    return this;
+  generateHTML: function() {
+    var compiledTemplate = this.template(this.model.toJSON());
+    console.log(compiledTemplate);
+    return compiledTemplate;
+
+
   }
 });
 
-export default MovieCardView;
+export default MovieDetailsView;
