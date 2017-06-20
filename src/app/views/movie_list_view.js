@@ -9,9 +9,7 @@ var MovieListView = Backbone.View.extend({
   initialize: function(params){
     this.listenTo(this.model, 'update', this.render);
     this.template = _.template($('#movie-template').html());
-    this.modalTemplate = _.template($('#movie-detailfetch
-    s-template').html());
-
+    this.modalTemplate = _.template($('#movie-details-template').html());
   },
 
   render: function(){
