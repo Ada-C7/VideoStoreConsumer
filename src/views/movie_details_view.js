@@ -65,7 +65,11 @@ var MovieDetailsView = Backbone.View.extend({
       // console.log(myNewRentalInfo.customer_id);
       // console.log(myNewRentalInfo.due_date);
 
-       myNewRental.save();
+       if (myNewRental.save()) {
+         alert("WHOOP THERE IT IS! New Rental created!");
+       } else {
+         alert("Something went wrong :(");
+       }
 
       // Movie.create(adf)
 
