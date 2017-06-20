@@ -1,17 +1,31 @@
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto');
+
+/*font-family: 'Roboto', sans-serif;
+font-family: 'Josefin Sans', sans-serif;*/
+
 
 main {
-    background: lightblue;
+    background: white;
 }
 
 header {
-  background-color: lightgreen;
+  font-family: 'Josefin Sans', sans-serif;
   padding: 0.5rem;
+  text-align: center;
 }
 
-#completed-checkbox {
-  display: inline;
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: darkgreen;
 }
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+
 
 label {
   display: inline;
@@ -24,25 +38,27 @@ button.success {
 
 .movie-card {
   padding: 1%;
-  border-style: solid;
-  border-width: thin;
+  /*border-style: solid;
+  border-width: thin;*/
 }
 
 .movie-card img {
-  padding-bottom: 3%;
+  display: block;
 }
 
-
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
+#movie-details {
+  padding-right: 5%;
 }
+
 aside label {
   color: #FFFFFF;
 }
 
-.completed {
-  text-decoration: line-through;
+.button {
+  /*padding: 1%;*/
+  border-radius: 70px;
+  background-color: darkgreen;
+
 }
 
 div {
