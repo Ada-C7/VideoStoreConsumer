@@ -54,8 +54,11 @@ aside label {
   color: #FFFFFF;
 }
 
-button {
-  padding: 1%;
+.button {
+  /*padding: 1%;*/
+  border-radius: 70px;
+  background-color: darkgreen;
+
 }
 
 div {
