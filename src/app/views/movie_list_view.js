@@ -9,7 +9,8 @@ var MovieListView = Backbone.View.extend({
   initialize: function(params){
     this.listenTo(this.model, 'update', this.render);
     this.template = _.template($('#movie-template').html());
-    this.modalTemplate = _.template($('#movie-details-template').html());
+    this.modalTemplate = _.template($('#movie-detailfetch
+    s-template').html());
 
   },
 
@@ -49,10 +50,16 @@ var MovieListView = Backbone.View.extend({
   },
 
   showDetails: function(movie){
-    $('.movie-details').empty();
-    $('.movie-details').show();
-    var generatedModalTemplate= this.modalTemplate(movie.toJSON());
-    this.$('.movie-details').append(generatedModalTemplate);
+    var self = this;
+    // This is to be able to render inventory and avilable_inventory
+    movie.fetch({
+      success: function() {
+        $('.movie-details').empty();
+        $('.movie-details').show();
+        var generatedModalTemplate= self.modalTemplate(movie.toJSON());
+        self.$('.movie-details').append(generatedModalTemplate);
+      }
+    });
   },
 
   hideDetails: function(){
