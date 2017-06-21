@@ -29,7 +29,8 @@ var MovieDetailsView = Backbone.View.extend({
   },
   events: {
     'click #add-movie' : 'addMovie',
-    'click #rent-movie' : 'rentMovie'
+    'click #rent-movie' : 'rentMovie',
+    'click #delete-movie' : 'deleteMovie'
   },
   addMovie: function () {
     this.trigger('addMovie', this.model.attributes);
@@ -57,6 +58,13 @@ var MovieDetailsView = Backbone.View.extend({
     formData.dueDate = this.$('#due-date').val();
 
     return formData;
+  },
+  deleteMovie: function () {
+    var movieTitle = this.model.get('title');
+    this.model.url = "http://localhost:3000/movies/" + this.model.get('id');
+    this.model.destroy();
+
+    this.$('main').prepend("<p>Successfully deleted " + movieTitle + " from inventory.</p>");
   }
 });
 
