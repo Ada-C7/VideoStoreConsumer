@@ -22,13 +22,17 @@ var RentalListView = Backbone.View.extend({
 
   render: function() {
     console.log("I AM IN RENDER RENTAL LIST VIEW")
-    console.log(this.rentalList)
     // this.rentalList.shift();
     console.log(this.rentalList)
     $('#rental-list').empty();
     $('#rental-list').append('<h3>Rental list for </h3>');
     this.rentalList.forEach(function(rental){
-      if (rental.returned != false){
+      // if (rental.returned != false){
+      //   console.log("I AM HERE in rentalList forEach" )
+      //   rental.render();
+      //   $('#rental-list').append(rental.$el);
+      // }
+      if (rental.model.attributes.returned == false){
         rental.render();
         $('#rental-list').append(rental.$el);
       }
