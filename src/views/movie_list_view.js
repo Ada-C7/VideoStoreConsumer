@@ -38,7 +38,8 @@ var MovieListView = Backbone.View.extend({
     return this;
   },
   events: {
-    "submit" : "searchFunction"
+    "submit" : "searchFunction",
+    "click" : "hideMovieDetails"
   },
   getInputData: function(){
     var input = this.$("input[name='query']").serialize();

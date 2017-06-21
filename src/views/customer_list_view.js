@@ -10,10 +10,8 @@ import CustomerView from './customer_view.js';
 var CustomerListView = Backbone.View.extend({
   initialize: function() {
     this.template = _.template($('#tmpl-customer').html());
-    // this.model = new Customer();
-
-    // console.log('this.model inside Cusomer List View: ', this.model);
-    this.listenTo(this.model, "sync", this.render);
+    // TODO do we need this.model, "sync", this.render
+    // this.listenTo(this.model, "sync", this.render);
     this.model.fetch({
       success: function(data) {
         // console.log("It worked (index)!", data);
@@ -23,7 +21,7 @@ var CustomerListView = Backbone.View.extend({
         // }
       },
       failure: function(data) {
-        console.log("Failure", data);
+        // console.log("Failure", data);
         this.$('#customer-list').append("<h2>Request failed.</h2>");
       }
     });
@@ -32,23 +30,23 @@ var CustomerListView = Backbone.View.extend({
 
     // this.$('#customer-list').empty();
 
-    console.log('this.model: ',this.model);
+    // console.log('this.model: ',this.model);
 
 
     this.model.each((customer)=>{
 
-      console.log('Begining of for LOop');
-      console.log('customer: ', customer);
+      // console.log('Begining of for LOop');
+      // console.log('customer: ', customer);
       var customerView = new CustomerView({
         model: customer,
         template: this.template,
         tagName: 'option'
       });
-      console.log('Before Append ');
-      console.log("this.el == ", this.el);
+      // console.log('Before Append ');
+      // console.log("this.el == ", this.el);
       this.$el.append(customerView.render().el);
       // this.listenTo(customerView, 'selectedCustomer', this.showCustomerDetails);
-      console.log('after append',customerView.el );
+      // console.log('after append',customerView.el );
     });
 
 
