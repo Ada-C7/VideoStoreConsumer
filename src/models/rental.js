@@ -9,9 +9,7 @@ var Rental = Backbone.Model.extend({
       method = 'check-out';
       options.data = JSON.stringify(this.attributes);
       options.contentType = 'application/json';
-      // options.data['due_date'] = "1/1/19";
       console.log(options.data);
-      // console.log(options.url);
       return Backbone.sync(method, model, options);
     }
   }

@@ -18,7 +18,7 @@
 
       <section class="search-bar row">
         <section class="columns">
-          <h5>Find Movies</h5>
+          <h5>Search Movies</h5>
           <input type="radio" name="search" value="in-store" id="inStore" checked="checked" /> In Store
           <input type="radio" name="search" value="query" id="query" /> External Database
           <input type="text" name="find" id="movie-search" />
@@ -58,7 +58,7 @@
       </section>
     </script>
 
-    <script type="text/template" id="rent-movie-template">
+    <script type="text/template" id="checkout-movie-template">
       <section class="small-6 column">
         <img class="movie-image" src="<%= image_url.toString() %>" />
         <h4 class="movie-title"><%- title %></h4>
@@ -68,7 +68,7 @@
       </section>
     </script>
 
-    <script type="text/template" id="rent-customer-template">
+    <script type="text/template" id="checkout-customer-template">
       <section class="small-6 column">
         <h4>Select Customer</h4>
         <select id="customer-selector">
@@ -91,25 +91,16 @@
       </section>
     </script>
 
-    <script type="text/template" id="rental-template">
+    <script type="text/template" id="checkout-template">
       <section id="movie-customer-area"></section>
       <h3 class="button checkout columns">Checkout Movie</h3>
     </script>
 
-    <script type="text/template" id="new-customer-template">
-      <section class="row">
-        <h2>Register a New Customer</h2>
-        <form>
-          <label>Name
-          <input type="text" placeholder="large-12.columns" />
-          </label>
-          <label>Phone Number
-          <input type="text" placeholder="large-12.columns" />
-          </label>
-          <label>Postal Codes
-          <input type="text" placeholder="large-12.columns" />
-          </label>
-        </form>
+    <script type="text/template" id="rental-template">
+      <section class="columns">
+        <h5 class="rental-title"><%- title %></h5>
+        <h5 class="rental-due-date">due: <%- due_date %></h5>
+        <h5 class='button check-in'>Check In Movie</h5>
       </section>
     </script>
 
