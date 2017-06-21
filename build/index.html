@@ -83,8 +83,13 @@
 
     <script id="rental-template" type="text/template">
       <section>
-        <h4><%- title %></h4>
-        <h3>Customers Here</h3>
+        <h1>Rental Form: </h1>
+         <label>Selected movie:
+         <input type="text" name="title" id="title" value="<%- title %>">
+         </label>
+         <label class="customers-select">Selected Customer:
+         </label>
+         <button class="submit-rental button">Finish!</button>
       </section>
     </script>
 
