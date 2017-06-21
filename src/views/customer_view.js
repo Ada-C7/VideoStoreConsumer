@@ -1,7 +1,8 @@
 import Backbone from 'backbone';
 import Customer from '../models/customer.js';
 import Rental from '../models/rental.js';
-import RentalView from './rental_view.js';
+import Rentals from '../collections/rentals.js';
+import RentalsView from './rentals_view.js';
 import $ from 'jquery';
 import _ from 'underscore';
 
@@ -31,15 +32,30 @@ var CustomerView = Backbone.View.extend({
 
     rentals.forEach(function(rental, index)  {
       rental.title = movies[index].title;
-      // console.log(rental.title);
       var newRental = new Rental(rental);
-      console.log(newRental.title);
-      var rentalView = new RentalView ({
-        model: newRental,
-        template: _.template($("#rental-template").html())
-      });
-      $('#' + name).append(rentalView.render().el);
     });
+
+    var customerRentals = new Rentals(rentals);
+    console.log(customerRentals);
+    var customerRentalsView = new RentalsView({
+      name: name,
+      model: customerRentals,
+      template: _.template($("#rental-template").html())
+    });
+
+    customerRentalsView.render();
+
+    // rentals.forEach(function(rental, index)  {
+    //   rental.title = movies[index].title;
+    //   // console.log(rental.title);
+    //   var newRental = new Rental(rental);
+    //   console.log(newRental.title);
+    //   var rentalView = new RentalView ({
+    //     model: newRental,
+    //     template: _.template($("#rental-template").html())
+    //   });
+    //   $('#' + name).append(rentalView.render().el);
+    // });
   }
 });
 
