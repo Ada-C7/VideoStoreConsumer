@@ -38,7 +38,7 @@ var MoviesView = Backbone.View.extend({
         var checkoutView = new CheckoutView({
           movie: movie,
           model: rental,
-          template: _.template($("#rental-template").html())
+          template: _.template($("#checkout-template").html())
         });
         that.$('.rental').append(checkoutView.render().el);
       });

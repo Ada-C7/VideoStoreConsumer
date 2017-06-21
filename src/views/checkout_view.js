@@ -18,7 +18,7 @@ var CheckoutView = Backbone.View.extend({
 
     var checkoutMovieView = new CheckoutMovieView({
       model: this.movie,
-      template: _.template($("#rent-movie-template").html())
+      template: _.template($("#checkout-movie-template").html())
     });
 
     var customerDropdownList = new Customers();
@@ -28,7 +28,7 @@ var CheckoutView = Backbone.View.extend({
     // console.log(customerDropdownList);
     var checoutCustomersView = new CheckoutCustomersView({
       model: customerDropdownList,
-      template: _.template($("#rent-customer-template").html())
+      template: _.template($("#checkout-customer-template").html())
     });
 
     this.checkoutMovieView = checkoutMovieView;
