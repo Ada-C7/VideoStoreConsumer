@@ -35,12 +35,12 @@ var MovieDetailsView = Backbone.View.extend({
     this.trigger('addMovie', this.model.attributes);
   },
   rentMovie: function () {
+    var formData = this.getRentalFormData();
     var rental = new Rental();
     var attributes = {
       title: this.model.get('title'),
-      customer_id: this.getCustomerID(),
-      // TODO: add due date to the form
-      due_date: "Tue, 20 Jun 2019"
+      customer_id: formData.customerID,
+      due_date: formData.dueDate
     };
     var options = {
       type: 'POST',
@@ -48,13 +48,15 @@ var MovieDetailsView = Backbone.View.extend({
       customer_id: attributes.customer_id
     };
     rental.save(attributes, options);
-    this.$('main').prepend("<p>Successfully checked out " + attributes.title + " to " + this.getCustomerName() + ".</p>");
+    this.$('main').prepend("<p>Successfully checked out " + attributes.title + " to " + formData.customerName + "</p>");
   },
-  getCustomerID: function () {
-    return this.$('#customer-selector option').val();
-  },
-  getCustomerName: function () {
-    return this.$('#customer-selector option').html();
+  getRentalFormData: function () {
+    var formData = {};
+    formData.customerID = this.$('#customer-selector option').val();
+    formData.customerName = this.$('#customer-selector option').html();
+    formData.dueDate = this.$('#due-date').val();
+
+    return formData;
   }
 });
 
