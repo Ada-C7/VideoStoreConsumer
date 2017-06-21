@@ -6,7 +6,7 @@ var Movie = Backbone.Model.extend({
 
 },
 //url is the default route tht fetch goes to on the model
- url: 'http://localhost:3000/movies'
+ // url: 'http://localhost:3000/movies'
 
 });
 

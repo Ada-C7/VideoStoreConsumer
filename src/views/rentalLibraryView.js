@@ -37,11 +37,14 @@ var RentalLibraryView = Backbone.View.extend( {
   },
 
   search: function(){
+    // console.log("hi");
     //getting the query term from the search background
     var query = this.$("#query").val();
     //creating a new instance of search result and calling the rails api for the data
     var searchResults = new SearchResults();
     searchResults.fetch({ data: $.param({ query }) });
+    console.log(searchResults);
+    // console.log( $.param({ query }) );
     //var query here is what we're passing to the fetch argument and will add "queryterm" onto url
     var searchResultsView = new SearchResultsView({
       model: searchResults,
