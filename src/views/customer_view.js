@@ -30,25 +30,17 @@ var CustomerView = Backbone.View.extend({
     $('#' + name).empty();
 
     rentals.forEach(function(rental, index)  {
-      // console.log(titles[index]);
       rental.title = movies[index].title;
+      // console.log(rental.title);
       var newRental = new Rental(rental);
+      console.log(newRental.title);
       var rentalView = new RentalView ({
         model: newRental,
         template: _.template($("#rental-template").html())
       });
       $('#' + name).append(rentalView.render().el);
     });
-
-
-
-
-
-  },
-  checkinMovie: function(event) {
-    console.log(this.model);
   }
-
 });
 
 export default CustomerView;

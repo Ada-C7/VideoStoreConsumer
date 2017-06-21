@@ -23,9 +23,7 @@ var CheckoutView = Backbone.View.extend({
 
     var customerDropdownList = new Customers();
     customerDropdownList.fetch();
-    // pass in a hash with key success then that goes to a funciton.
-    // can make the view rerender from that function.
-    // console.log(customerDropdownList);
+
     var checoutCustomersView = new CheckoutCustomersView({
       model: customerDropdownList,
       template: _.template($("#checkout-customer-template").html())
