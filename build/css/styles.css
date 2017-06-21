@@ -8,6 +8,13 @@ main {
     background: #2F2F2F;
 }
 
+#home {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
 
 .hide-it {
   display: none;
@@ -43,7 +50,6 @@ div {
 .card-product {
   background-color: #92B4A7;
   margin: 2em;
-  /*align-self: center;*/
 }
 
 

@@ -32,6 +32,7 @@ var VideoView = Backbone.View.extend({
     } else {
       $('#success-message').html('Unable to add movie. :(');
     }
+    $('html,body').scrollTop(0);
   },
   showDescription: function(){
     this.$('.video-description').show();
