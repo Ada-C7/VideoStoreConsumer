@@ -9,7 +9,6 @@ var CustomerListView = Backbone.View.extend({
   initialize: function(params) {
     this.customerTemplate = params.customerTemplate;
     this.customerDetailsTemplate = params.customerDetailsTemplate;
-    this.alertTemplate = params.alertTemplate;
     this.listenTo(this.model, 'update', this.render);
   },
   render: function() {

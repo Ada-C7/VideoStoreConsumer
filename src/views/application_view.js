@@ -12,7 +12,6 @@ const ApplicationView = Backbone.View.extend({
     this.movieDetailsTemplate = params.movieDetailsTemplate;
     this.customerTemplate = params.customerTemplate;
     this.customerDetailsTemplate = params.customerDetailsTemplate;
-    this.alertTemplate = params.alertTemplate;
   },
   events: {
     'click h1' : 'showAllMovies',
@@ -27,7 +26,6 @@ const ApplicationView = Backbone.View.extend({
       model: movieList,
       movieTemplate: this.movieTemplate,
       movieDetailsTemplate: this.movieDetailsTemplate,
-      alertTemplate: this.alertTemplate,
       el: 'body'
     });
     movieListView.render();
@@ -40,7 +38,6 @@ const ApplicationView = Backbone.View.extend({
       model: customerList,
       customerTemplate: this.customerTemplate,
       customerDetailsTemplate: this.customerDetailsTemplate,
-      alertTemplate: this.alertTemplate,
       el: 'body'
     });
     customerListView.render();

@@ -9,7 +9,6 @@ var MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.movieTemplate = params.movieTemplate;
     this.movieDetailsTemplate = params.movieDetailsTemplate;
-    this.alertTemplate = params.alertTemplate;
     this.listenTo(this.model, 'update', this.render);
     this.listenTo(this.model, 'addMovie', this.addMovie);
   },
@@ -52,9 +51,7 @@ var MovieListView = Backbone.View.extend({
   },
   addMovie: function (movieAttributes) {
     this.model.create(movieAttributes);
-
-    var compiledTemplate = this.alertTemplate(movieAttributes);
-    this.$('main').prepend(compiledTemplate);
+    this.$('main').prepend("Successfully added " + movieAttributes.title + " to inventory.");
   }
 });
 
