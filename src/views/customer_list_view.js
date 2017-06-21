@@ -30,6 +30,7 @@ var CustomerListView = Backbone.View.extend({
   addCustomer: function(customer){
     var customer = new CustomerView ({
       model: customer,
+      tagName: "tr",
       template: this.customerTemplate
     });
     this.customerList.push(customer);

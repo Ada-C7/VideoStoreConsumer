@@ -8,21 +8,21 @@
   <title>Backbone Baseline</title>
 </head>
 <body>
+  <header>
+    <h3 class = "text-center">Welcome to the movie store </h3>
+  </header>
   <section id='all-movie-list'>
     <form id = "search-form">
       <input type="text" placeholder="Movie" name = "movietitle" id="movieName"></input>
       <button type="submit" id="submit-button" class="success button"> Search Movies</button>
     </form>
-    
-      <table id='movie-table'>
-        <tbody id='movie-list'>
-        </tbody>
-      </table>
 
+    <table id='movie-table' >
+      <tbody id='movie-list'>
+      </tbody>
+    </table>
   </section>
   <section>
-
-
     <ul id='rental-list'>
     </ul>
   </section>
@@ -34,52 +34,54 @@
     </section>
 
     <section class = "small-12 medium-12 large-6 columns">
-      <h4> Customer List </h4>
-      <ul id="customer-list">
 
-      </ul>
-
-
-    </section>
+      <table id='customer-table' >
+        <caption>Customer List</caption>
+        <tbody id='customer-list'>
+        </tbody>
+      </table>
+      <!-- <ul id="customer-list">
+    </ul> -->
   </section>
+</section>
 
 
-  <script id="inventory-template" type="text/template">
-    <div class="row">
-      <li class="inventory-list-element">
-        <div class="small-12 medium-12 large-6 columns">
-          <img src=<%- inventory.image_url %> alt="movie_picture"><br>
-          <%- inventory.title %>
-        </div>
-        <div class="small-12 medium-12 large-6 columns">
+<script id="inventory-template" type="text/template">
+  <div class="row">
+    <li class="inventory-list-element">
+      <div class="small-12 medium-12 large-6 columns">
+        <img src=<%- inventory.image_url %> alt="movie_picture"><br>
+        <%- inventory.title %>
+      </div>
+      <div class="small-12 medium-12 large-6 columns">
 
-          <section><%- inventory.overview %>  </section>
-          <button type="submit" id="choose-movie-button" class="success button"> Choose Movie </button>
-        </div>
-      </li>
-    </div>
-  </script>
+        <section><%- inventory.overview %>  </section>
+        <button type="submit" id="choose-movie-button" class="success button"> Choose Movie </button>
+      </div>
+    </li>
+  </div>
+</script>
 
-  <script id="movie-template" type="text/template">
-      <td><%- movie.title %></td>
-      <td><img src=<%= movie.image_url %> alt="movie_picture"></td>
-      <td><button type="submit" id="add-button" class="success button"> Add to inventory</button></td>
-  </script>
+<script id="movie-template" type="text/template">
+  <td><%- movie.title %></td>
+  <td><img src=<%= movie.image_url %> alt="movie_picture"></td>
+  <td><button type="submit" id="add-button" class="success button"> Add to inventory</button></td>
+</script>
 
-  <script id="customer-template" type="text/template">
-    <li class = "customer-name"><%- customer.name %></li><br>
-    <button type="submit" id="choose-customer-button" class="success large button"> Create rental</button>
-  </script>
+<script id="customer-template" type="text/template">
+  <td class = "customer-name"><a><%- customer.name %></a> </td>
+  <td>  <button type="submit" id="choose-customer-button" class="success small button">Checkout </button></td>
+</script>
 
-  <script id="rental-template" type="text/template">
-    <li> Rental returned: <%- rental.returned %> </li>
-    <li> Rental ID: <%- rental.id %> </li>
-    <li> Movie ID: <%- rental.movie_id %> </li>
-    <li> Customer ID: <%- rental.customer_id %> </li>
-    <button type="submit" id="delete-button" class="success button"> Check-In Movie </button>
-  </script>
+<script id="rental-template" type="text/template">
+  <li> Rental returned: <%- rental.returned %> </li>
+  <li> Rental ID: <%- rental.id %> </li>
+  <li> Movie ID: <%- rental.movie_id %> </li>
+  <li> Customer ID: <%- rental.customer_id %> </li>
+  <button type="submit" id="delete-button" class="success button"> Check-In Movie </button>
+</script>
 
-  <script src="/app.bundle.js"></script>
+<script src="/app.bundle.js"></script>
 
 </body>
 </html>

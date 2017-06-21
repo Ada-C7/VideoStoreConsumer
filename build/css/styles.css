@@ -41,3 +41,22 @@ div {
 td{
   width: 30%;
 }
+
+table, #search-form{
+  margin: auto;
+  width: 60%;
+}
+
+li{
+  list-style: none;
+}
+
+a:hover{
+  background-color: #5BB77A;
+}
+
+
+#search-form{
+  width: 40%;
+  margin-top: 3%;
+}
