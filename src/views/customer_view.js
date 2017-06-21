@@ -15,14 +15,7 @@ var CustomerView = Backbone.View.extend({
     // this.$el.html(compiledTemplate);
     return this;
   },
-
-  events: {
-
-  }
-
-
-
-
+  events: {}
 });
 
 

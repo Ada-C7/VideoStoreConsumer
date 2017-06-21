@@ -19,7 +19,8 @@ var MovieView = Backbone.View.extend({
   events: {
     'click .add-movie': 'addMovie',
     'click .rent-movie': 'rentMovie',
-    'click .movie-image-details': 'showDetails'
+    'click .movie-image-details': 'showDetails',
+    'click .submit-rental': 'createRental'
   },
   rentMovie: function() {
     var rentalTemplate = _.template($("#rental-template").html());
@@ -59,6 +60,16 @@ var MovieView = Backbone.View.extend({
       this.render();
     }
   },
+  getFormData() {
+    formTitle = this.$("#title").val();
+    formCustomer = this.$("option").attr("value");
+    console.log(formCustomer);
+    console.log(formTitle);
+  },
+  createRental: function() {
+    console.log("hello");
+    this.getFormData();
+  }
 
 });
 
