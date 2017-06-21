@@ -6,10 +6,12 @@ import Movie from '../models/movie.js';
 import CustomerList from '../collections/customer_list.js';
 import Customer from '../models/customer.js';
 import CustomerListView from './customer_list_view.js';
+import Rental from '../models/rental.js';
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = _.template($('#movie-template').html());
+    this.rentalModel = new Rental();
 
     this.listenTo(this.model, "update", this.render);
 
@@ -39,7 +41,8 @@ var MovieListView = Backbone.View.extend({
   },
   events: {
     "submit" : "searchFunction",
-    "click" : "hideMovieDetails"
+    "click #check_out" : "checkoutFunction"
+    // "click" : "hideMovieDetails"
   },
   getInputData: function(){
     var input = this.$("input[name='query']").serialize();
@@ -47,6 +50,13 @@ var MovieListView = Backbone.View.extend({
     this.$("input[name='query']").val('');
 
     console.log('this is the input from', input);
+    return input;
+  },
+  getCustomerData: function() {
+    var input = this.$("option").val();
+
+    // this.$("option").val('');
+
     return input;
   },
   searchFunction: function(event){
@@ -65,7 +75,6 @@ var MovieListView = Backbone.View.extend({
     });
   },
   showMovieDetails: function(movie){
-    // alert('heyyy movie details');
 
     this.$("#movie-details").empty();
     this.$("#movie-details").toggleClass('hide');
@@ -76,7 +85,6 @@ var MovieListView = Backbone.View.extend({
       template: _.template($('#tmpl-movie-details').html())
     });
 
-  ////////
   this.$('#movie-details').append(detailsView.render().el);
 
     var customers = new CustomerList();
@@ -88,19 +96,28 @@ var MovieListView = Backbone.View.extend({
     });
     customersView.render();
 
-    // append things
-    // check if the movie has a external id
-      // If does not have an external id
-      // make a call to rails to get list of customers
-      // save the response in a variable
-      // listen for check_out
-      // listen for check in
-    //else
-      // show movie
-    // end
+    // "click #check_out" : "checkoutFunction"
   },
   hideMovieDetails: function(){
     this.$('#movie-details').toggleClass('hide');
+  },
+  checkoutFunction: function() {
+    event.preventDefault();
+    // alert("hey lets check out");
+    let customer = this.getCustomerData();
+    console.log('customer chosen', customer);
+    console.log('movie chosen', this.model.get("title"));
+    // fetch using rental model
+    this.rentalModel.fetch({
+      data: { customer: customer, movie: this.model.get("title") },
+      success: function(data) {
+        console.log("It worked! (checkout)", data);
+      },
+      failure: function(data) {
+        console.log("Failure", data);
+        this.$('#movie-list').append("<h2>Request failed.</h2>");
+      }
+    });
   }
 });
 

@@ -8,6 +8,7 @@ var MovieView = Backbone.View.extend({
     this.template = params.template;
 
     this.listenTo(this.model, "change", this.render);
+    this.listenTo(this.model, "change", this.render);
   },
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
@@ -29,8 +30,6 @@ var MovieView = Backbone.View.extend({
     return inventory;
   },
   addMovie: function() {
-
-
     this.model.fetch({data: {
       title: this.model.get('title'),
       overview: this.model.get('overview'),
@@ -65,6 +64,31 @@ var MovieView = Backbone.View.extend({
       },
       failure: function(data) {
 
+        this.$('#movie-list').append("<h2>Request failed.</h2>");
+      }
+    });
+  },
+  getCustomerData: function() {
+    var input = this.$("option").val();
+
+    // this.$("option").val('');
+
+    return input;
+  },
+  checkoutFunction: function() {
+    event.preventDefault();
+    // alert("hey lets check out");
+    let customer = this.getCustomerData();
+    console.log('customer chosen', customer);
+    console.log('movie chosen', this.model.get("title"));
+    // fetch using rental model
+    this.rentalModel.fetch({
+      data: { customer: customer, movie: this.model.get("title") },
+      success: function(data) {
+        console.log("It worked! (checkout)", data);
+      },
+      failure: function(data) {
+        console.log("Failure", data);
         this.$('#movie-list').append("<h2>Request failed.</h2>");
       }
     });

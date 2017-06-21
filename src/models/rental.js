@@ -1,24 +1,21 @@
 import Backbone from 'backbone';
 
 var Rental = Backbone.Model.extend({
+  url: "http://localhost:3000/rentals/",
   initialize: function(params) {
   },
-  // sync: function(method, model, options) {
-  //   switch(method) {
-  //     case 'read':
-  //       options.url = 'http://localhost:3000/rentals/overdue';
-  //
-  //       return Backbone.sync(method, model, options);
-  //     case 'create':
-  //       options.url = 'http://localhost:3000/rentals/' + this.model.title + '/check-out';
-  //
-  //       return Backbone.sync(method, model, options);
-  //     case 'update':
-  //       options.url = 'http://localhost:3000/rentals/' + this.model.title + '/return';
-  //
-  //       return Backbone.sync(method, model, options);
-  //   }
-  // }
+  sync: function(method, model, options) {
+    if (model.get('checkout_date') === null) {
+      options.url = model.url + model.get('title') + '/check-out';
+    } else {
+      console.log("what the hey is model here", model);
+      options.url = model.url + model.get('title') + '/check_in';
+      // if
+      // options.url = model.collection.url + '/overdue';
+    }
+
+    return Backbone.sync(method, model, options);
+  }
 });
 
 export default Rental;
