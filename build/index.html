@@ -28,11 +28,18 @@
     <section id='new-movie'></section>
   </main>
 
-  <script id="movie-card-template" type="text/template">
+  <script id="movie-search-card-template" type="text/template">
 
     <li><%- movie.title %></li>
     <img src = "<%- movie.image_url %>" />
     <button type="button" class="add-movie button">add</button>
+  </script>
+
+  <script id="movie-card-template" type="text/template">
+
+    <li><%- movie.title %></li>
+    <img src = "<%- movie.image_url %>" />
+    <!-- <button type="button" class="add-movie button">add</button> -->
   </script>
 
   <script src="/app.bundle.js"></script>

@@ -2,11 +2,14 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
 import MovieView from './movie_view';
+import Movie from '../models/movie';
 
 var MovieListView = Backbone.View.extend({
 
   initialize: function(params) {
     this.movieTemplate = _.template($('#movie-card-template').html());
+    this.movieSearchTemplate = _.template($('#movie-search-card-template').html());
+
     this.movieList = [];
 
     this.model.get("library").forEach(function(rawMovie){
@@ -49,14 +52,14 @@ var MovieListView = Backbone.View.extend({
   },
 
   addToLibrary: function(movie) {
-    var addMovie = {
-      image_url: movie.get('image_url'),
-      overview: movie.get('overview'),
-      release_date: movie.get('release_date'),
-      title: movie.get('title')
-    };
-    console.log(this.model);
-    this.model.create(addMovie);
+
+    var that = this;
+    movie.save(undefined, {
+      success: function(){
+        that.showSearchResults = false;
+        that.model.get('library').fetch();
+      }
+    });
 
   },
 
@@ -71,7 +74,7 @@ var MovieListView = Backbone.View.extend({
   addSearchResult: function(movie){
     var movie = new MovieView ({
       model: movie,
-      template: this.movieTemplate
+      template: this.movieSearchTemplate
     });
     this.searchList.push(movie);
   },
