@@ -112,7 +112,7 @@ h4.movie.small-title {
   font-family: 'Cutive Mono', monospace;
 }
 
-#rent-movie-title {
+#rent-header, #rent-movie-title {
   font-family: 'Knewave', cursive;
 }
 
@@ -155,6 +155,7 @@ main {
 }
 
 .failure {
+  padding-top: 20px;
   color: red;
 }
 

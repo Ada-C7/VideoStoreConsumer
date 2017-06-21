@@ -81,7 +81,7 @@ const MovieListView = Backbone.View.extend({
   },
 
   rentMovie: function(event) {
-    event.preventDefault()
+    event.preventDefault();
     console.log("Clicked confirm rental");
     var cust_id = this.$("#customer-select").val();
     var movie_title = this.$("#rent-movie-title").html();
@@ -90,6 +90,9 @@ const MovieListView = Backbone.View.extend({
       customer_id: cust_id,
       due_date: duedate
     };
+
+    // this.$("#rental-duedate").val('');
+// console.log(this.$("#rental-duedate"));
     var newRental = new Rental();
     newRental.url = "http://localhost:3000/rentals/" + movie_title + "/check-out";
     newRental.save(rentalDetails, {
@@ -99,12 +102,11 @@ const MovieListView = Backbone.View.extend({
         $("#rental-message").addClass("success");
         $("#rental-message").html("Successfully rented movie.");
       },
-      // this is not logging when failing
       error: function(data) {
         console.log("failed to create rental");
-        $("#rental-message").removeClass("sucess");
+        $("#rental-message").removeClass("success");
         $("#rental-message").addClass("failure");
-        $("#rental-message").html("Unable to rent movie. Please make sure duedate is not before today.");
+        $("#rental-message").html("Unable to rent movie. Please make sure duedate is after today.");
       }
     });
 
