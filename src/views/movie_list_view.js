@@ -4,6 +4,7 @@ import Backbone from 'backbone';
 import MovieView from './movie_view';
 
 var MovieListView = Backbone.View.extend({
+
   initialize: function(params) {
     this.movieTemplate = _.template($('#movie-card-template').html());
     this.movieList = [];
