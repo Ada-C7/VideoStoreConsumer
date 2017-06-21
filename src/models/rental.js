@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-var Movie = Backbone.Model.extend ({
+var Rental =  Backbone.Model.extend ({
   sync: function(method, model, options) {
     if (method=='read'){
       options.url = model.collection.url + '/' + model.attributes.title;
@@ -9,4 +9,4 @@ var Movie = Backbone.Model.extend ({
   }
 });
 
-export default Movie;
+export default Rental;

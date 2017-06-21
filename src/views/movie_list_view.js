@@ -8,6 +8,7 @@ import MovieList from '../collections/movie_list.js';
 var MovieListView = Backbone.View.extend ({
   initialize: function(params) {
     this.template = params.template;
+    this.customers = params.customers;
     this.listenTo(this.model, 'update', this.render);
   },
 
@@ -20,7 +21,8 @@ var MovieListView = Backbone.View.extend ({
       this.model.each(function(movie){
       var movieView = new MovieView({
         model: movie,
-        template: that.template
+        template: that.template,
+        customers: that.customers
       });
       that.$('#movie-list').append(movieView.render().$el);
     });
