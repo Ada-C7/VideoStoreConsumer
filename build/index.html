@@ -9,19 +9,20 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
-    <header class="row">
+    <header class="row top-bar">
       <h1>Video Store</h1>
-    </header>
-    <main class="row">
       <h3 class="button view-customers">View Customers</h3>
       <h3 class="button view-movies">View Movies</h3>
+    </header>
+    <main class="row">
 
-      <section class="search-bar row top-bar">
+      <section class="search-bar row">
         <section class="columns">
           <h5>Find Movies</h5>
-          <input type="text" name="find" id="movie-search" />
           <input type="radio" name="search" value="in-store" id="inStore" checked="checked" /> In Store
           <input type="radio" name="search" value="query" id="query" /> External Database
+          <input type="text" name="find" id="movie-search" />
+
           <h3 class="button btn-search">Search</h3>
         </section>
       </section>
