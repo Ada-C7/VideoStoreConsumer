@@ -32,14 +32,13 @@ const MovieView = Backbone.View.extend({
     if (this.$(".add-library").hasClass("unclickable") === false) {
       console.log("clicked addtolib");
       this.$(".add-library").html("Added");
-      this.$(".add-library").addClass("unclickable success");
+      this.$(".add-library").addClass("unclickable");
       this.$(".small-poster").addClass("grayed_out");
       this.$(".movie-card").addClass("added-movie");
 
       this.model.url = "http://localhost:3000/movies";
       this.model.save();
     }
-    // this.trigger("addToLib", this.model)
   },
 
   sendMovie: function(event) {

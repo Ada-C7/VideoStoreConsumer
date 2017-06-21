@@ -33,26 +33,19 @@ section#search-stuff * {
 }
 
 #side-bar {
-  /*text-align: justify;*/
-  /*padding: 0 5% 10% 5%;*/
   padding-top: 20px;
   text-align: center;
-  /*position: fixed;*/
-  /*top: 300px;*/
-}
-
-#hide-details {
-
+  margin-bottom: 10%;
 }
 
 #query {
   max-width: 250px;
   margin: 0;
 }
+
 button#search-button.button, #hide-details {
   width: 180px;
 }
-
 
 #library-subheader, #search-subheader, #customers-subheader {
   font-family: 'Cutive Mono', monospace;
@@ -87,7 +80,7 @@ section.movie-card {
   overflow: hidden;
 }
 
-.movie-card .button, #confirm-rental, #cancel-rental {
+.movie-card .button, #confirm-rental, #cancel-rental, #hide-details {
   border-radius: 25px;
   background-color: #fefefe;
   color: black;
@@ -97,7 +90,7 @@ section.movie-card {
   margin: 0 5px;
 }
 
-.movie-card .button:hover, #confirm-rental:hover, #cancel-rental:hover {
+.movie-card .button:hover, #confirm-rental:hover, #cancel-rental:hover, #hide-details:hover {
   color: deeppink;
   border: 1px solid deeppink;
 }
@@ -106,17 +99,18 @@ section.movie-card {
   width: 160px;
 }
 
-
 h4.movie.small-title {
   font-size: 1rem;
   font-family: 'Cutive Mono', monospace;
 }
 
-#rent-header, #rent-movie-title {
+#rent-header, #rent-movie-title, section#movie-details h3 {
   font-family: 'Knewave', cursive;
 }
 
-
+#rent-movie-title {
+  text-decoration: underline;
+}
 header h1 {
   font-family: 'Knewave', cursive;
   font-size: 7.0em;
@@ -136,13 +130,11 @@ main {
 
 .added-movie {
   border: black dashed 1px;
-
 }
 
 .second-header {
   text-align: center;
 }
-
 
 #cust-name-sort:hover, #cust-pcode-sort:hover, #cust-reg-at-sort:hover {
   cursor: pointer;

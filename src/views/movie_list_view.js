@@ -93,15 +93,17 @@ const MovieListView = Backbone.View.extend({
     };
 
     // this.$("#rental-duedate").val('');
-// console.log(this.$("#rental-duedate"));
+    // console.log(this.$("#rental-duedate"));
     var newRental = new Rental();
     newRental.url = "http://localhost:3000/rentals/" + movie_title + "/check-out";
+    var that = this;
     newRental.save(rentalDetails, {
       success: function(data) {
         console.log("created rental");
         $("#rental-message").removeClass("failure");
         $("#rental-message").addClass("success");
         $("#rental-message").html("Successfully rented movie.");
+        that.waitToHide();
       },
       error: function(data) {
         console.log("failed to create rental");
@@ -111,6 +113,11 @@ const MovieListView = Backbone.View.extend({
       }
     });
 
+  },
+  waitToHide: function() {
+    console.log('inside wait to hide');
+    var that = this;
+    setTimeout(function(){that.hideSideBar()}, 2000);
   },
 
   getSearch: function() {
@@ -129,6 +136,7 @@ const MovieListView = Backbone.View.extend({
       }
     });
   },
+
   showSideBar: function() {
     this.$("#side-bar").show();
     this.$("#list-main").addClass("large-9");
@@ -154,6 +162,7 @@ const MovieListView = Backbone.View.extend({
   },
 
   hideSideBar: function() {
+    console.log("inside hidesidebar");
     this.details = false;
     this.$("#side-bar").hide();
     this.$("#list-main").removeClass("large-9");
@@ -171,7 +180,6 @@ const MovieListView = Backbone.View.extend({
 
   getRentalForm: function(movie) {
     console.log("inside getRentalForm");
-    // console.log(movie.model.title);
     this.showSideBar();
     this.$("#movie-details").hide();
     this.$("#rental-form").show();
