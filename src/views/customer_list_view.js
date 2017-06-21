@@ -10,8 +10,8 @@ import CustomerView from './customer_view.js';
 var CustomerListView = Backbone.View.extend({
   initialize: function() {
     this.template = _.template($('#tmpl-customer').html());
-    // TODO do we need this.model, "sync", this.render
-    // this.listenTo(this.model, "sync", this.render);
+    
+    this.listenTo(this.model, "sync", this.render);
     this.model.fetch({
       success: function(data) {
         // console.log("It worked (index)!", data);
