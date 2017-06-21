@@ -7,7 +7,6 @@ var MovieView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.listenTo(this.model, "change", this.render);
-
   },
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
