@@ -45,6 +45,9 @@
     <script id="rent-movie-template" type="text/template">
       <h4>Select Customer</h4>
       <select id="customer-selector">
+        <option disabled selected>
+          -- select a customer --
+        </option>
         <% customers.each(function(customer) { %>
           <option value="<%- customer.get('id') %>">
             <%- customer.get('name') %>

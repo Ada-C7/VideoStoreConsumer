@@ -52,8 +52,8 @@ var MovieDetailsView = Backbone.View.extend({
   },
   getRentalFormData: function () {
     var formData = {};
-    formData.customerID = this.$('#customer-selector option').val();
-    formData.customerName = this.$('#customer-selector option').html();
+    formData.customerID = this.$('#customer-selector option:selected').val();
+    formData.customerName = this.$('#customer-selector option:selected').html();
     formData.dueDate = this.$('#due-date').val();
 
     return formData;
