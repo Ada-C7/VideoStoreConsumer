@@ -15,15 +15,15 @@ var RentalListView = Backbone.View.extend({
 
     this.listenTo(this.model, 'add', this.addRental);
     this.listenTo(this.model, 'update', this.render);
-      this.listenTo(Backbone.pubSub, 'renderRentals', this.render);
+    this.listenTo(Backbone.pubSub, 'renderRentals', this.render);
 
   },
 
 
   render: function() {
-      console.log("I AM IN RENDER RENTAL LIST VIEW")
-        console.log(this.rentalList)
-    this.rentalList.shift();
+    console.log("I AM IN RENDER RENTAL LIST VIEW")
+    console.log(this.rentalList)
+    // this.rentalList.shift();
     console.log(this.rentalList)
     $('#rental-list').empty();
     $('#rental-list').append('<h3>Rental list for </h3>');
@@ -37,13 +37,15 @@ var RentalListView = Backbone.View.extend({
   },
 
   addRental: function(rental){
-    var rental = new RentalView ({
-      model: rental,
-      template: this.rentalTemplate //,
-      //movie_title: "Psycho"  // NEED TO REMOVE THIS
-    });
+    if (rental.attributes.id != null){
+      var rental = new RentalView ({
+        model: rental,
+        template: this.rentalTemplate
+      });
+      this.rentalList.push(rental);
+    }
 
-    this.rentalList.push(rental);
+
   },
 
   // showRentals: function(){
