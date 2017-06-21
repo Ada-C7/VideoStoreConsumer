@@ -44,6 +44,7 @@ const MovieListView = Backbone.View.extend({
 
   render: function() {
     this.$("#customer-list").hide();
+    this.hideSideBar();
     this.$("#all-movie-stuff").show();
     this.$("#movie-headers").show();
 
