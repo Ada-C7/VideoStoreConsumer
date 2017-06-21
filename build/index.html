@@ -34,9 +34,11 @@
       <h4>Overview: <%- overview %></h4>
       <h4>Release Date: <%- release_date %></h4>
 
-      <% if (external_id) { %>
-        <h4 class="button" id="add-movie">Add Movie</h4>
-      <% } %>
+      <section id="movie-actions">
+        <% if (external_id) { %>
+          <h4 class="button" id="add-movie">Add Movie</h4>
+        <% } %>
+      </section>
     </script>
 
     <script id="rent-movie-template" type="text/template">

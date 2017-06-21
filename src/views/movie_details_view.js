@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Movie from '../models/movie.js';
 import CustomerList from '../collections/customer_list.js';
 import SelectCustomerView from './select_customer_view.js';
+import Rental from '../models/rental.js';
 
 var MovieDetailsView = Backbone.View.extend({
   initialize: function(params) {
@@ -27,10 +28,28 @@ var MovieDetailsView = Backbone.View.extend({
     }
   },
   events: {
-    'click #add-movie' : 'addMovie'
+    'click #add-movie' : 'addMovie',
+    'click #rent-movie' : 'rentMovie'
   },
   addMovie: function () {
     this.trigger('addMovie', this.model.attributes);
+  },
+  rentMovie: function () {
+    var rental = new Rental();
+    var attributes = {
+      title: this.model.get('title'),
+      customer_id: this.getCustomerID(),
+      due_date: "Tue, 20 Jun 2019"
+    };
+    var options = {
+      type: 'POST',
+      url: 'http://localhost:3000/rentals/' + attributes.title + '/check-out',
+      customer_id: attributes.customer_id
+    };
+    rental.save(attributes, options);
+  },
+  getCustomerID: function () {
+    return this.$('#customer-selector option').val();
   }
 });
 

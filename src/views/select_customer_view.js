@@ -9,7 +9,7 @@ var SelectCustomerView = Backbone.View.extend({
   },
   render: function() {
     var compiledTemplate = this.template({ customers: this.model });
-    this.$('main').append(compiledTemplate);
+    this.$('#movie-actions').html(compiledTemplate);
   }
 });
 
