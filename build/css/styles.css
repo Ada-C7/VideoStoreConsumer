@@ -35,6 +35,11 @@ div {
   display: inline;
 }
 
+.card-product-name {
+  text-align: center;
+  height: 80px;
+}
+
 .card-product {
   background-color: #92B4A7;
   margin: 2em;
