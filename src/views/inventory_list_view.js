@@ -15,7 +15,6 @@ var InventoryListView = Backbone.View.extend({
 
     this.listenTo(this.model, 'add', this.addInventory);
     this.listenTo(this.model, 'update', this.render);
-
     this.listenTo(Backbone.pubSub, 'addToInventory', this.createInventory);
     this.listenTo(Backbone.pubSub, 'customerChosen', this.createRental);
     this.listenTo(Backbone.pubSub, 'inventoryChosen', this.createRental);
@@ -35,15 +34,11 @@ var InventoryListView = Backbone.View.extend({
       model: inventory,
       template: this.inventoryTemplate
     });
-
     this.inventoryList.push(inventory);
   },
 
   createInventory: function(movie) {
-    console.log("We are in Create Inventory");
-
     var existingMovie = this.model.find(function(model){return model.get('title') === movie.attributes.title && model.get('release_date') === movie.attributes.release_date; });
-    console.log(existingMovie);
     if (existingMovie == null) {
       this.model.create(movie);
       alert("You have successfully added this movie");
@@ -54,10 +49,7 @@ var InventoryListView = Backbone.View.extend({
   },
 
   createRental: function(movie) {
-    console.log("We are in Create Rental");
     if (Backbone.pubSub.selectedMovie && Backbone.pubSub.selectedCustomer){
-      console.log("Movie and Customers are selected")
-
       var today = new Date();
       var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       var due = new Date();
@@ -76,7 +68,6 @@ var InventoryListView = Backbone.View.extend({
       Backbone.pubSub.selectedMovie = null;
       Backbone.pubSub.selectedCustomer = null;
     }
-
   }
 
 });

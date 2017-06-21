@@ -15,21 +15,15 @@ var RentalListView = Backbone.View.extend({
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model, 'add', this.addRental);
     this.listenTo(this.model, 'update', this.render);
-
-
   },
 
 
   render: function() {
-    console.log("I AM IN RENDER RENTAL LIST VIEW")
-    // this.rentalList.shift();
-    // console.log(this.rentalList)
     $('#rental-list').empty();
     $('#rental-list').append('<h3>Rental list </h3>');
 
     this.rentalList.forEach(function(rental){
       if (rental.model.attributes.returned == false){
-        console.log("I AM RENDERING RENTAL! " + "rental returned? " + rental.model.attributes.returned)
         rental.render();
         $('#rental-list').append(rental.$el);
       }
@@ -45,7 +39,7 @@ var RentalListView = Backbone.View.extend({
       });
       this.rentalList.push(rental);
     }
-  },
+  }
 
 });
 

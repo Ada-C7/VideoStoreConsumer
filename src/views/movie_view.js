@@ -24,9 +24,7 @@ var MovieView = Backbone.View.extend({
   },
 
   movieSelected: function(event) {
-    console.log("In movieSelected")
     Backbone.pubSub.trigger('addToInventory', this.model)
-    // console.log(this.model);
   }
 });
 

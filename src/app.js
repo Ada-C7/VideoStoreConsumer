@@ -20,21 +20,16 @@ $(document).ready(function() {
   var options = {
     el:  $('.main-content'),
     model: inventoryList
-    // state: applicationState
   };
 
   var application = new InventoryListView(options);
   application.render();
 
-
-
   $("#search-form").submit(function(event) {
     event.preventDefault();
     var movieList = new MovieList();
-    console.log($('#movieName').val());
     if ($('#movieName').val() === ""){
       alert("Please, enter message term")
-      console.log("Please, enter message term")
     }
     else{
       movieList.fetch({data: {query: $('#movieName').val()  }});
@@ -51,7 +46,7 @@ $(document).ready(function() {
 
   var customerList = new CustomerList();
   customerList.fetch();
-
+  
   var options = {
     el:  $('.main-content'),
     model: customerList
@@ -59,7 +54,5 @@ $(document).ready(function() {
 
   var customerListView = new CustomerListView(options);
   customerListView.render();
-
-
 
 });

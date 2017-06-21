@@ -19,15 +19,9 @@ var RentalList = Backbone.Collection.extend({
       console.log("Parsed rental list for customer " + this.customerId + ", kept " + customerRentals.length + " of " + data.length + " entries.");
       return customerRentals;
     } else {
-      // No customer id specified -> list all rentals
       return data;
     }
   }
-  // url: 'http://localhost:3000/rentals/' + Backbone.pubSub.selectedMovie.title + 'check-out'
 });
-
-
-
-// "/rentals/:title/check-out"
 
 export default RentalList;

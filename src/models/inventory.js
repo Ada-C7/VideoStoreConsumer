@@ -11,7 +11,6 @@ var Inventory = Backbone.Model.extend({
   },
   initialize: function() {
     console.log("Added new inventory");
-    // console.log(this.model);
   }
 });
 

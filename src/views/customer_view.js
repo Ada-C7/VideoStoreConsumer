@@ -23,17 +23,14 @@ var CustomerView = Backbone.View.extend({
   },
 
   customerSelected: function(event) {
-    console.log("In customerSelected");
     Backbone.pubSub.selectedCustomer = this.model;
     Backbone.pubSub.trigger('customerChosen', this.model);
   },
 
   customerNameSelected: function(event){
-    console.log("In customer NAME Selected");
     Backbone.pubSub.selectedCustomerId = this.model.attributes.id;
 
     var customerId = Backbone.pubSub.selectedCustomerId;
-
     var rentalList = new RentalList({ customerId: customerId });
     rentalList.fetch();
 
@@ -44,14 +41,7 @@ var CustomerView = Backbone.View.extend({
 
     var rentalListView = new RentalListView(options);
     rentalListView.render();
-
-    console.log(rentalList);
-
-
   }
-
-
-
 
 });
 

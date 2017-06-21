@@ -35,13 +35,6 @@ var CustomerListView = Backbone.View.extend({
     });
     this.customerList.push(customer);
   }
-
-  // showRentals: function(){
-  //
-  //   var rentals = this.model.find(function(model){return model.get('title') === movie.attributes.title && model.get('release_date') === movie.attributes.release_date; });
-  //
-  // }
-
 });
 
 export default CustomerListView;
