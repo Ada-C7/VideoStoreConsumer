@@ -13,7 +13,17 @@ var MovieView = Backbone.View.extend({
     this.$el.html(html);
     this.delegateEvents();
     return this;
+  },
+
+  events: {
+    'click .add-movie': 'addMovieRental'
+  },
+
+  addMovieRental: function() {
+    this.trigger('add', this.model);
+    event.stopPropagation();
   }
+
 });
 
 export default MovieView;
