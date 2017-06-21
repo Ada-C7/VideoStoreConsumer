@@ -38,11 +38,26 @@ var MovieListView = Backbone.View.extend({
       movieList = this.movieList;
     }
 
+
     movieList.forEach(function(movie){
       movie.render();
       $('#movie-list').append(movie.$el);
+      // this.$('#movie-list').append(MovieView.render().$el);
+      this.listenTo(movie, 'add', this.addToLibrary);
     }, this);
     return this;
+  },
+
+  addToLibrary: function(movie) {
+    var addMovie = {
+      image_url: movie.get('image_url'),
+      overview: movie.get('overview'),
+      release_date: movie.get('release_date'),
+      title: movie.get('title')
+    };
+    console.log(this.model);
+    this.model.create(addMovie);
+
   },
 
   addMovie: function(movie){
@@ -62,7 +77,7 @@ var MovieListView = Backbone.View.extend({
   },
 
   events: {
-    'click .search-movie': 'searchMovie'
+    'click .search-movie': 'searchMovie',
   },
 
   getInput: function() {
