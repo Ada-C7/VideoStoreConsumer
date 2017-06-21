@@ -14,6 +14,7 @@
       <ul class="menu">
         <li><h3 class="button" id="show-movies-button">Movies</h3></li>
         <li><h3 class="button" id="show-customers-button">Customers</h3></li>
+        <li><h3 class="button" id="show-rentals-button">Rentals</h3></li>
         <li><input type="text" name="search-term" id="search-box" /></li>
         <li><h3 class="button" id="search-button" >Search Movies</h3></li>
       </ul>
@@ -63,6 +64,31 @@
       <h3>Name: <%- name %></h3>
       <h4>Customer since: <%- registered_at %></h4>
       <h4>Address: <%- address + " " + city + ",  " + state + " " + postal_code %></h4>
+    </script>
+
+    <script id="rentals-table-template" type="text/template">
+      <table id="rentals-table">
+        <thead>
+          <tr>
+            <th>Check-Out Date</th>
+            <th>Due Date</th>
+            <th>Returned</th>
+            <th>Customer Name</th>
+            <th>Movie Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rentals.each(function (rental) { %>
+            <tr>
+              <td><%- rental.get('checkout_date') %></td>
+              <td><%- rental.get('due_date') %></td>
+              <td><%- rental.get('returned') %></td>
+              <td><%- rental.get('customer').name %></td>
+              <td><%- rental.get('movie').title %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
     </script>
 
     <script src="/app.bundle.js"></script>
