@@ -12,10 +12,10 @@ var RentalListView = Backbone.View.extend({
     this.model.forEach(function(rawRental){
       this.addRental(rawRental);
     }, this);
-
+    this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model, 'add', this.addRental);
     this.listenTo(this.model, 'update', this.render);
-    this.listenTo(Backbone.pubSub, 'renderRentals', this.render);
+
 
   },
 
@@ -23,16 +23,13 @@ var RentalListView = Backbone.View.extend({
   render: function() {
     console.log("I AM IN RENDER RENTAL LIST VIEW")
     // this.rentalList.shift();
-    console.log(this.rentalList)
+    // console.log(this.rentalList)
     $('#rental-list').empty();
     $('#rental-list').append('<h3>Rental list for </h3>');
+
     this.rentalList.forEach(function(rental){
-      // if (rental.returned != false){
-      //   console.log("I AM HERE in rentalList forEach" )
-      //   rental.render();
-      //   $('#rental-list').append(rental.$el);
-      // }
       if (rental.model.attributes.returned == false){
+        console.log("I AM RENDERING RENTAL! " + "rental returned? " + rental.model.attributes.returned)
         rental.render();
         $('#rental-list').append(rental.$el);
       }
@@ -48,20 +45,7 @@ var RentalListView = Backbone.View.extend({
       });
       this.rentalList.push(rental);
     }
-
-
   },
-
-  // showRentals: function(){
-  //   console.log("IN SHOW RENTALS FUNCTON:")
-  //   console.log(Backbone.pubSub.selectedCustomerId)
-  //   var customerId = Backbone.pubSub.selectedCustomerId
-  //   console.log(this.model)
-  //   this.rentalList = this.model.where({customer_id: customerId})
-  //   console.log(this.rentalList);
-  // },
-
-
 
 });
 
