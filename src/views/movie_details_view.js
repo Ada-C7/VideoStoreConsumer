@@ -13,7 +13,7 @@ var MovieDetailsView = Backbone.View.extend({
   },
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
-    this.$('main').html(compiledTemplate);
+    this.$el.html(compiledTemplate);
 
     if (!this.model.get('external_id')) {
       var customerList = new CustomerList();
@@ -21,11 +21,12 @@ var MovieDetailsView = Backbone.View.extend({
 
       var selectCustomerView = new SelectCustomerView({
         model: customerList,
-        template: _.template(this.$('#rent-movie-template').html()),
-        el: 'body'
+        template: _.template($('#rent-movie-template').html()),
+        el: this.$('#movie-actions')
       });
     selectCustomerView.render();
     }
+    return this;
   },
   events: {
     'click #add-movie' : 'addMovie',
@@ -49,7 +50,7 @@ var MovieDetailsView = Backbone.View.extend({
       customer_id: attributes.customer_id
     };
     rental.save(attributes, options);
-    this.$('main').prepend("<p>Successfully checked out " + attributes.title + " to " + formData.customerName + "</p>");
+    this.$el.prepend("<p>Successfully checked out " + attributes.title + " to " + formData.customerName + "</p>");
   },
   getRentalFormData: function () {
     var formData = {};
@@ -62,9 +63,10 @@ var MovieDetailsView = Backbone.View.extend({
   deleteMovie: function () {
     var movieTitle = this.model.get('title');
     this.model.url = "http://localhost:3000/movies/" + this.model.get('id');
-    this.model.destroy();
+    // this.model.destroy();
+    console.log("Deletes movie " + movieTitle);
 
-    this.$('main').prepend("<p>Successfully deleted " + movieTitle + " from inventory.</p>");
+    this.$el.prepend("<p>Successfully deleted " + movieTitle + " from inventory.</p>");
   }
 });
 

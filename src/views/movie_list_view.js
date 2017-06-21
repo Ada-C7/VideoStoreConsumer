@@ -13,7 +13,7 @@ var MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'addMovie', this.addMovie);
   },
   render: function() {
-    this.$('main').html('<ul></ul>');
+    this.$el.html('<ul></ul>');
     var that = this;
 
     this.model.each(function(movie) {
@@ -22,7 +22,7 @@ var MovieListView = Backbone.View.extend({
         template: that.movieTemplate,
         tagName: 'li'
       });
-      that.$('main ul').append(movieView.render().$el);
+      that.$('ul').append(movieView.render().$el);
       that.listenTo(movieView, 'showMovieDetails', that.showMovieDetails);
     });
     return this;
@@ -34,7 +34,7 @@ var MovieListView = Backbone.View.extend({
     var movieDetailsView = new MovieDetailsView({
       model: movie,
       template: this.movieDetailsTemplate,
-      el: 'body'
+      el: this.$el
     });
     movieDetailsView.render();
 

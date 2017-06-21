@@ -30,8 +30,9 @@ const ApplicationView = Backbone.View.extend({
       model: movieList,
       movieTemplate: this.movieTemplate,
       movieDetailsTemplate: this.movieDetailsTemplate,
-      el: 'body'
+      el: 'main'
     });
+
     movieListView.render();
   },
   showAllCustomers: function () {
