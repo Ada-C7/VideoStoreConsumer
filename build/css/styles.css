@@ -6,17 +6,18 @@
 }
 
 body {
-  margin: 0 10% 10% 10%;
+  margin: 0 10% 2% 10%;
 }
 
 .tableouter {
   position: relative;
-  overflow-x:scroll;
+  overflow-x: scroll;
+  border-bottom: black solid 1px;
 }
 
 .tableinner {
   height: 400px;
-  overlfow-y: scroll;
+  overflow-y: scroll;
 }
 
 #header-buttons {
@@ -33,37 +34,40 @@ section#search-stuff * {
 
 #side-bar {
   /*text-align: justify;*/
-  padding: 0 0 10% 5%;
+  /*padding: 0 5% 10% 5%;*/
+  padding-top: 20px;
   text-align: center;
-  background-color: red;
+  /*position: fixed;*/
+  /*top: 300px;*/
+}
+
+#hide-details {
+
 }
 
 #query {
-  max-width: 200px;
+  max-width: 250px;
   margin: 0;
 }
-button#search-button.button {
-  width: 50px;
-}
-
-section.lib-buttons * {
+button#search-button.button, #hide-details {
   width: 180px;
 }
 
-#library-subheader {
-  font-family: 'Cutive Mono', monospace;
 
+#library-subheader, #search-subheader, #customers-subheader {
+  font-family: 'Cutive Mono', monospace;
+  text-align: center;
   margin: 2% 0;
   border-top: dashed 1px black;
   border-bottom: dashed 1px black;
 }
 
-
 .button {
   margin: 2px;
-  min-width: 180px;
+  /*min-width: 180px;*/
   background-color: black;
   color: #fefefe;
+  font-family: 'Cutive Mono', monospace;
 }
 
 .button:hover, .button:focus{
@@ -74,17 +78,47 @@ section.lib-buttons * {
 section.movie-card {
   padding-top: 10px;
   text-align: center;
-  height: 500px;
+  height: 450px;
 }
+
+.movie-card img {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.movie-card .button, #confirm-rental, #cancel-rental {
+  border-radius: 25px;
+  background-color: #fefefe;
+  color: black;
+  border: 1px solid black;
+  width: 90px;
+  height: 40px;
+  margin: 0 5px;
+}
+
+.movie-card .button:hover, #confirm-rental:hover, #cancel-rental:hover {
+  color: deeppink;
+  border: 1px solid deeppink;
+}
+
+.movie-card button.add-library {
+  width: 160px;
+}
+
 
 h4.movie.small-title {
   font-size: 1rem;
+  font-family: 'Cutive Mono', monospace;
+}
+
+#rent-movie-title {
+  font-family: 'Knewave', cursive;
 }
 
 
 header h1 {
   font-family: 'Knewave', cursive;
-
   font-size: 7.0em;
   text-align: center;
   text-shadow: 10px 3px deeppink;
@@ -92,7 +126,7 @@ header h1 {
 }
 
 main {
-  background-color: black;
+  background-color: white;
 }
 
 .grayed_out {
@@ -109,24 +143,11 @@ main {
   text-align: center;
 }
 
-/*#list-content {
-overflow: visible;
-}*/
 
 #cust-name-sort:hover, #cust-pcode-sort:hover, #cust-reg-at-sort:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-
-
-/*#header-buttons * {
-width: 100px;
-}*/
-
-/*
-#header-buttons button {
-width: 100px;
-}*/
 
 .success {
   padding-top: 20px;
@@ -135,4 +156,13 @@ width: 100px;
 
 .failure {
   color: red;
+}
+
+footer {
+  text-align: center;
+  clear: both;
+}
+
+footer img {
+  height: 60px;
 }

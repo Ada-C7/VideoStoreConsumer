@@ -15,7 +15,7 @@
     <section id="header-buttons" class="row">
 
       <button class="button columns small-12 medium-12 large-2" id="customer-list-button">Customers</button>
-      <button class="button columns small-12 medium-12 large-2" id="overdue-customers">Overdue</button>
+
 
       <button class="button columns small-12 medium-12 large-2" id="return-library">Library</button>
 
@@ -29,7 +29,7 @@
     <section id="movie-headers">
 
       <section id="search-header-section" class="row second-header">
-        <h3 id="search-subheader" class="columns small-12">Search Results for <span id="query-text"></span></h3>
+        <h3 id="search-subheader" class="columns small-12">Search Results for "<span id="query-text"></span>"</h3>
 
       </section>
 
@@ -49,37 +49,38 @@
 
     <!-- customers list -->
     <section id="customer-list">
+      <h3 id="customers-subheader" class="row">Customers</h3>
       <div class="tableouter">
-      <div class="tableinner">
-        <table>
-        <thead>
-          <td>
-            ID
-          </td>
-          <td id="cust-name-sort">
-            Name
-          </td>
-          <td>
-            Address
-          </td>
-          <td id="cust-pcode-sort">
-            Postal Code
-          </td>
-          <td>
-            Phone #
-          </td>
-          <td id="cust-reg-at-sort">
-            Registered At
-          </td>
-          <td>
-            Checked Out
-          </td>
-        </thead>
-        <tbody id="customer-data">
+        <div class="tableinner">
+          <table>
+            <thead>
+              <td>
+                ID
+              </td>
+              <td id="cust-name-sort">
+                Name
+              </td>
+              <td>
+                Address
+              </td>
+              <td id="cust-pcode-sort">
+                Postal Code
+              </td>
+              <td>
+                Phone #
+              </td>
+              <td id="cust-reg-at-sort">
+                Registered At
+              </td>
+              <td>
+                Checked Out
+              </td>
+            </thead>
+            <tbody id="customer-data">
 
-        </tbody>
-      </table>
-      </div>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -95,14 +96,26 @@
       </section>
     </section>
 
-
   </main>
+  <footer class="row">
+    <section class="small-12 medium-12">
+    <p id="bo-n-auro">
+      &copy; <a href="http://github.com/botrethewey">Bo Trethewey</a> & <a href="http://github.com/auroralemieux">Aurora Anderson</a>
+    </p>
+    </section>
 
+    <section class="small-12 medium-12" id="tmdb">
+      <p>
+        This product uses the TMDb API but is not endorsed or certified by TMDb.
+      </p>
+      <img id="tmdb-logo" src="https://www.themoviedb.org/assets/static_cache/c9dbe2292fb5eea61788571fbd96fa67/images/v4/logos/208x226-stacked-blue.png" alt="TMDB logo" />
+    </section>
+  </footer>
 
   <!-- rental form -->
   <script type="text/template" id="rental-form-template">
-    <h2>Rental Form</h2>
-    <h3>Movie: <span id="rent-movie-title"><%= model.title %></span></h3>
+    <!-- <h2>Rental Form</h2> -->
+    <h3 id="rent-movie-title">Rent <%= model.title %></h3>
     <form>
       <section class="input-group">
         Customer:
@@ -110,7 +123,7 @@
         </select>
 
         Due Date:<input id="rental-duedate" type="date" name="due_date"></input>
-        <button class="button" id="confirm-rental">Confirm Rental</button>
+        <button class="button" id="confirm-rental">Confirm</button>
         <button class="button" id="cancel-rental">Cancel</button>
         <p id="rental-message"></p>
       </section>
@@ -161,7 +174,7 @@
       <button class="button add-library">Add to Library</button>
       <section class="lib-buttons">
         <button class="button rent-movie">Rent</button>
-        <button class="button remove-movie">Remove from Library</button>
+        <button class="button remove-movie">Remove</button>
       </section>
 
     </section>
