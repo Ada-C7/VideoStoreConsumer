@@ -57,7 +57,7 @@ var MovieListView = Backbone.View.extend({
     console.log(selectedMovie.model.toJSON());
     var self = this;
     selectedMovie.model.fetch({
-      url: "http://localhost:3000/movies/" + selectedMovie.model.toJSON().title + ".json",
+      url: "http://localhost:3000/movies/" + selectedMovie.model.toJSON().title,
       // id: selectedMovie.model.toJSON().title,
       success: function(){
         console.log('In SUCCESS');
@@ -144,7 +144,8 @@ var MovieListView = Backbone.View.extend({
       image_url: this.$('#image_url').val(),
       inventory: parseInt(this.$('#inventory').val())
     };
-    movie.image_url = movie.image_url.substring(movie.image_url.indexOf("5")+1)
+    movie.image_url = movie.image_url.substring(movie.image_url.indexOf("5")+1);
+    movie.title = movie.title.replace(/\./g,'');
     // console.log(movie.image_url);
     return movie;
   }
