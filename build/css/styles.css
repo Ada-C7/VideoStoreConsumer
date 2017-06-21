@@ -159,3 +159,7 @@ footer {
 footer img {
   height: 60px;
 }
+
+td {
+  text-align: center;
+}

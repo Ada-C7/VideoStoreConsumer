@@ -10,6 +10,11 @@ const CustomerView = Backbone.View.extend({
 
   render: function() {
     console.log("rendering indiv customer view");
+    var old_date = new Date(this.model.get("registered_at"));
+    // var old_date = this.model.get("registered_at");
+    var new_date = old_date.toDateString();
+    this.model.set("registered_at", new_date);
+    // console.log(this.model.get("registered_at"));
     // console.log(this.model);
     var compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
