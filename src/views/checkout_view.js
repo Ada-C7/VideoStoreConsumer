@@ -39,21 +39,23 @@ var CheckoutView = Backbone.View.extend({
     return this;
   },
   events: {
-    'click h3.button.add-rental': 'createRental'
+    'click h3.button.checkout': 'createRental'
   },
   createRental: function(event) {
     var rental_movie = this.checkoutMovieView.selectedMovie();
     var rental_customer = this.checoutCustomersView.selectedCustomer();
-    // console.log(rental_customer);
+    var date = new Date();
+    date.setDate(date.getDate() + 30);
+    console.log(date);
     // console.log(rental_movie);
-    var attributes = {title: rental_movie, customer_id: rental_customer, due_date: "Tue, 20 Jun 2018"};
+    var attributes = {title: rental_movie, customer_id: rental_customer, due_date: date};
     var options = {
         type: 'POST',
         url: 'http://localhost:3000/rentals/' + rental_movie + '/check-out',
         customer_id: rental_customer
       };
     this.model.save(attributes, options);
-    $('#movie-customer-area').append("<h2>Movie Checked out! <h2>");
+    $('#movie-customer-area').append("<h2>Movie Checked out! <h2> <h3>Due Date: " + date);
   }
 });
 

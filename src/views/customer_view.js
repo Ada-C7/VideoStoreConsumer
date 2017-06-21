@@ -32,6 +32,7 @@ var CustomerView = Backbone.View.extend({
 
     rentals.forEach(function(rental)  {
         $('#' + name).append("<li>" + rental.title + "</li>");
+        $('#' + name).append("<h5 class='button'>" + "test" + "</h5>");
      });
 
   }
