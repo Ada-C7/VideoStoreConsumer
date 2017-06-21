@@ -17,26 +17,23 @@ var myCustomerListView = new CustomerListView({
   showDetails: true
 });
 
-var myMovieList = new MovieList();
-myMovieList.fetch();
-
-var myMovieListView = new MovieListView({
-  model: myMovieList,
-  template: _.template($('#movie-list-template').html()),
-  el: 'main',
-  customers: myCustomerList
-});
-
-var renderList = function() {
-  console.log("RENDER LIST");
+var movieList = function() {
+  var myMovieList = new MovieList();
   myMovieList.fetch();
+
+  var myMovieListView = new MovieListView({
+    model: myMovieList,
+    template: _.template($('#movie-list-template').html()),
+    el: 'main',
+    customers: myCustomerList
+  });
   myMovieListView.render();
+
 };
 
-
 $(document).ready(function() {
-  myMovieListView.render();
+  movieList();
   myCustomerListView.render();
-  $('#home').click(renderList);
+  $('#home').click(movieList);
 
 });
