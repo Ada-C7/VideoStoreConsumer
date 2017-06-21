@@ -27,6 +27,8 @@ var movieList = function() {
     el: 'main',
     customers: myCustomerList
   });
+  $('#create-rental').empty();
+  $('#customer-info').empty();
   myMovieListView.render();
 
 };
