@@ -15,6 +15,7 @@ var MoviesView = Backbone.View.extend({
   },
   render: function() {
     this.$('.main-content').empty();
+    this.$('.new-customer').addClass('hide');
     var that = this;
     this.model.each(function(movie) {
       var movieView = new MovieView({
