@@ -49,3 +49,11 @@ main {
 #header-buttons button {
   width: 100px;
 }
+
+.success {
+  color: green;
+}
+
+.failure {
+  color: red;
+}

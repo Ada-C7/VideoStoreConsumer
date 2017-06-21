@@ -95,10 +95,14 @@ const MovieListView = Backbone.View.extend({
     newRental.save(rentalDetails, {
       success: function(data) {
         console.log("created rental");
+        $("#rental-message").addClass("success");
+        $("#rental-message").html("Successfully rented movie.");
       },
       // this is not logging when failing
-      failure: function(data) {
+      error: function(data) {
         console.log("failed to create rental");
+        $("#rental-message").addClass("failure");
+        $("#rental-message").html("Unable to rent movie. Please make sure duedate is not before today.");
       }
     });
 
