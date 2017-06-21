@@ -31,6 +31,9 @@ var CustomerView = Backbone.View.extend({
     $('#' + name).empty();
 
     rentals.forEach(function(rental, index)  {
+      if (rental.returned === true) {
+        rentals.splice(index, 1);
+      }
       rental.title = movies[index].title;
       var newRental = new Rental(rental);
     });
@@ -44,18 +47,6 @@ var CustomerView = Backbone.View.extend({
     });
 
     customerRentalsView.render();
-
-    // rentals.forEach(function(rental, index)  {
-    //   rental.title = movies[index].title;
-    //   // console.log(rental.title);
-    //   var newRental = new Rental(rental);
-    //   console.log(newRental.title);
-    //   var rentalView = new RentalView ({
-    //     model: newRental,
-    //     template: _.template($("#rental-template").html())
-    //   });
-    //   $('#' + name).append(rentalView.render().el);
-    // });
   }
 });
 

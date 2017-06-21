@@ -7,6 +7,7 @@ import RentalView from './rental_view.js';
 var RentalsView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
+    this.listenTo(this.model, "update", this.render);
     this.name = params.name;
   },
   render: function() {
@@ -17,6 +18,11 @@ var RentalsView = Backbone.View.extend({
         template: that.template
       });
     $('#' + that.name).append(rentalView.render().el);
+    that.listenTo(rentalView, "check-in", function(movie) {
+      console.log("inside rentals view");
+      this.model.remove(movie);
+    });
+    return this;
   });
 }
 });
