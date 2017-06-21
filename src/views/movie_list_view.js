@@ -37,6 +37,7 @@ var MovieListView = Backbone.View.extend({
   events: {
     'click .btn-cancel': 'clearForm',
     'click .co-btn-cancel': 'clearCheckoutForm',
+
   },
 
   addForm: function(selectedMovie){
@@ -64,7 +65,9 @@ var MovieListView = Backbone.View.extend({
         var compiledTemplate = self.movieCheckoutFormTemplate({
           movie: selectedMovie.model.toJSON()
         });
+        $('#movie-checkout-form').off('click', ".btn-save")
         $('#movie-checkout-form').html(compiledTemplate);
+        $('#movie-checkout-form').on('click', ".btn-save", self.checkOutMovie.bind(self))
         self.customerShowMethod();
       }
     });
@@ -84,7 +87,7 @@ var MovieListView = Backbone.View.extend({
 
   clearCheckoutForm: function(){
     this.$('#movie-checkout-form').empty();
-    this.$('#movie-checkout-form').hide()
+    this.$('#movie-checkout-form').hide();
   },
 
   saveMovie: function(event) {
@@ -102,9 +105,35 @@ var MovieListView = Backbone.View.extend({
         console.log(err);
       }.bind(this)
     });
-      this.clearForm();
-      // this.renderRentalLibraryCallback();
-    },
+    this.clearForm();
+  },
+
+  checkOutMovie: function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var rawRental = this.getRentalInput();
+    console.log(rawRental);
+    this.model.checkOut(rawRental, {
+      wait: true,
+      success: function(resp){
+        this.renderRentalLibraryCallback();
+        console.log(resp);
+      }.bind(this),
+      error: function(err) {
+        console.log(err);
+      }.bind(this)
+    });
+    this.clearCheckoutForm();
+  },
+
+  getRentalInput: function() {
+    var rental = {
+      movie_title: this.$('#movie_title').val(),
+      customer_id: this.$('#customer-dropdown').val(),
+      due_date: this.$('#due_date').val()
+    };
+    return rental;
+  },
 
   getInput: function() {
     // console.log("in getInput");

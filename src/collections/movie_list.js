@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie';
 import $ from 'jquery';
+import _ from 'underscore';
 
 var MovieList = Backbone.Collection.extend({
   model: Movie,
@@ -12,18 +13,13 @@ var MovieList = Backbone.Collection.extend({
         return model.get("title");
   },
   checkOut: function(data) {
-          var url = "http://localhost:3000/rentals/" + this.get('title') + "/check-out";
-           // note that these are just $.ajax() options
+      var url = "http://localhost:3000/rentals/" + data['movie_title'] + "/check-out";
+      var rental = new Backbone.Model(data)
 
-       // add any additional options, e.g. a "success" callback or data
-      //  _.extend(options, opts);
-
-       return (this.sync || Backbone.sync).call(this, null, this, _.extend({
-         url: url,
-         type: 'POST',
-         data: data
-       }, options));
-   },
+      return (this.sync || Backbone.sync).call(this, "create", rental, _.extend({
+        url: url
+      }));
+   }
 });
 
 
