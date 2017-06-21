@@ -27,10 +27,16 @@ var myMovieListView = new MovieListView({
   customers: myCustomerList
 });
 
+var renderList = function() {
+  console.log("RENDER LIST");
+  myMovieList.fetch();
+  myMovieListView.render();
+};
 
 
 $(document).ready(function() {
   myMovieListView.render();
   myCustomerListView.render();
+  $('#home').click(renderList);
 
 });
