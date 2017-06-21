@@ -51,11 +51,24 @@ var MovieListView = Backbone.View.extend({
   },
 
   checkoutForm: function(selectedMovie){
-    var compiledTemplate = this.movieCheckoutFormTemplate({
-      movie: selectedMovie.model.toJSON()
+    console.log('In the checkoutForm-function');
+    console.log(selectedMovie);
+    console.log(selectedMovie.model.toJSON());
+    var self = this;
+    selectedMovie.model.fetch({
+      url: "http://localhost:3000/movies/" + selectedMovie.model.toJSON().title + ".json",
+      // id: selectedMovie.model.toJSON().title,
+      success: function(){
+        console.log('In SUCCESS');
+        console.log(selectedMovie.model.toJSON());
+        var compiledTemplate = self.movieCheckoutFormTemplate({
+          movie: selectedMovie.model.toJSON()
+        });
+        $('#movie-checkout-form').html(compiledTemplate);
+        self.customerShowMethod();
+      }
     });
-    $('#movie-checkout-form').html(compiledTemplate);
-    this.customerShowMethod();
+
   },
 
   clearForm: function(){
