@@ -103,16 +103,19 @@
 
   <!-- rental form -->
   <script type="text/template" id="rental-form-template">
-    <h3>Movie: <%= model.title %></h3>
+    <h3>Movie: <span id="rent-movie-title"><%= model.title %></span></h3>
     <form>
       <section class="input-group">
         Customer:
         <select id="customer-select" type="select" name="customer"> <%= options %>
         </select>
-        
-        Due Date:<input type="date" name="due_date"></input>
+
+        Due Date:<input id="rental-duedate" type="date" name="due_date"></input>
         <button class="button" id="confirm-rental">Confirm Rental</button>
         <button class="button" id="cancel-rental">Cancel</button>
+        <p id="rental-save-errors">
+          
+        </p>
       </section>
     </form>
   </script>

@@ -4,6 +4,7 @@ import Backbone from 'backbone';
 import MovieView from './movie_view.js';
 import Movie from '../models/movie.js';
 import RentalFormView from './rental_form_view.js';
+import Rental from '../models/rental.js';
 
 const MovieListView = Backbone.View.extend({
   initialize: function(params) {
@@ -75,7 +76,32 @@ const MovieListView = Backbone.View.extend({
     "click #search-button" : "getSearch",
     "click #return-library" : "returnToLib",
     "click #hide-details" : "hideSideBar",
-    "click #cancel-rental": "hideSideBar"
+    "click #cancel-rental": "hideSideBar",
+    "click #confirm-rental": "rentMovie"
+  },
+
+  rentMovie: function(event) {
+    event.preventDefault()
+    console.log("Clicked confirm rental");
+    var cust_id = this.$("#customer-select").val();
+    var movie_title = this.$("#rent-movie-title").html();
+    var duedate = this.$("#rental-duedate").val();
+    var rentalDetails = {
+      customer_id: cust_id,
+      due_date: duedate
+    };
+    var newRental = new Rental();
+    newRental.url = "http://localhost:3000/rentals/" + movie_title + "/check-out";
+    newRental.save(rentalDetails, {
+      success: function(data) {
+        console.log("created rental");
+      },
+      // this is not logging when failing
+      failure: function(data) {
+        console.log("failed to create rental");
+      }
+    });
+
   },
 
   getSearch: function() {
@@ -146,11 +172,8 @@ const MovieListView = Backbone.View.extend({
       model: movie.model,
       template: _.template($("#rental-form-template").html()),
       tagName: "section"
-      // el: "#side-bar"
     });
     this.$("#rental-form").append(rentalForm.render().el);
-
-
   }
 
 });
