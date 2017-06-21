@@ -22,7 +22,7 @@ var MovieListView = Backbone.View.extend({
     $('#movie-list').append('<h3>Search results </h3>');
     this.movieList.forEach(function(movie){
       movie.render();
-      $('#movie-list').append(movie.$el);
+      $('#movie-table').append(movie.$el);
     }, this);
     return this;
   },
@@ -30,7 +30,9 @@ var MovieListView = Backbone.View.extend({
   addMovie: function(movie){
     var movie = new MovieView ({
       model: movie,
-      template: this.movieTemplate
+      template: this.movieTemplate,
+      tagName: "tr",
+      className: "movie-list-element"
     });
     this.movieList.push(movie);
   }
