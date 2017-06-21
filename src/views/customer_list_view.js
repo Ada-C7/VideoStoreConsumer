@@ -55,7 +55,7 @@ var CustomerListView = Backbone.View.extend ({
 
       });
       $("#movie-list").empty();
-      $("#customer-info").append(customerDetailsView.render().$el);
+      $("#customer-info").html(customerDetailsView.render().$el);
 
 
   }

@@ -20,7 +20,7 @@ var MovieView = Backbone.View.extend({
     'click .add-movie': 'addMovie',
     'click .rent-movie': 'rentMovie',
     'click .movie-image-details': 'showDetails',
-    'click .submit-rental': 'createRental'
+    'click #create-rental': 'createRental'
   },
   rentMovie: function() {
     var rentalTemplate = _.template($("#rental-template").html());
