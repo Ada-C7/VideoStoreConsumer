@@ -13,17 +13,18 @@
       <input type="text" placeholder="Movie" name = "movietitle" id="movieName"></input>
       <button type="submit" id="submit-button" class="success button"> Search Movies</button>
     </form>
+    
+      <table id='movie-table'>
+        <tbody id='movie-list'>
+        </tbody>
+      </table>
 
-
-
-    <ul id='movie-list'>
-    </ul>
   </section>
   <section>
 
 
-        <ul id='rental-list'>
-        </ul>
+    <ul id='rental-list'>
+    </ul>
   </section>
   <section class='row main-content'>
     <section class = "small-12 medium-12 large-6 columns">
@@ -60,11 +61,9 @@
   </script>
 
   <script id="movie-template" type="text/template">
-    <li class = "movie-list-element">
-      <img src=<%= movie.image_url %> alt="movie_picture">
-      <%- movie.title %><br>
-      <button type="submit" id="add-button" class="success button"> Add to inventory</button>
-    </li>
+      <td><%- movie.title %></td>
+      <td><img src=<%= movie.image_url %> alt="movie_picture"></td>
+      <td><button type="submit" id="add-button" class="success button"> Add to inventory</button></td>
   </script>
 
   <script id="customer-template" type="text/template">

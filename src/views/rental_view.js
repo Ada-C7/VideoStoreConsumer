@@ -21,13 +21,9 @@ var RentalView = Backbone.View.extend({
   },
 
   deleteRental: function() {
-
-
     var id = this.model.attributes.movie_id;
     this.model.save(null, {type: 'POST', url:'http://localhost:3000/rentals/' + id + '/return'});
     Backbone.pubSub.trigger('renderRentals', this.model);
-
-
   }
 });
 

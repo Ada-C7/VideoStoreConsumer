@@ -37,8 +37,7 @@ aside label {
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
+
+td{
+  width: 30%;
 }
-*/
