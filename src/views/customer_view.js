@@ -22,14 +22,11 @@ var CustomerView = Backbone.View.extend({
     "click h5.button.check-in": "checkinMovie"
   },
   showRentals: function(event) {
-
     var name = this.model.get('name').split(' ')[0];
     var info = this.model.get('current_rentals');
     var rentals = info[0];
     var movies = info[1];
-
     $('#' + name).empty();
-
     rentals.forEach(function(rental, index)  {
       if (rental.returned === true) {
         rentals.splice(index, 1);
@@ -38,15 +35,19 @@ var CustomerView = Backbone.View.extend({
       var newRental = new Rental(rental);
     });
 
-    var customerRentals = new Rentals(rentals);
-    console.log(customerRentals);
-    var customerRentalsView = new RentalsView({
-      name: name,
-      model: customerRentals,
-      template: _.template($("#rental-template").html())
-    });
+    if (rentals.length === 0) {
+      $('#' + name).append("No Checked Out Movies.");
+    } else {
+      var customerRentals = new Rentals(rentals);
+      console.log(customerRentals);
+      var customerRentalsView = new RentalsView({
+        name: name,
+        model: customerRentals,
+        template: _.template($("#rental-template").html())
+      });
 
-    customerRentalsView.render();
+      customerRentalsView.render();
+    }
   }
 });
 
