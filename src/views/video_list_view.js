@@ -48,6 +48,7 @@ var VideoListView = Backbone.View.extend({
   searchVideo: function(e) {
       this.isSearch = true;
       this.$('#video-list').empty();
+      $('#success-message').html('');
       var videoTitle = this.getFormData();
       this.model.fetch( {data: { query: videoTitle}});
 

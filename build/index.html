@@ -37,21 +37,21 @@
 
           <h4 class="card-product-name"><%- video.title %></h4>
           <div class="card-product-img-wrapper">
-            <% if (video.image_url) { %>
-              <img src= <%- video.image_url %> >
-              <% } else { %>
+            <!-- <% if (video.image_url) { %> -->
+              <img src= <%- video.image_url %> 
+              <!-- <% } else { %>
                 <img src= <%- video.poster_path %> >
-                <% } %>
+                <% } %> -->
               </div>
 
+              <% if (isSearch) { %>
+                <button class="button expanded" id="add-video">Add</button>
+                <% } else { %>
+                  <button class="button expanded" id="rent-video">Rent</button>
+                  <% } %>
               <h5 class="video-description" style="display: none"><%- video.overview %></h5>
 
 
-                <% if (isSearch) { %>
-                  <button class="button expanded" id="add-video">Add</button>
-                <% } else { %>
-                  <button class="button expanded" id="rent-video">Rent</button>
-                <% } %>
 
               <p class="card-product-inventory"><h4><%- video.inventory %></h4></p>
 
