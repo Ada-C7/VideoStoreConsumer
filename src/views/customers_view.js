@@ -19,7 +19,16 @@ var CustomersView = Backbone.View.extend({
       });
       that.$('.main-content').append(customerView.render().el);
     });
+    this.$('.new-customer').removeClass('hide');
+
     return this;
+  },
+  events: {
+    'click h3.button.add-customer': 'newCustomer'
+  },
+  newCustomer: function(event) {
+    console.log("here");
+    this.$('.new-customer-form').toggleClass('hide');
   }
 });
 

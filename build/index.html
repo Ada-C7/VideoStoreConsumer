@@ -26,7 +26,21 @@
           <h3 class="button btn-search">Search</h3>
         </section>
       </section>
-
+      <section class="new-customer hide">
+          <h2>Register a New Customer</h2>
+          <form>
+            <label>Name
+            <input type="text" placeholder="large-12.columns" />
+            </label>
+            <label>Phone Number
+            <input type="text" placeholder="large-12.columns" />
+            </label>
+            <label>Postal Codes
+            <input type="text" placeholder="large-12.columns" />
+            </label>
+            <input type="submit" value="Submit" class="button">
+          </form>
+      </section>
       <section class="main-content"></section>
       <section class="hide rental"></section>
     </main>
@@ -80,6 +94,23 @@
     <script type="text/template" id="rental-template">
       <section id="movie-customer-area"></section>
       <h3 class="button checkout columns">Checkout Movie</h3>
+    </script>
+
+    <script type="text/template" id="new-customer-template">
+      <section class="row">
+        <h2>Register a New Customer</h2>
+        <form>
+          <label>Name
+          <input type="text" placeholder="large-12.columns" />
+          </label>
+          <label>Phone Number
+          <input type="text" placeholder="large-12.columns" />
+          </label>
+          <label>Postal Codes
+          <input type="text" placeholder="large-12.columns" />
+          </label>
+        </form>
+      </section>
     </script>
 
     <script src="/app.bundle.js"></script>
