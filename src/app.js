@@ -1,3 +1,4 @@
+
 import $ from 'jquery';
 import _ from 'underscore';
 
@@ -18,20 +19,10 @@ $(document).ready(function() {
     searchResults: searchList
   });
 
-<<<<<<< HEAD
-  $('form').submit(function(event){
-    console.log("HEREEEEE!!!!!!!!!!!");
-    event.preventDefault();
-
-    var rentalList = new RentalList( {query:$("#rentalTitle").val()} );
-    rentalList.fetch();
-
-=======
   var movieListViewParams = {
     el: $('main'),
     model: videoStore
   };
->>>>>>> 98a3320b0647f526a37fe6690d50bd4a27af1363
 
   var myMovieListView = new MovieListView(movieListViewParams);
   myMovieListView.render();
