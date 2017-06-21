@@ -21,10 +21,10 @@ var CustomerView = Backbone.View.extend({
 
   // },
   events: {
-    "click h4.customer": "showRentals"
+    "click h4.customer": "showRentals",
+    "click h5.button.check-in": "checkinMovie"
   },
   showRentals: function(event) {
-
 
     var name = this.model.get('name').split(' ')[0];
     var rentals = this.model.get('current_rentals');
@@ -32,9 +32,11 @@ var CustomerView = Backbone.View.extend({
 
     rentals.forEach(function(rental)  {
         $('#' + name).append("<li>" + rental.title + "</li>");
-        $('#' + name).append("<h5 class='button'>" + "test" + "</h5>");
+      
      });
-
+  },
+  checkinMovie: function(event) {
+    console.log(this.model);
   }
 
 });

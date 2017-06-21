@@ -45,7 +45,7 @@ var CheckoutView = Backbone.View.extend({
     var rental_movie = this.checkoutMovieView.selectedMovie();
     var rental_customer = this.checoutCustomersView.selectedCustomer();
     var date = new Date();
-    date.setDate(date.getDate() + 30);
+    date.setDate(date.getDate() + 15);
     console.log(date);
     // console.log(rental_movie);
     var attributes = {title: rental_movie, customer_id: rental_customer, due_date: date};

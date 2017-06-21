@@ -81,6 +81,15 @@
       <section id="movie-customer-area"></section>
       <h3 class="button checkout columns">Checkout Movie</h3>
     </script>
+
+    <script type="text/template" id="rental-template">
+      <section class="columns small-4">
+        <h4 class="movie-title"><%- title %></h4>
+        <h5 class="rental-due-date"><%- due_date %></h5>
+        <h5 class='button check-in'>Checkin Movie</h5>
+      </section>
+    </script>
+
     <script src="/app.bundle.js"></script>
 
   </body>
