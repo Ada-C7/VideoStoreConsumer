@@ -20,21 +20,9 @@ var MovieView = Backbone.View.extend({
     'click .add-movie': 'addMovie',
     'click .rent-movie': 'rentMovie',
     'click .movie-image-details': 'showDetails',
-    'click #create-rental': 'createRental'
   },
   rentMovie: function() {
-    var rentalTemplate = _.template($("#rental-template").html());
-    var compiledRentalTemplate = rentalTemplate(this.model.toJSON());
-    $("#create-rental").html(compiledRentalTemplate);
-
-    var rentalCustomerView = new CustomerListView({
-      model: this.customers,
-      template: _.template($('#customer-list-template').html()),
-      tagName: "select",
-      className: "customer-dropdown"
-    });
-
-    $("#create-rental label.customers-select").append(rentalCustomerView.render().$el);
+    this.trigger("rentalForm", this.model);
   },
   addMovie: function() {
 
@@ -60,16 +48,16 @@ var MovieView = Backbone.View.extend({
       this.render();
     }
   },
-  getFormData() {
-    formTitle = this.$("#title").val();
-    formCustomer = this.$("option").attr("value");
-    console.log(formCustomer);
-    console.log(formTitle);
-  },
-  createRental: function() {
-    console.log("hello");
-    this.getFormData();
-  }
+  // getFormData() {
+  //   formTitle = this.$("#title").val();
+  //   formCustomer = this.$("option").attr("value");
+  //   console.log(formCustomer);
+  //   console.log(formTitle);
+  // },
+  // createRental: function() {
+  //   console.log("hello");
+  //   this.getFormData();
+  // }
 
 });
 
