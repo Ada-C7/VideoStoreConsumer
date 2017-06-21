@@ -5,6 +5,20 @@
   font-family: 'Cutive Mono', monospace;
 }
 
+body {
+  margin: 0 10% 10% 10%;
+}
+
+.tableouter {
+  position: relative;
+  overflow-x:scroll;
+}
+
+.tableinner {
+  height: 400px;
+  overlfow-y: scroll;
+}
+
 #header-buttons {
   text-align: center;
 }
@@ -21,6 +35,7 @@ section#search-stuff * {
   /*text-align: justify;*/
   padding: 0 0 10% 5%;
   text-align: center;
+  background-color: red;
 }
 
 #query {
