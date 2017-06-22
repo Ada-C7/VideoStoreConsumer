@@ -85,14 +85,18 @@
 
 
     <script id="rental-template" type="text/template">
-      <section>
+      <section class='large-4 columns'>
         <h1>Rental Form: </h1>
+        <form>
          <label>Selected movie:
-         <input type="text" name="title" id="title" value="<%- title %>">
+         <input type="text" name="title" id="rental-title" value="<%- title %>">
          </label>
-         <label class="customers-select">Selected Customer:
+         <label class='customers-select' >Selected Customer:
          </label>
-         <button class="submit-rental button">Finish!</button>
+         <label>Select due date:<input type='date' id='due-date' /></label>
+         <input type='submit' class="submit-rental button">Finish!</input>
+        </form>
+
       </section>
     </script>
 

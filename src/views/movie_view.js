@@ -47,17 +47,8 @@ var MovieView = Backbone.View.extend({
       this.detailsClicked = !this.detailsClicked;
       this.render();
     }
-  },
-  // getFormData() {
-  //   formTitle = this.$("#title").val();
-  //   formCustomer = this.$("option").attr("value");
-  //   console.log(formCustomer);
-  //   console.log(formTitle);
-  // },
-  // createRental: function() {
-  //   console.log("hello");
-  //   this.getFormData();
-  // }
+  }
+
 
 });
 
