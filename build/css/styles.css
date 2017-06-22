@@ -1,44 +1,149 @@
 @include foundation-everything;
 
+* {
+  font-family: 'Fredericka the Great', cursive !important;
+}
+
 main {
-    background: lightblue;
+    background: #2F2F2F;
 }
 
-header {
-  background-color: lightgreen;
-  padding: 0.5rem;
+#home {
+  cursor: pointer;
 }
 
-#completed-checkbox {
-  display: inline;
+button {
+  cursor: pointer;
+}
+
+.hide-it {
+  display: none;
 }
 
 label {
   display: inline;
 }
 
-button.success {
-  margin-right: 1.2rem;
-  display: inline;
+
+h1, h2, h3, h4, h5 {
+  color: white;
+  text-align: center;
 }
 
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
+
+button.expanded {
+  /*margin-right: 1.2rem;
+  display: inline;*/
+  font-size: 1.5em;
 }
 
-.completed {
-  text-decoration: line-through;
-}
 
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
+
+.card-product-name {
+  text-align: center;
+  height: 80px;
 }
-*/
+
+.card-product {
+  background-color: #92B4A7;
+  margin: 2em;
+}
+
+
+.card-product:hover .card-product-img-wrapper img {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+}
+
+.card-product:hover .card-product-img-wrapper .button {
+  -webkit-transform: translateY(-3rem);
+      -ms-transform: translateY(-3rem);
+          transform: translateY(-3rem);
+}
+
+.card-product-img-wrapper {
+  margin-bottom: 1.375rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-product-img-wrapper .button {
+  transition: all 0.2s ease;
+  background-color: #767676;
+  padding: 1rem 0.5rem;
+  bottom: -3rem;
+  -webkit-transform: translateY(3rem);
+      -ms-transform: translateY(3rem);
+          transform: translateY(3rem);
+  position: absolute;
+  z-index: 2;
+  color: #fefefe;
+  margin-bottom: 0;
+
+}
+
+.card-product-img-wrapper .button:hover {
+  background-color: #7ca0b7;
+}
+
+.card-product-img-wrapper img {
+  transition: all 0.2s ease;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  width: 100%;
+}
+
+.card-product-img-wrapper .card-product-name {
+  font-size: 1.375rem;
+
+}
+
+.card-product-img-wrapper .card-product-inventory {
+  color: #8a8a8a;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+
+}
+.card {
+    border-style: none;
+}
+
+.card-product-name {
+  text-align: center;
+  color: #2F2F2F;
+  /*text-shadow: 1px 1px 2px #2F2F2F;*/
+}
+
+#rent-video {
+  background-color: #92B4A7;
+}
+
+#add-video {
+  background-color: #92B4A7;
+}
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+}
+
+.input-group {
+  width: 70%;
+  /*margin: 0;*/
+}
+
+button.expanded:focus {
+  outline: none;
+}
+
+button.expanded:hover {
+  color: #2F2F2F;
+}
