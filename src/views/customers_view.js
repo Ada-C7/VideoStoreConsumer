@@ -24,11 +24,21 @@ var CustomersView = Backbone.View.extend({
     return this;
   },
   events: {
-    'click h3.button.add-customer': 'newCustomer'
+    'click #customer-form': 'newCustomer'
+
   },
   newCustomer: function(event) {
-    console.log("here");
-    this.$('.new-customer-form').toggleClass('hide');
+
+    var customer = this.model.create({
+      name: $('#name').val(),
+      phone: $('#phone_num').val(),
+      postal_code: $('#postal').val()
+    });
+
+    $('#name').val('Name');
+    $('#phone_num').val('Phone Number');
+    $('#postal').val('Postal Code');
+
   }
 });
 
