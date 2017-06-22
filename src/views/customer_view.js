@@ -23,23 +23,25 @@ var CustomerView = Backbone.View.extend({
   },
   showRentals: function(event) {
     var name = this.model.get('name').split(' ')[0];
+    console.log(name);
     var info = this.model.get('current_rentals');
     var rentals = info[0];
     var movies = info[1];
     $('#' + name).empty();
+
     rentals.forEach(function(rental, index)  {
+      rental.title = movies[index].title;
       if (rental.returned === true) {
         rentals.splice(index, 1);
       }
-      rental.title = movies[index].title;
-      var newRental = new Rental(rental);
+      // var newRental = new Rental(rental);
     });
 
     if (rentals.length === 0) {
       $('#' + name).append("No Checked Out Movies.");
     } else {
       var customerRentals = new Rentals(rentals);
-      console.log(customerRentals);
+      // console.log(customerRentals);
       var customerRentalsView = new RentalsView({
         name: name,
         model: customerRentals,

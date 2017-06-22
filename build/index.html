@@ -11,19 +11,23 @@
   <body>
     <header class="row top-bar">
       <h1>Video Store</h1>
-      <h3 class="button view-customers">View Customers</h3>
-      <h3 class="button view-movies">View Movies</h3>
+      <div id="centered-top-buttons" class="menu-centered">
+        <h3 class="button view-customers top-bar-left">View Customers</h3>
+        <h3 class="button view-movies top-bar-right">View Movies</h3>
+      </div>
     </header>
     <main class="row">
 
       <section class="search-bar row">
         <section class="columns">
-          <h5>Search Movies</h5>
-          <input type="radio" name="search" value="in-store" id="inStore" checked="checked" /> In Store
-          <input type="radio" name="search" value="query" id="query" /> External Database
-          <input type="text" name="find" id="movie-search" />
+          <a href="#" id="show-search">Search Movies</a>
+          <section class="hide" id="search-bar-hidden">
+            <input type="radio" name="search" value="in-store" id="inStore" checked="checked" /> In Store
+            <input type="radio" name="search" value="query" id="query" /> External Database
+            <input type="text" name="find" id="movie-search" />
 
-          <h3 class="button btn-search">Search</h3>
+            <h3 class="button btn-search">Search</h3>
+          </section>
         </section>
       </section>
       <section class="new-customer hide">
