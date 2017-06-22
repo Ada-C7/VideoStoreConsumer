@@ -34,11 +34,15 @@ header h1 {
   text-align:center;
   font-size: 4.0em;
   color: white;
+  margin: 0;
 }
 
 .view-customers, .view-movies {
 }
 
+section.new-customer {
+  margin-bottom: 10px;
+}
 /*search*/
 
 a {
@@ -120,4 +124,9 @@ div {
 
 .button.customer {
   width: 100%;
+}
+
+footer {
+  color: white;
+  background-color: lightgreen;
 }
