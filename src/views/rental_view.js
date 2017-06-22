@@ -18,7 +18,7 @@ var RentalView = Backbone.View.extend({
   },
   checkinMovie: function(event) {
     // console.log(event.target);
-    this.trigger("check-in", this.model);
+    // this.trigger("check-in", this.model);
 
     console.log(this.model);
     var title = this.model.get('title');
