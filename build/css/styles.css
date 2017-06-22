@@ -40,8 +40,8 @@ header h1 {
 .view-customers, .view-movies {
 }
 
-section.new-customer {
-  margin-bottom: 10px;
+section.new-customer, section.search-movies {
+  margin-bottom: 15px;
 }
 /*search*/
 
@@ -124,4 +124,9 @@ div {
 
 .button.customer {
   width: 100%;
+}
+
+/*returned*/
+.returned {
+  background-color: red;
 }

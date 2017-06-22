@@ -17,14 +17,12 @@ var RentalView = Backbone.View.extend({
     'click h5.button.check-in': 'checkinMovie'
   },
   checkinMovie: function(event) {
-    // console.log(event.target);
-    // this.trigger("check-in", this.model);
-
-    console.log(this.model);
+    this.$(".rental-due-date").addClass('hide');
+    this.$(".button.check-in").addClass('hide');
+    this.$(".rental-info").append('returned!');
     var title = this.model.get('title');
 
     var customer_id = this.model.get('customer_id');
-    console.log(title);
     var options = {
         type: 'POST',
         url: 'http://localhost:3000/rentals/' + title + '/return',

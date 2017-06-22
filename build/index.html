@@ -21,7 +21,7 @@
       <section class="search-bar row">
         <section class="columns">
           <a href="#" id="show-search">Search Movies</a>
-          <section class="hide" id="search-bar-hidden">
+          <section class="hide search-movies" id="search-bar-hidden">
             <input type="radio" name="search" value="in-store" id="inStore" checked="checked" /> In Store
             <input type="radio" name="search" value="query" id="query" /> External Database
             <input type="text" name="find" id="movie-search" />
@@ -92,7 +92,7 @@
         <ul id="<%-id_name %>">
 
         </ul>
-        <a href="#" class="hide" id="hide-customer-rentals">Hide</a>
+        <a href="#" class="hide" id="hide-customer-rentals">Done</a>
       </section>
     </script>
 
@@ -102,7 +102,7 @@
     </script>
 
     <script type="text/template" id="rental-template">
-      <section class="columns">
+      <section class="columns rental-info">
         <h5 class="rental-title"><%- title %></h5>
         <h5 class="rental-due-date">due: <%- due_date %></h5>
         <h5 class='button check-in'>Check In Movie</h5>

@@ -53,6 +53,7 @@ var CustomerView = Backbone.View.extend({
     var name = this.model.get('name').split(' ')[0];
     this.$('#' + name).empty();
     this.$("a#hide-customer-rentals").addClass('hide');
+    this.trigger("reFetchRentals");
   }
 });
 

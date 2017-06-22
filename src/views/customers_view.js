@@ -18,6 +18,9 @@ var CustomersView = Backbone.View.extend({
         template: that.template
       });
       that.$('.main-content').append(customerView.render().el);
+      that.listenTo(customerView, "reFetchRentals", function() {
+        that.model.fetch();
+      });
     });
     this.$('.new-customer').removeClass('hide');
 
