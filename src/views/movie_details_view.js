@@ -62,9 +62,14 @@ var MovieDetailsView = Backbone.View.extend({
   },
   deleteMovie: function () {
     var movieTitle = this.model.get('title');
-    this.model.destroy();
-
-    this.$el.prepend("<p>Successfully deleted " + movieTitle + " from inventory.</p>");
+    this.model.destroy({
+      success: function (model, response) {
+        $('main').prepend("<p>Successfully deleted " + movieTitle + " from inventory.</p>");
+      },
+      error: function (model, response) {
+        $('main').prepend("<p>Error: " + response.responseJSON.errors + "</p>");
+      }
+    });
   }
 });
 
