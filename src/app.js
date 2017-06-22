@@ -25,18 +25,26 @@ var moviesView = new MoviesView({
 });
 
 
-
 $(document).ready(function() {
 
   moviesView.render();
 
+  $('#show-search').click(function() {
+    $("#search-bar-hidden").toggleClass('hide');
+  });
+
+  $('#show-add-customers').click(function() {
+    $("#new-customer-form").toggleClass('hide');
+  });
+
   $('.view-customers').click(function() {
     $('.rental').addClass('hide');
     $('.main-content').removeClass('hide');
+    $("#search-bar-hidden").addClass('hide');
+    $("#new-customer-form").addClass('hide');
     var customerList = new Customers();
     customerList.fetch();
     // ready to go
-
     var customersView = new CustomersView({
       model: customerList,
       template: _.template($("#customer-template").html()),
@@ -47,11 +55,11 @@ $(document).ready(function() {
 
   $('.view-movies').click(function() {
     $('.rental').addClass('hide');
+    $("#search-bar-hidden").addClass('hide');
     $('.main-content').removeClass('hide');
+    $("#new-customer-form").addClass('hide');
     movieList.fetch();
     moviesView.render();
   });
-
-
 
 });
