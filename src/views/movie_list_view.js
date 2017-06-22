@@ -33,7 +33,7 @@ var MovieListView = Backbone.View.extend ({
 
   events: {
     "click #search-movies" : "searchMovie",
-    'click .submit-rental': 'createRental'
+    'submit form': 'createRental'
   },
 
   getFormData: function() {
@@ -64,22 +64,23 @@ var MovieListView = Backbone.View.extend ({
       model: this.customers,
       template: _.template($('#customer-list-template').html()),
       tagName: "select",
-      className: "customer-dropdown"
+      className: "customer-dropdown",
+      id: "rental-customer"
     });
 
     $("#create-rental label.customers-select").append(rentalCustomerView.render().$el);
   },
   getRentalFormData() {
-    var formTitle = this.$("#rental-title").val();
-    var formCustomer = this.$("option").attr("value");
-    var formDueDate = this.$('#due-date').val();
-    console.log(formCustomer);
-    console.log(formTitle);
-    console.log(formDueDate);
+
   },
-  createRental: function() {
-    console.log("hello");
-    this.getRentalFormData();
+  createRental: function(e) {
+    e.preventDefault();
+
+    var formTitle = this.$("#rental-title").val();
+    var formCustomerID = this.$('#rental-customer').val();
+    var formDueDate = this.$('#due-date').val();
+
+  
   }
 
 });
