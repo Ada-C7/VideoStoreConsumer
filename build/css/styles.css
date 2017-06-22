@@ -41,6 +41,10 @@ header h1 {
 
 /*search*/
 
+a {
+  padding: 15px;
+}
+
 #in-store, #query {
   margin-left: 50px;
 }
@@ -112,4 +116,8 @@ aside label {
 
 div {
   display: inline;
+}
+
+.button.customer {
+  width: 100%;
 }
