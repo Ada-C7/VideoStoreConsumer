@@ -1,6 +1,39 @@
 @include foundation-everything;
 
-main {
+
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+body{
+  background-color: black;
+}
+
+.movie {
+  height: 100%;
+  color: white;
+  padding: 2px;
+}
+
+img {
+  height: 300px;
+  width: 100%;
+}
+
+.column.nonpadding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.button {
+  border-radius: 2px;
+  background-color: #D81F26;
+  color: white;
+  text-transform: uppercase;
+}
+
+/*main {
     background: lightblue;
 }
 
@@ -36,9 +69,21 @@ aside label {
 
 div {
   display: inline;
-}
+}*/
 /*
 * {
   border-style: solid;
 }
 */
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+  border: none;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+  background-color: #D81F26;
+}
