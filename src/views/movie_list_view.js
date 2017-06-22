@@ -31,10 +31,12 @@ var MovieListView = Backbone.View.extend({
     'click #search-button' : 'searchMovies'
   },
   showMovieDetails: function (movie) {
+    this.$el.empty();
+    this.$el.append('<section id="movie-details">HELLOOOOOO</section>');
     var movieDetailsView = new MovieDetailsView({
       model: movie,
       template: this.movieDetailsTemplate,
-      el: this.$el
+      el: this.$('#movie-details')
     });
     movieDetailsView.render();
 
