@@ -8,7 +8,6 @@ var MovieView = Backbone.View.extend({
     this.template = params.template;
 
     this.listenTo(this.model, "change", this.render);
-    this.listenTo(this.model, "change", this.render);
   },
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
@@ -26,10 +25,13 @@ var MovieView = Backbone.View.extend({
 
     this.$("input[type='number']").val('');
 
-
+    console.log('this is the input from', inventory);
     return inventory;
   },
   addMovie: function() {
+    console.log("#1");
+    console.log(this.model);
+
     this.model.fetch({data: {
       title: this.model.get('title'),
       overview: this.model.get('overview'),
@@ -41,11 +43,11 @@ var MovieView = Backbone.View.extend({
   });
   },
   deleteMovie: function(){
-
+    console.log("#1");
     this.model.fetch({
       data: {
         id: this.model.get("id"),
-        title: this.model.get('title')
+        // title: this.model.get('title')
       },
       type: 'DELETE'
     });
@@ -55,37 +57,12 @@ var MovieView = Backbone.View.extend({
   onClick: function(event){
     event.stopPropagation();
     self = this;
-
+    console.log("#1");
     this.model.fetch({
       success: function(data) {
-
+        console.log("It worked (details)!", data);
         self.trigger('selectedMovie', data);
 
-      },
-      failure: function(data) {
-
-        this.$('#movie-list').append("<h2>Request failed.</h2>");
-      }
-    });
-  },
-  getCustomerData: function() {
-    var input = this.$("option").val();
-
-    // this.$("option").val('');
-
-    return input;
-  },
-  checkoutFunction: function() {
-    event.preventDefault();
-    // alert("hey lets check out");
-    let customer = this.getCustomerData();
-    console.log('customer chosen', customer);
-    console.log('movie chosen', this.model.get("title"));
-    // fetch using rental model
-    this.rentalModel.fetch({
-      data: { customer: customer, movie: this.model.get("title") },
-      success: function(data) {
-        console.log("It worked! (checkout)", data);
       },
       failure: function(data) {
         console.log("Failure", data);

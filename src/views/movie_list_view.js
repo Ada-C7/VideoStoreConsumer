@@ -11,7 +11,7 @@ import Rental from '../models/rental.js';
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = _.template($('#movie-template').html());
-    this.rentalModel = new Rental();
+    // this.rentalModel = new Rental();
 
     this.listenTo(this.model, "update", this.render);
 
@@ -41,7 +41,7 @@ var MovieListView = Backbone.View.extend({
   },
   events: {
     "submit" : "searchFunction",
-    "click #check_out" : "checkoutFunction"
+    // "click #check_out" : "checkoutFunction"
     // "click" : "hideMovieDetails"
   },
   getInputData: function(){
@@ -52,13 +52,13 @@ var MovieListView = Backbone.View.extend({
     console.log('this is the input from', input);
     return input;
   },
-  getCustomerData: function() {
-    var input = this.$("option").val();
-
-    // this.$("option").val('');
-
-    return input;
-  },
+  // getCustomerData: function() {
+  //   var input = this.$("option").val();
+  //
+  //   // this.$("option").val('');
+  //
+  //   return input;
+  // },
   searchFunction: function(event){
     event.preventDefault();
     let query = this.getInputData();
@@ -96,29 +96,51 @@ var MovieListView = Backbone.View.extend({
     });
     customersView.render();
 
-    // "click #check_out" : "checkoutFunction"
+    // console.log('movie before', movie);
+    // this.$('#movie-details').on('click', '#check_out', this.checkoutFunction);
+    this.$('#movie-details').on('click', '#check_out', movie, function(e) {
+      e.preventDefault();
+
+      let customer = $("option:selected").attr("id");
+      console.log('customer chosen', customer);
+      console.log('movie chosen', movie.get("title"));
+
+      // fetch using rental model
+      let rental = new Rental({'customer_id': customer, 'due_date': '2017-06-30' });
+      rental.url = "http://localhost:3000/rentals/" + movie.get('title') + '/check-out';
+      rental.save(
+        { success: function() {
+          console.log("It worked! (checkout)");
+        },
+        failure: function() {
+          console.log("Failure");
+          this.$('#movie-list').append("<h2>Request failed.</h2>");
+        }
+      });
+    });
   },
   hideMovieDetails: function(){
     this.$('#movie-details').toggleClass('hide');
   },
-  checkoutFunction: function() {
-    event.preventDefault();
-    // alert("hey lets check out");
-    let customer = this.getCustomerData();
-    console.log('customer chosen', customer);
-    console.log('movie chosen', this.model.get("title"));
-    // fetch using rental model
-    this.rentalModel.fetch({
-      data: { customer: customer, movie: this.model.get("title") },
-      success: function(data) {
-        console.log("It worked! (checkout)", data);
-      },
-      failure: function(data) {
-        console.log("Failure", data);
-        this.$('#movie-list').append("<h2>Request failed.</h2>");
-      }
-    });
-  }
+  // checkoutFunction: function(e, movie) {
+  //   e.preventDefault();
+  //   // alert("hey lets check out");
+  //   console.log("what the heck is this movie?", movie);
+  //   let customer = movie.collection.getCustomerData();
+  //   console.log('customer chosen', customer);
+  //   console.log('movie chosen', movie.get("title"));
+  //   // fetch using rental model
+  //   this.rentalModel.fetch({
+  //     data: { customer: customer, movie: movie.get("title") },
+  //     success: function(data) {
+  //       console.log("It worked! (checkout)", data);
+  //     },
+  //     failure: function(data) {
+  //       console.log("Failure", data);
+  //       this.$('#movie-list').append("<h2>Request failed.</h2>");
+  //     }
+  //   });
+  // }
 });
 
 export default MovieListView;

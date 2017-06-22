@@ -10,7 +10,7 @@ import CustomerView from './customer_view.js';
 var CustomerListView = Backbone.View.extend({
   initialize: function() {
     this.template = _.template($('#tmpl-customer').html());
-    
+
     this.listenTo(this.model, "sync", this.render);
     this.model.fetch({
       success: function(data) {
@@ -40,7 +40,8 @@ var CustomerListView = Backbone.View.extend({
       var customerView = new CustomerView({
         model: customer,
         template: this.template,
-        tagName: 'option'
+        tagName: 'option',
+        id: customer.get('id')
       });
       // console.log('Before Append ');
       // console.log("this.el == ", this.el);
