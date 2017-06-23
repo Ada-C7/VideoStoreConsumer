@@ -32,10 +32,9 @@ var RentalListView = Backbone.View.extend({
     this.model.fetch();
   },
   checkInRental: function (event) {
-    var customerName = $(event.target).attr('data-customer-name');
-    var customerID = $(event.target).attr('data-customer-id');
-    var movieTitle = $(event.target).attr('data-movie-title');
-    console.log(customerName, customerID, movieTitle);
+    var customerName = $(event.target).children().attr('data-customer-name');
+    var customerID = $(event.target).children().attr('data-customer-id');
+    var movieTitle = $(event.target).children().attr('data-movie-title');
 
     var options = {
       type: 'POST',
