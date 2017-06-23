@@ -82,7 +82,7 @@
             <% customers.each(function (customer) { %>
               <tr>
                 <td><%- customer.get('name') %></td>
-                <td><%- customer.get('registered_at') %></td>
+                <td><%- customer.get('registered_at').substring(0,10) %></td>
                 <td><%- customer.get('postal_code') %></td>
               </tr>
             <% }); %>
