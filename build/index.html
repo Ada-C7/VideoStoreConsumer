@@ -5,11 +5,93 @@
     <link rel="stylesheet" type="text/css" href="css/_settings.css">
     <link rel="stylesheet" type="text/css" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
+    <title>Video Store</title>
   </head>
   <body>
+    <header>
+      <h1>Video Store</h1>
+    </header>
+
+    <main class="row">
+      <button class="button" id="rental-list">Rental Movies</button>
+      <button class="button" id="new-movies-list">Search For New Movies</button>
+      <button class="button" id="rental-movie">Checkout</button>
+      <button class="button" id="rental-overdue">Overdue Movies</button>
+      <button class="button" id="rental-all">All Oustanding Rentals</button>
+
+      <section class="row" id="search-bar">
+        <label>
+          Search
+          <input type="text" name="search" id="search" placeholder="Search..">
+        </label>
+        <button class="button btn-search">Search</button>
+      </section>
+
+      <section id="movie-list" class="row"></section>
+      <section id="rental-form" class="row"></section>
+      <section id="rentals" class="row">
+        <table>
+          <tr>
+            <th>Movie</th>
+            <th>Customer</th>
+            <th>Customer ID</th>
+            <th>Checkout Date</th>
+            <th>Due Date</th>
+            <th>Returned</th>
+            <th>Check In</th>
+          </tr>
+          <tbody id="overdue-info"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- Templates -->
+
+    <script id="movie-card-template" type="text/template">
+      <img alt="movie image" class="columns large-2 small-2" src=<%- image_url %> >
+      <div class="columns large-10 small-10" id="movie-text">
+        <h2><strong><%- title %></strong></h2>
+        <p><strong>Summary: </strong><%- overview %></p>
+        <p><strong>Release Date: </strong><%- release_date %></p>
+        <% if ( inventory === null ) { %>
+          <p>
+            <strong>Quantity: </strong>
+            <input type="number" name="inventory" id='inventory' min="1" max="5" value="1">
+          </p>
+          <button class="button btn-add-lib">Add to Library</button>
+        <% } else { %>
+          <p><strong>Inventory: </strong><%- inventory%></p>
+          <p><strong>Available Inventory: </strong><%- available_inventory %></p>
+          <button class="button btn-rental">Check Out This Movie</button>
+        <% } %>
+      </div>
+    </script>
+
+    <script id="rental-form-template" type="text/template">
+      <section class="columns large-12 small-12">
+        <label>
+          Movie Title
+          <input type="text" name="rental-movie-title" id="rental-movie-title" placeholder="Search..">
+        </label>
+        <label>
+          Customer ID
+          <input type="text" name="rental-customer-id" id="rental-customer-id" placeholder="Search..">
+        </label>
+        <button class="button btn-checkout">Checkout</button>
+        <button class="button btn-checkin">Checkin</button>
+      </section>
+    </script>
+
+    <script id="overdue-table" type="text/template">
+      <td><%- title %></td>
+      <td><%- name %></td>
+      <td><%- customer_id %></td>
+      <td><%- checkout_date %></td>
+      <td><%- due_date %></td>
+      <td><%- returned %></td>
+      <td><button class="button btn-checkin-from-list">Check In</button></td>
+    </script>
 
     <script src="/app.bundle.js"></script>
-
   </body>
   </html>

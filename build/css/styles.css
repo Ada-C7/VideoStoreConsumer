@@ -1,12 +1,13 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+    background: white;
 }
 
 header {
-  background-color: lightgreen;
+  background-color: lightgrey;
   padding: 0.5rem;
+  text-align: center;
 }
 
 #completed-checkbox {
@@ -35,10 +36,61 @@ aside label {
 }
 
 div {
-  display: inline;
+  display: block;
 }
-/*
-* {
-  border-style: solid;
+
+li {
+  /*border: solid;*/
+  background-color: lightgrey;
+  /*height: 27em;*/
+  padding: 2%;
+  margin: 3%
 }
-*/
+
+#movie-text {
+  /*border: solid;*/
+}
+
+.columns {
+  float: none;
+}
+
+.button {
+  margin-top: 1%;
+}
+
+#search-bar {
+  display: none;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+#rental-form {
+  display: none;
+}
+
+#rentals {
+  display: none;
+}
+
+th {
+  text-align: left;
+}
+
+h2 {
+  border-bottom: solid;
+}
+
+.button.btn-checkin,
+.button.btn-checkout {
+  margin: 0;
+}
+
+#form {
+  width: 100%;
+}
