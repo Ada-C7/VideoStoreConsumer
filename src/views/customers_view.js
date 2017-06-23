@@ -29,7 +29,7 @@ var CustomersView = Backbone.View.extend({
   },
   newCustomer: function(event) {
 
-    var customer = this.model.create({
+    var customer = this.model.save({
       name: $('#name').val(),
       phone: $('#phone_num').val(),
       postal_code: $('#postal').val()
