@@ -100,7 +100,7 @@
       <aside>
         <ul class="menu" id="rental-options">
           <li id="menu-label">Filter</li>
-          <li><a href="#" class="filter-button" id="rental-log">Rental Log</a></li>
+          <li><a href="#" class="filter-button" id="all-rentals">All Rentals</a></li>
           <li><a href="#" class="filter-button" id="overdue-rentals">Overdue Rentals</a></li>
           <li><a href="#" class="filter-button" id="outstanding-rentals">Outstanding Rentals</a></li>
         </ul>
@@ -117,6 +117,7 @@
               <th>Returned</th>
               <th>Customer Name</th>
               <th>Movie Title</th>
+              <th>Admin</th>
             </tr>
           </thead>
           <tbody>
@@ -127,6 +128,15 @@
                 <td><%- rental.returned %></td>
                 <td><%- rental.customer.name %></td>
                 <td><%- rental.movie.title %></td>
+                <td class="<%- !rental.returned ? 'check-in-button' : '' %>">
+                  <% if (!rental.returned) { %>
+                    <a href="#"
+                      data-customer-name="<%- rental.customer.name %>"
+                      data-customer-id="<%- rental.customer.id %>"
+                      data-movie-title="<%- rental.movie.title %>">Check In
+                    </a>
+                  <% } %>
+                </td>
               </tr>
             <% }); %>
           </tbody>

@@ -63,9 +63,11 @@ var MovieDetailsView = Backbone.View.extend({
       success: function (model, response) {
         $('#alerts').removeClass('error-alert').addClass('success-alert');
         $('#alerts').html("<p>Successfully rented " + attributes.title + " to " + formData.customerName + "</p>");
+        $(window).scrollTop(0);
       },
       error: function (model, response) {
         that.displayErrorList(response);
+        $(window).scrollTop(0);
       }
     };
     rental.save(attributes, options);
@@ -84,9 +86,11 @@ var MovieDetailsView = Backbone.View.extend({
     this.model.destroy({
       success: function (model, response) {
         $('main').prepend("<p class='success-alert'>Successfully deleted " + movieTitle + " from inventory.</p>");
+        $(window).scrollTop(0);
       },
       error: function (model, response) {
         $('main').prepend("<p class='error-alert'>Error: " + response.responseJSON.errors + "</p>");
+        $(window).scrollTop(0);
       }
     });
   }

@@ -14,9 +14,10 @@ var RentalListView = Backbone.View.extend({
     return this;
   },
   events: {
-    'click #rental-log' : 'showAllRentals',
+    'click #all-rentals' : 'showAllRentals',
     'click #outstanding-rentals' : 'showOutstandingRentals',
-    'click #overdue-rentals' : 'showOverdueRentals'
+    'click #overdue-rentals' : 'showOverdueRentals',
+    'click .check-in-button' : 'checkInRental'
   },
   showAllRentals: function () {
     this.model.url = "http://localhost:3000/rentals";
@@ -29,6 +30,27 @@ var RentalListView = Backbone.View.extend({
   showOverdueRentals: function () {
     this.model.url = "http://localhost:3000/rentals/overdue";
     this.model.fetch();
+  },
+  checkInRental: function (event) {
+    var customerName = $(event.target).attr('data-customer-name');
+    var customerID = $(event.target).attr('data-customer-id');
+    var movieTitle = $(event.target).attr('data-movie-title');
+    console.log(customerName, customerID, movieTitle);
+
+    var options = {
+      type: 'POST',
+      url: 'http://localhost:3000/rentals/' + movieTitle + '/return?customer_id=' + customerID,
+      success: function (model, response) {
+        $('main').prepend("<p class='success-alert'>Successfully checked in rental of " + movieTitle + " by " + customerName + "</p>");
+        $(window).scrollTop(0);
+      },
+      error: function (model, response) {
+        $('main').prepend("<p class='error-alert'>Could not delete rental</p>");
+        $(window).scrollTop(0);
+      }
+    };
+    var rental = new Rental();
+    rental.save(null, options);
   }
 });
 

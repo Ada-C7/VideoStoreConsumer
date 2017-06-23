@@ -156,6 +156,24 @@ th {
   border-collapse: collapse;
 }
 
+td.check-in-button {
+  background-color: white;
+  text-align: center;
+}
+
+td.check-in-button:hover {
+  background-color: #e50914;
+}
+
+td.check-in-button a {
+  color: black;
+}
+
+td.check-in-button:hover a {
+  color: white;
+  cursor: pointer;
+}
+
 footer img {
   width: 150px;
 }
