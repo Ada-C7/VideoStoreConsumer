@@ -6,7 +6,7 @@
 
 body {
   background-color: black;
-  color: white;
+  color: #e5e5e5;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
@@ -21,7 +21,7 @@ header h1 {
 }
 
 header a {
-  color: white;
+  color: #e5e5e5;
 }
 
 header img {
@@ -42,4 +42,9 @@ header #search-button {
 
 header #search-button img {
   width: 30px;
+}
+
+article.movie {
+  text-align: center;
+  font-weight: bold;
 }

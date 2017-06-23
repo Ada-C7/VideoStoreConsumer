@@ -13,16 +13,16 @@ var MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'addMovie', this.addMovie);
   },
   render: function() {
-    this.$el.html('<ul></ul>');
+    this.$el.html("<section id='movie-list'></section>");
     var that = this;
 
     this.model.each(function(movie) {
       var movieView = new MovieView({
         model: movie,
         template: that.movieTemplate,
-        tagName: 'li'
+        tagName: 'article'
       });
-      that.$('ul').append(movieView.render().$el);
+      that.$('#movie-list').append(movieView.render().$el);
       that.listenTo(movieView, 'showMovieDetails', that.showMovieDetails);
     });
     return this;

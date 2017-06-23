@@ -9,7 +9,7 @@ var MovieView = Backbone.View.extend({
   },
   render: function() {
     var compiledTemplate = this.template(this.model.toJSON());
-    this.$el.html(compiledTemplate);
+    this.$el.addClass("movie columns small-12 medium-4 large-3").html(compiledTemplate);
     return this;
   },
   events: {
