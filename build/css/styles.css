@@ -1,17 +1,105 @@
 @include foundation-everything;
 
-main {
-    background: lightblue;
-}
-
+/*Header*/
 header {
-  background-color: lightgreen;
+  margin: 2%;
   padding: 0.5rem;
 }
 
-#completed-checkbox {
-  display: inline;
+.top-bar {
+  background-color: lightgreen;
 }
+
+.button {
+  margin: 0;
+}
+
+#centered-top-buttons {
+  text-align: center;
+}
+
+
+a#show-search, a#show-add-customers {
+  padding-left: 0px;
+}
+
+.view-customers, .view-movies {
+  margin: 0 45%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header h1 {
+  text-align:center;
+  font-size: 4.0em;
+  color: white;
+  margin: 0;
+}
+
+h1, h2, h3, h5.movie-title {
+  font-family: 'Pacifico', cursive;
+}
+
+body, h4, h5, .button {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.view-customers, .view-movies {
+}
+
+section.new-customer, section.search-movies {
+  margin-bottom: 15px;
+}
+/*search*/
+
+a {
+  padding: 15px;
+}
+
+#in-store, #query {
+  margin-left: 50px;
+}
+
+/*main content*/
+img.movie-image {
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.individual-movie {
+  /*margin: 10px 0;*/
+  padding-top: 20px;
+  /*border: 2px solid lightgreen;*/
+}
+
+.add-rental, .add-collection {
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.movie-title, .movie-overview {
+  text-align: center;
+}
+
+.movie-title {
+  padding: 15px 0;
+  height: 65px;
+  overflow: scroll;
+}
+
+.main-content {
+  height: 500px;
+  overflow: scroll;
+}
+
+/*#completed-checkbox {
+  display: inline;
+}*/
 
 label {
   display: inline;
@@ -34,11 +122,23 @@ aside label {
   text-decoration: line-through;
 }
 
+.title {
+  font-family: 'Pacifico', cursive;
+}
+
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
+
+.button.customer {
+  width: 100%;
 }
-*/
+
+/*returned*/
+.returned {
+  background-color: red;
+}
+
+#returned-movies {
+  color: red;
+}
