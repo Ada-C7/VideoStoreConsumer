@@ -53,13 +53,13 @@
           <% if (detailsClicked) { %>
             <section class="row" id="movie-details">
               <div class='row'>
-                release date: <%- movie.release_date %>
+                <strong>Release date: </strong> <%- movie.release_date %>
               </div>
               <div class='row'>
-                overview: <%- movie.overview %>
+                <strong>Overview: </strong> <%- movie.overview %>
               </div>
               <div class='row'>
-                available inventory: <%- movie.available_inventory %>
+                <strong>Available for rent:</strong> <%- movie.available_inventory %>
               </div>
             </section>
           <% } else { %>
@@ -81,7 +81,7 @@
           <div class='row text-center'>
             <h4><%- movie.title %></h4>
           </div>
-          <img class="float-center movie-details-poster" src="<%- movie.image_url %>" alt="movie poster">
+          <img class="float-center movie-search-poster" src="<%- movie.image_url %>" alt="movie poster">
           <div class='row'>
             <button class="float-center add-movie button">Add to Store</button>
           </div>
@@ -100,7 +100,7 @@
          <label class='customers-select' >Selected Customer:
          </label>
          <label>Select due date:<input type='date' id='due-date' /></label>
-         <input type='submit' class="submit-rental button">Finish!</input>
+         <input type='submit' class="submit-rental button"></input>
         </form>
 
       </section>
