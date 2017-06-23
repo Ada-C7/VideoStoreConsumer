@@ -15,25 +15,32 @@ const ApplicationView = Backbone.View.extend({
     this.customerTemplate = params.customerTemplate;
     this.customerDetailsTemplate = params.customerDetailsTemplate;
     this.rentalsTableTemplate = params.rentalsTableTemplate;
+
+    this.createMovieListView();
   },
   events: {
     'click h1' : 'showAllMovies',
     'click #show-movies-button' : 'showAllMovies',
     'click #show-customers-button' : 'showAllCustomers',
-    'click #show-rentals-button' : 'showAllRentals'
+    'click #show-rentals-button' : 'showAllRentals',
+    'click #search-button' : 'searchMovies'
   },
-  showAllMovies: function () {
-    var movieList = new MovieList();
-    movieList.fetch();
+  createMovieListView: function () {
+    this.movieList = new MovieList();
+    this.movieList.fetch();
 
-    var movieListView = new MovieListView({
-      model: movieList,
+    this.movieListView = new MovieListView({
+      model: this.movieList,
       movieTemplate: this.movieTemplate,
       movieDetailsTemplate: this.movieDetailsTemplate,
       el: 'main'
     });
-
-    movieListView.render();
+  },
+  showAllMovies: function () {
+    this.movieListView.render();
+  },
+  searchMovies: function () {
+    this.movieListView.searchMovies();
   },
   showAllCustomers: function () {
     var customerList = new CustomerList();
