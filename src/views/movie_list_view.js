@@ -18,10 +18,10 @@ var MovieListView = Backbone.View.extend({
 
     this.model.fetch({
       success: function(data) {
-        console.log("It worked (index)!", data);
+
       },
       failure: function(data) {
-        console.log("Failure", data);
+
         this.$('#movie-list').append("<h2>Request failed.</h2>");
       }
     });
@@ -50,7 +50,7 @@ var MovieListView = Backbone.View.extend({
 
     this.$("input[name='query']").val('');
 
-    console.log('this is the input from', input);
+
     return input;
   },
   // getCustomerData: function() {
@@ -63,14 +63,14 @@ var MovieListView = Backbone.View.extend({
   searchFunction: function(event){
     event.preventDefault();
     let query = this.getInputData();
-    // console.log('this.model.url: ',this.model.url);
+
     this.model.fetch({
       data: query,
       success: function(data) {
-        console.log("It worked! (search)", data);
+
       },
       failure: function(data) {
-        console.log("Failure", data);
+
         this.$('#movie-list').append("<h2>Request failed.</h2>");
       }
     });
@@ -101,6 +101,7 @@ var MovieListView = Backbone.View.extend({
 
     });
     customersView.render();
+    this.listenTo(this.detailsView, 'hideDetails', this.hideMovieDetails);
   },
   hideMovieDetails: function(){
     this.$('#movie-details').toggleClass('hide');

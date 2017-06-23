@@ -20,19 +20,19 @@ var MovieView = Backbone.View.extend({
     'click #add': 'addMovie',
     'click #delete': 'deleteMovie',
     'click #poster, #title': 'onClick',
-    'click #check_out': 'checkoutFunction'
+    'click #check_out': 'checkoutFunction',
+    'click #check_in' : 'checkinFunction'
   },
   getInventory: function(){
     var inventory = this.$("input[type='number']").val();
 
     this.$("input[type='number']").val('');
 
-    console.log('this is the input from', inventory);
+
     return inventory;
   },
   addMovie: function() {
-    console.log("#1");
-    console.log(this.model);
+
 
     this.model.fetch({data: {
       title: this.model.get('title'),
@@ -45,29 +45,27 @@ var MovieView = Backbone.View.extend({
   });
   },
   deleteMovie: function(){
-    console.log("#1");
+
     this.model.fetch({
       data: {
         id: this.model.get("id"),
-        // title: this.model.get('title')
       },
       type: 'DELETE'
     });
-    // NOTE this does not bubble up to any other collection the moview belongs to. Acoordint to `oak-tree`
     this.model.collection.remove(this.model);
   },
   onClick: function(event){
     event.stopPropagation();
     self = this;
-    console.log("#1");
+
     this.model.fetch({
       success: function(data) {
-        console.log("It worked (details)!", data);
+
         self.trigger('selectedMovie', data);
 
       },
       failure: function(data) {
-        console.log("Failure", data);
+
         this.$('#movie-list').append("<h2>Request failed.</h2>");
       }
     });
@@ -75,23 +73,20 @@ var MovieView = Backbone.View.extend({
   checkoutFunction: function(e) {
     e.preventDefault();
 
-    let customer = $("option:selected").attr("id");
-    console.log('customer id chosen', customer);
-    console.log('movie chosen', this.model.get("title"));
+    let customerId = $("option:selected").attr("id");
+
 
     // fetch using rental model
-    let rental = new Rental({ 'customer_id': customer, 'due_date': this.setDueDate() });
+    let rental = new Rental({ 'customer_id': customerId, 'due_date': this.setDueDate() });
     rental.url = "http://localhost:3000/rentals/" + this.model.get('title') + '/check-out';
-
-    var collection = this.model.collection;
-
+    let that = this;
     rental.save(
       rental.attributes,
       { success: function() {
-        console.log("Successfully checked out");
+        alert('Successfully checked out');
+        that.trigger('hideDetails', that.model);
       },
       failure: function() {
-        console.log("Failure");
         this.$('#movie-list').append("<h2>Request failed.</h2>");
       }
     });
@@ -101,7 +96,30 @@ var MovieView = Backbone.View.extend({
     date.setDate(date.getDate() + 7);
 
     return date;
-  }
+  },
+  checkinFunction: function(e) {
+    e.preventDefault();
+
+    let customerId = $("option:selected").attr("id");
+
+
+    let rental = new Rental({ 'customer_id': customerId});
+    rental.url = "http://localhost:3000/rentals/" + this.model.get('title') + '/return';
+
+
+    var that = this;
+    rental.save(
+      rental.attributes, { type: 'POST',
+      success: function(data) {
+        alert('Successfully checked in!');
+        that.trigger('hideDetails', that.model);
+
+      },
+      failure: function() {
+        this.$('#movie-list').append("<h2>Request failed.</h2>");
+      }
+    });
+  },
 });
 
 export default MovieView;
