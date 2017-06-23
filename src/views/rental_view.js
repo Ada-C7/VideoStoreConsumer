@@ -17,14 +17,10 @@ var RentalView = Backbone.View.extend({
     'click h5.button.check-in': 'checkinMovie'
   },
   checkinMovie: function(event) {
-    // console.log(event.target);
-    // this.trigger("check-in", this.model);
-
-    console.log(this.model);
     var title = this.model.get('title');
+    $("#returned-movies").append('<li>' + title + ' returned! </li>');
 
     var customer_id = this.model.get('customer_id');
-    console.log(title);
     var options = {
         type: 'POST',
         url: 'http://localhost:3000/rentals/' + title + '/return',
@@ -35,6 +31,8 @@ var RentalView = Backbone.View.extend({
     var attributes = {title: title, customer_id: customer_id};
 
     this.model.save(attributes, options);
+    console.log("about to remove model from collection!");
+    this.trigger("movieReturned", this.model);
   }
 });
 

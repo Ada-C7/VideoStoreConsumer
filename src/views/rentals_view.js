@@ -7,20 +7,21 @@ import RentalView from './rental_view.js';
 var RentalsView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
-    this.listenTo(this.model, "update", this.render);
     this.name = params.name;
+    this.customer = params.customer;
+    this.listenTo(this.model, "change", this.render);
+    // this.listenTo(this.collection, 'destroy', this.render);
   },
   render: function() {
     var that = this;
     this.model.each(function(rental) {
       var rentalView = new RentalView({
         model: rental,
-        template: that.template
+        template: that.template,
       });
     $('#' + that.name).append(rentalView.render().el);
-    that.listenTo(rentalView, "check-in", function(movie) {
-      console.log("inside rentals view");
-      this.model.remove(movie);
+    that.listenTo(rentalView, "movieReturned", function(rental) {
+      that.trigger("movieReturned", rental);
     });
     return this;
   });

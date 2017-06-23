@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/_settings.css">
     <link rel="stylesheet" type="text/css" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -21,7 +22,7 @@
       <section class="search-bar row">
         <section class="columns">
           <a href="#" id="show-search">Search Movies</a>
-          <section class="hide" id="search-bar-hidden">
+          <section class="hide search-movies" id="search-bar-hidden">
             <input type="radio" name="search" value="in-store" id="inStore" checked="checked" /> In Store
             <input type="radio" name="search" value="query" id="query" /> External Database
             <input type="text" name="find" id="movie-search" />
@@ -53,7 +54,7 @@
     <script type="text/template" id="movie-template">
       <section class="columns small-6 medium-4 large-3 individual-movie">
           <img class="movie-image" src="<%= image_url.toString() %>" />
-          <h4 class="movie-title"><%- title %></h4>
+          <h5 class="movie-title"><%- title %></h5>
           <p class="hide movie-overview">
             <%- overview %>
           </p>
@@ -94,6 +95,9 @@
         </ul>
         <a href="#" class="hide" id="hide-customer-rentals">Hide</a>
         <a href="#" class="hide" id="delete-customer">Delete Customer</a>
+        <ul id="returned-movies"></ul>
+        <ul id="<%-id_name %>"></ul>
+        <a href="#" class="hide" id="hide-customer-rentals">Done</a>
       </section>
     </script>
 
@@ -103,7 +107,7 @@
     </script>
 
     <script type="text/template" id="rental-template">
-      <section class="columns">
+      <section class="columns rental-info">
         <h5 class="rental-title"><%- title %></h5>
         <h5 class="rental-due-date">due: <%- due_date %></h5>
         <h5 class='button check-in'>Check In Movie</h5>

@@ -30,18 +30,25 @@ header {
 }
 
 header h1 {
-  font-family: 'Pacifico', cursive;
   text-align:center;
   font-size: 4.0em;
   color: white;
   margin: 0;
 }
 
+h1, h2, h3, h5.movie-title {
+  font-family: 'Pacifico', cursive;
+}
+
+body, h4, h5, .button {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .view-customers, .view-movies {
 }
 
-section.new-customer {
-  margin-bottom: 10px;
+section.new-customer, section.search-movies {
+  margin-bottom: 15px;
 }
 /*search*/
 
@@ -79,8 +86,8 @@ img.movie-image {
 }
 
 .movie-title {
-  padding-top: 15px;
-  height: 50px;
+  padding: 15px 0;
+  height: 65px;
   overflow: scroll;
 }
 
@@ -124,4 +131,13 @@ div {
 
 .button.customer {
   width: 100%;
+}
+
+/*returned*/
+.returned {
+  background-color: red;
+}
+
+#returned-movies {
+  color: red;
 }

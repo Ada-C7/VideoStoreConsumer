@@ -49,9 +49,22 @@ var CustomerView = Backbone.View.extend({
         template: _.template($("#rental-template").html())
       });
       customerRentalsView.render();
+      this.listenTo(customerRentalsView, "movieReturned", function(rental) {
+          var info = this.model.get('current_rentals');
+          var rentals = info[0];
+          var removedRental = rental.attributes;
+          for (let i = 0; i < rentals.length; i ++) {
+            if (rentals[i].id == removedRental.id) {
+              rentals.splice(i, 1);
+            }
+          }
+          info[0] = rentals;
+          this.model.set('current_rentals', info);
+          this.showRentals();
+      });
     }
   },
-  hideRentals: function (){
+  hideRentals: function (event){
     var name = this.model.get('name').split(' ')[0];
     this.$('#' + name).empty();
     this.$("a#hide-customer-rentals").addClass('hide');
