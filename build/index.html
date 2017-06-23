@@ -38,8 +38,8 @@
 
     <script id="movie-info-template" type="text/template">
       <section id="alerts"></section>
-      <section id="movie-details">
-        <img src=<%- image_url %> class="float-left" />
+      <img src=<%- image_url %> class="float-left" />
+      <section id="movie-description">
         <h3><%- title %></h3>
         <span class="small-gray">(<%- release_date.split('-')[0] %>)</span>
         <p><%- overview %></p>
@@ -47,7 +47,7 @@
           <h4 class="button" id="add-movie">Add Movie</h4>
         <% } %>
       </section>
-      <section id="movie-rental-form" class="clearfix">
+      <section id="movie-rental-form">
       </section>
     </script>
 

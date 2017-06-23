@@ -16,6 +16,7 @@ var MovieDetailsView = Backbone.View.extend({
     this.$el.html(compiledTemplate);
 
     if (!this.model.get('external_id')) {
+      this.$('#movie-rental-form').addClass('movie-admin');
       var customerList = new CustomerList();
       customerList.fetch();
 
