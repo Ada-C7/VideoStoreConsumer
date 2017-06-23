@@ -1,10 +1,36 @@
 @include foundation-everything;
+@font-face {
+    font-family: BebasNeue;
+    src: url('BebasNeue.otf');
+}
 
-main {
-  background: lightblue;
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 header {
-  background-color: lightgreen;
   padding: 0.5rem;
+}
+
+header h1 {
+  font-family: BebasNeue;
+  color: #e50914;
+  font-size: 30px;
+}
+
+header a {
+  color: white;
+}
+
+header img {
+  width: 40px;
+}
+
+header #search-box {
+  background-color: black;
+  color: white;
+  max-height: 30px;
+  margin-top: 5px;
 }

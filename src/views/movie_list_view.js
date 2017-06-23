@@ -32,7 +32,7 @@ var MovieListView = Backbone.View.extend({
   },
   showMovieDetails: function (movie) {
     this.$el.empty();
-    this.$el.append('<section id="movie-details">HELLOOOOOO</section>');
+    this.$el.append('<section id="movie-details"></section>');
     var movieDetailsView = new MovieDetailsView({
       model: movie,
       template: this.movieDetailsTemplate,
