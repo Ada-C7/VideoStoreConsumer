@@ -35,6 +35,40 @@
     <!-- customers list -->
     <section id="customer-list">
       <h3 id="customers-subheader" class="row">Customers</h3>
+
+
+
+      <section id="manage-rental">
+        <h3>Rental Manager</h3>
+        <h4>Customer: <span id="customer_name"></span></h4>
+        <section id="rentals-table">
+          <table>
+            <thead>
+              <td>
+                Title
+              </td>
+              <td>
+                Checked Out
+              </td>
+              <td>
+                Duedate
+              </td>
+              <td>
+                Returned?
+              </td>
+              <td>
+                Check In
+              </td>
+            </thead>
+            <tbody id="rentals-list">
+
+            </tbody>
+          </table>
+        </section>
+      </section>
+
+
+
       <div class="tableouter">
         <div class="tableinner">
           <table>
@@ -155,6 +189,31 @@
       <button class="button manage-rental">Manage</button>
     </td>
   </script>
+
+
+  <script id="rental-template" type="text/template">
+    <td>
+      <%= movie_id %>
+    </td>
+    <td>
+      <%= checkout_date %>
+    </td>
+    <td>
+      <%= due_date %>
+    </td>
+    <td>
+      <%= returned %>
+    </td>
+    <td>
+      <button class="button check-in">Check-in</button>
+    </td>
+  </script>
+
+
+
+
+
+
 
 
   <script id="movie-card-template" type="text/template">

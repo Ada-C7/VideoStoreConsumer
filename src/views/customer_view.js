@@ -22,7 +22,11 @@ const CustomerView = Backbone.View.extend({
   },
 
   events: {
-    // maybe for rental
+    "click button.manage-rental": "triggerShowRentals"
+  },
+
+  triggerShowRentals: function() {
+    this.trigger("showRentals", this);
   }
 
 });

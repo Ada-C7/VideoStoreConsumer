@@ -21,6 +21,25 @@ body {
 }
 
 
+
+
+#manage-rental {
+  background-color: black;
+  color: white;
+}
+
+#manage-rental * {
+  font-family: 'Cutive Mono', monospace;
+  font-size: 1rem;
+}
+
+
+
+
+
+
+
+
 #header-buttons {
   text-align: center;
 }
