@@ -48,7 +48,7 @@ var RentalLibraryView = Backbone.View.extend( {
     //var query here is what we're passing to the fetch argument and will add "queryterm" onto url
     var searchResultsView = new SearchResultsView({
       model: searchResults,
-      template: _.template($('#movie-card-template').html()),
+      template: _.template($('#new-movie-card-template').html()),
       el: 'main'
     });
   },

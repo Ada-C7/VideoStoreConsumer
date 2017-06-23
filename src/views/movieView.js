@@ -21,8 +21,17 @@ var MovieView = Backbone.View.extend({
   },
 
   events: {
+    "click #Add-to-library": "add",
 
+  },
+
+  add: function(){
+    console.log(this.model);
+    this.model.save();
   }
+
+
+
 
 });
 

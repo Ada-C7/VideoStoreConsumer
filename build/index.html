@@ -29,5 +29,12 @@
   <img src=<%- image_url %> alt=<% title %></img>
 </script>
 
+<script id="new-movie-card-template" type="text/template">
+  <p class="movie-title"><%-title%></p>
+  <p><%- release_date %></p>
+  <img src=<%- image_url %> alt=<% title %></img>
+  <button id="Add-to-library" class="button">Add to library</button>
+</script>
+
 <script src="/app.bundle.js"></script>
 </html>
