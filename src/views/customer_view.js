@@ -26,6 +26,10 @@ var CustomerView = Backbone.View.extend({
   showRentals: function(event) {
     var name = this.model.get('name').split(' ')[0];
     var info = this.model.get('current_rentals');
+    if (info === undefined) {
+      $('#' + name).append("No Checked Out Movies.");
+      return;
+    }
     var rentals = info[0];
     var movies = info[1];
     $('#' + name).empty();

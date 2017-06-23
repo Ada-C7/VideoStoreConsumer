@@ -18,8 +18,9 @@ header {
   text-align: center;
 }
 
-#show-search {
-  text-align: center;
+
+a#show-search, a#show-add-customers {
+  padding-left: 0px;
 }
 
 .view-customers, .view-movies {

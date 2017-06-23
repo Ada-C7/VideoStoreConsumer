@@ -20,7 +20,7 @@
     <main class="row">
 
       <section class="search-bar row">
-        <section class="columns">
+        <section class="small-11 small-centered columns">
           <a href="#" id="show-search">Search Movies</a>
           <section class="hide search-movies" id="search-bar-hidden">
             <input type="radio" name="search" value="in-store" id="inStore" checked="checked" /> In Store
@@ -31,7 +31,9 @@
           </section>
         </section>
       </section>
-      <section class="new-customer hide">
+      <section class="row">
+
+      <section class="new-customer hide small-11 small-centered columns">
           <a href="#" id="show-add-customers">Register New Customer</a>
           <form id="new-customer-form" class="hide">
             <label>Name
@@ -45,6 +47,8 @@
             </label>
             <input type="button" value="Submit" class="button" id="customer-form">
           </form>
+      </section>
+
       </section>
       <section class="main-content"></section>
       <section class="hide rental"></section>
@@ -93,10 +97,9 @@
         <ul id="<%-id_name %>">
 
         </ul>
-        <a href="#" class="hide" id="hide-customer-rentals">Hide</a>
-        <a href="#" class="hide" id="delete-customer">Delete Customer</a>
         <ul id="returned-movies"></ul>
         <ul id="<%-id_name %>"></ul>
+        <a href="#" class="hide" id="delete-customer">Delete Customer</a>
         <a href="#" class="hide" id="hide-customer-rentals">Done</a>
       </section>
     </script>
