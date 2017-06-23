@@ -1,15 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Pacifico" rel="stylesheet">
+  <title>Video Store Movie Manager</title>
+</head>
+<body>
+  <header class="wrap">
+    <h1>All the Movies you Care to Rent</h1>
+    <nav>
+      <ul class="wrap">
+        <li id="see_rentals">[view rental library]</li>
+        <li id="see_movie_search">[search for new movies]</li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="message"></section>
+    <form id="movie-search" class="hero-search-filter-form wrap" action="">
+      <label for="search-query">Find</label>
+      <input id="search-query" class="hero-search-filter-form-find" type="text" />
+      <button class="button button-rounded-hover" id="search-movies">Search</button>
+    </form>
 
-    <script src="/app.bundle.js"></script>
 
-  </body>
-  </html>
+
+
+    <section id='rental-details' class="row wrap"></section>
+    <section id='rental-list' class="row wrap"></section>
+
+  </main>
+  <footer class="wrap" id="main-footer">
+    <p>Regan Huff and Haby Randall 2017®</p>
+    <p><a href="#"><img class="movie-attr" src="https://www.themoviedb.org/assets/static_cache/bb45549239e25f1770d5f76727bcd7c0/images/v4/logos/408x161-powered-by-rectangle-blue.png" /></a></p>
+  </footer>
+
+  <!-- Templates -->
+  <!-- Rental (local API templates) -->
+  <script id='rental-card-template' type='text/template'>
+    <img class="movie-card-profile-img" src= '<%- rental.image_url %>' alt='movie_img'>
+    <li class="movie-card-profile-name"><%- rental.title %></li>
+  </script>
+
+
+  <script id='rental-info-template' type='text/template'>
+    <section class="row">
+      <div class="small-12 medium-4 columns">
+        <img id="details-img" src= '<%- rental.image_url %>' alt='movie_img' >
+      </div>
+      <div class="small-12 medium-6 columns end">
+        <h3><%- rental.title %> </h3>
+        <h4><%- rental.overview %> </h4>
+        <h4>Release Date: <%- rental.release_date %> </h4>
+        <button class="button button-rounded-hover" id="addRentalButton">Add to rentals</button>
+        <button class="button button-rounded-hover" id="returnToRentalButton">Return to list</button>
+      </div>
+      <!-- <div class="small-12 medium-2">
+        <p>x</p>
+      </div> -->
+    </section>
+  </script>
+
+
+
+
+
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>
