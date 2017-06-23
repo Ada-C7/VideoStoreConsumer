@@ -36,6 +36,15 @@ var MovieDetailsView = Backbone.View.extend({
   addMovie: function () {
     this.trigger('addMovie', this.model.attributes);
   },
+  displayErrorList: function (response) {
+    this.$('#alerts').prepend("<h4>Errors: </h4><ul></ul>");
+    var errors = response.responseJSON.errors;
+    for (var error in errors) {
+      var errorTitle = error.replace("_"," ");
+      var errorDescription = errors[error][0].toLowerCase();
+      this.$('#alerts ul').append("<li>" + errorTitle + " " + errorDescription + "</li>");
+    }
+  },
   rentMovie: function () {
     var formData = this.getRentalFormData();
     var rental = new Rental();
@@ -44,13 +53,19 @@ var MovieDetailsView = Backbone.View.extend({
       customer_id: formData.customerID,
       due_date: formData.dueDate
     };
+    var that = this;
     var options = {
       type: 'POST',
       url: 'http://localhost:3000/rentals/' + attributes.title + '/check-out',
-      customer_id: attributes.customer_id
+      customer_id: attributes.customer_id,
+      success: function (model, response) {
+        $('main').prepend("<p>Successfully rented " + attributes.title + " to " + formData.customerName + "</p>");
+      },
+      error: function (model, response) {
+        that.displayErrorList(response);
+      }
     };
     rental.save(attributes, options);
-    this.$el.prepend("<p>Successfully checked out " + attributes.title + " to " + formData.customerName + "</p>");
   },
   getRentalFormData: function () {
     var formData = {};
@@ -62,6 +77,7 @@ var MovieDetailsView = Backbone.View.extend({
   },
   deleteMovie: function () {
     var movieTitle = this.model.get('title');
+    var that = this;
     this.model.destroy({
       success: function (model, response) {
         $('main').prepend("<p>Successfully deleted " + movieTitle + " from inventory.</p>");
