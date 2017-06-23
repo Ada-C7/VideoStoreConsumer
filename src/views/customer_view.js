@@ -20,7 +20,8 @@ var CustomerView = Backbone.View.extend({
   events: {
     "click h4.customer": "showRentals",
     "click h5.button.check-in": "checkinMovie",
-    "click a#hide-customer-rentals" : "hideRentals"
+    "click a#hide-customer-rentals" : "hideRentals",
+    "click a#delete-customer": "deleteCustomer"
   },
   showRentals: function(event) {
     var name = this.model.get('name').split(' ')[0];
@@ -29,6 +30,7 @@ var CustomerView = Backbone.View.extend({
     var movies = info[1];
     $('#' + name).empty();
     this.$("a#hide-customer-rentals").removeClass('hide');
+    this.$("a#delete-customer").removeClass('hide');
     rentals.forEach(function(rental)  {
       var rental_movie_id = rental.movie_id;
       movies.forEach(function(movie) {
@@ -53,6 +55,11 @@ var CustomerView = Backbone.View.extend({
     var name = this.model.get('name').split(' ')[0];
     this.$('#' + name).empty();
     this.$("a#hide-customer-rentals").addClass('hide');
+    this.$("a#delete-customer").addClass('hide');
+
+  },
+  deleteCustomer: function() {
+    this.model.destroy();
   }
 });
 

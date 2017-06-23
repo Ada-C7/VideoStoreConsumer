@@ -21,7 +21,6 @@ var MovieView = Backbone.View.extend({
   addMovie: function(event) {
     event.stopPropagation();
     this.model.attributes.image_url = this.model.attributes.image_url.replace("https://image.tmdb.org/t/p/w185", "");
-    console.log("IMG_URL = " + this.model.attributes.image_url);
     this.trigger("movieAdded", this.model.attributes);
   },
   showOverview: function(event) {
