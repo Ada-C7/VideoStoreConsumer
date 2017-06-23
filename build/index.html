@@ -10,17 +10,29 @@
     <title>Backbone Baseline</title>
   </head>
   <main>
-    <h2 id="logo" class="center">OliviAnn's Rental Library</h2>
 
-    <section id="search-bar" class="center">
-      <label>
-        <input type="text" id="query" placeholder="Search for Movies to Add to the Library"></input>
-      </label>
-      <button id="search" class="medium-3 columns button">Search</button>
-    </section>
+    <!-- <section>
+      <img src="https://static1.squarespace.com/static/522f305be4b0186bd83d5cf8/t/5489e4b8e4b0d0edcbe82988/1418323128978/wood_block" height="80" width="80"><img src="https://vignette2.wikia.nocookie.net/arthur/images/5/5d/Buster.jpg/revision/latest?cb=20090712025127" height="100" width="100">
+    </section> -->
+    <!-- <nav class="top-bar"> -->
+      <!-- <div class="title-area"> -->
+      <div>
+        <h1 id="logo" class="center">OliviAnn's Video Rental</h1>
+      </div>
+      <!-- </div> -->
+      <section id="top-bar-search">
+          <label class='left'>
+            <input type="text" id="query" placeholder="Search for Movies to Add"></input>
+          </label>
+          <button id="search" class="button left">Search</button>
 
-      <section class="hidden" id='movie-details'></section>
-      <section class="column small-12 medium-12 large-12" id='movie-list'></section>
+      </section>
+    <!-- </nav> -->
+
+
+
+    <section class="hidden" id='movie-details'></section>
+    <section class="column small-12 medium-12 large-12" id='movie-list'></section>
   </main>
 
   <!--- Templates ------------->
@@ -35,7 +47,7 @@
       </section>
 
 
-      <img src=<%-image_url %> alt=<% title %>></img>
+      <img id="movie-image" src=<%-image_url %> alt=<% title %>></img>
     </section>
   </script>
 
@@ -43,11 +55,11 @@
   <script id="new-movie-card-template" type="text/template">
     <section class="column small-12 medium-12 large-12 inline" id="movie-card">
       <p class="movie-title"><%- title %></p>
-      <p> (<%- release_date %>)  </p>
+      <p> (<%- release_date.substring(0,4)  %>)  </p>
       <!-- <p> (<%- image_url %>)  </p> -->
 
       <button id="add-to-library" class="medium-3 large-12 columns button center ">+</button>
-      <img src=<%-image_url %> alt=<% title %>></img>
+      <img id="movie-image" src=<%-image_url %> alt=<% title %>></img>
 
     </section>
   </script>

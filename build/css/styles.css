@@ -1,6 +1,8 @@
 @include foundation-everything;
 @import url('https://fonts.googleapis.com/css?family=Yellowtail');
 
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
 
 
 main {
@@ -60,12 +62,11 @@ div {
 
 #logo {
   color: black;
-  font-size: 100px;
-  -ms-transform: rotate(-3deg); /* IE 9 */
-  -webkit-transform: rotate(-3deg); /* Chrome, Safari, Opera */
-  transform: rotate(-3deg);
+  font-size: 50px;
   padding-top: 25px;
   padding-bottom: 15px;
+  font-family: 'Orbitron', sans-serif;
+
 }
 
 .button {
