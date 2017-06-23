@@ -42,3 +42,34 @@ div {
   border-style: solid;
 }
 */
+.table-list {
+  margin-bottom: 0.25rem;
+  background-color: white;
+}
+
+.button {
+  margin: 0;
+}
+
+#add-form, #movie-checkout-form {
+  z-index: 10;
+  position: fixed;
+  width: 80%;
+  /*height: 600px;*/
+  top: 8%;
+  right: 15%;
+  background-color: lightgreen;
+  text-align: left;
+  border: 0.1em solid white;
+  margin-left: 10%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+table.table-list {
+  padding: 1rem;
+}
+
+img {
+  border-radius: 1rem;
+}
