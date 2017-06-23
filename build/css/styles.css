@@ -57,7 +57,6 @@ button#search-button.button, #hide-details {
 
 .button {
   margin: 2px;
-  /*min-width: 180px;*/
   background-color: black;
   color: #fefefe;
   font-family: 'Cutive Mono', monospace;
@@ -72,6 +71,11 @@ section.movie-card {
   padding-top: 10px;
   text-align: center;
   height: 450px;
+  position: relative;
+}
+
+.movie-card img:hover{
+  opacity: 0.3;
 }
 
 .movie-card img {
@@ -87,7 +91,7 @@ section.movie-card {
   border: 1px solid black;
   width: 90px;
   height: 40px;
-  margin: 0 5px;
+  margin: 2px 5px;
 }
 
 .movie-card .button:hover, #confirm-rental:hover, #cancel-rental:hover, #hide-details:hover {
@@ -100,8 +104,16 @@ section.movie-card {
 }
 
 h4.movie.small-title {
-  font-size: 1rem;
+  font-size: 1em;
   font-family: 'Cutive Mono', monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.movie-card .container {
+  height: 25px;
+  margin: 15px 0;
 }
 
 #rent-header, #rent-movie-title, section#movie-details h3 {
@@ -141,10 +153,16 @@ main {
   text-decoration: underline;
 }
 
+
 .success {
   padding-top: 20px;
   color: green;
 }
+
+.movie.small-poster:hover, .movie.small-title:hover {
+  cursor: pointer;
+}
+
 
 .failure {
   padding-top: 20px;
@@ -152,6 +170,7 @@ main {
 }
 
 footer {
+  margin-top: 30px;
   text-align: center;
   clear: both;
 }
