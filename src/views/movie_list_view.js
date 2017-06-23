@@ -81,8 +81,15 @@ const MovieListView = Backbone.View.extend({
     "click #search-button" : "getSearch",
     "click #return-library" : "returnToLib",
     "click #hide-details" : "hideSideBar",
-    "click #cancel-rental": "hideSideBar",
-    "click #confirm-rental": "rentMovie"
+    "click #cancel-rental" : "hideSideBar",
+    "click #confirm-rental" : "rentMovie",
+    "keyup #query" : "enterSearch"
+  },
+
+  enterSearch: function(event) {
+    if(event.keyCode == 13){
+      this.$("#search-button").click();
+    }
   },
 
   rentMovie: function(event) {
