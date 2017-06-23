@@ -12,9 +12,15 @@ main {
 header {
   font-family: 'Josefin Sans', sans-serif;
   padding: 0.5rem;
-  text-align: center;
+
 }
 
+#store-name {
+  display: inline-block;
+  text-align: center;
+  padding-top: 5%;
+  padding-right: 5%;
+}
 
 h1, h2, h3, h4, h5 {
   font-family: 'Josefin Sans', sans-serif;
