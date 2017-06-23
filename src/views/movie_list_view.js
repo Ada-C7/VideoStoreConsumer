@@ -72,6 +72,7 @@ var MovieListView = Backbone.View.extend ({
     });
 
     $("#create-rental label.customers-select").append(rentalCustomerView.render().$el);
+    $(window).scrollTop(0);
   },
   createRental: function(e) {
     e.preventDefault();
@@ -88,7 +89,6 @@ var MovieListView = Backbone.View.extend ({
 
     var newRental = new Rental();
 
-
     newRental.save(rental, {
       success: function(model, response) {
         $(".messages").html( 'Movie successfully rented!');
@@ -98,9 +98,7 @@ var MovieListView = Backbone.View.extend ({
         console.log(response);
         $(".messages").html(response.responseText);
       }});
-
   }
-
 });
 
 export default MovieListView;
