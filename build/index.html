@@ -9,51 +9,36 @@
 </head>
 <body>
   <header>
-
     <h1>REWIND</h1>
 
     <section id="header-buttons" class="row">
-
       <button class="button columns small-12 medium-12 large-2" id="customer-list-button">Customers</button>
-
-
       <button class="button columns small-12 medium-12 large-2" id="return-library">Library</button>
-
       <section id="search-stuff" class="columns small-12 medium-12 large-6">
         <input  type="text" name="query" id="query" placeholder="🔍 Search for a movie"/>
         <button class="button" id="search-button">Search</button>
       </section>
     </section>
 
-
     <section id="movie-headers">
-
       <section id="search-header-section" class="row second-header">
         <h3 id="search-subheader" class="columns small-12">Search Results for "<span id="query-text"></span>"</h3>
         <h3 id="bad-search-subheader" class="columns small-12">No Movies found</h3>
       </section>
-
       <section id="library-header-section" class="row second-header">
         <h3 id="library-subheader" class="columns small-12">My Library</h3>
       </section>
     </section>
-
   </header>
 
-  <!-- may need to rethink where to do foundation -->
-
   <main>
-
-
-
-
     <!-- customers list -->
     <section id="customer-list">
       <h3 id="customers-subheader" class="row">Customers</h3>
       <div class="tableouter">
         <div class="tableinner">
           <table>
-            <thead>
+            <thead id="fields">
               <td>
                 ID
               </td>
@@ -75,6 +60,9 @@
               <td>
                 Checked Out
               </td>
+              <td>
+                Rentals
+              </td>
             </thead>
             <tbody id="customer-data">
 
@@ -95,8 +83,8 @@
         <section id="list-content" class="row"></section>
       </section>
     </section>
-
   </main>
+
   <footer class="row">
     <section class="small-12 medium-12">
       <p id="bo-n-auro">
@@ -162,6 +150,9 @@
     </td>
     <td>
       <%= movies_checked_out_count %>
+    </td>
+    <td>
+      <button class="button manage-rental">Manage</button>
     </td>
   </script>
 

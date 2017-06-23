@@ -20,6 +20,7 @@ body {
   overflow-y: scroll;
 }
 
+
 #header-buttons {
   text-align: center;
 }
@@ -180,6 +181,6 @@ footer img {
   height: 60px;
 }
 
-td {
+/*td, #fields td {
   text-align: center;
-}
+}*/
