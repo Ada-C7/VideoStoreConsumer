@@ -34,9 +34,9 @@ var SearchResultsView = Backbone.View.extend({
   },
 
 
-    hideModal: function() {
-      $('#movie-details').addClass('hidden');
-    },
+  hideModal: function() {
+    $('#movie-details').addClass('hidden');
+  },
 
 });
 

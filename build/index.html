@@ -20,7 +20,7 @@
     </section>
 
       <section class="hidden" id='movie-details'></section>
-      <section class="center row" id='movie-list'></section>
+      <section class="column small-12 medium-12 large-12" id='movie-list'></section>
   </main>
 
   <!--- Templates ------------->
@@ -30,6 +30,8 @@
       <section id='title-and-date'>
         <p class="movie-title"><%- title %></p>
         <p> (<%- release_date.substring(0,4) %>)  </p>
+        <button id="remove-from-library" class="medium-3 large-12 columns button center ">Remove</button>
+
       </section>
 
 
@@ -46,14 +48,16 @@
 
       <button id="add-to-library" class="medium-3 large-12 columns button center ">+</button>
       <img src=<%-image_url %> alt=<% title %>></img>
+
     </section>
   </script>
 
   <script id="movie-details-template" type="text/template">
      <section>
+       <p id="detail-title"><%- title %></p>
+       <p><%- release_date.substring(0,4) %></p>
        <img src="<%-image_url %>"alt="<% title %>"></img>
-      <li><%- release_date %></li>
-       <li><%- overview %></li>
+       <p>Overview: <%- overview %></p>
      </section>
   </script>
   <script src="/app.bundle.js" charset="utf-8"></script>

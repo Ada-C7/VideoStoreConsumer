@@ -22,7 +22,8 @@ var MovieView = Backbone.View.extend({
 
   events:  {
     "click #add-to-library": "add",
-    "click #movie-card": "renderModal",
+    "click #remove-from-library": "remove",
+    "click #movie-card": "renderModal"
   },
 
   selected: function(event) {
@@ -33,6 +34,13 @@ var MovieView = Backbone.View.extend({
   add: function(){
     console.log(this.model);
     this.model.save();
+  },
+
+  remove: function(){
+    console.log(this.model.get('title'));
+    console.log({data: { title: this.model.get('title') }});
+    this.model.destroy({data: { title: this.model.get('title') }});
+
   },
 
 

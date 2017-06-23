@@ -42,11 +42,11 @@ div {
 
 #movie-card {
   display: inline;
-  height: 300px;
+  height: 430px;
   width: 200px;
   color: black;
   margin: auto;
-  padding: 100px 40px;
+  /*padding: 140px 40px;*/
 
 }
 
@@ -99,18 +99,21 @@ div {
 #movie-details {
   z-index: 10;
   position: fixed;
-  width: 30%;
+  width: 70%;
   height: 80%;
   top: 10%;
-  left: 15%;
-  background-color: #E24E42;
+  border-style: ridge;
+  background-color: white;
   text-align: center;
-  margin-left: 20%;
+  margin-left: 10%;
+  border-radius: 25px;
+  font-size: 80%
+
 
 }
 
 #title-and-date {
-  position: absolute;
+  position: relative;
   font-weight: 400;
   font-size: 80%;
   color: black;
@@ -118,8 +121,10 @@ div {
 
 }
 
-img {
-  position: absolute;
+#detail-title {
+  font-weight: 900;
+  font-size: 50px;
+  color: black;
 }
 
 .hidden {
