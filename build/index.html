@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,9 +9,75 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Backbone Baseline</title>
   </head>
-  <body>
+  <main>
 
-    <script src="/app.bundle.js"></script>
+    <!-- <section>
+      <img src="https://static1.squarespace.com/static/522f305be4b0186bd83d5cf8/t/5489e4b8e4b0d0edcbe82988/1418323128978/wood_block" height="80" width="80"><img src="https://vignette2.wikia.nocookie.net/arthur/images/5/5d/Buster.jpg/revision/latest?cb=20090712025127" height="100" width="100">
+    </section> -->
+    <!-- <nav class="top-bar"> -->
+      <!-- <div class="title-area"> -->
+      <div>
+        <h1 id="logo" class="center">OliviAnn's Video Rental</h1>
+      </div>
+      <!-- </div> -->
+      <section id="top-bar-search">
+          <label class='left'>
+            <input type="text" id="query" placeholder="Search for Movies to Add"></input>
+          </label>
+          <button id="search" class="button left">Search</button>
 
-  </body>
-  </html>
+      </section>
+    <!-- </nav> -->
+
+
+
+    <section class="hidden" id='movie-details'></section>
+    <section class="column small-12 medium-12 large-12" id='movie-list'></section>
+  </main>
+
+  <!--- Templates ------------->
+
+  <script id="movie-card-template" type="text/template">
+    <section class="column small-12 medium-12 large-12 inline" id="movie-card">
+      <section id='title-and-date'>
+        <p class="movie-title"><%- title %></p>
+        <p> (<%- release_date.substring(0,4) %>)  </p>
+        <button id="remove-from-library" class="medium-3 large-12 columns button center ">Remove</button>
+
+      </section>
+
+
+      <img id="movie-image" src=<%-image_url %> alt=<% title %>></img>
+    </section>
+  </script>
+
+
+  <script id="new-movie-card-template" type="text/template">
+    <section class="column small-12 medium-12 large-12 inline" id="movie-card">
+      <p class="movie-title"><%- title %></p>
+      <p> (<%- release_date.substring(0,4)  %>)  </p>
+      <!-- <p> (<%- image_url %>)  </p> -->
+
+      <button id="add-to-library" class="medium-3 large-12 columns button center ">+</button>
+      <img id="movie-image" src=<%-image_url %> alt=<% title %>></img>
+
+    </section>
+  </script>
+
+  <script id="movie-details-template" type="text/template">
+     <section>
+       <p id="detail-title"><%- title %></p>
+       <p><%- release_date.substring(0,4) %></p>
+       <img src="<%-image_url %>"alt="<% title %>"></img>
+       <p>Overview: <%- overview %></p>
+     </section>
+  </script>
+  <script src="/app.bundle.js" charset="utf-8"></script>
+
+
+</html>
+
+
+<!-- <script id="movie-list-template" type="text/template">
+
+</script> -->

@@ -1,7 +1,11 @@
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+
 
 main {
-    background: lightblue;
 }
 
 header {
@@ -37,8 +41,93 @@ aside label {
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
+
+#movie-card {
+  display: inline;
+  height: 430px;
+  width: 200px;
+  color: black;
+  margin: auto;
+  /*padding: 140px 40px;*/
+
 }
-*/
+
+#search-bar {
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 80px;
+
+
+}
+
+#logo {
+  color: black;
+  font-size: 50px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  font-family: 'Orbitron', sans-serif;
+
+}
+
+.button {
+  display: block;
+  background-color: #ffffff;
+  color: #E24E42;
+  border: 2px solid #E24E42;
+  border-radius: 500px;
+  text-transform: uppercase;
+}
+
+
+.button:hover {
+  color: #ffffff;
+  background-color: #E24E42;
+}
+
+.center {
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.inline {
+  display: inline;
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+
+#movie-details {
+  z-index: 10;
+  position: fixed;
+  width: 70%;
+  height: 80%;
+  top: 10%;
+  border-style: ridge;
+  background-color: white;
+  text-align: center;
+  margin-left: 10%;
+  border-radius: 25px;
+  font-size: 80%
+
+
+}
+
+#title-and-date {
+  position: relative;
+  font-weight: 400;
+  font-size: 80%;
+  color: black;
+  text-align: center;
+
+}
+
+#detail-title {
+  font-weight: 900;
+  font-size: 50px;
+  color: black;
+}
+
+.hidden {
+    display: none;
+}
