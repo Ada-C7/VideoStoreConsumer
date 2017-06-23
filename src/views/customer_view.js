@@ -56,7 +56,6 @@ var CustomerView = Backbone.View.extend({
               rentals.splice(i, 1);
             }
           }
-
           info[0] = rentals;
           this.model.set('current_rentals', info);
           this.showRentals();
@@ -64,10 +63,10 @@ var CustomerView = Backbone.View.extend({
     }
   },
   hideRentals: function (event){
-    event.stopPropagation();
     var name = this.model.get('name').split(' ')[0];
     this.$('#' + name).empty();
     this.$("a#hide-customer-rentals").addClass('hide');
+    this.$('#returned-movies').empty();
   }
 });
 

@@ -17,10 +17,8 @@ var RentalView = Backbone.View.extend({
     'click h5.button.check-in': 'checkinMovie'
   },
   checkinMovie: function(event) {
-    // this.$(".rental-due-date").addClass('hide');
-    // this.$(".button.check-in").addClass('hide');
-    this.$(".rental-info").append('returned!');
     var title = this.model.get('title');
+    $("#returned-movies").append('<li>' + title + ' returned! </li>');
 
     var customer_id = this.model.get('customer_id');
     var options = {
