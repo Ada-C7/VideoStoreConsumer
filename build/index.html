@@ -34,20 +34,22 @@
 
     <script id="movie-info-template" type="text/template">
       <section id="alerts"></section>
-      <img src=<%- image_url %> />
-      <h3>Title: <%- title %></h3>
-      <h4>Overview: <%- overview %></h4>
-      <h4>Release Date: <%- release_date %></h4>
-
-      <section id="movie-actions">
+      <section id="movie-details">
+        <img src=<%- image_url %> class="float-left" />
+        <h3><%- title %></h3>
+        <span class="small-gray">(<%- release_date.split('-')[0] %>)</span>
+        <p><%- overview %></p>
         <% if (external_id) { %>
           <h4 class="button" id="add-movie">Add Movie</h4>
         <% } %>
       </section>
+      <section id="movie-rental-form" class="clearfix">
+      </section>
     </script>
 
     <script id="rent-movie-template" type="text/template">
-      <h4>Select Customer</h4>
+      <h4>Rent Movie</h4>
+      <p>Customer</p>
       <select id="customer-selector">
         <option disabled selected>
           -- select a customer --
@@ -58,7 +60,7 @@
           </option>
         <% }); %>
       </select>
-      <h4>Due Date</h4>
+      <p>Due Date</p>
       <input id="due-date" type="date" />
       <h4 class="button" id="rent-movie">Rent</h4>
       <h4 class="button alert" id="delete-movie">Delete</h4>

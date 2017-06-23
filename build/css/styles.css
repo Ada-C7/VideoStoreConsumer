@@ -48,3 +48,20 @@ article.movie {
   text-align: center;
   font-weight: bold;
 }
+
+#movie-details h3 {
+  display: inline;
+}
+
+select {
+  max-width: 200px;
+}
+
+input {
+  max-width: 200px;
+}
+
+.small-gray {
+  color: #999;
+  font-weight: bold;
+}

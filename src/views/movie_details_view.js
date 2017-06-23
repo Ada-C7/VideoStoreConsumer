@@ -22,7 +22,7 @@ var MovieDetailsView = Backbone.View.extend({
       var selectCustomerView = new SelectCustomerView({
         model: customerList,
         template: _.template($('#rent-movie-template').html()),
-        el: this.$('#movie-actions')
+        el: this.$('#movie-rental-form')
       });
     selectCustomerView.render();
     }
