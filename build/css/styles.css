@@ -1,17 +1,17 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+    background: #3B3355;
 }
 
 header {
-  background-color: lightgreen;
+  background-color: #BFCDE0;
   padding: 0.5rem;
   text-align: center;
 }
 
 h1 {
-  font-family: 'Bowlby One', cursive;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 #completed-checkbox {
@@ -44,11 +44,11 @@ div {
 }
 
 #db-movies {
-  background-color: skyblue;
+  background-color: #2C666E;
 }
 
 h4 {
-  font-family: 'Bowlby One', cursive;
+  font-family: 'Fjalla One', sans-serif;
   text-align: center;
   height: 100px;
   overflow: scroll;
