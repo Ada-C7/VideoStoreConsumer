@@ -9,9 +9,26 @@ var RentalListView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
   },
   render: function() {
-    var compiledTableTemplate = this.template({ rentals: this.model });
+    var compiledTableTemplate = this.template({ rentals: this.model.toJSON() });
     this.$('main').html(compiledTableTemplate);
     return this;
+  },
+  events: {
+    'click #rental-log' : 'showAllRentals',
+    'click #outstanding-rentals' : 'showOutstandingRentals',
+    'click #overdue-rentals' : 'showOverdueRentals'
+  },
+  showAllRentals: function () {
+    this.model.url = "http://localhost:3000/rentals";
+    this.model.fetch();
+  },
+  showOutstandingRentals: function () {
+    this.model.url = "http://localhost:3000/rentals/outstanding";
+    this.model.fetch();
+  },
+  showOverdueRentals: function () {
+    this.model.url = "http://localhost:3000/rentals/overdue";
+    this.model.fetch();
   }
 });
 

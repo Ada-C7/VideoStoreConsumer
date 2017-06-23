@@ -100,7 +100,7 @@
           <li><a href="#" id="outstanding-rentals">Outstanding Rentals</a></li>
         </ul>
       </aside>
-
+      
       <% if (rentals.length === 0) { %>
         <p>No Rental Data</p>
       <% } else { %>
@@ -115,13 +115,13 @@
             </tr>
           </thead>
           <tbody>
-            <% rentals.each(function (rental) { %>
+            <% rentals.forEach(function (rental) { %>
               <tr>
-                <td><%- rental.get('checkout_date') %></td>
-                <td><%- rental.get('due_date') %></td>
-                <td><%- rental.get('returned') %></td>
-                <td><%- rental.get('customer').name %></td>
-                <td><%- rental.get('movie').title %></td>
+                <td><%- rental.checkout_date %></td>
+                <td><%- rental.due_date %></td>
+                <td><%- rental.returned %></td>
+                <td><%- rental.customer.name %></td>
+                <td><%- rental.movie.title %></td>
               </tr>
             <% }); %>
           </tbody>
