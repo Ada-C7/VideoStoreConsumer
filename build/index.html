@@ -53,13 +53,13 @@
           <% if (detailsClicked) { %>
             <section class="row" id="movie-details">
               <div class='row'>
-                <strong>Release date: </strong> <%- movie.release_date %>
+                <p><strong>Release date: </strong> <%- movie.release_date %></p>
               </div>
               <div class='row'>
-                <strong>Overview: </strong> <%- movie.overview %>
+                <p><strong>Overview: </strong> <%- movie.overview %></p>
               </div>
               <div class='row'>
-                <strong>Available for rent:</strong> <%- movie.available_inventory %>
+                <p><strong>Available for rent:</strong> <%- movie.available_inventory %></p>
               </div>
             </section>
           <% } else { %>
@@ -108,14 +108,14 @@
 
     <script id='customer-details-template' type='text/template'>
       <h2>Customer Information</h2>
-      <h4>Name: <%- name %></h4>
-      <h4>Phone: <%- phone %></h4>
+      <p><strong>Name: </strong><%- name %></p>
+      <p><strong>Phone: </strong><%- phone %></p>
       <h2>Checked out:</h2>
       <% if (all_rentals.length > 0) { %>
         <% for (var i = 0; i < all_rentals.length; i++) %>
-          <h4><%- all_rentals[i].title %></h4>
+          <p><strong><%- all_rentals[i].title %></strong></p>
       <% } else { %>
-        <h4>** No movies checked out **</h4>
+        <p><strong>** No movies checked out **</strong></p>
       <% } %>
 
 
