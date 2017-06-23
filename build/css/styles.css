@@ -4,7 +4,9 @@
 * {
   font-family: 'Cutive Mono', monospace;
 }
-
+ .row {
+   max-width: 100%;
+ }
 body {
   margin: 0 10% 2% 10%;
 }
