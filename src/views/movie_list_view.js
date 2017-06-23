@@ -138,6 +138,7 @@ const MovieListView = Backbone.View.extend({
   },
 
   showSideBar: function() {
+    window.scrollTo(0,210);
     this.$("#side-bar").show();
     this.$("#list-main").addClass("large-9");
     this.$(".movie-card").removeClass("large-3");
