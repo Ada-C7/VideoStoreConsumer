@@ -47,6 +47,8 @@ header #search-button img {
 article.movie {
   text-align: center;
   font-weight: bold;
+  height: 375px;
+  padding-top: 20px;
 }
 
 #movie-details h3 {
