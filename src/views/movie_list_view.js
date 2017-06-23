@@ -22,6 +22,10 @@ var MovieListView = Backbone.View.extend({
       that.$('#movie-list').append(movieView.render().$el);
       that.listenTo(movieView, 'showMovieDetails', that.showMovieDetails);
     });
+
+    if (this.model.length === 0) {
+      that.$('#movie-list').append("<h3>No movies found.</h3>");
+    }
     return this;
   },
   events: {
