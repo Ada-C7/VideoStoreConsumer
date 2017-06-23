@@ -8,7 +8,7 @@ import Movie from '../models/movie.js';
 
 var DBMovieView = Backbone.View.extend({
      initialize: function(params) {
-          this.template = params.template; // TODO: double check name of this template
+          this.template = params.template;
           this.listenTo(this.model, 'change', this.render);
      },
      render: function() {

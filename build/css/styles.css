@@ -10,6 +10,10 @@ header {
   text-align: center;
 }
 
+h1 {
+  font-family: 'Bowlby One', cursive;
+}
+
 #completed-checkbox {
   display: inline;
 }
@@ -40,26 +44,24 @@ div {
 }
 
 #db-movies {
-     background-color: skyblue;
+  background-color: skyblue;
 }
-#movie-template {
-  border: solid;
-}
-/*#movie-results, #movies-stocked {
-  height: 500px;
-  overflow: scroll;
-  border: solid;
-}*/
 
-/*section.movie {
-  background: purple;
-}*/
-/*section#movie-results, section#movies-stocked {
-  height: 500px;
+h4 {
+  font-family: 'Bowlby One', cursive;
+  text-align: center;
+  height: 100px;
   overflow: scroll;
-}*/
-/*
-* {
-  border-style: solid;
 }
-*/
+.pic {
+  padding-bottom: 1em;
+  display: block;
+  margin: auto;
+  width: 225px;
+  height: 330px;
+
+}
+
+p {
+  text-align: center;
+}
