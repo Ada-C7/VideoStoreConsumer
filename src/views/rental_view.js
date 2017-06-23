@@ -21,7 +21,11 @@ const RentalView = Backbone.View.extend({
   },
 
   checkInRental: function() {
+    console.log();
     console.log("clicked check in rental");
+    var returnedRental = new Rental(this.model);
+    returnedRental.url = "http://localhost:3000/rentals" + this.model.get("title") + "/return?customer_id=" + this.model.get("customer_id");
+
   }
 
 });
