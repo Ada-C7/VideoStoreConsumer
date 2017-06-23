@@ -1,15 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<html lang='en'>
+     <head>
+          <meta charset='utf-8'>
+          <link rel='stylesheet' type='text/css' href='css/_settings.css'>
+          <link rel='stylesheet' type='text/css' href='css/foundation.css'>
+          <link rel='stylesheet' type='text/css' href='css/styles.css'>
+          <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+          <title>Wetflix</title>
+     </head>
 
-    <script src="/app.bundle.js"></script>
+     <body>
+          <header>
+               <nav></nav>
+               <h1>Wetflix</h1>
+          </header>
 
-  </body>
-  </html>
+     <main>
+          <section id='movies'>
+               <section id='db-movies'>
+                    <form id='searchForm'>
+                      <div class="row">
+                        <section class='columns small-10 small-centered medium-9 medium-centered large-6'>
+                              <input type='text' id='query' name='query' placeholder="Enter A Movie Title..."></input>
+
+                          <section class='button'>
+                              <button type='submit' id='search-button'>Search</button>
+                          </section>
+                        </section>
+                       </div>
+                    </form>
+                      <section id='movie-results' class="row" data-equalizer></section>
+               </section>
+               <section>
+                    <section id='movies-stocked' class="row" data-equalizer></section>
+               </section>
+          </section>
+     </main>
+
+     <footer></footer>
+<!-- class="medium-4 columns" -->
+     <script id='movie-template' type='text/template'>
+      <section class="movie">
+        <section  class="small-6 medium-4 large-3 columns" data-equalizer-watch>
+          <section class="callout">
+          <h4><%- movie.title %></h4>
+          <img class="pic" src=<%-movie.image_url%> >
+          <p> Release Date: <%- movie.release_date %></p>
+        </section>
+      </section>
+      </section>
+     </script>
+
+     <script id='db-movie-template' type='text/template'>
+      <section class="movie">
+        <section class="small-6 medium-4 large-3 columns" data-equalizer-watch>
+          <section class="callout">
+          <h4><%- movie.title %></h4>
+          <img class="pic" src=<%-movie.image_url%> >
+          <form>
+            <center>
+               <button class='button' id='add-button'>Add Movie</button>
+            </center>
+          </form>
+        </section>
+      </section>
+    </section>
+     </script>
+
+     <script src='/app.bundle.js'></script>
+     </body>
+</html>

@@ -1,12 +1,17 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+    background: #3B3355;
 }
 
 header {
-  background-color: lightgreen;
+  background-color: #BFCDE0;
   padding: 0.5rem;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Fjalla One', sans-serif;
 }
 
 #completed-checkbox {
@@ -22,10 +27,6 @@ button.success {
   display: inline;
 }
 
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
 aside label {
   color: #FFFFFF;
 }
@@ -37,8 +38,30 @@ aside label {
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
+
+.hidden {
+     display: none;
 }
-*/
+
+#db-movies {
+  background-color: #2C666E;
+}
+
+h4 {
+  font-family: 'Fjalla One', sans-serif;
+  text-align: center;
+  height: 100px;
+  overflow: scroll;
+}
+.pic {
+  padding-bottom: 1em;
+  display: block;
+  margin: auto;
+  width: 225px;
+  height: 330px;
+
+}
+
+p {
+  text-align: center;
+}
