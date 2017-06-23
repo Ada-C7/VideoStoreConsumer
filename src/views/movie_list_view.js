@@ -45,6 +45,7 @@ var MovieListView = Backbone.View.extend ({
   },
   searchMovie: function() {
     $('.messages').empty();
+
     var errorHandler = function() {
       $(".messages").html("<h4>Error: Search field cannot be blank.</h4>");
     };
@@ -79,13 +80,26 @@ var MovieListView = Backbone.View.extend ({
     var formCustomerID = this.$('#rental-customer').val();
     var formDueDate = this.$('#due-date').val();
 
-    var newRental = new Rental({
+    var rental = {
       title: formTitle,
       due_date: formDueDate,
       customer_id: formCustomerID
-    });
+    };
 
-    newRental.save();
+    var newRental = new Rental();
+
+
+    newRental.save(rental, {
+      success: function(model, response) {
+        $(".messages").html( 'Movie successfully rented!');
+      },
+      error: function(model, response) {
+        console.log(response);
+        $(".messages").html(response.responseText);
+      }});
+
+
+
   }
 
 });

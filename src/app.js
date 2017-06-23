@@ -6,6 +6,8 @@ import ApplicationView from 'views/application_view.js';
 import CustomerList from 'collections/customer_list.js';
 import CustomerListView from 'views/customer_list_view.js';
 
+
+
 var myCustomerList = new CustomerList();
 myCustomerList.fetch();
 console.log(myCustomerList);
@@ -34,6 +36,7 @@ var movieList = function() {
 };
 
 $(document).ready(function() {
+
   movieList();
   myCustomerListView.render();
   $('#home').click(movieList);

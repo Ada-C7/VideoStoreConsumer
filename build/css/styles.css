@@ -34,6 +34,10 @@ button.success {
   display: inline;
 }
 
+
+.messages {
+  padding: 2% 1%;
+}
 .movie-card {
   padding: 1%;
   /*border-style: solid;
