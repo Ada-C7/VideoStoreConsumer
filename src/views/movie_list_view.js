@@ -43,8 +43,8 @@ var MovieListView = Backbone.View.extend({
     this.listenTo(movieDetailsView, 'addMovie', this.addMovie);
   },
   searchMovies: function () {
-    var searchTerm = this.$('#search-box').val();
-    this.$('#search-box').val('');
+    var searchTerm = $('#search-box').val();
+    $('#search-box').val('');
 
     this.model.fetch({
       data: { query: searchTerm },

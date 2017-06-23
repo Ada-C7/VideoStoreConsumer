@@ -34,3 +34,12 @@ header #search-box {
   max-height: 30px;
   margin-top: 5px;
 }
+
+header #search-button {
+  padding-top: 7px;
+  padding-left: 7px;
+}
+
+header #search-button img {
+  width: 30px;
+}
