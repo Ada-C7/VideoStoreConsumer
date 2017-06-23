@@ -8,7 +8,7 @@ import SearchList from './collections/search_list';
 import MovieListView from './views/movie_list_view';
 import ApplicationView from 'views/application_view';
 
-
+// var searchListTemplate = _.template($)
 var movieListTemplate = _.template($('#movie-list-template').html());
 var movieTemplate = _.template($('#movie-template').html());
 
