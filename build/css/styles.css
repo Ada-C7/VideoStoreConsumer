@@ -36,8 +36,8 @@ button.success {
 
 .movie-card {
   padding: 1%;
-  /*border-style: solid;
-  border-width: thin;*/
+  border-style: solid;
+  border-width: thin;
 }
 
 .movie-card img {
