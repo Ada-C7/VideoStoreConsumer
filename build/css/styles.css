@@ -1,44 +1,226 @@
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Knewave|Permanent+Marker');
+
+* {
+  font-family: 'Cutive Mono', monospace;
+}
+.row {
+  max-width: 100%;
+}
+body {
+  margin: 0 10% 2% 10%;
+}
+
+.tableouter {
+  position: relative;
+  overflow-x: scroll;
+  border-bottom: black solid 1px;
+}
+
+.tableinner {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+
+
+#hide-rental-manager {
+  float: right;
+}
+
+#manager-header {
+  float: left;
+  margin: 15px 0 0 15px;
+}
+
+#rentals-table {
+  clear: both;
+  overflow: scroll;
+  margin-bottom: 15px;
+}
+
+#manage-rental {
+  background-color: black;
+  color: white;
+}
+
+#rentals-list {
+  color:black;
+  text-align: center;
+}
+
+#manage-rental * {
+  font-family: 'Cutive Mono', monospace;
+  font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+#header-buttons {
+  text-align: center;
+}
+
+#header-buttons button, #search-button {
+  font-family: 'Cutive Mono', monospace;
+  font-size: 1.1em;
+}
+
+section#search-stuff * {
+  display: inline;
+}
+
+#side-bar {
+  padding-top: 20px;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+#query {
+  max-width: 250px;
+  margin: 0;
+}
+
+button#search-button.button, #hide-details {
+  width: 180px;
+}
+
+#library-subheader, #search-subheader, #customers-subheader, #bad-search-subheader {
+  font-family: 'Cutive Mono', monospace;
+  text-align: center;
+  margin: 2% 0;
+  border-top: dashed 1px black;
+  border-bottom: dashed 1px black;
+}
+
+.button {
+  margin: 2px;
+  background-color: black;
+  color: #fefefe;
+  font-family: 'Cutive Mono', monospace;
+}
+
+.button:hover, .button:focus{
+  background-color: deeppink;
+  color: #fefefe;
+}
+
+section.movie-card {
+  padding-top: 10px;
+  text-align: center;
+  height: 450px;
+  position: relative;
+}
+
+.movie-card img:hover{
+  opacity: 0.3;
+}
+
+.movie-card img {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.movie-card .button, #confirm-rental, #cancel-rental, #hide-details {
+  border-radius: 25px;
+  background-color: #fefefe;
+  color: black;
+  border: 1px solid black;
+  width: 90px;
+  height: 40px;
+  margin: 2px 5px;
+}
+
+.movie-card .button:hover, #confirm-rental:hover, #cancel-rental:hover, #hide-details:hover {
+  color: deeppink;
+  border: 1px solid deeppink;
+}
+
+.movie-card button.add-library {
+  width: 160px;
+}
+
+h4.movie.small-title {
+  font-size: 1em;
+  font-family: 'Cutive Mono', monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.movie-card .container {
+  height: 25px;
+  margin: 15px 0;
+}
+
+#rent-header, #rent-movie-title, section#movie-details h3 {
+  font-family: 'Knewave', cursive;
+}
+
+#rent-movie-title {
+  text-decoration: underline;
+}
+header h1 {
+  font-family: 'Knewave', cursive;
+  font-size: 7.0em;
+  text-align: center;
+  text-shadow: 10px 3px deeppink;
+  border-bottom: 1px solid black;
+}
 
 main {
-    background: lightblue;
+  background-color: white;
 }
 
-header {
-  background-color: lightgreen;
-  padding: 0.5rem;
+.grayed_out {
+  filter: grayscale(100%);
+  opacity: .5;
 }
 
-#completed-checkbox {
-  display: inline;
+.added-movie {
+  border: black dashed 1px;
 }
 
-label {
-  display: inline;
+.second-header {
+  text-align: center;
 }
 
-button.success {
-  margin-right: 1.2rem;
-  display: inline;
+#cust-name-sort:hover, #cust-pcode-sort:hover, #cust-reg-at-sort:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
+
+.success {
+  padding-top: 20px;
+  color: green;
 }
 
-.completed {
-  text-decoration: line-through;
+.movie.small-poster:hover, .movie.small-title:hover {
+  cursor: pointer;
 }
 
-div {
-  display: inline;
+
+.failure {
+  padding-top: 20px;
+  color: red;
 }
-/*
-* {
-  border-style: solid;
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+  clear: both;
 }
-*/
+
+footer img {
+  height: 60px;
+}
+
+/*td, #fields td {
+text-align: center;
+}*/

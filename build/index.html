@@ -1,15 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Rewind</title>
+</head>
+<body>
+  <header>
+    <h1>REWIND</h1>
 
-    <script src="/app.bundle.js"></script>
+    <section id="header-buttons" class="row">
+      <button class="button columns small-12 medium-12 large-2" id="customer-list-button">Customers</button>
+      <button class="button columns small-12 medium-12 large-2" id="return-library">Library</button>
+      <section id="search-stuff" class="columns small-12 medium-12 large-7">
+        <input  type="text" name="query" id="query" placeholder="🔍 Search for a movie"/>
+        <button class="button" id="search-button">Search</button>
+      </section>
+    </section>
 
-  </body>
-  </html>
+    <section id="movie-headers">
+      <section id="search-header-section" class="row second-header">
+        <h3 id="search-subheader" class="columns small-12">Search Results for "<span id="query-text"></span>"</h3>
+        <h3 id="bad-search-subheader" class="columns small-12">No Movies found</h3>
+      </section>
+      <section id="library-header-section" class="row second-header">
+        <h3 id="library-subheader" class="columns small-12">My Library</h3>
+      </section>
+    </section>
+  </header>
+
+  <main>
+    <!-- customers list -->
+    <section id="customer-list">
+      <h3 id="customers-subheader" class="row">Customers</h3>
+
+
+
+      <section id="manage-rental">
+
+        <h3 class="manage-header" id="manager-header">Manage Rentals for <span id="customer_name"></span></h3>
+        <button class="button" id="hide-rental-manager">X</button>
+
+        <section id="rentals-table">
+          <table>
+            <thead>
+              <td>
+                Title
+              </td>
+              <td>
+                Checked Out
+              </td>
+              <td>
+                Duedate
+              </td>
+              <td>
+                Returned?
+              </td>
+              <td>
+                Check In
+              </td>
+            </thead>
+            <tbody id="rentals-list">
+
+            </tbody>
+          </table>
+        </section>
+      </section>
+
+
+
+      <div class="tableouter">
+        <div class="tableinner">
+          <table>
+            <thead id="fields">
+              <td>
+                ID
+              </td>
+              <td id="cust-name-sort">
+                Name
+              </td>
+              <td>
+                Address
+              </td>
+              <td id="cust-pcode-sort">
+                Postal Code
+              </td>
+              <td>
+                Phone #
+              </td>
+              <td id="cust-reg-at-sort">
+                Registered At
+              </td>
+              <td>
+                Checked Out
+              </td>
+              <td>
+                Rentals
+              </td>
+            </thead>
+            <tbody id="customer-data">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="all-movie-stuff">
+      <section class="columns small-12 large-3" id="side-bar">
+        <section id="movie-details"></section>
+        <section id="rental-form"></section>
+      </section>
+
+      <!-- movies list -->
+      <section class="columns small-12" id="list-main">
+        <section id="list-content" class="row"></section>
+      </section>
+    </section>
+  </main>
+
+  <footer class="row">
+    <section class="small-12 medium-12">
+      <p id="bo-n-auro">
+        &copy; <a href="http://github.com/botrethewey">Bo Trethewey</a> & <a href="http://github.com/auroralemieux">Aurora Anderson</a>
+      </p>
+    </section>
+
+    <section class="small-12 medium-12" id="tmdb">
+      <p>
+        This product uses the TMDb API but is not endorsed or certified by TMDb.
+      </p>
+      <img id="tmdb-logo" src="https://www.themoviedb.org/assets/static_cache/c9dbe2292fb5eea61788571fbd96fa67/images/v4/logos/208x226-stacked-blue.png" alt="TMDB logo" />
+    </section>
+  </footer>
+
+  <!-- rental form -->
+  <script type="text/template" id="rental-form-template">
+    <!-- <h2>Rental Form</h2> -->
+    <h3 id="rent-header">Rent <span id="rent-movie-title"><%= model.title %></span></h3>
+    <form>
+      <section class="input-group">
+        Customer:
+        <select id="customer-select" type="select" name="customer"> <%= options %>
+        </select>
+
+        Due Date:
+        <input id="rental-duedate" type="date" name="due_date"></input>
+        <button class="button" id="confirm-rental">Confirm</button>
+        <button class="button" id="cancel-rental">Cancel</button>
+        <p id="rental-message"></p>
+      </section>
+    </form>
+  </script>
+
+  <!-- sidebar details template -->
+  <script id="movie-details-template" type="text/template">
+    <img src=<%-image_url%> >
+    <h3><%-title%></h3>
+    <p>Overview: <%-overview%></p>
+    <p>Release Date: <%-release_date%></p>
+
+    <button class="button" id="hide-details">Hide</button>
+  </script>
+
+  <script id="customer-row-template" type="text/template">
+    <td>
+      <%= id %>
+    </td>
+    <td>
+      <%= name %>
+    </td>
+    <td>
+      <%= address %>, <%= city %>, <%= state %>
+    </td>
+    <td>
+      <%= postal_code %>
+    </td>
+    <td>
+      <%= phone %>
+    </td>
+    <td>
+      <%= registered_at %>
+    </td>
+    <td>
+      <%= movies_checked_out_count %>
+    </td>
+    <td>
+      <% if (movies_checked_out_count === 0) { %>
+        N/A
+        <% } else { %>
+          <button class="button manage-rental">Manage</button>
+          <% } %>
+        </td>
+      </script>
+
+
+      <script id="rental-template" type="text/template">
+        <td>
+          <%= title %>
+        </td>
+        <td>
+          <%= checkout_date %>
+        </td>
+        <td>
+          <%= due_date %>
+        </td>
+        <td>
+          <%= returned %>
+        </td>
+        <td>
+          <button class="button check-in">Check-in</button>
+        </td>
+      </script>
+
+
+
+
+
+
+
+
+      <script id="movie-card-template" type="text/template">
+        <section class="movie-card columns small-12 medium-4 large-3">
+          <img class="movie small-poster" src=<%=image_url%>>
+          <div class="container">
+            <h4 class="movie small-title"><%-title%></h4>
+          </div>
+
+          <!-- one of these two buttons will be rendered -->
+          <button class="button add-library">Add to Library</button>
+          <section class="lib-buttons">
+            <button class="button rent-movie">Rent</button>
+            <button class="button remove-movie">Remove</button>
+          </section>
+
+        </section>
+      </script>
+
+      <script src="/app.bundle.js"></script>
+
+    </body>
+    </html>
