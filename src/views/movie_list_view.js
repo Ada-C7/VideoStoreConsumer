@@ -92,13 +92,12 @@ var MovieListView = Backbone.View.extend ({
     newRental.save(rental, {
       success: function(model, response) {
         $(".messages").html( 'Movie successfully rented!');
+        $("#create-rental").empty();
       },
       error: function(model, response) {
         console.log(response);
         $(".messages").html(response.responseText);
       }});
-
-
 
   }
 
