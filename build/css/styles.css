@@ -51,6 +51,12 @@ article.movie {
   padding-top: 20px;
 }
 
+article.movie p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 #movie-details h3 {
   display: inline;
 }
