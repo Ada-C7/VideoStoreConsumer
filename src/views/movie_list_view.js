@@ -19,8 +19,8 @@ var MovieListView = Backbone.View.extend ({
     this.$('.messages').empty();
     this.$('#customer-info').empty();
     var that = this;
-    console.log(this.model);
-      this.model.each(function(movie){
+
+    this.model.each(function(movie){
       var movieView = new MovieView({
         model: movie,
         template: that.template,
@@ -72,6 +72,7 @@ var MovieListView = Backbone.View.extend ({
     });
 
     $("#create-rental label.customers-select").append(rentalCustomerView.render().$el);
+    $(window).scrollTop(0);
   },
   createRental: function(e) {
     e.preventDefault();
@@ -88,7 +89,6 @@ var MovieListView = Backbone.View.extend ({
 
     var newRental = new Rental();
 
-
     newRental.save(rental, {
       success: function(model, response) {
         $(".messages").html( 'Movie successfully rented!');
@@ -96,11 +96,10 @@ var MovieListView = Backbone.View.extend ({
       },
       error: function(model, response) {
         console.log(response);
+        console.log(error);
         $(".messages").html(response.responseText);
       }});
-
   }
-
 });
 
 export default MovieListView;

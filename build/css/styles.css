@@ -12,9 +12,15 @@ main {
 header {
   font-family: 'Josefin Sans', sans-serif;
   padding: 0.5rem;
-  text-align: center;
+
 }
 
+#store-name {
+  display: inline-block;
+  text-align: center;
+  padding-top: 5%;
+  padding-right: 5%;
+}
 
 h1, h2, h3, h4, h5 {
   font-family: 'Josefin Sans', sans-serif;
@@ -23,6 +29,7 @@ h1, h2, h3, h4, h5 {
 
 p {
   font-family: 'Roboto', sans-serif;
+  color: darkgreen;
 }
 
 label {
@@ -60,9 +67,11 @@ aside label {
   /*padding: 1%;*/
   border-radius: 70px;
   background-color: darkgreen;
-
 }
 
+.button:hover {
+  background-color: #14ba1c;
+}
 div {
   display: inline;
 }
@@ -82,4 +91,10 @@ div {
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
+  background-color: darkgreen;
+}
+
+.input-group-rounded .button:hover {
+  background-color: #14ba1c;
+
 }
