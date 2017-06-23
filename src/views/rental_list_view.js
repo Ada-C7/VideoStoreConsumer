@@ -14,6 +14,7 @@ const RentalListView = Backbone.View.extend({
   },
 
   render: function() {
+    this.$("#rentals-list").empty();
     console.log("inside rental list render ");
     console.log(this.model);
     var that = this;

@@ -58,7 +58,13 @@ const CustomerListView = Backbone.View.extend({
     // "click #overdue-customers": "overdue",
     "click #cust-name-sort": "sortByName",
     "click #cust-pcode-sort": "sortByPostCode",
-    "click #cust-reg-at-sort": "sortByRegisteredAt"
+    "click #cust-reg-at-sort": "sortByRegisteredAt",
+    "click #hide-rental-manager" : "hideRentalManager"
+  },
+
+  hideRentalManager: function() {
+    this.managing = false;
+    this.handleRentalManager();
   },
 
   // overdue: function() {

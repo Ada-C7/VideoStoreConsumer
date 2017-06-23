@@ -20,12 +20,32 @@ body {
   overflow-y: scroll;
 }
 
+#hide-rental-manager {
+  float: right;
+}
 
+#manager-header {
+  float: left;
+  margin: 15px 0 0 15px;
+}
 
+#rentals-table {
+  clear: both;
+}
+
+/*
+#manage-rental .manage-header {
+  margin-left: 10px;
+}*/
 
 #manage-rental {
   background-color: black;
   color: white;
+}
+
+#rentals-list {
+  color:black;
+  text-align: center;
 }
 
 #manage-rental * {
