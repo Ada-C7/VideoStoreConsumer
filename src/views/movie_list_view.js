@@ -5,6 +5,7 @@ import MovieView from './movie_view.js';
 import Movie from '../models/movie.js';
 import MovieList from '../collections/movie_list.js';
 import CustomerListView from './customer_list_view.js';
+import Rental from '../models/rental.js';
 
 var MovieListView = Backbone.View.extend ({
   initialize: function(params) {
@@ -33,7 +34,7 @@ var MovieListView = Backbone.View.extend ({
 
   events: {
     "click #search-movies" : "searchMovie",
-    'submit form': 'createRental'
+    'submit #rental-form': 'createRental'
   },
 
   getFormData: function() {
@@ -70,9 +71,6 @@ var MovieListView = Backbone.View.extend ({
 
     $("#create-rental label.customers-select").append(rentalCustomerView.render().$el);
   },
-  getRentalFormData() {
-
-  },
   createRental: function(e) {
     e.preventDefault();
 
@@ -80,7 +78,13 @@ var MovieListView = Backbone.View.extend ({
     var formCustomerID = this.$('#rental-customer').val();
     var formDueDate = this.$('#due-date').val();
 
-  
+    var newRental = new Rental({
+      title: formTitle,
+      due_date: formDueDate,
+      customer_id: formCustomerID
+    });
+
+    newRental.save();
   }
 
 });
