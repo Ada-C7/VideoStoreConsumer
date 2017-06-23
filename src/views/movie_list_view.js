@@ -11,6 +11,8 @@ var MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'addMovie', this.addMovie);
   },
   render: function() {
+    console.log("GETTING RENDERED");
+    console.log(this.model.url);
     this.$el.html("<section id='movie-list'></section>");
     var that = this;
 

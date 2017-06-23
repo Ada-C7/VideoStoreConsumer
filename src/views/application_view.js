@@ -28,7 +28,10 @@ const ApplicationView = Backbone.View.extend({
     });
   },
   showAllMovies: function () {
+    this.movieList.fetch();
     this.movieListView.render();
+
+    console.log("GETTING CLICKED FROM APP VIEW");
   },
   searchMovies: function () {
     this.movieListView.searchMovies();
