@@ -107,10 +107,17 @@
     </script>
 
     <script id='customer-details-template' type='text/template'>
-      <h2>Customer Info: </h2>
+      <h2>Customer Information</h2>
       <h4>Name: <%- name %></h4>
-      <h4>Phone<%- phone %></h4>
-      <h2></h2>
+      <h4>Phone: <%- phone %></h4>
+      <h2>Checked out:</h2>
+      <% if (all_rentals.length > 0) { %>
+        <% for (var i = 0; i < all_rentals.length; i++) %>
+          <h4><%- all_rentals[i].title %></h4>
+      <% } else { %>
+        <h4>** No movies checked out **</h4>
+      <% } %>
+
 
     </script>
 
