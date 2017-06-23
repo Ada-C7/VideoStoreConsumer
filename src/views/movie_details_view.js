@@ -38,6 +38,7 @@ var MovieDetailsView = Backbone.View.extend({
     this.trigger('addMovie', this.model.attributes);
   },
   displayErrorList: function (response) {
+    this.$('#alerts').removeClass('success-alert').addClass('error-alert');
     this.$('#alerts').prepend("<h4>Errors: </h4><ul></ul>");
     var errors = response.responseJSON.errors;
     for (var error in errors) {
@@ -60,7 +61,8 @@ var MovieDetailsView = Backbone.View.extend({
       url: 'http://localhost:3000/rentals/' + attributes.title + '/check-out',
       customer_id: attributes.customer_id,
       success: function (model, response) {
-        $('main').prepend("<p>Successfully rented " + attributes.title + " to " + formData.customerName + "</p>");
+        $('#alerts').removeClass('error-alert').addClass('success-alert');
+        $('#alerts').html("<p>Successfully rented " + attributes.title + " to " + formData.customerName + "</p>");
       },
       error: function (model, response) {
         that.displayErrorList(response);
@@ -81,10 +83,10 @@ var MovieDetailsView = Backbone.View.extend({
     var that = this;
     this.model.destroy({
       success: function (model, response) {
-        $('main').prepend("<p>Successfully deleted " + movieTitle + " from inventory.</p>");
+        $('main').prepend("<p class='success-alert'>Successfully deleted " + movieTitle + " from inventory.</p>");
       },
       error: function (model, response) {
-        $('main').prepend("<p>Error: " + response.responseJSON.errors + "</p>");
+        $('main').prepend("<p class='error-alert'>Error: " + response.responseJSON.errors + "</p>");
       }
     });
   }

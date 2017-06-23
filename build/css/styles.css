@@ -90,9 +90,30 @@ input {
   max-width: 200px;
 }
 
+#delete-movie {
+  margin-top: 10px;
+}
+
+.movie-admin input {
+  margin: 0 auto 20px;
+}
+
 .small-gray {
   color: #999;
   font-weight: bold;
+}
+
+#movie-rental-form {
+  text-align: center;
+}
+
+#movie-rental-form h4:first-of-type {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#movie-rental-form p:first-of-type {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 10px;
 }
 
 #rental-options {
@@ -136,4 +157,19 @@ footer img {
 
 footer {
   text-align: center;
+}
+
+.success-alert {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.error-alert {
+  background-color: #e50914;
+  border: 1px solid white;
+  padding: 10px;
+  margin-bottom: 20px;
 }
