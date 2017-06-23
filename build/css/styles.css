@@ -63,18 +63,12 @@ div {
   display: inline;
 }
 
-/*search bar styling*/
-
-/*input[type=text] {
-    width: 130px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+.movie-search-poster {
+  width: 185px;
+  height: 278px;
 }
 
-input[type=text]:focus {
-    width: 100%;
-}*/
-
+/*search bar styling*/
 
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;

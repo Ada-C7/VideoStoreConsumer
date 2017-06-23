@@ -8,7 +8,8 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
-    <header>
+    <header class="row">
+      <button class='button float-right' id='home'>Home</button>
       <h1>Dead Dinosaur Video Rental</h1>
       <p>Laserdisc, Beta, HDDVD...we have you covered</p>
     </header>
@@ -20,7 +21,6 @@
       <nav class="row">
 
         <section class="large-4 columns">
-          <button class='button' id='home'>Home</button>
           <div class="input-group input-group-rounded">
             <input class="input-group-field" type="search" id="title" placeholder="Search our movie database">
             <div class="input-group-button">
@@ -28,8 +28,8 @@
             </div>
           </div>
         </section>
-        <section class='large-2 columns right'>
-          <select class='customer-dropdown' >
+        <section class='large-3 columns right'>
+          <select class='customer-dropdown'>
             <option value="">** Select Customer **</option>
           </select>
         </section>
@@ -38,7 +38,7 @@
 
       <section class='row' id='customer-info'></section>
       <section class='row' id='create-rental'></section>
-      <section class='row' id="movie-list" data-equalizer ></section>
+      <section class='row' id="movie-list" data-equalizer></section>
 
 
     </main>
@@ -53,13 +53,13 @@
           <% if (detailsClicked) { %>
             <section class="row" id="movie-details">
               <div class='row'>
-                release date: <%- movie.release_date %>
+                <strong>Release date: </strong> <%- movie.release_date %>
               </div>
               <div class='row'>
-                overview: <%- movie.overview %>
+                <strong>Overview: </strong> <%- movie.overview %>
               </div>
               <div class='row'>
-                available inventory: <%- movie.available_inventory %>
+                <strong>Available for rent:</strong> <%- movie.available_inventory %>
               </div>
             </section>
           <% } else { %>
@@ -76,11 +76,17 @@
     </script>
 
     <script id="search-list-template" type="text/template">
-      <section class="columns large-4 small-12 movie-card" data-equalizer-watch >
-          <h4><%- movie.title %></h4>
-          <img src="<%- movie.image_url %>" alt="movie poster">
-          <button class="add-movie button">Add to Store</button>
-      </section>
+      <span data-equalizer-watch>
+        <section class="columns large-4 small-12 movie-card" >
+          <div class='row text-center'>
+            <h4><%- movie.title %></h4>
+          </div>
+          <img class="float-center movie-search-poster" src="<%- movie.image_url %>" alt="movie poster">
+          <div class='row'>
+            <button class="float-center add-movie button">Add to Store</button>
+          </div>
+        </section>
+      </span>
     </script>
 
 
@@ -94,7 +100,7 @@
          <label class='customers-select' >Selected Customer:
          </label>
          <label>Select due date:<input type='date' id='due-date' /></label>
-         <input type='submit' class="submit-rental button">Finish!</input>
+         <input type='submit' class="submit-rental button"></input>
         </form>
 
       </section>
