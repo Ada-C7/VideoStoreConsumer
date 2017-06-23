@@ -48,7 +48,7 @@ button#search-button.button, #hide-details {
   width: 180px;
 }
 
-#library-subheader, #search-subheader, #customers-subheader {
+#library-subheader, #search-subheader, #customers-subheader, #bad-search-subheader {
   font-family: 'Cutive Mono', monospace;
   text-align: center;
   margin: 2% 0;

@@ -24,7 +24,11 @@ const MovieListView = Backbone.View.extend({
       this.$("#library-header-section").hide();
       this.$("#query-text").html(this.$("#query").val());
       if (this.model.length === 0) {
-        this.$("#search-header-section h3").html("No Movies found");
+        this.$("#bad-search-subheader").show();
+        this.$("#search-subheader").hide();
+      } else {
+        this.$("#bad-search-subheader").hide();
+        this.$("#search-subheader").show();
       }
     } else {
       this.$("#library-header-section").show();
