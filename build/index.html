@@ -1,15 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title> My Video Store!!!! </title>
+</head>
+<body>
 
-    <script src="/app.bundle.js"></script>
+  <header class='row'>
+    <h1> Retro Rental </h1>
+    <section id="search-bar">
+      <form>
+        <input type="text" name="query" placeholder="Search Movies">
+        <button id="search" class="button success" type='submit'>Search</button>
+      </form>
+    </section>
+  </header>
+  <main>
+    <section id="movie-list" class="row"><ul>
 
-  </body>
-  </html>
+    </ul> </section>
+    <section id="movie-details" class="hide"></section>
+    <div id='test'></div>
+  </main>
+
+  <!-- Templates -->
+
+  <script id="movie-template" type='text/template'>
+    <li class="large-3 medium-6 small-12 columns">
+      <img id="poster" src=<%- image_url %>>
+      <h3 id="title"><%- title %></h3>
+
+      <% if (external_id) { %>
+        <input type='number' min="1" max="10" value="1"/>
+        <button id="add" class="button success">Add</button>
+      <%  } else { %>
+        <button id="delete" class="button alert">Delete</button>
+      <%  } %>
+
+    </li>
+  </script>
+
+  <script id="tmpl-movie-details" type="text/template">
+    <h3><%- title %></h3>
+    <p>Released: <%- release_date %></p>
+    <p>Overview: <%- overview %></p>
+    <% if (!external_id) { %>
+      <p> Inventory: <%- available_inventory %> out of <%- inventory %> </p>
+      <p> Customer: </p>
+      <select id='customer-list'></select>
+      <button id="check_out" class="button alert">Check Out</button>
+      <button id="check_in" class="button success">Check In</button>
+    <%  } %>
+  </script>
+
+  <script id='tmpl-customer' type="text/template">
+    <%- name %>
+  </script>
+
+
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>

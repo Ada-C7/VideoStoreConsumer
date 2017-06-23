@@ -1,44 +1,111 @@
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css?family=Fascinate|Rajdhani');
 
-main {
-    background: lightblue;
+
+/************************ GENERAL ***********************/
+
+@font-face {
+  font-family: "Clip";
+  src: url("http://ff.static.1001fonts.net/c/l/clip.regular.ttf");
 }
 
-header {
-  background-color: lightgreen;
+main, header, body {
+    background: #000;
+    color: lightpink;
+}
+
+
+header.row {
   padding: 0.5rem;
+  /*position: fixed;*/
 }
 
-#completed-checkbox {
-  display: inline;
+h1 {
+  font-family: 'Fascinate', cursive;
+  font-size: 5rem
 }
 
-label {
-  display: inline;
+
+h3 {
+  font-family: 'Rajdhani', sans-serif;
+  padding: .5rem;
 }
 
-button.success {
-  margin-right: 1.2rem;
-  display: inline;
+h1 {
+  font-family: "Clip", cursive;
+  font-size: 5rem;
+
+  color: #fff;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
 }
 
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
-}
-
-.completed {
-  text-decoration: line-through;
+h1:hover {
+  color: #ff66bc;
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
 }
 
-div {
-  display: inline;
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+  }
 }
-/*
-* {
-  border-style: solid;
+
+li {
+  list-style: none;
+  height: 450px;
+  margin-bottom: 50px;
 }
-*/
+/************************ SEARCH BAR ***********************/
+
+
+input[type=text] {
+  border: 1px solid #27909F;
+  border-radius: 2em;
+  padding: 1.5em 2em;
+  float: left;
+  -webkit-appearance: none;
+}
+
+button[type=submit] {
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 2em;
+  padding: 1em 4em;
+  background-color: #27909F;
+  float: right;
+  -webkit-appearance: none;
+
+}
+
+button[type="submit"]:hover, input[type="submit"]:active {
+  background-color: #71C2CD;
+}
+
+button success {
+  background-color: #b6f8d0;
+}
+
+
+
+/************************ MODAL ***********************/
+#movie-details {
+  /*z-index: 10;*/
+  color: black;
+  position: fixed;
+  width: 50%;
+  top: 30%;
+  background-color: white;
+  text-align: center;
+  padding: 25px;
+  /*border: 1em solid black;*/
+  margin-left: 22.5%;
+
+}
