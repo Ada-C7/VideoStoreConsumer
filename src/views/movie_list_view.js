@@ -49,7 +49,7 @@ var MovieListView = Backbone.View.extend({
   },
   addMovie: function (movieAttributes) {
     this.model.create(movieAttributes);
-    this.$('main').prepend("Successfully added " + movieAttributes.title + " to inventory.");
+    $('main').prepend("<p class='success-alert'>Successfully added " + movieAttributes.title + " to inventory.</p>");
     $(window).scrollTop(0);
   }
 });
