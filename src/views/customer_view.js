@@ -27,6 +27,7 @@ var CustomerView = Backbone.View.extend({
     var name = this.model.get('name').split(' ')[0];
     var info = this.model.get('current_rentals');
     if (info === undefined) {
+      $('#' + name).empty();
       $('#' + name).append("No Checked Out Movies.");
       return;
     }
@@ -70,6 +71,7 @@ var CustomerView = Backbone.View.extend({
   },
   hideRentals: function (event){
     var name = this.model.get('name').split(' ')[0];
+    this.$("#returned-movies").empty();
     this.$('#' + name).empty();
     this.$("a#hide-customer-rentals").addClass('hide');
     this.$("a#delete-customer").addClass('hide');
