@@ -20,6 +20,7 @@ var myCustomerListView = new CustomerListView({
 });
 
 var movieList = function() {
+  $("#create-rental").empty();
   var myMovieList = new MovieList();
   myMovieList.fetch();
 
