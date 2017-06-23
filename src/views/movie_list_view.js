@@ -11,6 +11,7 @@ import Rental from '../models/rental.js';
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = _.template($('#movie-template').html());
+
     // this.rentalModel = new Rental();
 
     this.listenTo(this.model, "update", this.render);
@@ -79,13 +80,18 @@ var MovieListView = Backbone.View.extend({
     this.$("#movie-details").empty();
     this.$("#movie-details").toggleClass('hide');
 
+    if (this.detailsView) {
+      this.detailsView.remove();
+      this.detailsView = undefined;
+    }
+
     // create new instance of Movie View
-    var detailsView = new MovieView({
+    this.detailsView = new MovieView({
       model: movie,
       template: _.template($('#tmpl-movie-details').html())
     });
 
-  this.$('#movie-details').append(detailsView.render().el);
+  this.$('#movie-details').append(this.detailsView.render().el);
 
     var customers = new CustomerList();
     var customersView = new CustomerListView({
@@ -95,52 +101,15 @@ var MovieListView = Backbone.View.extend({
 
     });
     customersView.render();
-
-    // console.log('movie before', movie);
-    // this.$('#movie-details').on('click', '#check_out', this.checkoutFunction);
-    this.$('#movie-details').on('click', '#check_out', movie, function(e) {
-      e.preventDefault();
-
-      let customer = $("option:selected").attr("id");
-      console.log('customer chosen', customer);
-      console.log('movie chosen', movie.get("title"));
-
-      // fetch using rental model
-      let rental = new Rental({'customer_id': customer, 'due_date': '2017-06-30' });
-      rental.url = "http://localhost:3000/rentals/" + movie.get('title') + '/check-out';
-      rental.save(
-        { success: function() {
-          console.log("It worked! (checkout)");
-        },
-        failure: function() {
-          console.log("Failure");
-          this.$('#movie-list').append("<h2>Request failed.</h2>");
-        }
-      });
-    });
   },
   hideMovieDetails: function(){
     this.$('#movie-details').toggleClass('hide');
-  },
-  // checkoutFunction: function(e, movie) {
-  //   e.preventDefault();
-  //   // alert("hey lets check out");
-  //   console.log("what the heck is this movie?", movie);
-  //   let customer = movie.collection.getCustomerData();
-  //   console.log('customer chosen', customer);
-  //   console.log('movie chosen', movie.get("title"));
-  //   // fetch using rental model
-  //   this.rentalModel.fetch({
-  //     data: { customer: customer, movie: movie.get("title") },
-  //     success: function(data) {
-  //       console.log("It worked! (checkout)", data);
-  //     },
-  //     failure: function(data) {
-  //       console.log("Failure", data);
-  //       this.$('#movie-list').append("<h2>Request failed.</h2>");
-  //     }
-  //   });
-  // }
+
+    if (this.detailsView) {
+      this.detailsView.remove();
+      this.detailsView = undefined;
+    }
+  }
 });
 
 export default MovieListView;
