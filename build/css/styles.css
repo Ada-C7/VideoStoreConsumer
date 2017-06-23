@@ -4,9 +4,9 @@
 * {
   font-family: 'Cutive Mono', monospace;
 }
- .row {
-   max-width: 100%;
- }
+.row {
+  max-width: 100%;
+}
 body {
   margin: 0 10% 2% 10%;
 }
@@ -22,6 +22,8 @@ body {
   overflow-y: scroll;
 }
 
+
+
 #hide-rental-manager {
   float: right;
 }
@@ -33,12 +35,9 @@ body {
 
 #rentals-table {
   clear: both;
+  overflow: scroll;
+  margin-bottom: 15px;
 }
-
-/*
-#manage-rental .manage-header {
-  margin-left: 10px;
-}*/
 
 #manage-rental {
   background-color: black;
@@ -223,5 +222,5 @@ footer img {
 }
 
 /*td, #fields td {
-  text-align: center;
+text-align: center;
 }*/
