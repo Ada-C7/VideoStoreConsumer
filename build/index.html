@@ -23,12 +23,12 @@
       </header>
 
       <section id='messages'></section>
-      <div class="movie-container">
+      <div class="movie-container movie">
 
-      <section id='movie-details'></section>
+      <section id='movie-details' class="row"></section>
       <section id='movie-list' class="row"></section>
       <section id='result-list' class="row"></section>
-    </div>
+      </div>
 
 
     </main>
@@ -48,23 +48,27 @@
     </script>
 
     <script id="movie-details-template" type="text/template">
+
       <section class="column small-3 medium-3 large-3">
         <img src="<%- movie.image_url %>"/>
         <h3><%- movie.title %></h3>
-        <p>Release Date: <%- movie.release_date %></p>
+        <p><strong>RELEASE DATE:</strong> <%- movie.release_date %></p>
         <p><em><%- movie.overview %></em><br></p>
-        <p>Inventory: <%- movie.inventory %></p>
+        <p><strong>INVENTORY:</strong> <%- movie.inventory %></p>
 
-        <section class="columns medium-8" id="search-section">
-          <label>Customer ID
-            <input type="text" name="customer-id" id="customer-id" placeholder="enter customer id" />
-          </label>
-          <label>Due Date
-            <input type="date" name="due-date" id="due-date" />
-          </label>
-          <button id="create-rental" class="medium-3 columns button success">Submit</button>
-        </section>
+      </section>
+      <section class = "column small-3- medium-9" id="rental-section">
+        <h6><strong>Check out this movie</strong></h6>
+        <section id='rental-messages'></section>
+        <label>Customer ID
+          <input type="text" name="customer-id" id="customer-id" placeholder="enter customer id" />
+        </label>
+        <label>Due Date
+          <input type="date" name="due-date" id="due-date" />
+        </label>
+        <button id="create-rental" class="medium-3 columns button success">Submit Rental</button>
 
+        <!-- <button class="button columns success">Back to store library</button> -->
       </section>
     </script>
 

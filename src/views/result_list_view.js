@@ -13,6 +13,7 @@ var ResultListView = Backbone.View.extend({
   render: function() {
     this.$('#movie-list').empty();
     this.$('#result-list').empty();
+    this.$('#movie-details').empty();
 
     var that = this;
 

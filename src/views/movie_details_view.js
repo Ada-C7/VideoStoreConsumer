@@ -3,6 +3,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 import MovieView from './movie_view';
 import Rental from '../models/rental';
+import MovieListView from './movie_list_view';
 
 var MovieDetailsView = Backbone.View.extend({
 
@@ -14,6 +15,7 @@ var MovieDetailsView = Backbone.View.extend({
   render: function(){
       this.$('#movie-list').empty();
       this.$('#movie-details').show();
+      this.$('#rental-messages').empty();
 
       console.log("render in movie-details view");
 
@@ -46,8 +48,8 @@ var MovieDetailsView = Backbone.View.extend({
         return m;
       };
       var date = dateNow.getFullYear()+'-'+(convertMonth(dateNow))+'-'+dateNow.getDate();
-      console.log("monthconversion: ", convertMonth(dateNow));
-      console.log("Date.now: ", date);
+      // console.log("monthconversion: ", convertMonth(dateNow));
+      // console.log("Date.now: ", date);
 
       return {
         customer_id: formCustomerId,
@@ -59,6 +61,7 @@ var MovieDetailsView = Backbone.View.extend({
 
     createRental: function() {
       var myNewRental = new Rental(this.getRentalFormData());
+      var that = this;
 
       // var myNewRentalInfo = this.getRentalFormData();
       // console.log("I'm in the createRental function");
@@ -80,12 +83,28 @@ var MovieDetailsView = Backbone.View.extend({
       myNewRental.save(myNewRental.attributes, {
         success: function() {
           alert("Added a rental successfully!");
+          // var myNewMovieListView = new MovieListView
         },
-        error: function() {
-          alert("What did you do??");
+        error: function(myNewRental, response) {
+          console.log("response: ", response);
+
+          // response.responseJSON.errors.forEach function(error){
+          //  $('#rental-messages').html(response.responseText);
+          //
+          // //
+          // }
+          // /response.responseJSON.errors.customer_id[0]
+          // alert(response.responseText);
+          that.render();
+          $('#rental-messages').html(response.responseText);
+
+
+          // {movie: this.model.toJSON()}
+
+
         }
       });
-    }  
+    }
 });
 
 export default MovieDetailsView;

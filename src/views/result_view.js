@@ -27,6 +27,10 @@ var ResultView = Backbone.View.extend({
     //   alert("Something went wrong :(");
     // }
     this.model.save(this.model.attributes, {success: function() { alert("YEEEEEESSS");}, error: function(){ alert("NOOOOO");}});
+    // $('#messages').html("New movie added");
+    window.location.replace("http://localhost:8081");
+
+
   }
 });
 

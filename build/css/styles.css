@@ -75,3 +75,40 @@ li {
 .button.add:hover {
   background-color: firebrick;
 }
+
+#rental-messages {
+  color: red;
+}
+
+
+
+#movie-details {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+#movie-details h6 {
+  text-transform: uppercase;
+}
+
+#rental-section {
+  /*margin-top: 60px;*/
+}
+
+#rental-section input {
+  width: 25%;
+  text-align: left;
+}
+
+/*#rental-section button {
+  text-align: left;
+}*/
+
+#create-rental {
+  background-color: red;
+  /*width: 5vw;*/
+  text-align: center;
+  margin: 0;
+  float:left;
+  text-transform: uppercase;
+}

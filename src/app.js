@@ -15,13 +15,15 @@ var homeHandler = function() {
 var myMovieList = new MovieList();
 myMovieList.fetch();
 
+var myMovieListView = new MovieListView( {
+  model: myMovieList,
+  template: _.template($('#movie-template').html()),
+  el: 'main'
+});
+
 // ready to go
 $(document).ready(function() {
-  var myMovieListView = new MovieListView( {
-    model: myMovieList,
-    template: _.template($('#movie-template').html()),
-    el: 'main'
-  });
+
   myMovieListView.render();
 
   $('.home').click(homeHandler);
