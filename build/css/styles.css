@@ -1,20 +1,12 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+  background: white;
 }
 
 header {
-  background-color: lightgreen;
+  background-color: black;
   padding: 0.5rem;
-}
-
-#completed-checkbox {
-  display: inline;
-}
-
-label {
-  display: inline;
 }
 
 button.success {
@@ -22,23 +14,101 @@ button.success {
   display: inline;
 }
 
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
-}
-
-.completed {
-  text-decoration: line-through;
-}
-
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
+
+#thisisit:hover, #thisisit:focus {
+  text-decoration: none;
+	-webkit-transition: 500ms linear 0s;
+	-moz-transition: 500ms linear 0s;
+	-o-transition: 500ms linear 0s;
+	transition: 500ms linear 0s;
+	outline: 0 none;
+  color: #fff;
+	text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
 }
-*/
+
+#logo {
+  -webkit-filter: drop-shadow(0px 0px 0px rgba(255,255,255,0.80));
+	-webkit-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+
+#logo:hover {
+  -webkit-filter: drop-shadow(0px 0px 8px rgba(0, 231, 255, 0.8));
+}
+#thisisit {
+  color: #FFFFFF;
+}
+
+#logo {
+  width: 24vw;
+}
+
+.home {
+  cursor: pointer;
+}
+
+.movie {
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+}
+
+#movie-list {
+  padding-top: 20px;
+}
+
+#movie-list .column {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.button.add {
+  background-color: red;
+}
+
+.button.add:hover {
+  background-color: firebrick;
+}
+
+#rental-messages {
+  color: red;
+}
+
+
+
+#movie-details {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+#movie-details h6 {
+  text-transform: uppercase;
+}
+
+#rental-section {
+  /*margin-top: 60px;*/
+}
+
+#rental-section input {
+  width: 25%;
+  text-align: left;
+}
+
+/*#rental-section button {
+  text-align: left;
+}*/
+
+#create-rental {
+  background-color: red;
+  /*width: 5vw;*/
+  text-align: center;
+  margin: 0;
+  float:left;
+  text-transform: uppercase;
+}
