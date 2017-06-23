@@ -5,11 +5,11 @@ import Rental from '../models/rental.js';
 
 var RentalListView = Backbone.View.extend({
   initialize: function(params) {
-    this.rentalsTableTemplate = params.rentalsTableTemplate;
+    this.template = _.template($('#rentals-table-template').html());
     this.listenTo(this.model, 'update', this.render);
   },
   render: function() {
-    var compiledTableTemplate = this.rentalsTableTemplate({ rentals: this.model });
+    var compiledTableTemplate = this.template({ rentals: this.model });
     this.$('main').html(compiledTableTemplate);
     return this;
   }

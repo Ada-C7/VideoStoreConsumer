@@ -7,8 +7,6 @@ import MovieDetailsView from './movie_details_view.js';
 
 var MovieListView = Backbone.View.extend({
   initialize: function(params) {
-    this.movieTemplate = params.movieTemplate;
-    this.movieDetailsTemplate = params.movieDetailsTemplate;
     this.listenTo(this.model, 'update', this.render);
     this.listenTo(this.model, 'addMovie', this.addMovie);
   },
@@ -19,7 +17,6 @@ var MovieListView = Backbone.View.extend({
     this.model.each(function(movie) {
       var movieView = new MovieView({
         model: movie,
-        template: that.movieTemplate,
         tagName: 'article'
       });
       that.$('#movie-list').append(movieView.render().$el);
@@ -35,7 +32,6 @@ var MovieListView = Backbone.View.extend({
     this.$el.append('<section id="movie-details"></section>');
     var movieDetailsView = new MovieDetailsView({
       model: movie,
-      template: this.movieDetailsTemplate,
       el: this.$('#movie-details')
     });
     movieDetailsView.render();

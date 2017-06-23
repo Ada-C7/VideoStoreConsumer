@@ -8,7 +8,7 @@ import Rental from '../models/rental.js';
 
 var MovieDetailsView = Backbone.View.extend({
   initialize: function(params) {
-    this.template = params.template;
+    this.template = _.template($('#movie-info-template').html());
     this.listenTo(this.model, 'update', this.render);
   },
   render: function() {

@@ -12,12 +12,7 @@ var application = new Application();
 $(document).ready(function() {
   var appView = new ApplicationView({
     el: 'body',
-    model: application,
-    movieTemplate: _.template($('#movie-template').html()),
-    movieDetailsTemplate: _.template($('#movie-info-template').html()),
-    customerTemplate: _.template($('#customer-template').html()),
-    customerDetailsTemplate: _.template($('#customer-info-template').html()),
-    rentalsTableTemplate: _.template($('#rentals-table-template').html()),
+    model: application
   });
   appView.showAllMovies();
 });

@@ -66,14 +66,29 @@
       <h4 class="button alert" id="delete-movie">Delete</h4>
     </script>
 
-    <script id="customer-template" type="text/template">
-      <h2><%- name %></h2>
-    </script>
-
-    <script id="customer-info-template" type="text/template">
-      <h3>Name: <%- name %></h3>
-      <h4>Customer since: <%- registered_at %></h4>
-      <h4>Address: <%- address + " " + city + ",  " + state + " " + postal_code %></h4>
+    <script id="customer-list-template" type="text/template">
+      <% if (customers.length === 0) { %>
+        <p>No Customer Data</p>
+      <% } else { %>
+        <table id="customers-table" class="small-10 large-10 columns">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Registration Date</th>
+              <th>Zip Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% customers.each(function (customer) { %>
+              <tr>
+                <td><%- customer.get('name') %></td>
+                <td><%- customer.get('registered_at') %></td>
+                <td><%- customer.get('postal_code') %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } %>
     </script>
 
     <script id="rentals-table-template" type="text/template">
