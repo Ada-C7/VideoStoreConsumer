@@ -43,8 +43,8 @@ $(document).ready(function() {
     $("#search-bar-hidden").addClass('hide');
     $("#new-customer-form").addClass('hide');
     var customerList = new Customers();
-    customerList.fetch();
-    // ready to go
+    customerList.fetch({ data: { n: 300} });
+    console.log(customerList);
     var customersView = new CustomersView({
       model: customerList,
       template: _.template($("#customer-template").html()),
