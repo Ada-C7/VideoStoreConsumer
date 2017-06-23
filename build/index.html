@@ -51,50 +51,69 @@
       </tr>
     </script>
 
+
+
+
     <script id="addto-rental-library-template" type="text/template">
-      <section class="row contact-form">
-        <div class="columns">
-          <h4>Save to the rental library</h4>
-          <p>
-            Title: <%-movie.title%>
-          </p>
-          <p>
-            Release date: <%-movie.release_date%>
-          </p>
-        </div>
+      <section class="contact-form">
 
-        <div class="columns">
-          <label>
-            <input type="hidden" name="title" value="<%-movie.title%>"  id = 'title'>
-          </label>
-          <label>
-            <input type="hidden" name="overview" value="<%-movie.overview%>" id = 'overview'>
-          </label>
-          <label>
-            <input type="hidden" name="release_date" value="<%-movie.release_date%>" id = 'release_date'>
-          </label>
-          <label>
-            <input type="hidden" name="image_url" value="<%-movie.image_url%>"  id = 'image_url'>
-          </label>
-          <label>
-            Number of copies
-            <input type="number" name="inventory" id = 'inventory'>
-          </label>
+        <section class="row">
+          <h4 class="columns">Save to the rental library</h4>
+        </section>
 
-        </div>
-        <div class='column'>
-          <h3 class="button btn-save">Save</h3>
-          <h3 class="button btn-cancel">Cancel</h3>
-        </div>
+        <section class = 'row'>
+          <div class="large-3 medium-3 columns">
+            <img src= '<%-movie.image_url%>'/>
+          </div>
+          <div class = 'large-4 medium-4 columns'>
+
+            <div class="columns">
+              <h5>
+                <%-movie.title%>
+              </h5>
+              <h5>
+                <%-movie.release_date%>
+              </h5>
+            </div>
+
+            <div class="columns">
+              <label>
+                <input type="hidden" name="title" value="<%-movie.title%>"  id = 'title'>
+              </label>
+              <label>
+                <input type="hidden" name="overview" value="<%-movie.overview%>" id = 'overview'>
+              </label>
+              <label>
+                <input type="hidden" name="release_date" value="<%-movie.release_date%>" id = 'release_date'>
+              </label>
+              <label>
+                <input type="hidden" name="image_url" value="<%-movie.image_url%>"  id = 'image_url'>
+              </label>
+              <label>
+                Number of copies
+                <input type="number" name="inventory" id = 'inventory'>
+              </label>
+            </div>
+
+            <div class='column'>
+              <h3 class="button btn-save">Save</h3>
+              <h3 class="button btn-cancel">Cancel</h3>
+            </div>
+          </div>
+
+          <div class = 'large-5 medium-5 columns'>
+            <%-movie.overview%>
+          </div>
+
+        </section>
       </section>
-
     </script>
 
     <script id="movie-checkout-template" type = 'text/template'>
       <section>
-        <h4>Check Out <%-movie.title%></h4>
+        <h4>Check Out: <%-movie.title%></h4>
         <p>Total inventory: <%-movie.inventory%></p>
-        <p>Available inventory: <%-movie.available_inventory%></p>
+        <p>Copies Left: <%-movie.available_inventory%> </p>
         <div>
           <label>
             Due Date
@@ -103,7 +122,7 @@
           <input type="hidden" name="title" value="<%-movie.title%>" id="movie_title" />
           <select id="customer-dropdown" name="customer">
           </select>
-          <p>Copies Left: <%-movie.available_inventory%> </p>
+
           <h3 class="button btn-save">Save</h3>
           <h3 class="button co-btn-cancel">Cancel</h3>
         </div>
