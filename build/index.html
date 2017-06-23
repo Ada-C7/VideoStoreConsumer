@@ -5,9 +5,46 @@
     <link rel="stylesheet" type="text/css" href="css/_settings.css">
     <link rel="stylesheet" type="text/css" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
+    <title>K&L VideoStore</title>
   </head>
   <body>
+
+    <header>
+      <h1>Video Store</h1>
+
+      <input type="text" id="movie-title" placeholder="Search by Movie Title"/>
+      <button type="button" id="search-database" class="button">Search Database</button>
+      <button type="button" id="search-library" class="button">Search Library</button>
+      <button type="button" id="library" class="button">Rental Library</button>
+    </header>
+
+    <main>
+      <section id="movie-list" ></section>
+    </main>
+
+    <!-- TEMPLATE -->
+
+
+
+
+
+
+    <script id="movie-title-list-template" type="text/template">
+        <li><%- title %></li>
+
+        <img src=<%- image_url %>>
+
+        <button type="button" id="add-button" class="button">Add to Rental Library</button>
+    </script>
+
+    <script id="rental-title-list-template" type="text/template">
+      <li>
+        <strong><%- title %></strong>
+        Inventory: <%- inventory %>
+        <img src=<%- image_url %>>
+        <button type="button" id="inventory-button" class="button">Increase Inventory</button>
+      </li>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
