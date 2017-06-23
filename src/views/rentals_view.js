@@ -18,9 +18,11 @@ var RentalsView = Backbone.View.extend({
       var rentalView = new RentalView({
         model: rental,
         template: that.template,
-        // customer: that.customer
       });
     $('#' + that.name).append(rentalView.render().el);
+    that.listenTo(rentalView, "movieReturned", function(rental) {
+      that.trigger("movieReturned", rental);
+    });
     return this;
   });
 }
