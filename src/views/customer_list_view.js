@@ -14,7 +14,7 @@ const CustomerListView = Backbone.View.extend({
     this.managing = false;
 
 
-    this.listenTo(this.model,"update", this.render);
+    // this.listenTo(this.model,"update", this.render);
 
     this.listenTo(this.model,"reset", this.render);
 

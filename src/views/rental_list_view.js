@@ -9,7 +9,7 @@ const RentalListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
     this.model = params.model;
-    this.listenTo(this.model, "update", this.render);
+    // this.listenTo(this.model, "update", this.render);
 
   },
 
