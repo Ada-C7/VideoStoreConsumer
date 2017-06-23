@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<main>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/_settings.css">
@@ -9,7 +10,31 @@
   </head>
   <body>
 
-    <script src="/app.bundle.js"></script>
+    <section id="search-bar" class="center">
+      <label><input type="text" id="query" placeholder="Search for movies to add to the library"></input>
+      </label>
+      <button id="search"class="button">Search</button>
+
+    </section>
+
+    <section id="movie-list"></section>
+
 
   </body>
-  </html>
+</main>
+
+<script id="movie-card-template" type="text/template">
+  <p class="movie-title"><%-title%></p>
+  <p><%- release_date %></p>
+  <img src=<%- image_url %> alt=<% title %></img>
+</script>
+
+<script id="new-movie-card-template" type="text/template">
+  <p class="movie-title"><%-title%></p>
+  <p><%- release_date %></p>
+  <img src=<%- image_url %> alt=<% title %></img>
+  <button id="Add-to-library" class="button">Add to library</button>
+</script>
+
+<script src="/app.bundle.js"></script>
+</html>
