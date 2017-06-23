@@ -1,15 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Backbone Baseline</title>
+</head>
+<body>
 
-    <script src="/app.bundle.js"></script>
+  <header>
+    <h1>inline-blockbuster</h1>
 
-  </body>
-  </html>
+    <section class="rental">
+      <button id="rental-library" class="button">View Rental Library</button>
+    </section>
+
+    <section class="movie-db">
+      <input type="text" name="search" id="search">
+      <button id="search-button" class="button">Search</button>
+    </section>
+
+  </header>
+
+  <main>
+    <section class="rental" class="columns medium-12 small-12">
+      <section id='movie-list'></section>
+    </section>
+
+    <section class="movie-db" class="columns medium-12 small-12">
+        <section id='movie-list'></section>
+    </section>
+  </main>
+
+  <!-- Templates -->
+  <script id="movie-template" type="text/template">
+    <section class="title-card">
+      <img src=<%- movie.image_url %>>
+      <h5 class="movie-title"><%- movie.title %></h5>
+    </section>
+  </script>
+
+  <script id="search-template" type="text/template">
+    <section class="title-card">
+      <img src=<%- movie.image_url %>>
+      <h5 class="movie-title"><%- movie.title %></h5>
+      <button id="add-button" class="button" method="post">Add</button>
+    </section>
+    <!-- <li><button id="add-button" class="button">Add to Rental Library</button></li> -->
+  </script>
+
+  <!-- <script id="rental-detail" type="text/template">
+    < -->
+
+  <script src="/app.bundle.js"></script>
+
+  <footer>
+    <p> Thank you, moviedb! </p>
+  </footer>
+</body>
+</html>
