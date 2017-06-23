@@ -24,6 +24,11 @@ header a {
   color: #e5e5e5;
 }
 
+.menu-button:hover {
+  color: #e50914;
+  font-weight: bold;
+}
+
 header img {
   width: 40px;
 }
@@ -90,13 +95,39 @@ input {
   font-weight: bold;
 }
 
+#rental-options {
+  background-color: white;
+  color: black;
+}
+
+#rental-options #menu-label {
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 20px;
+  color: #e50914;
+}
+
+.filter-button {
+  color: black;
+}
+
+.filter-button:hover {
+  color: white;
+  background-color: #e50914;
+}
+
+#rentals-table {
+  margin-top: 20px;
+}
+
 tr, th {
   background-color: black !important;
   color: #e5e5e5;
 }
 
 th {
-  border-bottom: 1px solid #e5e5e5;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
 }
 
 footer img {

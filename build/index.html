@@ -12,9 +12,9 @@
     <header class="row">
       <h1 class="logo large-3 medium-3 columns">Movies R We</h1>
       <ul class="menu large-4 medium-4 columns">
-        <li><a id="show-movies-button">Movies</a></li>
-        <li><a id="show-customers-button">Customers</a></li>
-        <li><a id="show-rentals-button">Rentals</a></li>
+        <li><a class="menu-button" id="show-movies-button">Movies</a></li>
+        <li><a class="menu-button" id="show-customers-button">Customers</a></li>
+        <li><a class="menu-button" id="show-rentals-button">Rentals</a></li>
       </ul>
       <ul id="search" class="menu align-right large-5 medium-5 columns">
         <li><img src="images/netflix_icon.png" alt="Netflix User Icon" /></li>
@@ -96,19 +96,19 @@
     </script>
 
     <script id="rentals-table-template" type="text/template">
-      <aside class="small-2 large-2 columns">
-        <h5>Rental Management</h5>
-        <ul class="vertical menu">
-          <li><a href="#" id="rental-log">Rental Log</a></li>
-          <li><a href="#" id="overdue-rentals">Overdue Rentals</a></li>
-          <li><a href="#" id="outstanding-rentals">Outstanding Rentals</a></li>
+      <aside>
+        <ul class="menu" id="rental-options">
+          <li id="menu-label">Filter</li>
+          <li><a href="#" class="filter-button" id="rental-log">Rental Log</a></li>
+          <li><a href="#" class="filter-button" id="overdue-rentals">Overdue Rentals</a></li>
+          <li><a href="#" class="filter-button" id="outstanding-rentals">Outstanding Rentals</a></li>
         </ul>
       </aside>
 
       <% if (rentals.length === 0) { %>
         <p>No Rental Data</p>
       <% } else { %>
-        <table id="rentals-table" class="small-10 large-10 columns">
+        <table id="rentals-table">
           <thead>
             <tr>
               <th>Check-Out Date</th>
