@@ -1,12 +1,27 @@
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css?family=Fascinate');
+@import url('https://fonts.googleapis.com/css?family=Fascinate|Rajdhani');
 
+/************************ GENERAL ***********************/
 main {
-    background: lightblue;
+    background: white;
 }
 
 header {
-  background-color: lightgreen;
+  background-color: white;
   padding: 0.5rem;
+  /*position: fixed;*/
+}
+
+h1 {
+  font-family: 'Fascinate', cursive;
+  font-size: 5rem
+}
+
+
+h3 {
+  font-family: 'Rajdhani', sans-serif;
+  padding: .5rem;
 }
 
 li {
@@ -14,7 +29,37 @@ li {
   height: 450px;
   margin-bottom: 50px;
 }
+/************************ SEARCH BAR ***********************/
 
+
+input[type=text] {
+  border: 1px solid #27909F;
+  border-radius: 2em;
+  padding: 1.5em 2em;
+  float: left;
+  -webkit-appearance: none;
+}
+
+button[type=submit] {
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 2em;
+  padding: 1em 4em;
+  background-color: #27909F;
+  float: right;
+  -webkit-appearance: none;
+
+}
+
+button[type="submit"]:hover, input[type="submit"]:active {
+  background-color: #71C2CD;
+}
+/************************ MOVIE LIST ***********************/
+
+
+
+/************************ MODAL ***********************/
 #movie-details {
   /*z-index: 10;*/
   position: fixed;
