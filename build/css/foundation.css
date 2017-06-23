@@ -1613,7 +1613,7 @@ kbd {
       background-color: #5e5e5e;
       color: #fefefe; }
   .button.success {
-    background-color: #3adb76;
+    background-color: #b6f8d0;
     color: #0a0a0a; }
     .button.success:hover, .button.success:focus {
       background-color: #22bb5b;
@@ -1625,7 +1625,7 @@ kbd {
       background-color: #cc8b00;
       color: #0a0a0a; }
   .button.alert {
-    background-color: #cc4b37;
+    background-color: #ff66bc;
     color: #fefefe; }
     .button.alert:hover, .button.alert:focus {
       background-color: #a53b2a;

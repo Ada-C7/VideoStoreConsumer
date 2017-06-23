@@ -1,14 +1,21 @@
 @include foundation-everything;
-@import url('https://fonts.googleapis.com/css?family=Fascinate');
 @import url('https://fonts.googleapis.com/css?family=Fascinate|Rajdhani');
 
+
 /************************ GENERAL ***********************/
-main {
-    background: white;
+
+@font-face {
+  font-family: "Clip";
+  src: url("http://ff.static.1001fonts.net/c/l/clip.regular.ttf");
 }
 
-header {
-  background-color: white;
+main, header, body {
+    background: #000;
+    color: lightpink;
+}
+
+
+header.row {
   padding: 0.5rem;
   /*position: fixed;*/
 }
@@ -22,6 +29,32 @@ h1 {
 h3 {
   font-family: 'Rajdhani', sans-serif;
   padding: .5rem;
+}
+
+h1 {
+  font-family: "Clip", cursive;
+  font-size: 5rem;
+
+  color: #fff;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+h1:hover {
+  color: #ff66bc;
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+}
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+  }
 }
 
 li {
@@ -55,13 +88,17 @@ button[type=submit] {
 button[type="submit"]:hover, input[type="submit"]:active {
   background-color: #71C2CD;
 }
-/************************ MOVIE LIST ***********************/
+
+button success {
+  background-color: #b6f8d0;
+}
 
 
 
 /************************ MODAL ***********************/
 #movie-details {
   /*z-index: 10;*/
+  color: black;
   position: fixed;
   width: 50%;
   top: 30%;
