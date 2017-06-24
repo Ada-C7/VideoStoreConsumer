@@ -1,12 +1,19 @@
-// /src/app.js
 
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
 
+
+import ApplicationView from 'views/application_view';
+
 // ready to go
 $(document).ready(function() {
 
-  $('section.main-content').append('<p>Hello World!</p>');
+  var applicationView = new ApplicationView({
+    el: $('.main-content')
+  });
+
+  applicationView.render();
+
 
 });
