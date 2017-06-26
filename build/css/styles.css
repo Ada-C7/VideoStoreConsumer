@@ -1,44 +1,87 @@
 @include foundation-everything;
 
-main {
-    background: lightblue;
+/* COLORS: #FFA903-orange, #0E3FA9-blue */
+
+body{
+  background-color: #0E3FA9;
+  color: #FFFFFF;
+  font-family: 'Montserrat', 'Helvetica', sans-serif;
 }
 
 header {
-  background-color: lightgreen;
+  color: #FFA903;
   padding: 0.5rem;
+  border-bottom: 2px #FFA903 dashed;
+  align-content: space-around;
+  margin-bottom: 1.5rem;
 }
 
-#completed-checkbox {
+footer {
+  text-align: center;
+  padding: 0.5rem;
+  border-top: 2px #FFA903 dashed;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.movie-card div {
+  background-color: black;
+  text-overflow: ellipsis;
+  text-align: center;
+  color: white;
+}
+
+.card {
+  border: 2px #FFA903 double;
+  margin: 0.5rem;
+  border-radius: 1rem;
+}
+
+.card-divider {
+  height: 3rem;
+  vertical-align: middle;
+}
+/* figure out height of elements */
+
+.title-font {
+  font-family: 'Bungee', sans-serif;
+}
+
+.inline-font {
+  font-family: 'Bungee Inline', sans-serif;
+}
+
+.orange-color {
+  background-color: #FFA903;
+}
+
+.top-padding {
+  padding-top: 1rem;
+}
+
+.no-padding {
+  padding: 0;
+  margin: 0;
+}
+
+.rounded {
+  border-radius: 0.5rem;
+}
+
+.movie-image {
+  height: 278px;
+  overflow: hidden;
+}
+
+.add-btn {
+  display: inline;
+  background-color: #FFA903;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-family: 'Bungee', sans-serif;
+  overflow: hidden;
+}
+
+.inline {
   display: inline;
 }
-
-label {
-  display: inline;
-}
-
-button.success {
-  margin-right: 1.2rem;
-  display: inline;
-}
-
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
-}
-
-.completed {
-  text-decoration: line-through;
-}
-
-div {
-  display: inline;
-}
-/*
-* {
-  border-style: solid;
-}
-*/

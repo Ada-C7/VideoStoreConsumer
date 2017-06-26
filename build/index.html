@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Outline|Bungee|Montserrat">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>Backbone Baseline</title>
+</head>
+<body>
+  <section id="application">
+    <header>
+      <div class="row">
+        <div class="medium-4 columns clear-fix">
+          <h1 class="title-font"> VIDEOBUSTER</h1>
+        </div>
+        <div class="medium-4 columns float-right top-padding">
+          <div class="input-group">
+            <div class="input-group-button">
+              <button id="index-button" class="button orange-color"><i class="material-icons">movie</i></button>
+            </div>
+            <input id="search" class="input-group-field" name="search" type="text">
+            <div class="input-group-button">
+              <button class="button orange-color title-font" id="search-button">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h2 class="text-center inline-font">Movie Rentals</h2>
+      <section id="search-list" class="row"></section>
+      <section id="movie-list" class="row"></section>
+      <section id="movie"></section>
+    </main>
+    <footer>
+      <h3 class="inline-font"> powered by <a class="title-font" href="https://www.themoviedb.org/documentation/api">The Movie DB</a></h3>
+      <p>Ada Developers Academy Project by Kayla + Tamiko</p>
+    </footer>
+  </section>
 
-    <script src="/app.bundle.js"></script>
+  <!-- Templates -->
+  <script id="movie-list-template" type="text/template">
+    <section class="movie-card">
+      <div class="card columns" style="width: 280px;">
+        <div class="card-divider text-center">
+          <p class="no-padding"><strong><%- movie.title %></strong></p>
+          <p class="no-padding"><strong><%- movie.release_date %></strong></p>
 
-  </body>
-  </html>
+        </div>
+        <div class="card-section text-center movie-image">
+          <img src=<%- movie.image_url %>>
+        </div>
+        <div class="card-divider text-center">
+          <% if (movie.external_id) { %>
+            <h4 class="button add-btn" id="add-button">Add Movie</h4>
+          <% } %>
+        </div>
+      </div>
+    </section>
+  </script>
+
+  <script id="movie-template" type="text/template">
+    <h3>Title: <%- movie.title %></h3>
+    <h3>Overview: <%- movie.overview %></h3>
+    <h3>Release Date: <%- movie.release_date %></h3>
+  </script>
+
+  <script src="/app.bundle.js"></script>
+</body>
+</html>
