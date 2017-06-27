@@ -5,11 +5,78 @@
     <link rel="stylesheet" type="text/css" href="css/_settings.css">
     <link rel="stylesheet" type="text/css" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
+    <title>Movies</title>
   </head>
   <body>
 
+    <header>
+      <h1>Movie Store Rental System</h1>
+    </header>
+    <main>
+
+      <section id="order-form"></section>
+
+      <section class="row">
+        <div class="search-box columns small-12 large-4">
+          <label for="title"> What do we need?</label>
+          <input type="text" name="title" id="title"></input>
+          <button type="submit" class="button woogs" id="search">Search Warehouse</button>
+          <button type="submit" class="button" id="library">Reload Movie Library</button>
+
+        </div>
+        <section class="columns large-4 small-12" id='movie'>
+
+
+        </section>
+      </section>
+
+
+        <section >
+
+
+      <section class= "column large-10 medium-10 small-12">
+
+        <section class="movie-card"></section>
+
+      </section>
+      </section>
+      <section id='new-movie'></section>
+    </main>
+
+      <footer>Powered by The Movie DB</footer>
+
+    <!-- Templates -->
+
+
+      <script id="movie-card-template" type="text/template">
+          <img id= "poster" src=<%-movie.image_url%>>
+          <p>
+          <%- movie.title %>
+      </script>
+
+      <script id="search-card-template" type="text/template">
+        <img src=<%-movie.image_url%>>
+        <p><%- movie.title %></p>
+        <button type="submit" class="button" id="open">Movie Info</button>
+      </script>
+
+      <script id="movie-info-template" type="text/template">
+      <img src=<%-movie.image_url%>>
+      <h3>Title: <%- movie.title %></h3>
+      <h4>Synopsis: <%- movie.overview %></h4>
+      <h4>Release Date: <%- movie.release_date %></h4>
+      <label for="title"><h4>How Many Copies Would You Like to Order?</h4></label>
+      <input type="text" name="title" id="inventory"></input>
+      <button type="submit" class="button" id="order-movie">Order Movie</button>
+
+    </script>
+
     <script src="/app.bundle.js"></script>
 
+
+
+
   </body>
+
+
   </html>
