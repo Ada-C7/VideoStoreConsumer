@@ -41,7 +41,6 @@ var MovieListView = Backbone.View.extend({
       movieList = this.movieList;
     }
 
-
     movieList.forEach(function(movie){
       movie.render();
       $('#movie-list').append(movie.$el);
@@ -52,7 +51,6 @@ var MovieListView = Backbone.View.extend({
   },
 
   addToLibrary: function(movie) {
-
     var that = this;
     movie.save(undefined, {
       success: function(){

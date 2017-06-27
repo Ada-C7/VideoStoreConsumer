@@ -18,11 +18,12 @@ var RentalView = Backbone.View.extend({
   },
 
   events: {
-    'click .btn-checkout': 'checkout'
+    'click .checkout-movie': 'checkout',
+    'click .checkin-movie': 'checkin'
   },
 
   checkout: function(){
-    console.log("inside of checkout function");
+    console.log("Inside of checkout");
     var movieTitle = this.$('#rental-title').val();
     this.model.checkoutUrl(movieTitle);
 
