@@ -1,12 +1,31 @@
-// /src/app.js
 
-// Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
 
-// ready to go
+import MovieList from './collections/movie_list';
+import MovieListView from './views/movie_list_view';
+import VideoStore from './models/video_store';
+
+
 $(document).ready(function() {
 
-  $('section.main-content').append('<p>Hello World!</p>');
+  var movieList = new MovieList();
+  movieList.fetch();
+
+  var searchList = new MovieList();
+
+  var videoStore = new VideoStore({
+    library: movieList,
+    searchResults: searchList
+  });
+
+  var movieListViewParams = {
+    el: $('main'),
+    model: videoStore
+  };
+
+  var myMovieListView = new MovieListView(movieListViewParams);
+  myMovieListView.render();
+  //initializing a new view
 
 });

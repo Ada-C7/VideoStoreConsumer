@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Backbone Baseline</title>
+</head>
+<body>
 
-    <script src="/app.bundle.js"></script>
+  <header>
+    <h1>Movies!!</h1>
+  </header>
+  <main>
+    <form class="search-movie-form">
+      <div class="medium-12 columns">
+        <label for="name"><p id="word-to-search">Type a word to find movies relate with it</p></label>
+        <input type="text" name="title"></input>
+      </div>
+      <button type="button" class="search-movie button">Search</button>
 
-  </body>
-  </html>
+    </form>
+    <section id='movie' class="row"></section>
+    <section id='movie-list' class="row">
+      <ul class="movie-cards row"> </ul>
+    </section>
+    <section id='new-movie'></section>
+  </main>
+
+  <!-- TEMPLATES -->
+
+  <script id="movie-search-card-template" type="text/template">
+    <div class="columns small-12 medium-6 large-3">
+      <li><%- movie.title %></li>
+      <img src = "<%- movie.image_url %>" />
+      <button type="button" class="add-movie button">add</button>
+    </div>
+  </script>
+
+  <script id="movie-card-template" type="text/template">
+    <ul>
+      <div class="columns small-12 medium-6 large-3">
+        <li> <%- movie.title %></li>
+        <img src = "<%- movie.image_url %>" />
+        <p id='to-the-right'> Overview: <%- movie.overview %></p>
+        <button type="button" class="checkout-movie button">Check out</button>
+        <button type="button" class="checkin-movie button">Check in</button>
+        <button type="button" class="add-movie button">add</button>
+
+      </div>
+    </ul>
+  </script>
+
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>

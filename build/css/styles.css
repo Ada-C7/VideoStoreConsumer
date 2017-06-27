@@ -1,12 +1,44 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+    background: lightgrey;
 }
 
 header {
-  background-color: lightgreen;
+  background-color: darkblue;
   padding: 0.5rem;
+  color: white;
+  align-content: center;
+}
+
+#to-the-right {
+  /*float: right;*/
+  font-family: cursive;
+}
+
+#word-to-search {
+  font-size: 2em;
+  color: darkblue;
+  font-style: italic;
+}
+
+.search-movie {
+  float: right;
+  /*padding: 20px;*/
+  /*margin: right 50px;*/
+  margin:  20px;
+
+}
+
+.add-movie {
+
+}
+
+li {
+  font-size: 2em;
+  color: darkblue;
+  font-style: oblique;
+  font-family: fantasy;
 }
 
 #completed-checkbox {
