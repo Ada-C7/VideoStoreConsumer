@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/_settings.css">
-    <link rel="stylesheet" type="text/css" href="css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/_settings.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Backbone Baseline</title>
+</head>
+<body>
 
-    <script src="/app.bundle.js"></script>
+  <header>
+    <h1>Search</h1>
+  </header>
+  <main id='application'>
+    <section id='movie'></section>
+    <!-- <section id='movie-list'></section> -->
+    <section id='new-movie'></section>
+    <section id='movie-details'></section>
+    <section>
+      <form id="search-form">
+        <input type="text" name="query" id="queryParams"></input>
+        <button class="s-button button" type="submit">Search</button>
+      </form>
 
-  </body>
+    </section>
+    <button type="submit" class="list_store_rentals button">Available Rentals</button>
+<div class="checking">
+    <ul class="movie-list"></ul>
+  </div>
+  </main>
+
+  <!-- Templates -->
+<section class="row">
+  <script id="movie-card-template" type="text/template">
+    <div class="parent-div large-3 columns">
+    <li class="movie-name-temp"><%- movie.title %><br><img src="<%-movie.image_url%>"><br></li>
+    <!-- <img src="<%-movie.image_url%>"><br> -->
+    <% if (isSearchResult) { %> <!-- added with dan -->
+      <button class="add-movie button" type="submit">Add Movie</button>
+    <% } %>
+  </div>
+  </script>
+
+  <script src="/app.bundle.js"></script>
+</section>
+<footer>
+  Powered by Internet Movie Database
+</footer>
+
   </html>
